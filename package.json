@@ -1,0 +1,41 @@
+{
+  "name": "opctl",
+  "version": "0.1.0",
+  "description": "Conservative local CLI bridge for OpenProject API v3",
+  "type": "module",
+  "bin": {
+    "opctl": "./dist/cli.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "tsx src/cli.ts",
+    "build": "npm run typecheck && vite build",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "openapi:pull": "tsx scripts/pull-openapi-spec.ts",
+    "openapi:generate": "tsx scripts/generate-openapi-types.ts",
+    "openapi:update": "npm run openapi:pull && npm run openapi:generate"
+  },
+  "keywords": [
+    "openproject",
+    "cli"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "latest",
+    "openapi-fetch": "latest"
+  },
+  "devDependencies": {
+    "@types/node": "latest",
+    "openapi-typescript": "latest",
+    "tsx": "latest",
+    "typescript": "latest",
+    "vite": "latest",
+    "vitest": "latest",
+    "yaml": "^2.9.0"
+  },
+  "packageManager": "pnpm@11.1.3"
+}
