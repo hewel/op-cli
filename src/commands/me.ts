@@ -7,8 +7,8 @@ export function registerMe(program: Command, context: CommandContext): void {
     .command("me")
     .description("Show the authenticated OpenProject user")
     .option("--json", "emit JSON")
-    .action(async (options: { json?: boolean }) => {
-      const me = await createClient(context).getMe();
+    .action(async (options: { json?: boolean }, command: Command) => {
+      const me = await createClient(context, command).getMe();
       writeOutput(context, me, Boolean(options.json), () => renderKeyValue(me as unknown as Record<string, unknown>));
     });
 }

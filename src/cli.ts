@@ -10,6 +10,7 @@ import { registerMe } from "./commands/me.js";
 import { registerProjects } from "./commands/projects.js";
 import { registerSpec } from "./commands/spec.js";
 import { registerWorkPackages } from "./commands/workPackages.js";
+import { registerProfile } from "./commands/profile.js";
 import type { CommandContext } from "./commands/context.js";
 import pkg from "../package.json" with { type: "json" };
 
@@ -19,6 +20,9 @@ export function buildProgram(context: CommandContext): Command {
     .name("opctl")
     .description("Conservative local CLI bridge for OpenProject API v3")
     .version(pkg.version)
+    .option("--env <path>", "load OpenProject configuration from dotenv-style file")
+    .option("--no-env", "disable automatic .env loading from the current working directory")
+    .option("--profile <name>", "use a saved profile for this invocation")
     .showHelpAfterError()
     .configureOutput({
       writeOut: (text) => context.stdout.write(text),
@@ -28,6 +32,7 @@ export function buildProgram(context: CommandContext): Command {
   registerApiRoot(program, context);
   registerProjects(program, context);
   registerWorkPackages(program, context);
+  registerProfile(program, context);
   registerSpec(program, context);
   return program;
 }

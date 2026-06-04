@@ -2,17 +2,17 @@ import type { Command } from "commander";
 import { asObject } from "../client/hal.js";
 import { stableJson } from "../output/json.js";
 import { renderKeyValue } from "../output/text.js";
-import { createClient, type CommandContext } from "./context.js";
+import { createClient, resolvedEnv, type CommandContext } from "./context.js";
 
 export function registerApiRoot(program: Command, context: CommandContext): void {
   program
     .command("api-root")
     .description("Show compact OpenProject API root links")
     .option("--json", "emit JSON")
-    .action(async (options: { json?: boolean }) => {
-      const root = await createClient(context).getApiRoot();
+    .action(async (options: { json?: boolean }, command: Command) => {
+      const root = await createClient(context, command).getApiRoot();
       const links = compactLinks(root);
-      context.stdout.write(options.json ? stableJson(links, context.env.OPENPROJECT_TOKEN) : renderKeyValue(links));
+      context.stdout.write(options.json ? stableJson(links, resolvedEnv(context, command).OPENPROJECT_TOKEN) : renderKeyValue(links));
     });
 }
 

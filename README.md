@@ -25,8 +25,7 @@ npx opctl --help
 
 ## Configuration
 
-Export variables in your shell; `opctl` intentionally does not read `.env` files.
-
+Export variables in your shell, load a local file with `--env <path>`, or save non-write defaults in a profile. By default, `opctl` also reads `.env` from the current working directory when present; pass `--no-env` to disable that.
 Required:
 
 - `OPENPROJECT_URL`: OpenProject instance URL, optionally including an instance path prefix.
@@ -37,6 +36,18 @@ Optional:
 - `OPENPROJECT_AUTH_MODE`: `bearer` (default) or `basic`. Basic auth uses username `apikey` and the token as password.
 - `OPENPROJECT_DEFAULT_PROJECT`: project identifier/id used by `wp search` when `--project` is omitted.
 - `OPENPROJECT_ALLOW_WRITE`: must be exactly `1` to allow write-capable commands.
+
+Profile commands:
+
+```sh
+opctl profile set navlin-qa --url https://openproject.example.com --auth-mode bearer --default-project qa --token ...
+opctl profile use navlin-qa
+opctl --profile navlin-qa me --json
+opctl profile show navlin-qa
+opctl profile list
+```
+
+Profiles are stored under `${XDG_CONFIG_HOME:-~/.config}/opctl/profiles.json`. The file is written with restrictive permissions where supported, tokens may be stored there, and profile display commands redact tokens. `OPENPROJECT_ALLOW_WRITE` is never loaded from `.env` files or profiles; writes still require the real process environment variable.
 
 ## Usage
 
@@ -67,14 +78,21 @@ Read work packages:
 opctl wp get 123
 opctl wp get 123 --json
 opctl wp get 123 --raw-json
+opctl wp get 123 124 --table
+opctl wp get --ids 123,124 --fields id,subject,status,assignee --table
+opctl wp get --ids 123,124 --jsonl
 ```
+
+Field selection supports `id,subject,status,type,assignee,project,href,updatedAt,description,shortDescription,attachmentsCount,lockVersion`; aliases: `title=subject`, `url=href`.
 
 Search work packages:
 
 ```sh
 opctl wp search --project my-project --subject "pump"
 opctl wp search --project my-project --assignee-me --status open
-opctl wp search --subject "pump" --json
+opctl wp search --open --subject "pump" --compact
+opctl wp search --subject "pump" --fields id,subject,status --json
+
 ```
 
 If `--project` is omitted, `opctl wp search` uses `OPENPROJECT_DEFAULT_PROJECT` when set. Without either, it searches the instance-wide work package endpoint.
@@ -83,7 +101,15 @@ List work packages assigned to the authenticated user:
 
 ```sh
 opctl wp mine
-opctl wp mine --project my-project --page-size 50
+opctl wp mine --open --table
+opctl wp mine --project my-project --page-size 50 --fields id,subject,status,updatedAt
+```
+
+Triage a known list:
+
+```sh
+opctl wp check 123 124
+opctl wp check --ids 123,124 --fields id,title,status,assignee,shortDescription,attachmentsCount --table
 ```
 
 Pull the OpenAPI spec from your configured instance:
@@ -95,7 +121,7 @@ opctl spec pull
 Write-capable command:
 
 ```sh
-OPENPROJECT_ALLOW_WRITE=1 opctl wp comment 123 "Investigating" --dry-run
+OPENPROJECT_ALLOW_WRITE=1 opctl wp comment 123 --dry-run "Investigating"
 OPENPROJECT_ALLOW_WRITE=1 opctl wp comment 123 "Investigating"
 ```
 
@@ -124,7 +150,7 @@ node dist/cli.js wp --help
 ## Safety model
 
 - No token or `Authorization` header is printed by normal errors, JSON output, spec pulling, or tests.
-- `.env` files are ignored and not loaded by the CLI.
-- OpenProject writes are blocked unless `OPENPROJECT_ALLOW_WRITE=1` exactly.
+- Local `.env` files are loaded for read configuration by default; `--no-env` disables that, and `.env` cannot enable writes.
+- OpenProject writes are blocked unless the real process environment contains `OPENPROJECT_ALLOW_WRITE=1` exactly.
 - Every write-capable command supports `--dry-run` and avoids mutation in dry-run mode.
 - No destructive commands are implemented: no delete, close, archive, move, or bulk edit.

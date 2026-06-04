@@ -3,21 +3,24 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { describe, expect, it, vi } from "vitest";
 import { isCliEntrypoint, run } from "../src/cli.js";
+import type { CommandContext } from "../src/commands/context.js";
 
 function jsonResponse(body: unknown, status = 200): Response {
   return new Response(JSON.stringify(body), { status, headers: { "content-type": "application/hal+json" } });
 }
 
-function context(fetchImpl: typeof fetch) {
+function context(fetchImpl: typeof fetch, env: NodeJS.ProcessEnv = { OPENPROJECT_URL: "https://op.example", OPENPROJECT_TOKEN: "secret" }, cwd?: string): { readonly ctx: CommandContext; readonly output: () => { readonly stdout: string; readonly stderr: string } } {
   let stdout = "";
   let stderr = "";
+  const ctx: CommandContext = {
+    stdout: { write: (text: string) => { stdout += text; return true; } },
+    stderr: { write: (text: string) => { stderr += text; return true; } },
+    env,
+    ...(cwd ? { cwd } : {}),
+    fetchImpl,
+  };
   return {
-    ctx: {
-      stdout: { write: (text: string) => { stdout += text; return true; } },
-      stderr: { write: (text: string) => { stderr += text; return true; } },
-      env: { OPENPROJECT_URL: "https://op.example", OPENPROJECT_TOKEN: "secret" },
-      fetchImpl,
-    },
+    ctx,
     output: () => ({ stdout, stderr }),
   };
 }
@@ -48,7 +51,7 @@ describe("CLI", () => {
 
   it("returns configuration exit code for missing config", async () => {
     let stderr = "";
-    const code = await run(["node", "opctl", "me"], {
+    const code = await run(["node", "opctl", "--no-env", "me"], {
       stdout: { write: () => true },
       stderr: { write: (text: string) => { stderr += text; return true; } },
       env: {},
@@ -56,6 +59,33 @@ describe("CLI", () => {
     });
     expect(code).toBe(2);
     expect(stderr).toContain("OPENPROJECT_URL");
+  });
+
+  it("global --env and --profile wire through commands", async () => {
+    const dir = join(tmpdir(), `opctl-cli-${process.pid}-${Math.random().toString(16).slice(2)}`);
+    mkdirSync(dir, { recursive: true });
+    const envPath = join(dir, "op.env");
+    writeFileSync(envPath, "OPENPROJECT_URL=https://env.example\nOPENPROJECT_TOKEN=env-secret\n", "utf8");
+    const fetchImpl = vi.fn<typeof fetch>().mockImplementation(async () => jsonResponse({ id: 5, name: "Ada" }));
+    const h1 = context(fetchImpl, {});
+    await expect(run(["node", "opctl", "--env", envPath, "me", "--json"], h1.ctx)).resolves.toBe(0);
+    expect(String(fetchImpl.mock.calls[0]?.[0])).toContain("https://env.example/api/v3/users/me");
+
+    const xdg = join(dir, "xdg");
+    const h2 = context(fetchImpl, { XDG_CONFIG_HOME: xdg });
+    await expect(run(["node", "opctl", "profile", "set", "qa", "--url", "https://profile.example", "--token", "profile-secret"], h2.ctx)).resolves.toBe(0);
+    await expect(run(["node", "opctl", "--profile", "qa", "me", "--json"], h2.ctx)).resolves.toBe(0);
+    expect(String(fetchImpl.mock.calls.at(-1)?.[0])).toContain("https://profile.example/api/v3/users/me");
+  });
+
+  it("--no-env disables automatic cwd .env loading", async () => {
+    const dir = join(tmpdir(), `opctl-cli-noenv-${process.pid}-${Math.random().toString(16).slice(2)}`);
+    mkdirSync(dir, { recursive: true });
+    writeFileSync(join(dir, ".env"), "OPENPROJECT_URL=https://auto.example\nOPENPROJECT_TOKEN=auto-secret\n", "utf8");
+    const fetchImpl = vi.fn<typeof fetch>().mockResolvedValue(jsonResponse({ id: 5 }));
+    const h = context(fetchImpl, {}, dir);
+    await expect(run(["node", "opctl", "me", "--json"], h.ctx)).resolves.toBe(0);
+    await expect(run(["node", "opctl", "--no-env", "me", "--json"], h.ctx)).resolves.toBe(2);
   });
 
   it("detects symlinked npm bin entrypoints", () => {

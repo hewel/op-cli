@@ -27,6 +27,9 @@ export interface WorkPackageSummary {
   readonly project?: string | undefined;
   readonly type?: string | undefined;
   readonly href?: string | undefined;
+  readonly updatedAt?: string | undefined;
+  readonly shortDescription?: string | undefined;
+  readonly attachmentsCount?: number | undefined;
 }
 
 export interface WorkPackageDetail extends WorkPackageSummary {

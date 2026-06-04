@@ -65,6 +65,9 @@ export function normalizeWorkPackageSummary(resource: unknown): WorkPackageSumma
     project: getLink(object, "project")?.title,
     type: getLink(object, "type")?.title,
     href: getLink(object, "self")?.href,
+    updatedAt: stringField(object.updatedAt),
+    shortDescription: shortDescription(extractDescription(object.description)),
+    attachmentsCount: attachmentsCount(object),
   };
 }
 
@@ -73,6 +76,8 @@ export function normalizeWorkPackageDetail(resource: unknown): WorkPackageDetail
   return {
     ...normalizeWorkPackageSummary(object),
     description: extractDescription(object.description),
+    shortDescription: shortDescription(extractDescription(object.description)),
+    attachmentsCount: attachmentsCount(object),
     lockVersion: numberField(object.lockVersion),
     actions: actionLinks(object),
   };
@@ -98,6 +103,27 @@ export function extractDescription(value: unknown): string | undefined {
   const raw = typeof object?.raw === "string" ? object.raw : undefined;
   const html = typeof object?.html === "string" ? object.html : undefined;
   return raw ?? (html ? html.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim() : undefined);
+}
+
+function shortDescription(description: string | undefined): string | undefined {
+  if (!description) return undefined;
+  const compact = description.replace(/\s+/g, " ").trim();
+  if (compact === "") return undefined;
+  return compact.length <= 160 ? compact : `${compact.slice(0, 157)}...`;
+}
+
+function attachmentsCount(resource: HalObject): number | undefined {
+  const embeddedAttachments = asObject(asObject(resource._embedded)?.attachments);
+  const total = numberField(embeddedAttachments?.total) ?? numberField(embeddedAttachments?.count);
+  if (total !== undefined) return total;
+  const elements = embeddedAttachments?.elements;
+  if (Array.isArray(elements)) return elements.length;
+  const direct = asObject(resource.attachments);
+  const directTotal = numberField(direct?.total) ?? numberField(direct?.count);
+  if (directTotal !== undefined) return directTotal;
+  const directElements = direct?.elements;
+  if (Array.isArray(directElements)) return directElements.length;
+  return undefined;
 }
 
 function stringField(value: unknown): string | undefined {

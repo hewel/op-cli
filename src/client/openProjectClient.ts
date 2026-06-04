@@ -124,11 +124,9 @@ export function buildWorkPackageFilters(options: Pick<SearchWorkPackagesOptions,
   const filters: unknown[] = [];
   if (options.subject && options.subject.trim() !== "") filters.push({ subject: { operator: "~", values: [options.subject] } });
   if (options.assigneeMe) filters.push({ assignee: { operator: "=", values: ["me"] } });
-  if (options.open) filters.push({ status: { operator: "o", values: [] } });
-  if (options.status && options.status.trim() !== "") {
-    if (options.status === "open") filters.push({ status: { operator: "o", values: [] } });
-    else filters.push({ status: { operator: "=", values: [options.status] } });
-  }
+  const status = options.status?.trim();
+  if (options.open || status === "open") filters.push({ status: { operator: "o", values: [] } });
+  else if (status) filters.push({ status: { operator: "=", values: [status] } });
   return filters;
 }
 

@@ -27,13 +27,25 @@ describe("OpenProjectClient", () => {
     await expect(new OpenProjectClient({ config: config(), fetchImpl }).getWorkPackage(1)).resolves.toMatchObject({ id: 1, subject: "S", status: "Open" });
   });
 
+  it("normalizes updated time, short description, and attachment count", async () => {
+    const fetchImpl = vi.fn<typeof fetch>().mockResolvedValue(jsonResponse({
+      id: 1,
+      subject: "S",
+      updatedAt: "2026-06-04T12:00:00Z",
+      description: { raw: "First line\n\nSecond line" },
+      _embedded: { attachments: { total: 2 } },
+      _links: { status: { title: "Open" }, self: { href: "/api/v3/work_packages/1" } },
+    }));
+    await expect(new OpenProjectClient({ config: config(), fetchImpl }).getWorkPackage(1)).resolves.toMatchObject({ updatedAt: "2026-06-04T12:00:00Z", shortDescription: "First line Second line", attachmentsCount: 2 });
+  });
+
   it("builds search URLs and filters", async () => {
     const fetchImpl = vi.fn<typeof fetch>().mockResolvedValue(jsonResponse({ _embedded: { elements: [] } }));
     await new OpenProjectClient({ config: config({ defaultProject: "alpha" }), fetchImpl }).searchWorkPackages({ subject: "pump", assigneeMe: true, status: "open", pageSize: 5 });
     const url = String(fetchImpl.mock.calls[0]?.[0]);
     expect(url).toContain("/api/v3/projects/alpha/work_packages?");
     expect(decodeURIComponent(url)).toContain('"subject":{"operator":"~","values":["pump"]}');
-    expect(buildWorkPackageFilters({ assigneeMe: true, open: true })).toEqual([{ assignee: { operator: "=", values: ["me"] } }, { status: { operator: "o", values: [] } }]);
+    expect(buildWorkPackageFilters({ assigneeMe: true, open: true, status: "open" })).toEqual([{ assignee: { operator: "=", values: ["me"] } }, { status: { operator: "o", values: [] } }]);
   });
 
   it.each([401, 403, 404, 409, 422])("maps HTTP %i to safe errors", async (status) => {

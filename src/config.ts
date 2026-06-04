@@ -1,4 +1,8 @@
 import { ConfigurationError } from "./client/errors.js";
+import { existsSync } from "node:fs";
+import { join, resolve } from "node:path";
+import { loadEnvFile } from "./config/envFile.js";
+import { getProfileEnv } from "./config/profiles.js";
 
 export type AuthMode = "bearer" | "basic";
 
@@ -18,7 +22,43 @@ export interface EnvReader {
   readonly OPENPROJECT_DEFAULT_PROJECT?: string;
 }
 
+export interface ConfigResolutionOptions {
+  readonly cwd?: string;
+  readonly envFile?: string;
+  readonly autoEnv?: boolean;
+  readonly profile?: string;
+}
+
 export function loadConfig(env: EnvReader = process.env): OpctlConfig {
+  return loadConfigFromEnv(env);
+}
+
+export function resolveConfigEnv(processEnv: NodeJS.ProcessEnv, options: ConfigResolutionOptions = {}): EnvReader {
+  const cwd = options.cwd ?? process.cwd();
+  const autoEnvPath = join(cwd, ".env");
+  const autoEnv = options.autoEnv === false || !existsSync(autoEnvPath) ? {} : loadEnvFile(autoEnvPath);
+  const activeProfile = options.profile ? {} : getProfileEnv(undefined, processEnv);
+  const selectedProfile = options.profile ? getProfileEnv(options.profile, processEnv) : {};
+  const explicitEnv = options.envFile ? loadEnvFile(resolve(cwd, options.envFile)) : {};
+  return mergeEnv(autoEnv, activeProfile, selectedProfile, explicitEnv, processEnv);
+}
+
+export function loadResolvedConfig(processEnv: NodeJS.ProcessEnv, options: ConfigResolutionOptions = {}): OpctlConfig {
+  return loadConfigFromEnv(resolveConfigEnv(processEnv, options));
+}
+
+export function mergeEnv(...layers: readonly EnvReader[]): EnvReader {
+  const merged: Record<string, string> = {};
+  for (const layer of layers) {
+    for (const key of ["OPENPROJECT_URL", "OPENPROJECT_TOKEN", "OPENPROJECT_AUTH_MODE", "OPENPROJECT_ALLOW_WRITE", "OPENPROJECT_DEFAULT_PROJECT"] as const) {
+      const value = layer[key];
+      if (value !== undefined) merged[key] = value;
+    }
+  }
+  return merged;
+}
+
+function loadConfigFromEnv(env: EnvReader): OpctlConfig {
   const rawUrl = env.OPENPROJECT_URL;
   const rawToken = env.OPENPROJECT_TOKEN;
   if (!rawUrl || rawUrl.trim() === "") throw new ConfigurationError("OPENPROJECT_URL is required");
