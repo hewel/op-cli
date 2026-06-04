@@ -2,12 +2,28 @@
 
 `opctl` is a small local Node.js + TypeScript CLI bridge for OpenProject API v3. It uses the current user's personal API token and is read-only by default.
 
-## Setup
+## Install
+
+Published package:
+
+- npm: <https://www.npmjs.com/package/opctl>
+- current package: `opctl@0.1.0`
+- binary: `opctl`
+
+Install globally:
 
 ```sh
-pnpm install
-cp .env.example .env
+npm install -g opctl
+opctl --help
 ```
+
+Or run without a global install:
+
+```sh
+npx opctl --help
+```
+
+## Configuration
 
 Export variables in your shell; `opctl` intentionally does not read `.env` files.
 
@@ -22,22 +38,65 @@ Optional:
 - `OPENPROJECT_DEFAULT_PROJECT`: project identifier/id used by `wp search` when `--project` is omitted.
 - `OPENPROJECT_ALLOW_WRITE`: must be exactly `1` to allow write-capable commands.
 
-## Commands
+## Usage
+
+Show the authenticated OpenProject user:
 
 ```sh
-npm run dev -- me
-npm run dev -- api-root
-npm run dev -- projects --page-size 20
-npm run dev -- wp get 123 --json
-npm run dev -- wp search --project my-project --subject "pump" --assignee-me
-npm run dev -- wp mine --project my-project
+opctl me
+opctl me --json
+```
+
+Inspect API root links:
+
+```sh
+opctl api-root
+opctl api-root --json
+```
+
+List projects:
+
+```sh
+opctl projects --page-size 20
+opctl projects --json
+```
+
+Read work packages:
+
+```sh
+opctl wp get 123
+opctl wp get 123 --json
+opctl wp get 123 --raw-json
+```
+
+Search work packages:
+
+```sh
+opctl wp search --project my-project --subject "pump"
+opctl wp search --project my-project --assignee-me --status open
+opctl wp search --subject "pump" --json
+```
+
+If `--project` is omitted, `opctl wp search` uses `OPENPROJECT_DEFAULT_PROJECT` when set. Without either, it searches the instance-wide work package endpoint.
+
+List work packages assigned to the authenticated user:
+
+```sh
+opctl wp mine
+opctl wp mine --project my-project --page-size 50
+```
+
+Pull the OpenAPI spec from your configured instance:
+
+```sh
+opctl spec pull
 ```
 
 Write-capable command:
 
 ```sh
-OPENPROJECT_ALLOW_WRITE=1 npm run dev -- wp comment 123 "Investigating" --dry-run
-OPENPROJECT_ALLOW_WRITE=1 npm run dev -- wp comment 123 "Investigating"
+OPENPROJECT_ALLOW_WRITE=1 opctl wp comment 123 "Investigating" --dry-run
+OPENPROJECT_ALLOW_WRITE=1 opctl wp comment 123 "Investigating"
 ```
 
 `wp comment` fetches the work package first and posts only when a documented HAL comment action link is present. It fails safely instead of guessing a mutation URL.
