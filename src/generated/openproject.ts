@@ -1054,58 +1054,6 @@ export interface paths {
         patch: operations["update_meeting_agenda_item"];
         trace?: never;
     };
-    "/api/v3/meetings/{meeting_id}/agenda_items/{agenda_item_id}/outcomes": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * List meeting outcomes
-         * @description Lists all outcomes for the given meeting agenda item.
-         */
-        get: operations["list_meeting_outcomes"];
-        put?: never;
-        /**
-         * Create meeting outcome
-         * @description Creates a new outcome for the given meeting agenda item.
-         */
-        post: operations["create_meeting_outcome"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/v3/meetings/{meeting_id}/agenda_items/{agenda_item_id}/outcomes/{id}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Get a meeting outcome
-         * @description Retrieve an individual outcome of a meeting agenda item.
-         */
-        get: operations["get_meeting_outcome"];
-        put?: never;
-        post?: never;
-        /**
-         * Delete a meeting outcome
-         * @description Deletes the outcome.
-         */
-        delete: operations["delete_meeting_outcome"];
-        options?: never;
-        head?: never;
-        /**
-         * Update a meeting outcome
-         * @description Updates the given meeting outcome.
-         */
-        patch: operations["update_meeting_outcome"];
-        trace?: never;
-    };
     "/api/v3/meetings/{id}/attachments": {
         parameters: {
             query?: never;
@@ -5019,992 +4967,6 @@ export interface paths {
 export type webhooks = Record<string, never>;
 export interface components {
     schemas: {
-        ActivityModel: components["schemas"]["activity_model"];
-        ActivityCommentWriteModel: components["schemas"]["activity_comment_write_model"];
-        AttachmentModel: components["schemas"]["attachment_model"];
-        Attachments_Model: components["schemas"]["attachments_model"];
-        Available_AssigneesModel: components["schemas"]["available_assignees_model"];
-        Available_WatchersModel: components["schemas"]["available_watchers_model"];
-        Available_projects_for_queryModel: components["schemas"]["available_projects_for_query_model"];
-        Available_projects_for_time_entriesModel: components["schemas"]["available_projects_for_time_entries_model"];
-        Available_projects_for_versionsModel: components["schemas"]["available_projects_for_versions_model"];
-        Available_projects_for_work_packageModel: components["schemas"]["available_projects_for_work_package_model"];
-        Available_relation_candidatesModel: components["schemas"]["available_relation_candidates_model"];
-        BudgetModel: components["schemas"]["budget_model"];
-        Budgets_by_ProjectModel: components["schemas"]["budgets_by_project_model"];
-        Categories_by_WorkspaceModel: components["schemas"]["categories_by_workspace_model"];
-        CategoryModel: components["schemas"]["category_model"];
-        CollectionLinks: components["schemas"]["collection_links"];
-        CollectionModel: components["schemas"]["collection_model"];
-        ConfigurationModel: components["schemas"]["configuration_model"];
-        ProjectConfigurationModel: components["schemas"]["project_configuration_model"];
-        CustomActionModel: components["schemas"]["custom_action_model"];
-        CustomCommentProperties: components["schemas"]["custom_comment_properties"];
-        CustomFieldLinkedProperties: components["schemas"]["custom_field_linked_properties"];
-        CustomFieldProperties: components["schemas"]["custom_field_properties"];
-        CustomOptionModel: components["schemas"]["custom_option_model"];
-        DayCollectionModel: components["schemas"]["day_collection_model"];
-        DayModel: components["schemas"]["day_model"];
-        Default_QueryModel: components["schemas"]["default_query_model"];
-        Default_Query_for_WorkspaceModel: components["schemas"]["default_query_for_workspace_model"];
-        DocumentModel: components["schemas"]["document_model"];
-        DocumentsModel: components["schemas"]["documents_model"];
-        EmojiReactionModel: components["schemas"]["emoji_reaction_model"];
-        EmojiReactions_Model: components["schemas"]["emoji_reactions_model"];
-        ErrorResponse: components["schemas"]["error_response"];
-        Example_FormModel: components["schemas"]["example_form_model"];
-        Example_SchemaModel: components["schemas"]["example_schema_model"];
-        FileLinkCollectionReadModel: components["schemas"]["file_link_collection_read_model"];
-        FileLinkCollectionWriteModel: components["schemas"]["file_link_collection_write_model"];
-        FileLinkOriginDataModel: components["schemas"]["file_link_origin_data_model"];
-        FileLinkReadModel: components["schemas"]["file_link_read_model"];
-        FileLinkWriteModel: components["schemas"]["file_link_write_model"];
-        FileUploadForm: components["schemas"]["file_upload_form"];
-        Formattable: components["schemas"]["formattable"];
-        GridCollectionModel: components["schemas"]["grid_collection_model"];
-        GridReadModel: components["schemas"]["grid_read_model"];
-        GridWidgetModel: components["schemas"]["grid_widget_model"];
-        GridWriteModel: components["schemas"]["grid_write_model"];
-        GroupCollectionModel: components["schemas"]["group_collection_model"];
-        GroupModel: components["schemas"]["group_model"];
-        GroupWriteModel: components["schemas"]["group_write_model"];
-        HelpTextCollectionModel: components["schemas"]["help_text_collection_model"];
-        HelpTextModel: components["schemas"]["help_text_model"];
-        HierarchyItemCollectionModel: components["schemas"]["hierarchy_item_collection_model"];
-        HierarchyItemReadModel: components["schemas"]["hierarchy_item_read_model"];
-        Link: components["schemas"]["link"];
-        List_actionsModel: components["schemas"]["list_actions_model"];
-        List_available_parent_project_candidatesModel: components["schemas"]["list_available_parent_project_candidates_model"];
-        List_capabilitiesModel: components["schemas"]["list_capabilities_model"];
-        List_of_NewsModel: components["schemas"]["list_of_news_model"];
-        List_workspaces_by_versionModel: components["schemas"]["list_workspaces_by_version_model"];
-        MeetingAgendaItemModel: components["schemas"]["meeting_agenda_item_model"];
-        MeetingAgendaItemWriteModel: components["schemas"]["meeting_agenda_item_write_model"];
-        MeetingAgendaItemCollectionModel: components["schemas"]["meeting_agenda_item_collection_model"];
-        MeetingOutcomeCollectionModel: components["schemas"]["meeting_outcome_collection_model"];
-        MeetingOutcomeModel: components["schemas"]["meeting_outcome_model"];
-        MeetingOutcomeWriteModel: components["schemas"]["meeting_outcome_write_model"];
-        MeetingCollectionModel: components["schemas"]["meeting_collection_model"];
-        MeetingModel: components["schemas"]["meeting_model"];
-        MeetingSectionModel: components["schemas"]["meeting_section_model"];
-        MeetingSectionWriteModel: components["schemas"]["meeting_section_write_model"];
-        MeetingSectionCollectionModel: components["schemas"]["meeting_section_collection_model"];
-        MeetingWriteModel: components["schemas"]["meeting_write_model"];
-        MarkdownModel: components["schemas"]["markdown_model"];
-        MembershipCollectionModel: components["schemas"]["membership_collection_model"];
-        MembershipFormModel: components["schemas"]["membership_form_model"];
-        MembershipReadModel: components["schemas"]["membership_read_model"];
-        MembershipSchemaModel: components["schemas"]["membership_schema_model"];
-        MembershipWriteModel: components["schemas"]["membership_write_model"];
-        NewsCreateModel: components["schemas"]["news_create_model"];
-        NewsModel: components["schemas"]["news_model"];
-        NonWorkingDayCollectionModel: components["schemas"]["non_working_day_collection_model"];
-        NonWorkingDayModel: components["schemas"]["non_working_day_model"];
-        NotificationCollectionModel: components["schemas"]["notification_collection_model"];
-        NotificationModel: components["schemas"]["notification_model"];
-        OAuthApplicationReadModel: components["schemas"]["oauth_application_read_model"];
-        OAuthClientCredentialsReadModel: components["schemas"]["oauth_client_credentials_read_model"];
-        OAuthClientCredentialsWriteModel: components["schemas"]["oauth_client_credentials_write_model"];
-        OffsetPaginatedCollectionLinks: components["schemas"]["offset_paginated_collection_links"];
-        OffsetPaginatedCollectionModel: components["schemas"]["offset_paginated_collection_model"];
-        PaginatedCollectionModel: components["schemas"]["paginated_collection_model"];
-        PlaceholderUserCollectionModel: components["schemas"]["placeholder_user_collection_model"];
-        PlaceholderUserCreateModel: components["schemas"]["placeholder_user_create_model"];
-        PlaceholderUserModel: components["schemas"]["placeholder_user_model"];
-        Plain_TextModel: components["schemas"]["plain_text_model"];
-        PortfolioCollectionModel: components["schemas"]["portfolio_collection_model"];
-        PortfolioModel: components["schemas"]["portfolio_model"];
-        PostModel: components["schemas"]["post_model"];
-        PrincipalCollectionModel: components["schemas"]["principal_collection_model"];
-        PrincipalModel: components["schemas"]["principal_model"];
-        PriorityCollectionModel: components["schemas"]["priority_collection_model"];
-        PriorityModel: components["schemas"]["priority_model"];
-        ProgramCollectionModel: components["schemas"]["program_collection_model"];
-        ProgramModel: components["schemas"]["program_model"];
-        ProjectCollectionModel: components["schemas"]["project_collection_model"];
-        ProjectModel: components["schemas"]["project_model"];
-        ProjectPhaseModel: components["schemas"]["project_phase_model"];
-        ProjectPhaseDefinitionModel: components["schemas"]["project_phase_definition_model"];
-        ProjectPhaseDefinitionCollectionModel: components["schemas"]["project_phase_definition_collection_model"];
-        ProjectStorageCollectionModel: components["schemas"]["project_storage_collection_model"];
-        ProjectStorageModel: components["schemas"]["project_storage_model"];
-        QueriesModel: components["schemas"]["queries_model"];
-        QueryModel: components["schemas"]["query_model"];
-        Query_ColumnModel: components["schemas"]["query_column_model"];
-        Query_Create_Form: components["schemas"]["query_create_form"];
-        Query_FilterModel: components["schemas"]["query_filter_model"];
-        Query_Filter_Instance_Model: components["schemas"]["query_filter_instance_model"];
-        Query_Filter_Instance_SchemaModel: components["schemas"]["query_filter_instance_schema_model"];
-        Query_Filter_Instance_SchemasModel: components["schemas"]["query_filter_instance_schemas_model"];
-        Query_Filter_Instance_Schemas_For_WorkspaceModel: components["schemas"]["query_filter_instance_schemas_for_workspace_model"];
-        Query_OperatorModel: components["schemas"]["query_operator_model"];
-        Query_Sort_ByModel: components["schemas"]["query_sort_by_model"];
-        Query_Update_Form: components["schemas"]["query_update_form"];
-        RecurringMeetingCollectionModel: components["schemas"]["recurring_meeting_collection_model"];
-        RecurringMeetingModel: components["schemas"]["recurring_meeting_model"];
-        RecurringMeetingWriteModel: components["schemas"]["recurring_meeting_write_model"];
-        RecurringMeetingOccurrenceCollectionModel: components["schemas"]["recurring_meeting_occurrence_collection_model"];
-        RecurringMeetingOccurrenceModel: components["schemas"]["recurring_meeting_occurrence_model"];
-        RelationCollectionModel: components["schemas"]["relation_collection_model"];
-        RelationReadModel: components["schemas"]["relation_read_model"];
-        RelationWriteModel: components["schemas"]["relation_write_model"];
-        ReminderModel: components["schemas"]["reminder_model"];
-        RevisionModel: components["schemas"]["revision_model"];
-        RevisionsModel: components["schemas"]["revisions_model"];
-        RoleModel: components["schemas"]["role_model"];
-        RolesModel: components["schemas"]["roles_model"];
-        RootModel: components["schemas"]["root_model"];
-        SchemaModel: components["schemas"]["schema_model"];
-        SchemaPropertyModel: components["schemas"]["schema_property_model"];
-        Schema_For_Global_QueriesModel: components["schemas"]["schema_for_global_queries_model"];
-        Schema_For_Workspace_QueriesModel: components["schemas"]["schema_for_workspace_queries_model"];
-        SprintCollectionModel: components["schemas"]["sprint_collection_model"];
-        SprintModel: components["schemas"]["sprint_model"];
-        Star_QueryModel: components["schemas"]["star_query_model"];
-        StatusCollectionModel: components["schemas"]["status_collection_model"];
-        StatusModel: components["schemas"]["status_model"];
-        StorageCollectionModel: components["schemas"]["storage_collection_model"];
-        StorageFileModel: components["schemas"]["storage_file_model"];
-        StorageFilesModel: components["schemas"]["storage_files_model"];
-        StorageFolderWriteModel: components["schemas"]["storage_folder_write_model"];
-        StorageFileUploadPreparationModel: components["schemas"]["storage_file_upload_preparation_model"];
-        StorageFileUploadLinkModel: components["schemas"]["storage_file_upload_link_model"];
-        StorageReadModel: components["schemas"]["storage_read_model"];
-        StorageWriteModel: components["schemas"]["storage_write_model"];
-        TimeEntryActivityModel: components["schemas"]["time_entry_activity_model"];
-        TimeEntryCollectionModel: components["schemas"]["time_entry_collection_model"];
-        TimeEntryModel: components["schemas"]["time_entry_model"];
-        TypeModel: components["schemas"]["type_model"];
-        TypesModel: components["schemas"]["types_model"];
-        Types_by_WorkspaceModel: components["schemas"]["types_by_workspace_model"];
-        Unstar_QueryModel: components["schemas"]["unstar_query_model"];
-        UserCollectionModel: components["schemas"]["user_collection_model"];
-        UserCreateModel: components["schemas"]["user_create_model"];
-        UserModel: components["schemas"]["user_model"];
-        UserNonWorkingTimeCollectionModel: components["schemas"]["user_non_working_time_collection_model"];
-        UserNonWorkingTimeModel: components["schemas"]["user_non_working_time_model"];
-        UserPreferencesModel: components["schemas"]["user_preferences_model"];
-        UserWorkingHoursCollectionModel: components["schemas"]["user_working_hours_collection_model"];
-        UserWorkingHoursModel: components["schemas"]["user_working_hours_model"];
-        ValuesPropertyModel: components["schemas"]["values_property_model"];
-        VersionCollectionModel: components["schemas"]["version_collection_model"];
-        VersionReadModel: components["schemas"]["version_read_model"];
-        VersionWriteModel: components["schemas"]["version_write_model"];
-        Version_schemaModel: components["schemas"]["version_schema_model"];
-        Versions_by_WorkspaceModel: components["schemas"]["versions_by_workspace_model"];
-        View_actionModel: components["schemas"]["view_action_model"];
-        View_capabilitiesModel: components["schemas"]["view_capabilities_model"];
-        View_global_contextModel: components["schemas"]["view_global_context_model"];
-        View_project_statusModel: components["schemas"]["view_project_status_model"];
-        View_time_entry_schemaModel: components["schemas"]["view_time_entry_schema_model"];
-        View_user_schemaModel: components["schemas"]["view_user_schema_model"];
-        WatchersModel: components["schemas"]["watchers_model"];
-        WeekDayCollectionModel: components["schemas"]["week_day_collection_model"];
-        WeekDayCollectionWriteModel: components["schemas"]["week_day_collection_write_model"];
-        WeekDayModel: components["schemas"]["week_day_model"];
-        WeekDaySelfLinkModel: components["schemas"]["week_day_self_link_model"];
-        WeekDayWriteModel: components["schemas"]["week_day_write_model"];
-        Wiki_PageModel: components["schemas"]["wiki_page_model"];
-        WorkPackageModel: components["schemas"]["work_package_model"];
-        WorkPackageFormModel: components["schemas"]["work_package_form_model"];
-        WorkPackagePatchModel: components["schemas"]["work_package_patch_model"];
-        WorkPackageSchemaModel: components["schemas"]["work_package_schema_model"];
-        WorkPackageWriteModel: components["schemas"]["work_package_write_model"];
-        Work_Package_activitiesModel: components["schemas"]["work_package_activities_model"];
-        Work_PackagesModel: components["schemas"]["work_packages_model"];
-        WorkspaceCollectionModel: components["schemas"]["workspace_collection_model"];
-        Workspaces_schemaModel: components["schemas"]["workspaces_schema_model"];
-        /**
-         * @example {
-         *       "href": "/api/v3/work_packages",
-         *       "method": "POST"
-         *     }
-         */
-        link: {
-            /** @description URL to the referenced resource (might be relative) */
-            href: string | null;
-            /** @description Representative label for the resource */
-            title?: string;
-            /**
-             * @description If true the href contains parts that need to be replaced by the client
-             * @default false
-             */
-            templated: boolean;
-            /**
-             * @description The HTTP verb to use when requesting the resource
-             * @default GET
-             */
-            method: string;
-            /** @description The payload to send in the request to achieve the desired result */
-            payload?: Record<string, never>;
-            /** @description An optional unique identifier to the link object */
-            identifier?: string;
-            /** @description The MIME-Type of the returned resource. */
-            type?: string;
-        };
-        /**
-         * @example {
-         *       "_type": "Root",
-         *       "instanceName": "OpenProject",
-         *       "coreVersion": "12.1.0",
-         *       "_links": {
-         *         "self": {
-         *           "href": "/api/v3"
-         *         },
-         *         "configuration": {
-         *           "href": "/api/v3/configuration"
-         *         },
-         *         "memberships": {
-         *           "href": "/api/v3/memberships"
-         *         },
-         *         "priorities": {
-         *           "href": "/api/v3/priorities"
-         *         },
-         *         "relations": {
-         *           "href": "/api/v3/relations"
-         *         },
-         *         "statuses": {
-         *           "href": "/api/v3/statuses"
-         *         },
-         *         "time_entries": {
-         *           "href": "/api/v3/time_entries"
-         *         },
-         *         "types": {
-         *           "href": "/api/v3/types"
-         *         },
-         *         "user": {
-         *           "href": "/api/v3/users/3",
-         *           "title": "Anakin Skywalker"
-         *         },
-         *         "userPreferences": {
-         *           "href": "/api/v3/users/3/preferences"
-         *         },
-         *         "workPackages": {
-         *           "href": "/api/v3/work_packages"
-         *         }
-         *       }
-         *     }
-         */
-        root_model: {
-            /** @enum {string} */
-            _type: "Root";
-            /** @description The name of the OpenProject instance */
-            instanceName: string;
-            /**
-             * @description The OpenProject core version number for the instance
-             *
-             *     # Conditions
-             *
-             *     **Permission** requires admin privileges
-             */
-            coreVersion?: string;
-            _links: {
-                self: components["schemas"]["link"] & unknown;
-                configuration: components["schemas"]["link"] & unknown;
-                memberships: components["schemas"]["link"] & unknown;
-                priorities: components["schemas"]["link"] & unknown;
-                relations: components["schemas"]["link"] & unknown;
-                statuses: components["schemas"]["link"] & unknown;
-                time_entries: components["schemas"]["link"] & unknown;
-                types: components["schemas"]["link"] & unknown;
-                user: components["schemas"]["link"] & unknown;
-                userPreferences: components["schemas"]["link"] & unknown;
-                workPackages: components["schemas"]["link"] & unknown;
-            };
-        };
-        /**
-         * @example {
-         *       "_links": {
-         *         "self": {
-         *           "href": "/api/v3/actions"
-         *         }
-         *       },
-         *       "total": 2,
-         *       "count": 2,
-         *       "_type": "Collection",
-         *       "_embedded": {
-         *         "elements": [
-         *           {
-         *             "_links": {
-         *               "self": {
-         *                 "href": "/api/v3/actions/work_packages/create",
-         *                 "title": "Add work package"
-         *               }
-         *             },
-         *             "_type": "Action",
-         *             "id": "work_packages/create",
-         *             "name": "Add work package",
-         *             "description": "Creating a work package within a project including the uploading of attachments. Some attributes might not be selected, e.g version which requires a second permission",
-         *             "modules": [
-         *               "work_packages"
-         *             ]
-         *           },
-         *           {
-         *             "_links": {
-         *               "self": {
-         *                 "href": "/api/v3/actions/work_packages/assign_versions",
-         *                 "title": "Assigning version"
-         *               }
-         *             },
-         *             "_type": "Action",
-         *             "id": "work_packages/assign_versions",
-         *             "name": "Assign version",
-         *             "description": "Assigning a work package to a version when creating/updating a work package. Only principals having this permission can assign a value to the version property of the work package resource.",
-         *             "modules": [
-         *               "work_packages",
-         *               "versions"
-         *             ]
-         *           }
-         *         ]
-         *       }
-         *     }
-         */
-        list_actions_model: Record<string, never>;
-        /**
-         * @example {
-         *       "_links": {
-         *         "self": {
-         *           "href": "/api/v3/actions/work_packages/create",
-         *           "title": "Add work package"
-         *         }
-         *       },
-         *       "_type": "Action",
-         *       "id": "work_packages/create",
-         *       "name": "Add work package",
-         *       "description": "Creating a work package within a project including the uploading of attachments. Some attributes might not be selected, e.g version which requires a second permission",
-         *       "modules": [
-         *         "work_packages"
-         *       ]
-         *     }
-         */
-        view_action_model: Record<string, never>;
-        error_response: {
-            _embedded?: {
-                details?: {
-                    /** @example project */
-                    attribute?: string;
-                };
-            };
-            /** @enum {string} */
-            _type: "Error";
-            /** @example urn:openproject-org:api:v3:errors:PropertyConstraintViolation */
-            errorIdentifier: string;
-            /** @example Project can't be blank. */
-            message: string;
-        };
-        /**
-         * @example {
-         *       "format": "markdown",
-         *       "raw": "I am formatted!",
-         *       "html": "I am formatted!"
-         *     }
-         */
-        formattable: {
-            /**
-             * @description Indicates the formatting language of the raw text
-             * @example markdown
-             * @enum {string}
-             */
-            readonly format: "plain" | "markdown" | "custom";
-            /**
-             * @description The raw text, as entered by the user
-             * @example I **am** formatted!
-             */
-            raw?: string;
-            /**
-             * @description The text converted to HTML according to the format
-             * @example I <strong>am</strong> formatted!
-             */
-            readonly html?: string;
-        };
-        collection_links: {
-            self: components["schemas"]["link"] & unknown;
-        };
-        collection_model: {
-            /** @enum {string} */
-            _type: "Collection";
-            /** @description The total amount of elements available in the collection. */
-            total: number;
-            /** @description Actual amount of elements in this response. */
-            count: number;
-            _links: components["schemas"]["collection_links"];
-        };
-        /**
-         * @example {
-         *       "_type": "Attachment",
-         *       "_links": {
-         *         "self": {
-         *           "href": "/api/v3/attachments/1"
-         *         },
-         *         "container": {
-         *           "href": "/api/v3/work_packages/1"
-         *         },
-         *         "author": {
-         *           "href": "/api/v3/users/1"
-         *         },
-         *         "staticDownloadLocation": {
-         *           "href": "/api/v3/attachments/1/content"
-         *         },
-         *         "downloadLocation": {
-         *           "href": "/some/remote/aws/url/image.png"
-         *         }
-         *       },
-         *       "id": 1,
-         *       "fileName": "cat.png",
-         *       "filesize": 24,
-         *       "status": "uploaded",
-         *       "description": {
-         *         "format": "plain",
-         *         "raw": "A picture of a cute cat",
-         *         "html": "<p>A picture of a cute cat</p>"
-         *       },
-         *       "contentType": "image/png",
-         *       "digest": {
-         *         "algorithm": "md5",
-         *         "hash": "64c26a8403cd796ea4cf913cda2ee4a9"
-         *       },
-         *       "createdAt": "2014-05-21T08:51:20.396Z"
-         *     }
-         */
-        attachment_model: {
-            /** @description Attachment's id */
-            id?: number;
-            /** @description The name of the uploaded file */
-            fileName: string;
-            /** @description The size of the uploaded file in Bytes */
-            fileSize?: number;
-            description: components["schemas"]["formattable"] & unknown;
-            /** @enum {string} */
-            status: "uploaded" | "prepared" | "scanned" | "quarantined" | "rescan";
-            /** @description The files MIME-Type as determined by the server */
-            contentType: string;
-            /** @description A checksum for the files content */
-            digest: {
-                /** @description The algorithm used to generate the digest. */
-                algorithm: string;
-                /** @description The hexadecimal representation of the digested hash value. */
-                hash: string;
-            };
-            /**
-             * Format: date-time
-             * @description Time of creation
-             */
-            createdAt: string;
-            _links?: {
-                delete?: components["schemas"]["link"] & unknown;
-                self: components["schemas"]["link"] & unknown;
-                container: components["schemas"]["link"] & unknown;
-                author: components["schemas"]["link"] & unknown;
-                downloadLocation: components["schemas"]["link"] & unknown;
-            };
-        };
-        attachments_model: components["schemas"]["collection_model"] & {
-            _links: {
-                self: components["schemas"]["link"] & unknown;
-            };
-            _embedded: {
-                readonly elements?: (components["schemas"]["attachment_model"] & unknown)[];
-            };
-        };
-        custom_field_properties: {
-            [key: string]: null | number | boolean | string | Record<string, never>;
-        };
-        /**
-         * @example {
-         *       "_type": "WorkPackage",
-         *       "_links": {
-         *         "self": {
-         *           "href": "/api/v3/work_packages/1528",
-         *           "title": "Develop API"
-         *         },
-         *         "schema": {
-         *           "href": "/api/v3/work_packages/schemas/11-2"
-         *         },
-         *         "update": {
-         *           "href": "/api/v3/work_packages/1528",
-         *           "method": "patch",
-         *           "title": "Update Develop API"
-         *         },
-         *         "delete": {
-         *           "href": "/work_packages/bulk?ids=1528",
-         *           "method": "delete",
-         *           "title": "Delete Develop API"
-         *         },
-         *         "logTime": {
-         *           "href": "/work_packages/1528/time_entries/new",
-         *           "type": "text/html",
-         *           "title": "Log time on Develop API"
-         *         },
-         *         "move": {
-         *           "href": "/work_packages/1528/move/new",
-         *           "type": "text/html",
-         *           "title": "Move Develop API"
-         *         },
-         *         "attachments": {
-         *           "href": "/api/v3/work_packages/1528/attachments"
-         *         },
-         *         "addAttachment": {
-         *           "href": "/api/v3/work_packages/1528/attachments",
-         *           "method": "post"
-         *         },
-         *         "author": {
-         *           "href": "/api/v3/users/1",
-         *           "title": "OpenProject Admin - admin"
-         *         },
-         *         "customActions": [
-         *           {
-         *             "href": "/api/v3/work_packages/1528/custom_actions/153/execute",
-         *             "method": "post",
-         *             "title": "Reset"
-         *           },
-         *           {
-         *             "href": "/api/v3/work_packages/1528/custom_actions/94/execute",
-         *             "method": "post",
-         *             "title": "Forward to accounting"
-         *           }
-         *         ],
-         *         "responsible": {
-         *           "href": "/api/v3/users/23",
-         *           "title": "Laron Leuschke - Alaina5788"
-         *         },
-         *         "relations": {
-         *           "href": "/api/v3/work_packages/1528/relations",
-         *           "title": "Show relations"
-         *         },
-         *         "revisions": {
-         *           "href": "/api/v3/work_packages/1528/revisions"
-         *         },
-         *         "assignee": {
-         *           "href": "/api/v3/users/11",
-         *           "title": "Emmie Okuneva - Adele5450"
-         *         },
-         *         "priority": {
-         *           "href": "/api/v3/priorities/2",
-         *           "title": "Normal"
-         *         },
-         *         "project": {
-         *           "href": "/api/v3/portfolio/1",
-         *           "title": "A Test Portfolio"
-         *         },
-         *         "status": {
-         *           "href": "/api/v3/statuses/1",
-         *           "title": "New"
-         *         },
-         *         "type": {
-         *           "href": "/api/v3/types/1",
-         *           "title": "A Type"
-         *         },
-         *         "version": {
-         *           "href": "/api/v3/versions/1",
-         *           "title": "Version 1"
-         *         },
-         *         "availableWatchers": {
-         *           "href": "/api/v3/work_packages/1528/available_watchers"
-         *         },
-         *         "watch": {
-         *           "href": "/api/v3/work_packages/1528/watchers",
-         *           "method": "post",
-         *           "payload": {
-         *             "user": {
-         *               "href": "/api/v3/users/1"
-         *             }
-         *           }
-         *         },
-         *         "addWatcher": {
-         *           "href": "/api/v3/work_packages/1528/watchers",
-         *           "method": "post",
-         *           "payload": {
-         *             "user": {
-         *               "href": "/api/v3/users/{user_id}"
-         *             }
-         *           },
-         *           "templated": true
-         *         },
-         *         "removeWatcher": {
-         *           "href": "/api/v3/work_packages/1528/watchers/{user_id}",
-         *           "method": "delete",
-         *           "templated": true
-         *         },
-         *         "addRelation": {
-         *           "href": "/api/v3/relations",
-         *           "method": "post",
-         *           "title": "Add relation"
-         *         },
-         *         "changeParent": {
-         *           "href": "/api/v3/work_packages/694",
-         *           "method": "patch",
-         *           "title": "Change parent of Bug in OpenProject"
-         *         },
-         *         "addComment": {
-         *           "href": "/api/v3/work_packages/1528/activities",
-         *           "method": "post",
-         *           "title": "Add comment"
-         *         },
-         *         "parent": {
-         *           "href": "/api/v3/work_packages/1298",
-         *           "title": "nisi eligendi officiis eos delectus quis voluptas dolores"
-         *         },
-         *         "category": {
-         *           "href": "/api/v3/categories/1298",
-         *           "title": "eligend isi"
-         *         },
-         *         "children": [
-         *           {
-         *             "href": "/api/v3/work_packages/1529",
-         *             "title": "Write API documentation"
-         *           }
-         *         ],
-         *         "ancestors": [
-         *           {
-         *             "href": "/api/v3/work_packages/1290",
-         *             "title": "Root node of hierarchy"
-         *           },
-         *           {
-         *             "href": "/api/v3/work_packages/1291",
-         *             "title": "Intermediate node of hierarchy"
-         *           },
-         *           {
-         *             "href": "/api/v3/work_packages/1298",
-         *             "title": "nisi eligendi officiis eos delectus quis voluptas dolores"
-         *           }
-         *         ],
-         *         "timeEntries": {
-         *           "href": "/work_packages/1528/time_entries",
-         *           "type": "text/html",
-         *           "title": "Time entries"
-         *         },
-         *         "watchers": {
-         *           "href": "/api/v3/work_packages/1528/watchers"
-         *         },
-         *         "customField3": {
-         *           "href": "api/v3/users/14"
-         *         }
-         *       },
-         *       "id": 1528,
-         *       "subject": "Develop API",
-         *       "description": {
-         *         "format": "markdown",
-         *         "raw": "Develop super cool OpenProject API.",
-         *         "html": "<p>Develop super cool OpenProject API.</p>"
-         *       },
-         *       "scheduleManually": false,
-         *       "readonly": false,
-         *       "startDate": null,
-         *       "dueDate": null,
-         *       "derivedStartDate": null,
-         *       "derivedDueDate": null,
-         *       "estimatedTime": "PT2H",
-         *       "derivedEstimatedTime": "PT10H",
-         *       "percentageDone": 0,
-         *       "customField1": "Foo",
-         *       "customField2": 42,
-         *       "createdAt": "2014-08-29T12:40:53.373Z",
-         *       "updatedAt": "2014-08-29T12:44:41.981Z"
-         *     }
-         */
-        work_package_model: components["schemas"]["custom_field_properties"] & {
-            /** @description Work package id */
-            readonly id?: number;
-            /**
-             * @description The user-facing identifier for the work package.
-             *     Its format depends on the `work_packages_identifier` setting.
-             *     When set to `semantic`: the project-based identifier (e.g. "PROJ-42").
-             *     When set to `classic`: the numeric ID as a string (e.g. "123").
-             */
-            readonly displayId?: string;
-            /** @description The version of the item as used for optimistic locking */
-            readonly lockVersion?: number;
-            /** @description Work package subject */
-            subject: string;
-            /** @enum {string} */
-            readonly _type?: "WorkPackage";
-            description?: components["schemas"]["formattable"] & unknown;
-            /**
-             * @description Uses manual scheduling mode when true (default). Uses automatic scheduling
-             *     mode when false. Can be automatic only when predecessors or children are
-             *     present.
-             */
-            scheduleManually?: boolean;
-            /** @description If true, the work package is in a readonly status so with the exception of the status, no other property can be altered. */
-            readonly?: boolean;
-            /**
-             * Format: date
-             * @description Scheduled beginning of a work package
-             */
-            startDate?: string | null;
-            /**
-             * Format: date
-             * @description Scheduled end of a work package
-             */
-            dueDate?: string | null;
-            /**
-             * Format: date
-             * @description Date on which a milestone is achieved
-             */
-            date?: string | null;
-            /**
-             * Format: date
-             * @description Similar to start date but is not set by a client but rather deduced by the work packages' descendants. If manual scheduleManually is active, the two dates can deviate.
-             */
-            readonly derivedStartDate?: string | null;
-            /**
-             * Format: date
-             * @description Similar to due date but is not set by a client but rather deduced by the work packages' descendants. If manual scheduleManually is active, the two dates can deviate.
-             */
-            readonly derivedDueDate?: string | null;
-            /**
-             * Format: duration
-             * @description **(NOT IMPLEMENTED)** The amount of time in hours the work package needs to be completed.
-             *     Not available for milestone type of work packages.
-             */
-            readonly duration?: string | null;
-            /**
-             * Format: duration
-             * @description Time a work package likely needs to be completed excluding its descendants
-             */
-            estimatedTime?: string | null;
-            /**
-             * Format: duration
-             * @description Time a work package likely needs to be completed including its descendants
-             */
-            readonly derivedEstimatedTime?: string | null;
-            /**
-             * @description **(NOT IMPLEMENTED)** When scheduling, whether or not to ignore the non working days being defined.
-             *     A work package with the flag set to true will be allowed to be scheduled to a non working day.
-             */
-            readonly ignoreNonWorkingDays?: boolean;
-            /**
-             * @description The position this work package has in a version configured to be backlog (sprint or product).
-             *
-             *     # Conditions
-             *
-             *     **Permission** Backlogs needs to be enabled in the work package's project and the work package's type is configured to be a backlog type.
-             */
-            readonly position?: number | null;
-            /**
-             * Format: duration
-             * @description The time booked for this work package by users working on it
-             *
-             *     # Conditions
-             *
-             *     **Permission** view time entries
-             */
-            readonly spentTime?: string;
-            /**
-             * @description The estimation in story points on how long this work package will take to complete
-             *
-             *     # Conditions
-             *
-             *     **Permission** Backlogs needs to be enabled in the work package's project and the work package's type is configured to be a backlog type.
-             */
-            storyPoints?: number | null;
-            /** @description Amount of total completion for a work package */
-            percentageDone?: number | null;
-            /** @description Amount of total completion for a work package derived from itself and its descendant work packages */
-            readonly derivedPercentageDone?: number | null;
-            /**
-             * Format: date-time
-             * @description Time of creation. Can be writable by admins with the `apiv3_write_readonly_attributes` setting enabled.
-             */
-            readonly createdAt?: string;
-            /**
-             * Format: date-time
-             * @description Time of the most recent change to the work package.
-             */
-            readonly updatedAt?: string;
-            _links: {
-                addComment?: components["schemas"]["link"] & unknown;
-                addRelation?: components["schemas"]["link"] & unknown;
-                addWatcher?: components["schemas"]["link"] & unknown;
-                readonly customActions?: (components["schemas"]["link"] & unknown)[];
-                previewMarkup?: components["schemas"]["link"] & unknown;
-                removeWatcher?: components["schemas"]["link"] & unknown;
-                delete?: components["schemas"]["link"] & unknown;
-                logTime?: components["schemas"]["link"] & unknown;
-                move?: components["schemas"]["link"] & unknown;
-                copy?: components["schemas"]["link"] & unknown;
-                unwatch?: components["schemas"]["link"] & unknown;
-                update?: components["schemas"]["link"] & unknown;
-                updateImmediately?: components["schemas"]["link"] & unknown;
-                watch?: components["schemas"]["link"] & unknown;
-                self: components["schemas"]["link"] & unknown;
-                schema: components["schemas"]["link"] & unknown;
-                readonly ancestors: (components["schemas"]["link"] & unknown)[];
-                attachments?: components["schemas"]["link"] & unknown;
-                addAttachment?: components["schemas"]["link"] & unknown;
-                prepareAttachment?: components["schemas"]["link"] & unknown;
-                author: components["schemas"]["link"] & unknown;
-                assignee?: components["schemas"]["link"] & unknown;
-                availableWatchers?: components["schemas"]["link"] & unknown;
-                budget?: components["schemas"]["link"] & unknown;
-                category?: components["schemas"]["link"] & unknown;
-                readonly children?: (components["schemas"]["link"] & unknown)[];
-                addFileLink?: components["schemas"]["link"] & unknown;
-                fileLinks?: components["schemas"]["link"] & unknown;
-                parent?: components["schemas"]["link"] & unknown;
-                priority: components["schemas"]["link"] & unknown;
-                project: components["schemas"]["link"] & unknown;
-                projectPhase?: components["schemas"]["link"] & unknown;
-                projectPhaseDefinition?: components["schemas"]["link"] & unknown;
-                responsible?: components["schemas"]["link"] & unknown;
-                relations?: components["schemas"]["link"] & unknown;
-                revisions?: components["schemas"]["link"] & unknown;
-                status: components["schemas"]["link"] & unknown;
-                sprint?: components["schemas"]["link"] & unknown;
-                timeEntries?: components["schemas"]["link"] & unknown;
-                type: components["schemas"]["link"] & unknown;
-                version?: components["schemas"]["link"] & unknown;
-                watchers?: components["schemas"]["link"] & unknown;
-            };
-        };
-        /**
-         * @example {
-         *       "_type": "EmojiReaction",
-         *       "id": "1-thumbs_up",
-         *       "reaction": "thumbs_up",
-         *       "emoji": "👍",
-         *       "reactionsCount": 3,
-         *       "firstReactionAt": "2024-04-08T15:37:19.275Z",
-         *       "_links": {
-         *         "self": {
-         *           "href": "/api/v3/emoji_reactions/1-thumbs_up"
-         *         },
-         *         "reactable": {
-         *           "href": "/api/v3/activities/1"
-         *         },
-         *         "reactingUsers": [
-         *           {
-         *             "href": "/api/v3/users/435",
-         *             "title": "John Doe"
-         *           },
-         *           {
-         *             "href": "/api/v3/users/436",
-         *             "title": "Jane Smith"
-         *           },
-         *           {
-         *             "href": "/api/v3/users/437",
-         *             "title": "Bob Johnson"
-         *           }
-         *         ]
-         *       }
-         *     }
-         */
-        emoji_reaction_model: {
-            /** @enum {string} */
-            _type?: "EmojiReaction";
-            /**
-             * @description Emoji reaction id (format: reactable_id-reaction)
-             * @example 1-thumbs_up
-             */
-            id?: string;
-            /**
-             * @description The reaction identifier
-             * @example thumbs_up
-             */
-            reaction?: string;
-            /**
-             * @description The emoji character
-             * @example 👍
-             */
-            emoji?: string;
-            /**
-             * @description Number of users who reacted with this emoji
-             * @example 3
-             */
-            reactionsCount?: number;
-            /**
-             * Format: date-time
-             * @description Time of the first reaction
-             */
-            firstReactionAt?: string;
-            _links?: {
-                self?: components["schemas"]["link"] & unknown;
-                reactable?: components["schemas"]["link"] & unknown;
-                reactingUsers?: (components["schemas"]["link"] & unknown)[];
-            };
-        };
-        /**
-         * @example {
-         *       "_type": "Collection",
-         *       "total": 2,
-         *       "count": 2,
-         *       "_embedded": {
-         *         "elements": [
-         *           {
-         *             "_type": "EmojiReaction",
-         *             "id": "1-thumbs_up",
-         *             "reaction": "thumbs_up",
-         *             "emoji": "👍",
-         *             "reactionsCount": 3,
-         *             "firstReactionAt": "2024-04-08T15:37:19.275Z",
-         *             "_links": {
-         *               "self": {
-         *                 "href": "/api/v3/emoji_reactions/1-thumbs_up"
-         *               },
-         *               "reactable": {
-         *                 "href": "/api/v3/activities/1"
-         *               },
-         *               "reactingUsers": [
-         *                 {
-         *                   "href": "/api/v3/users/435",
-         *                   "title": "John Doe"
-         *                 },
-         *                 {
-         *                   "href": "/api/v3/users/436",
-         *                   "title": "Jane Smith"
-         *                 },
-         *                 {
-         *                   "href": "/api/v3/users/437",
-         *                   "title": "Bob Johnson"
-         *                 }
-         *               ]
-         *             }
-         *           },
-         *           {
-         *             "_type": "EmojiReaction",
-         *             "id": "1-heart",
-         *             "reaction": "heart",
-         *             "emoji": "❤️",
-         *             "reactionsCount": 1,
-         *             "firstReactionAt": "2024-04-08T15:38:19.275Z",
-         *             "_links": {
-         *               "self": {
-         *                 "href": "/api/v3/emoji_reactions/1-heart"
-         *               },
-         *               "reactable": {
-         *                 "href": "/api/v3/activities/1"
-         *               },
-         *               "reactingUsers": [
-         *                 {
-         *                   "href": "/api/v3/users/435",
-         *                   "title": "John Doe"
-         *                 }
-         *               ]
-         *             }
-         *           }
-         *         ]
-         *       },
-         *       "_links": {
-         *         "self": {
-         *           "href": "/api/v3/activities/1/emoji_reactions"
-         *         }
-         *       }
-         *     }
-         */
-        emoji_reactions_model: {
-            /** @enum {string} */
-            _type?: "Collection";
-            /** @description Total number of emoji reactions */
-            total?: number;
-            /** @description Number of emoji reactions in this response */
-            count?: number;
-            _embedded?: {
-                elements?: components["schemas"]["emoji_reaction_model"][];
-            };
-            _links?: {
-                self?: components["schemas"]["link"] & unknown;
-            };
-        };
         /**
          * @example {
          *       "id": 1,
@@ -6232,15 +5194,15 @@ export interface components {
          *       "version": 31
          *     }
          */
-        activity_model: {
+        ActivityModel: {
             /** @enum {string} */
             _type?: "Activity::Comment";
             /** @description Activity id */
             id?: number;
             /** @description Activity version */
             version?: number;
-            comment?: components["schemas"]["formattable"];
-            details?: components["schemas"]["formattable"][];
+            comment?: components["schemas"]["Formattable"];
+            details?: components["schemas"]["Formattable"][];
             /** @description Whether this activity is internal (only visible to users with view_internal_comments permission) */
             internal?: boolean;
             /**
@@ -6254,18 +5216,18 @@ export interface components {
              */
             updatedAt?: string;
             _embedded?: {
-                attachments?: components["schemas"]["attachments_model"] & unknown;
-                workPackage?: components["schemas"]["work_package_model"] & unknown;
-                emojiReactions?: components["schemas"]["emoji_reactions_model"] & unknown;
+                attachments?: components["schemas"]["Attachments_Model"] & unknown;
+                workPackage?: components["schemas"]["WorkPackageModel"] & unknown;
+                emojiReactions?: components["schemas"]["EmojiReactions_Model"] & unknown;
             };
             _links?: {
-                self?: components["schemas"]["link"] & unknown;
-                workPackage?: components["schemas"]["link"] & unknown;
-                user?: components["schemas"]["link"] & unknown;
-                update?: components["schemas"]["link"] & unknown;
-                attachments?: components["schemas"]["link"] & unknown;
-                addAttachment?: components["schemas"]["link"] & unknown;
-                emojiReactions?: components["schemas"]["link"] & unknown;
+                self?: components["schemas"]["Link"] & unknown;
+                workPackage?: components["schemas"]["Link"] & unknown;
+                user?: components["schemas"]["Link"] & unknown;
+                update?: components["schemas"]["Link"] & unknown;
+                attachments?: components["schemas"]["Link"] & unknown;
+                addAttachment?: components["schemas"]["Link"] & unknown;
+                emojiReactions?: components["schemas"]["Link"] & unknown;
             };
         };
         /**
@@ -6275,7 +5237,7 @@ export interface components {
          *       }
          *     }
          */
-        activity_comment_write_model: {
+        ActivityCommentWriteModel: {
             comment?: {
                 /** @description The raw content of the comment */
                 raw?: string;
@@ -6287,13 +5249,465 @@ export interface components {
              */
             internal: boolean;
         };
-        file_upload_form: {
-            metadata?: {
-                fileName?: string;
+        /**
+         * @example {
+         *       "_type": "Attachment",
+         *       "_links": {
+         *         "self": {
+         *           "href": "/api/v3/attachments/1"
+         *         },
+         *         "container": {
+         *           "href": "/api/v3/work_packages/1"
+         *         },
+         *         "author": {
+         *           "href": "/api/v3/users/1"
+         *         },
+         *         "staticDownloadLocation": {
+         *           "href": "/api/v3/attachments/1/content"
+         *         },
+         *         "downloadLocation": {
+         *           "href": "/some/remote/aws/url/image.png"
+         *         }
+         *       },
+         *       "id": 1,
+         *       "fileName": "cat.png",
+         *       "filesize": 24,
+         *       "status": "uploaded",
+         *       "description": {
+         *         "format": "plain",
+         *         "raw": "A picture of a cute cat",
+         *         "html": "<p>A picture of a cute cat</p>"
+         *       },
+         *       "contentType": "image/png",
+         *       "digest": {
+         *         "algorithm": "md5",
+         *         "hash": "64c26a8403cd796ea4cf913cda2ee4a9"
+         *       },
+         *       "createdAt": "2014-05-21T08:51:20.396Z"
+         *     }
+         */
+        AttachmentModel: {
+            /** @description Attachment's id */
+            id?: number;
+            /** @description The name of the uploaded file */
+            fileName: string;
+            /** @description The size of the uploaded file in Bytes */
+            fileSize?: number;
+            description: components["schemas"]["Formattable"] & unknown;
+            /** @enum {string} */
+            status: "uploaded" | "prepared" | "scanned" | "quarantined" | "rescan";
+            /** @description The files MIME-Type as determined by the server */
+            contentType: string;
+            /** @description A checksum for the files content */
+            digest: {
+                /** @description The algorithm used to generate the digest. */
+                algorithm: string;
+                /** @description The hexadecimal representation of the digested hash value. */
+                hash: string;
             };
-            /** Format: binary */
-            file?: string;
+            /**
+             * Format: date-time
+             * @description Time of creation
+             */
+            createdAt: string;
+            _links?: {
+                delete?: components["schemas"]["Link"] & unknown;
+                self: components["schemas"]["Link"] & unknown;
+                container: components["schemas"]["Link"] & unknown;
+                author: components["schemas"]["Link"] & unknown;
+                downloadLocation: components["schemas"]["Link"] & unknown;
+            };
         };
+        Attachments_Model: components["schemas"]["CollectionModel"] & {
+            _links: {
+                self: components["schemas"]["Link"] & unknown;
+            };
+            _embedded: {
+                readonly elements?: (components["schemas"]["AttachmentModel"] & unknown)[];
+            };
+        };
+        Available_AssigneesModel: components["schemas"]["CollectionModel"] & {
+            _links: {
+                self: components["schemas"]["Link"] & unknown;
+            };
+            _embedded: {
+                readonly elements?: (components["schemas"]["UserModel"] & unknown)[];
+            };
+        };
+        /**
+         * @example {
+         *       "_links": {
+         *         "self": {
+         *           "href": "/api/v3/work_packages/1/available_watchers"
+         *         }
+         *       },
+         *       "total": 2,
+         *       "count": 2,
+         *       "_type": "Collection",
+         *       "_embedded": {
+         *         "elements": [
+         *           {
+         *             "_type": "User",
+         *             "_links": {
+         *               "self": {
+         *                 "href": "/api/v3/users/1",
+         *                 "title": "John Sheppard - j.sheppard"
+         *               },
+         *               "lock": {
+         *                 "href": "/api/v3/users/1/lock",
+         *                 "title": "Set lock on j.sheppard",
+         *                 "method": "POST"
+         *               },
+         *               "delete": {
+         *                 "href": "/api/v3/users/1",
+         *                 "title": "Delete j.sheppard",
+         *                 "method": "DELETE"
+         *               }
+         *             },
+         *             "id": 1,
+         *             "login": "j.sheppard",
+         *             "firstName": "John",
+         *             "lastName": "Sheppard",
+         *             "email": "shep@mail.com",
+         *             "avatar": "https://example.org/users/1/avatar",
+         *             "status": "active",
+         *             "createdAt": "2014-05-21T08:51:20.286Z",
+         *             "updatedAt": "2014-05-21T08:51:20.286Z"
+         *           },
+         *           {
+         *             "_type": "User",
+         *             "_links": {
+         *               "self": {
+         *                 "href": "/api/v3/users/2",
+         *                 "title": "Jim Sheppard - j.sheppard2"
+         *               },
+         *               "lock": {
+         *                 "href": "/api/v3/users/2/lock",
+         *                 "title": "Set lock on j.sheppard2",
+         *                 "method": "POST"
+         *               },
+         *               "delete": {
+         *                 "href": "/api/v3/users/2",
+         *                 "title": "Delete j.sheppard2",
+         *                 "method": "DELETE"
+         *               }
+         *             },
+         *             "id": 2,
+         *             "login": "j.sheppard2",
+         *             "firstName": "Jim",
+         *             "lastName": "Sheppard",
+         *             "email": "shep@mail.net",
+         *             "avatar": "https://example.org/users/1/avatar",
+         *             "status": "active",
+         *             "createdAt": "2014-05-21T08:51:20.286Z",
+         *             "updatedAt": "2014-05-21T08:51:20.286Z"
+         *           }
+         *         ]
+         *       }
+         *     }
+         */
+        Available_WatchersModel: Record<string, never>;
+        /**
+         * @example {
+         *       "_links": {
+         *         "self": {
+         *           "href": "/api/v3/queries/available_projects"
+         *         }
+         *       },
+         *       "_type": "Collection",
+         *       "total": 2,
+         *       "count": 2,
+         *       "_embedded": {
+         *         "elements": [
+         *           {
+         *             "_type": "Project",
+         *             "_links": {
+         *               "self": {
+         *                 "href": "/api/v3/projects/6",
+         *                 "title": "A project"
+         *               },
+         *               "createWorkPackage": {
+         *                 "href": "/api/v3/projects/6/work_packages/form",
+         *                 "method": "post"
+         *               },
+         *               "createWorkPackageImmediate": {
+         *                 "href": "/api/v3/projects/6/work_packages",
+         *                 "method": "post"
+         *               },
+         *               "categories": {
+         *                 "href": "/api/v3/projects/6/categories"
+         *               },
+         *               "versions": {
+         *                 "href": "/api/v3/projects/6/versions"
+         *               }
+         *             },
+         *             "id": 6,
+         *             "identifier": "a_project",
+         *             "name": "A project",
+         *             "description": "Eveniet molestias omnis quis aut qui eum adipisci.",
+         *             "createdAt": "2015-07-06T13:28:14+00:00",
+         *             "updatedAt": "2015-10-01T09:55:02+00:00",
+         *             "type": "Customer Project"
+         *           },
+         *           {
+         *             "_type": "Project",
+         *             "_links": {
+         *               "self": {
+         *                 "href": "/api/v3/projects/14",
+         *                 "title": "Another project"
+         *               },
+         *               "createWorkPackage": {
+         *                 "href": "/api/v3/projects/14/work_packages/form",
+         *                 "method": "post"
+         *               },
+         *               "createWorkPackageImmediate": {
+         *                 "href": "/api/v3/projects/14/work_packages",
+         *                 "method": "post"
+         *               },
+         *               "categories": {
+         *                 "href": "/api/v3/projects/14/categories"
+         *               },
+         *               "versions": {
+         *                 "href": "/api/v3/projects/14/versions"
+         *               }
+         *             },
+         *             "id": 14,
+         *             "identifier": "another_project",
+         *             "name": "Another project",
+         *             "description": "",
+         *             "createdAt": "2016-02-29T12:50:20+00:00",
+         *             "updatedAt": "2016-02-29T12:50:20+00:00",
+         *             "type": null
+         *           }
+         *         ]
+         *       }
+         *     }
+         */
+        Available_projects_for_queryModel: Record<string, never>;
+        /**
+         * @example {
+         *       "_links": {
+         *         "self": {
+         *           "href": "/api/v3/time_entries/available_projects"
+         *         }
+         *       },
+         *       "_type": "Collection",
+         *       "total": 2,
+         *       "count": 2,
+         *       "_embedded": {
+         *         "elements": [
+         *           {
+         *             "_type": "Project..."
+         *           },
+         *           {
+         *             "_type": "Project..."
+         *           }
+         *         ]
+         *       }
+         *     }
+         */
+        Available_projects_for_time_entriesModel: Record<string, never>;
+        /**
+         * @example {
+         *       "_links": {
+         *         "self": {
+         *           "href": "/api/v3/versions/available_projects"
+         *         }
+         *       },
+         *       "_type": "Collection",
+         *       "total": 2,
+         *       "count": 2,
+         *       "_embedded": {
+         *         "elements": [
+         *           {
+         *             "_type": "Project",
+         *             "_links": {
+         *               "self": {
+         *                 "href": "/api/v3/projects/6",
+         *                 "title": "A project"
+         *               },
+         *               "editWorkPackage": {
+         *                 "href": "/api/v3/work_packages/{id}/form",
+         *                 "templated": true,
+         *                 "method": "post"
+         *               },
+         *               "createWorkPackage": {
+         *                 "href": "/api/v3/projects/6/work_packages/form",
+         *                 "method": "post"
+         *               },
+         *               "createWorkPackageImmediate": {
+         *                 "href": "/api/v3/projects/6/work_packages",
+         *                 "method": "post"
+         *               },
+         *               "categories": {
+         *                 "href": "/api/v3/projects/6/categories"
+         *               },
+         *               "versions": {
+         *                 "href": "/api/v3/projects/6/versions"
+         *               }
+         *             },
+         *             "id": 6,
+         *             "identifier": "a_project",
+         *             "name": "A project",
+         *             "description": "Eveniet molestias omnis quis aut qui eum adipisci. Atque aut aut in exercitationem adipisci amet. Nisi asperiores quia ratione veritatis enim exercitationem magnam. Aut fuga architecto adipisci nihil. Et repellat pariatur. Aliquam et sed perferendis nostrum quaerat. Fugit doloremque voluptatem.",
+         *             "createdAt": "2015-07-06T13:28:14+00:00",
+         *             "updatedAt": "2015-10-01T09:55:02+00:00",
+         *             "type": "Customer Project"
+         *           },
+         *           {
+         *             "_type": "Project",
+         *             "_links": {
+         *               "self": {
+         *                 "href": "/api/v3/projects/14",
+         *                 "title": "Another project"
+         *               },
+         *               "createWorkPackage": {
+         *                 "href": "/api/v3/projects/14/work_packages/form",
+         *                 "method": "post"
+         *               },
+         *               "createWorkPackageImmediate": {
+         *                 "href": "/api/v3/projects/14/work_packages",
+         *                 "method": "post"
+         *               },
+         *               "categories": {
+         *                 "href": "/api/v3/projects/14/categories"
+         *               },
+         *               "versions": {
+         *                 "href": "/api/v3/projects/14/versions"
+         *               }
+         *             },
+         *             "id": 14,
+         *             "identifier": "another_project",
+         *             "name": "Another project",
+         *             "description": "",
+         *             "createdAt": "2016-02-29T12:50:20+00:00",
+         *             "updatedAt": "2016-02-29T12:50:20+00:00",
+         *             "type": null
+         *           }
+         *         ]
+         *       }
+         *     }
+         */
+        Available_projects_for_versionsModel: Record<string, never>;
+        /**
+         * @example {
+         *       "_links": {
+         *         "self": {
+         *           "href": "/api/v3/work_packages/5/available_projects"
+         *         }
+         *       },
+         *       "_type": "Collection",
+         *       "total": 2,
+         *       "count": 2,
+         *       "_embedded": {
+         *         "elements": [
+         *           {
+         *             "_type": "Project",
+         *             "_links": {
+         *               "self": {
+         *                 "href": "/api/v3/projects/6",
+         *                 "title": "A project"
+         *               },
+         *               "editWorkPackage": {
+         *                 "href": "/api/v3/work_packages/{id}/form",
+         *                 "templated": true,
+         *                 "method": "post"
+         *               },
+         *               "createWorkPackage": {
+         *                 "href": "/api/v3/projects/6/work_packages/form",
+         *                 "method": "post"
+         *               },
+         *               "createWorkPackageImmediate": {
+         *                 "href": "/api/v3/projects/6/work_packages",
+         *                 "method": "post"
+         *               },
+         *               "categories": {
+         *                 "href": "/api/v3/projects/6/categories"
+         *               },
+         *               "versions": {
+         *                 "href": "/api/v3/projects/6/versions"
+         *               }
+         *             },
+         *             "id": 6,
+         *             "identifier": "a_project",
+         *             "name": "A project",
+         *             "description": "Eveniet molestias omnis quis aut qui eum adipisci. Atque aut aut in exercitationem adipisci amet. Nisi asperiores quia ratione veritatis enim exercitationem magnam. Aut fuga architecto adipisci nihil. Et repellat pariatur. Aliquam et sed perferendis nostrum quaerat. Fugit doloremque voluptatem.",
+         *             "createdAt": "2015-07-06T13:28:14+00:00",
+         *             "updatedAt": "2015-10-01T09:55:02+00:00",
+         *             "type": "Customer Project"
+         *           },
+         *           {
+         *             "_type": "Project",
+         *             "_links": {
+         *               "self": {
+         *                 "href": "/api/v3/projects/14",
+         *                 "title": "Another project"
+         *               },
+         *               "createWorkPackage": {
+         *                 "href": "/api/v3/projects/14/work_packages/form",
+         *                 "method": "post"
+         *               },
+         *               "createWorkPackageImmediate": {
+         *                 "href": "/api/v3/projects/14/work_packages",
+         *                 "method": "post"
+         *               },
+         *               "categories": {
+         *                 "href": "/api/v3/projects/14/categories"
+         *               },
+         *               "versions": {
+         *                 "href": "/api/v3/projects/14/versions"
+         *               }
+         *             },
+         *             "id": 14,
+         *             "identifier": "another_project",
+         *             "name": "Another project",
+         *             "description": "",
+         *             "createdAt": "2016-02-29T12:50:20+00:00",
+         *             "updatedAt": "2016-02-29T12:50:20+00:00",
+         *             "type": null
+         *           }
+         *         ]
+         *       }
+         *     }
+         */
+        Available_projects_for_work_packageModel: Record<string, never>;
+        /**
+         * @example {
+         *       "_links": {
+         *         "self": {
+         *           "href": "/api/v3/projects/14/work_packages"
+         *         }
+         *       },
+         *       "total": 2,
+         *       "count": 2,
+         *       "_type": "Collection",
+         *       "_embedded": {
+         *         "elements": [
+         *           {
+         *             "_type": "WorkPackage",
+         *             "_links": {
+         *               "self": {
+         *                 "href": "/api/v3/work_packages/1"
+         *               }
+         *             },
+         *             "id": 1,
+         *             "subject": "Skipped other properties for brevity"
+         *           },
+         *           {
+         *             "_type": "WorkPackage",
+         *             "_links": {
+         *               "self": {
+         *                 "href": "/api/v3/work_packages/2"
+         *               }
+         *             },
+         *             "id": 2,
+         *             "subject": "Skipped other properties for brevity"
+         *           }
+         *         ]
+         *       }
+         *     }
+         */
+        Available_relation_candidatesModel: Record<string, never>;
         /**
          * @example {
          *       "_type": "Budget",
@@ -6307,152 +5721,58 @@ export interface components {
          *       "subject": "Q3 2015"
          *     }
          */
-        budget_model: {
+        BudgetModel: {
             _links?: {
-                self: components["schemas"]["link"] & unknown;
+                self: components["schemas"]["Link"] & unknown;
             };
         };
         /**
          * @example {
          *       "_links": {
          *         "self": {
-         *           "href": "/api/v3/capabilities"
-         *         },
-         *         "changeSize": {
-         *           "href": "/api/v3/capabilities?pageSize={size}",
-         *           "templated": true
-         *         },
-         *         "jumpTo": {
-         *           "href": "/api/v3/capabilities?offset={offset}",
-         *           "templated": true
+         *           "href": "/api/v3/projects/1/budgets"
          *         }
          *       },
-         *       "total": 4,
-         *       "count": 4,
          *       "_type": "Collection",
+         *       "total": 2,
+         *       "count": 2,
          *       "_embedded": {
          *         "elements": [
          *           {
+         *             "_type": "Budget",
          *             "_links": {
          *               "self": {
-         *                 "href": "/api/v3/capabilities/work_packages/create/p123-567"
-         *               },
-         *               "action": {
-         *                 "href": "/api/v3/actions/work_packages/create",
-         *                 "title": "Add work package"
-         *               },
-         *               "context": {
-         *                 "href": "/api/v3/projects/123",
-         *                 "title": "A project"
-         *               },
-         *               "principal": {
-         *                 "href": "/api/v3/users/567",
-         *                 "title": "Some user"
+         *                 "href": "/api/v3/budgets/1",
+         *                 "title": "Q3 2015"
          *               }
          *             },
-         *             "_type": "Capability",
-         *             "id": "work_packages/create/p123-567"
+         *             "id": 1,
+         *             "subject": "Q3 2015"
          *           },
          *           {
+         *             "_type": "Budget",
          *             "_links": {
          *               "self": {
-         *                 "href": "/api/v3/capabilities/work_packages/assignee/p123-567"
-         *               },
-         *               "action": {
-         *                 "href": "/api/v3/actions/work_packages/assignee"
-         *               },
-         *               "context": {
-         *                 "href": "/api/v3/projects/123",
-         *                 "title": "A project"
-         *               },
-         *               "principal": {
-         *                 "href": "/api/v3/users/567",
-         *                 "title": "Some user"
+         *                 "href": "/api/v3/budgets/2",
+         *                 "title": "Q4 2015"
          *               }
          *             },
-         *             "_type": "Capability",
-         *             "id": "work_packages/assignee/p123-567"
-         *           },
-         *           {
-         *             "_links": {
-         *               "self": {
-         *                 "href": "/api/v3/capabilities/memberships/create/p345-821",
-         *                 "title": "Create members"
-         *               },
-         *               "action": {
-         *                 "href": "/api/v3/actions/memberships/create"
-         *               },
-         *               "context": {
-         *                 "href": "/api/v3/projects/345",
-         *                 "title": "A project"
-         *               },
-         *               "principal": {
-         *                 "href": "/api/v3/users/821",
-         *                 "title": "Some user"
-         *               }
-         *             },
-         *             "_type": "Capability",
-         *             "id": "memberships/create/p345-821"
-         *           },
-         *           {
-         *             "_links": {
-         *               "self": {
-         *                 "href": "/api/v3/capabilities/users/delete/g-567",
-         *                 "title": "Delete user"
-         *               },
-         *               "context": {
-         *                 "href": "/api/v3/capabilities/context/global",
-         *                 "title": "Global"
-         *               },
-         *               "principal": {
-         *                 "href": "/api/v3/users/567",
-         *                 "title": "Some user"
-         *               }
-         *             },
-         *             "_type": "Capability",
-         *             "id": "users/delete/g-567"
+         *             "id": 2,
+         *             "subject": "Q4 2015"
          *           }
          *         ]
          *       }
          *     }
          */
-        list_capabilities_model: Record<string, never>;
-        /**
-         * @example {
-         *       "_links": {
-         *         "self": {
-         *           "href": "/api/v3/capabilities/context/global"
-         *         }
-         *       },
-         *       "_type": "CapabilityContext::Global",
-         *       "id": "global"
-         *     }
-         */
-        view_global_context_model: Record<string, never>;
-        /**
-         * @example {
-         *       "_links": {
-         *         "self": {
-         *           "href": "/api/v3/capabilities/work_packages/create/p123-567"
-         *         },
-         *         "action": {
-         *           "href": "/api/v3/actions/work_packages/create",
-         *           "title": "Add work package"
-         *         },
-         *         "context": {
-         *           "href": "/api/v3/projects/123",
-         *           "title": "A project"
-         *         },
-         *         "principal": {
-         *           "href": "/api/v3/users/567",
-         *           "title": "Some user"
-         *         }
-         *       },
-         *       "_type": "Capability",
-         *       "id": "work_packages/create/p123-567"
-         *     }
-         */
-        view_capabilities_model: Record<string, never>;
+        Budgets_by_ProjectModel: Record<string, never>;
+        Categories_by_WorkspaceModel: components["schemas"]["CollectionModel"] & {
+            _links: {
+                self: components["schemas"]["Link"] & unknown;
+            };
+            _embedded: {
+                readonly elements?: (components["schemas"]["CategoryModel"] & unknown)[];
+            };
+        };
         /**
          * @example {
          *       "_links": {
@@ -6474,18 +5794,30 @@ export interface components {
          *       "name": "Foo"
          *     }
          */
-        category_model: {
+        CategoryModel: {
             /** @description Category id */
             readonly id?: number;
             /** @description Category name */
             name?: string;
             _links?: {
-                self: components["schemas"]["link"] & unknown;
-                project: components["schemas"]["link"] & unknown;
-                defaultAssignee?: components["schemas"]["link"] & unknown;
+                self: components["schemas"]["Link"] & unknown;
+                project: components["schemas"]["Link"] & unknown;
+                defaultAssignee?: components["schemas"]["Link"] & unknown;
             };
         };
-        configuration_model: {
+        CollectionLinks: {
+            self: components["schemas"]["Link"] & unknown;
+        };
+        CollectionModel: {
+            /** @enum {string} */
+            _type: "Collection";
+            /** @description The total amount of elements available in the collection. */
+            total: number;
+            /** @description Actual amount of elements in this response. */
+            count: number;
+            _links: components["schemas"]["CollectionLinks"];
+        };
+        ConfigurationModel: {
             /** @description The maximum allowed size of an attachment in Bytes */
             readonly maximumAttachmentFileSize?: number;
             /** @description The host name configured for the system */
@@ -6496,6 +5828,10 @@ export interface components {
             readonly durationFormat?: string;
             /** @description The list of all feature flags that are active */
             activeFeatureFlags?: string[];
+        };
+        ProjectConfigurationModel: components["schemas"]["ConfigurationModel"] & {
+            /** @description Whether internal comments are enabled for this project */
+            readonly enabledInternalComments?: boolean;
         };
         /**
          * @example {
@@ -6515,7 +5851,7 @@ export interface components {
          *       }
          *     }
          */
-        custom_action_model: {
+        CustomActionModel: {
             /** @enum {string} */
             _type?: "CustomAction";
             /** @description The name of the custom action */
@@ -6523,51 +5859,18 @@ export interface components {
             /** @description The description for the custom action */
             description?: string;
             _links?: {
-                self: components["schemas"]["link"] & unknown;
-                executeImmediately: components["schemas"]["link"] & unknown;
+                self: components["schemas"]["Link"] & unknown;
+                executeImmediately: components["schemas"]["Link"] & unknown;
             };
         };
-        hierarchy_item_read_model: {
-            /** @enum {string} */
-            _type: "HierarchyItem";
-            /** @description Hierarchy item identifier */
-            id: number;
-            /** @description The label of the hierarchy item */
-            label: string | null;
-            /**
-             * @description The short name of the hierarchy item. If this attribute is set, the `weight` and
-             *     the `formattedWeight` are `null`.
-             */
-            short: string | null;
-            /**
-             * @description The accurate weight of the hierarchy item. As a decimal precision number it is written as a string to
-             *     not loose precision with conversion to a floating point number.
-             *     If this attribute is set, the `short` is null.
-             */
-            weight: string | null;
-            /**
-             * @description The formatted weight of the hierarchy item. The standard formatting of the OpenProject server is used to
-             *     convert this number into a representable format - i.e. falling back to scientific notation for very small and
-             *     very big numbers.
-             *     If this attribute is set, the `short` is null.
-             */
-            formattedWeight: string | null;
-            /** @description The hierarchy depth. The root item has a depth of 0. */
-            depth: number;
-            _links: {
-                self: components["schemas"]["link"] & unknown;
-                parent?: components["schemas"]["link"] & unknown;
-                children: (components["schemas"]["link"] & unknown)[];
-                branch: components["schemas"]["link"] & unknown;
-            };
+        CustomCommentProperties: {
+            [key: string]: null | string;
         };
-        hierarchy_item_collection_model: components["schemas"]["collection_model"] & {
-            _links: {
-                self: components["schemas"]["link"] & unknown;
-            };
-            _embedded: {
-                elements: components["schemas"]["hierarchy_item_read_model"][];
-            };
+        CustomFieldLinkedProperties: {
+            [key: string]: components["schemas"]["Link"] & unknown;
+        };
+        CustomFieldProperties: {
+            [key: string]: null | number | boolean | string | Record<string, never>;
         };
         /**
          * @example {
@@ -6580,366 +5883,13 @@ export interface components {
          *       "value": "Foo"
          *     }
          */
-        custom_option_model: {
+        CustomOptionModel: {
             /** @description The identifier */
             readonly id?: number;
             /** @description The value defined for this custom option */
             readonly value?: string;
             _links?: {
-                self: components["schemas"]["link"] & unknown;
-            };
-        };
-        /**
-         * @example {
-         *       "_type": "NonWorkingDay",
-         *       "date": "2022-12-25",
-         *       "name": "Christmas",
-         *       "_links": {
-         *         "self": {
-         *           "href": "/api/v3/days/non_working/2022-12-25",
-         *           "title": "Christmas"
-         *         }
-         *       }
-         *     }
-         */
-        non_working_day_model: {
-            /** @enum {string} */
-            _type: "NonWorkingDay";
-            /**
-             * Format: date
-             * @description Date of the non-working day.
-             */
-            date: string;
-            /** @description Descriptive name for the non-working day. */
-            name: string;
-            _links?: {
-                self: components["schemas"]["link"] & unknown;
-            };
-        };
-        /**
-         * @example {
-         *       "_type": "Collection",
-         *       "total": 2,
-         *       "count": 2,
-         *       "_links": {
-         *         "self": {
-         *           "href": "/api/v3/non_working?filters=[{\"interval\":{\"operator\":\"<>d\",\"values\":[\"2022-04-29\",\"2022-12-24\"]}}]"
-         *         }
-         *       },
-         *       "_embedded": {
-         *         "elements": [
-         *           {
-         *             "_type": "NonWorkingDay",
-         *             "date": "2022-12-24",
-         *             "name": "Christmas Evening",
-         *             "_links": {
-         *               "self": {
-         *                 "href": "/api/v3/days/non_working/2022-04-24"
-         *               },
-         *               "weekday": {
-         *                 "href": "/api/v3/days/week/6",
-         *                 "title": "Saturday"
-         *               }
-         *             }
-         *           },
-         *           {
-         *             "_type": "NonWorkingDay",
-         *             "date": "2022-05-01",
-         *             "name": "Labour day",
-         *             "_links": {
-         *               "self": {
-         *                 "href": "/api/v3/days/non_working/2022-05-01"
-         *               },
-         *               "weekday": {
-         *                 "href": "/api/v3/days/week/7",
-         *                 "title": "Sunday"
-         *               }
-         *             }
-         *           }
-         *         ]
-         *       }
-         *     }
-         */
-        non_working_day_collection_model: components["schemas"]["collection_model"] & {
-            _links: {
-                self: components["schemas"]["link"] & unknown;
-            };
-            _embedded: {
-                /** @description The array of non working days. Each day has a name and a date. */
-                elements: components["schemas"]["non_working_day_model"][];
-            };
-        };
-        /**
-         * @description Identify a particular week day by its href.
-         * @example {
-         *       "self": {
-         *         "href": "/api/v3/days/week/3",
-         *         "title": "Wednesday"
-         *       }
-         *     }
-         */
-        week_day_self_link_model: {
-            self?: components["schemas"]["link"] & unknown;
-        };
-        /**
-         * @example {
-         *       "_type": "WeekDay",
-         *       "day": 5,
-         *       "name": "Friday",
-         *       "working": false,
-         *       "_links": {
-         *         "self": {
-         *           "href": "/api/v3/day/week/5",
-         *           "title": "Friday"
-         *         }
-         *       }
-         *     }
-         */
-        week_day_model: {
-            /** @enum {string} */
-            _type: "WeekDay";
-            /** @description The week day from 1 to 7. 1 is Monday. 7 is Sunday. */
-            readonly day: number;
-            /** @description The week day name. */
-            name: string;
-            /** @description `true` for a working week day, `false` otherwise. */
-            working: boolean;
-            _links?: components["schemas"]["week_day_self_link_model"];
-        };
-        /**
-         * @example {
-         *       "_type": "Collection",
-         *       "total": 7,
-         *       "count": 7,
-         *       "_links": {
-         *         "self": {
-         *           "href": "/api/v3/days/week"
-         *         }
-         *       },
-         *       "_embedded": {
-         *         "elements": [
-         *           {
-         *             "_type": "WeekDay",
-         *             "day": 1,
-         *             "name": "Monday",
-         *             "working": true,
-         *             "_links": {
-         *               "self": {
-         *                 "href": "/api/v3/days/week/1",
-         *                 "title": "Monday"
-         *               }
-         *             }
-         *           },
-         *           {
-         *             "_type": "WeekDay",
-         *             "day": 2,
-         *             "name": "Tuesday",
-         *             "working": true,
-         *             "_links": {
-         *               "self": {
-         *                 "href": "/api/v3/days/week/2",
-         *                 "title": "Tuesday"
-         *               }
-         *             }
-         *           },
-         *           {
-         *             "_type": "WeekDay",
-         *             "day": 3,
-         *             "name": "Wednesday",
-         *             "working": true,
-         *             "_links": {
-         *               "self": {
-         *                 "href": "/api/v3/days/week/3",
-         *                 "title": "Wednesday"
-         *               }
-         *             }
-         *           },
-         *           {
-         *             "_type": "WeekDay",
-         *             "day": 4,
-         *             "name": "Thursday",
-         *             "working": true,
-         *             "_links": {
-         *               "self": {
-         *                 "href": "/api/v3/days/week/4",
-         *                 "title": "Thursday"
-         *               }
-         *             }
-         *           },
-         *           {
-         *             "_type": "WeekDay",
-         *             "day": 5,
-         *             "name": "Friday",
-         *             "working": true,
-         *             "_links": {
-         *               "self": {
-         *                 "href": "/api/v3/days/week/5",
-         *                 "title": "Friday"
-         *               }
-         *             }
-         *           },
-         *           {
-         *             "_type": "WeekDay",
-         *             "day": 6,
-         *             "name": "Saturday",
-         *             "working": false,
-         *             "_links": {
-         *               "self": {
-         *                 "href": "/api/v3/days/week/6",
-         *                 "title": "Saturday"
-         *               }
-         *             }
-         *           },
-         *           {
-         *             "_type": "WeekDay",
-         *             "day": 7,
-         *             "name": "Sunday",
-         *             "working": false,
-         *             "_links": {
-         *               "self": {
-         *                 "href": "/api/v3/days/week/7",
-         *                 "title": "Sunday"
-         *               }
-         *             }
-         *           }
-         *         ]
-         *       }
-         *     }
-         */
-        week_day_collection_model: components["schemas"]["collection_model"] & {
-            _links: {
-                self: components["schemas"]["link"] & unknown;
-            };
-            _embedded: {
-                /** @description The array of week days. */
-                elements: components["schemas"]["week_day_model"][];
-            };
-        };
-        /**
-         * @description Describes a week day as a working day or a non-working day (weekend).
-         * @example {
-         *       "_type": "WeekDay",
-         *       "working": false
-         *     }
-         */
-        week_day_write_model: {
-            /** @enum {string} */
-            _type: "WeekDay";
-            /** @description `true` for a working day. `false` for a weekend day. */
-            working: boolean;
-        };
-        /**
-         * @example {
-         *       "_type": "Collection",
-         *       "_embedded": {
-         *         "elements": [
-         *           {
-         *             "_type": "WeekDay",
-         *             "working": true,
-         *             "_links": {
-         *               "self": {
-         *                 "href": "/api/v3/days/week/1"
-         *               }
-         *             }
-         *           },
-         *           {
-         *             "_type": "WeekDay",
-         *             "working": true,
-         *             "_links": {
-         *               "self": {
-         *                 "href": "/api/v3/days/week/2"
-         *               }
-         *             }
-         *           },
-         *           {
-         *             "_type": "WeekDay",
-         *             "working": true,
-         *             "_links": {
-         *               "self": {
-         *                 "href": "/api/v3/days/week/4"
-         *               }
-         *             }
-         *           },
-         *           {
-         *             "_type": "WeekDay",
-         *             "working": false,
-         *             "_links": {
-         *               "self": {
-         *                 "href": "/api/v3/days/week/6"
-         *               }
-         *             }
-         *           },
-         *           {
-         *             "_type": "WeekDay",
-         *             "working": false,
-         *             "_links": {
-         *               "self": {
-         *                 "href": "/api/v3/days/week/7"
-         *               }
-         *             }
-         *           }
-         *         ]
-         *       }
-         *     }
-         */
-        week_day_collection_write_model: {
-            /** @enum {string} */
-            _type: "Collection";
-            _embedded: {
-                /** @description The array of week days. */
-                elements: (components["schemas"]["week_day_write_model"] & {
-                    _links: components["schemas"]["week_day_self_link_model"];
-                })[];
-            };
-        };
-        /**
-         * @example {
-         *       "_type": "Day",
-         *       "date": "2022-12-25",
-         *       "name": "Sunday (Christmas)",
-         *       "working": false,
-         *       "_links": {
-         *         "self": {
-         *           "href": "/api/v3/days/2022-12-25"
-         *         },
-         *         "nonWorkingReasons": [
-         *           {
-         *             "href": "/api/v3/days/week/7",
-         *             "title": "Sunday"
-         *           },
-         *           {
-         *             "href": "/api/v3/days/non_working/2022-12-25",
-         *             "title": "Christmas"
-         *           }
-         *         ],
-         *         "weekday": {
-         *           "href": "/api/v3/days/week/7",
-         *           "title": "Sunday"
-         *         }
-         *       }
-         *     }
-         */
-        day_model: {
-            /** @enum {string} */
-            _type: "Day";
-            /**
-             * Format: date
-             * @description Date of the day.
-             */
-            date: string;
-            /** @description Descriptive name for the day. */
-            name: string;
-            /** @description `true` for a working day, `false` otherwise. */
-            working: boolean;
-            _links?: {
-                self: components["schemas"]["link"];
-                /**
-                 * @description A list of resources describing why this day is a non-working day.
-                 *     Linked resources can be `NonWorkingDay` and `WeekDay` resources.
-                 *     This property is absent for working days.
-                 */
-                nonWorkingReasons?: components["schemas"]["link"][];
-                weekDay?: components["schemas"]["link"] & unknown;
+                self: components["schemas"]["Link"] & unknown;
             };
         };
         /**
@@ -7049,2698 +5999,199 @@ export interface components {
          *       }
          *     }
          */
-        day_collection_model: components["schemas"]["collection_model"] & {
+        DayCollectionModel: components["schemas"]["CollectionModel"] & {
             _links: {
-                self: components["schemas"]["link"] & unknown;
+                self: components["schemas"]["Link"] & unknown;
             };
             _embedded: {
                 /**
                  * @description The array of days. Each day has a name and a working status
                  *     indicating if it is a working or a non-working day.
                  */
-                elements: components["schemas"]["day_model"][];
+                elements: components["schemas"]["DayModel"][];
             };
         };
         /**
          * @example {
-         *       "_type": "Collection",
-         *       "total": 2,
-         *       "count": 2,
-         *       "pageSize": 30,
-         *       "offset": 1,
-         *       "_embedded": {
-         *         "elements": [
-         *           {
-         *             "description": {
-         *               "format": "markdown",
-         *               "raw": "Videlicet deserunt aequitas cognatus. Concedo quia est quia pariatur vorago vallum. Calco autem atavus accusamus conscendo cornu ulterius. Tam patria ago consectetur ventito sustineo nihil caecus. Supra officiis eos velociter somniculosus tonsor qui. Suffragium aduro arguo angustus cogito quia tolero vulnus. Supplanto sortitus cresco apud vestrum qui.",
-         *               "html": "<p>Videlicet deserunt aequitas cognatus. Concedo quia est quia pariatur vorago vallum. Calco autem atavus accusamus conscendo cornu ulterius. Tam patria ago consectetur ventito sustineo nihil caecus. Supra officiis eos velociter somniculosus tonsor qui. Suffragium aduro arguo angustus cogito quia tolero vulnus. Supplanto sortitus cresco apud vestrum qui.</p>"
-         *             },
-         *             "_type": "Document",
-         *             "id": 1,
-         *             "title": "Some other document",
-         *             "createdAt": "2018-12-10T20:53:39.966Z",
-         *             "_links": {
-         *               "attachments": {
-         *                 "href": "/api/v3/documents/1/attachments"
-         *               },
-         *               "addAttachment": {
-         *                 "href": "/api/v3/documents/1/attachments",
-         *                 "method": "post"
-         *               },
-         *               "self": {
-         *                 "href": "/api/v3/documents/1",
-         *                 "title": "Some document"
-         *               },
-         *               "project": {
-         *                 "href": "/api/v3/projects/19",
-         *                 "title": "Some project"
-         *               }
-         *             }
-         *           },
-         *           {
-         *             "description": {
-         *               "format": "markdown",
-         *               "raw": "Videlicet deserunt aequitas cognatus. Concedo quia est quia pariatur vorago vallum. Calco autem atavus accusamus conscendo cornu ulterius. Tam patria ago consectetur ventito sustineo nihil caecus. Supra officiis eos velociter somniculosus tonsor qui. Suffragium aduro arguo angustus cogito quia tolero vulnus. Supplanto sortitus cresco apud vestrum qui.",
-         *               "html": "<p>Videlicet deserunt aequitas cognatus. Concedo quia est quia pariatur vorago vallum. Calco autem atavus accusamus conscendo cornu ulterius. Tam patria ago consectetur ventito sustineo nihil caecus. Supra officiis eos velociter somniculosus tonsor qui. Suffragium aduro arguo angustus cogito quia tolero vulnus. Supplanto sortitus cresco apud vestrum qui.</p>"
-         *             },
-         *             "_type": "Document",
-         *             "id": 2,
-         *             "title": "Some other document",
-         *             "createdAt": "2018-12-10T20:55:54.886Z",
-         *             "_links": {
-         *               "attachments": {
-         *                 "href": "/api/v3/documents/2/attachments"
-         *               },
-         *               "addAttachment": {
-         *                 "href": "/api/v3/documents/2/attachments",
-         *                 "method": "post"
-         *               },
-         *               "self": {
-         *                 "href": "/api/v3/documents/2",
-         *                 "title": "Some other document"
-         *               },
-         *               "project": {
-         *                 "href": "/api/v3/projects/29",
-         *                 "title": "Some other project"
-         *               }
-         *             }
-         *           }
-         *         ]
-         *       },
+         *       "_type": "Day",
+         *       "date": "2022-12-25",
+         *       "name": "Sunday (Christmas)",
+         *       "working": false,
          *       "_links": {
          *         "self": {
-         *           "href": "/api/v3/documents?offset=1&pageSize=30"
+         *           "href": "/api/v3/days/2022-12-25"
          *         },
-         *         "jumpTo": {
-         *           "href": "/api/v3/documents?offset=%7Boffset%7D&pageSize=30",
-         *           "templated": true
-         *         },
-         *         "changeSize": {
-         *           "href": "/api/v3/documents?offset=1&pageSize=%7Bsize%7D",
-         *           "templated": true
+         *         "nonWorkingReasons": [
+         *           {
+         *             "href": "/api/v3/days/week/7",
+         *             "title": "Sunday"
+         *           },
+         *           {
+         *             "href": "/api/v3/days/non_working/2022-12-25",
+         *             "title": "Christmas"
+         *           }
+         *         ],
+         *         "weekday": {
+         *           "href": "/api/v3/days/week/7",
+         *           "title": "Sunday"
          *         }
          *       }
          *     }
          */
-        documents_model: Record<string, never>;
-        /**
-         * @example {
-         *       "_type": "Document",
-         *       "id": 1,
-         *       "title": "Some other document",
-         *       "description": {
-         *         "format": "markdown",
-         *         "raw": "Videlicet deserunt aequitas cognatus. Concedo quia est quia pariatur vorago vallum. Calco autem atavus accusamus conscendo cornu ulterius. Tam patria ago consectetur ventito sustineo nihil caecus. Supra officiis eos velociter somniculosus tonsor qui. Suffragium aduro arguo angustus cogito quia tolero vulnus. Supplanto sortitus cresco apud vestrum qui.",
-         *         "html": "<p>Videlicet deserunt aequitas cognatus. Concedo quia est quia pariatur vorago vallum. Calco autem atavus accusamus conscendo cornu ulterius. Tam patria ago consectetur ventito sustineo nihil caecus. Supra officiis eos velociter somniculosus tonsor qui. Suffragium aduro arguo angustus cogito quia tolero vulnus. Supplanto sortitus cresco apud vestrum qui.</p>"
-         *       },
-         *       "createdAt": "2018-12-10T20:53:39.539Z",
-         *       "_links": {
-         *         "attachments": {
-         *           "href": "/api/v3/documents/1/attachments"
-         *         },
-         *         "addAttachment": {
-         *           "href": "/api/v3/documents/1/attachments",
-         *           "method": "post"
-         *         },
-         *         "self": {
-         *           "href": "/api/v3/documents/1",
-         *           "title": "Some document"
-         *         },
-         *         "project": {
-         *           "href": "/api/v3/projects/19",
-         *           "title": "Some project"
-         *         }
-         *       },
-         *       "_embedded": {
-         *         "project": {
-         *           "_type": "Project..."
-         *         },
-         *         "attachments": {
-         *           "_type": "Collection",
-         *           "total": 2,
-         *           "count": 2,
-         *           "_embedded...": {
-         *             "elements": []
-         *           },
-         *           "_links": {
-         *             "self": {
-         *               "href": "/api/v3/documents/1/attachments"
-         *             }
-         *           }
-         *         }
-         *       }
-         *     }
-         */
-        document_model: {
-            /** @description Document's id */
-            readonly id?: number;
-            /** @description The title chosen for the document */
-            title?: string;
-            description?: components["schemas"]["formattable"] & unknown;
+        DayModel: {
+            /** @enum {string} */
+            _type: "Day";
             /**
-             * Format: date-time
-             * @description The time the document was created at
+             * Format: date
+             * @description Date of the day.
              */
-            readonly createdAt?: string;
-            _links?: {
-                self: components["schemas"]["link"] & unknown;
-                project: components["schemas"]["link"] & unknown;
-                attachments: components["schemas"]["link"] & unknown;
-            };
-        };
-        /**
-         * @example {
-         *       "_links": {
-         *         "self": {
-         *           "href": "/api/v3/example/form"
-         *         },
-         *         "validate": {
-         *           "href": "/api/v3/example/form",
-         *           "method": "POST"
-         *         },
-         *         "previewMarkup": {
-         *           "href": "/api/v3/render/markdown",
-         *           "method": "POST"
-         *         },
-         *         "commit": {
-         *           "href": "/api/v3/example",
-         *           "method": "PATCH"
-         *         }
-         *       },
-         *       "_type": "Form",
-         *       "_embedded": {
-         *         "payload": {
-         *           "_links": {
-         *             "status": {
-         *               "href": "/api/v3/statuses/1"
-         *             }
-         *           },
-         *           "_type": "Example",
-         *           "lockVersion": 5,
-         *           "subject": "An example title"
-         *         },
-         *         "schema": {
-         *           "_type": "Schema",
-         *           "_links": {
-         *             "self": {
-         *               "href": "/api/v3/example/schema"
-         *             }
-         *           },
-         *           "lockVersion": {
-         *             "type": "Integer",
-         *             "writable": false
-         *           },
-         *           "subject": {
-         *             "type": "String",
-         *             "minLength": 1,
-         *             "maxLength": 255
-         *           },
-         *           "status": {
-         *             "_links": {
-         *               "allowedValues": [
-         *                 {
-         *                   "href": "/api/v3/statuses/1",
-         *                   "title": "New"
-         *                 },
-         *                 {
-         *                   "href": "/api/v3/statuses/2",
-         *                   "title": "Closed"
-         *                 }
-         *               ]
-         *             },
-         *             "type": "Status",
-         *             "_embedded": {
-         *               "allowedValues": [
-         *                 {
-         *                   "_links": {
-         *                     "self": {
-         *                       "href": "/api/v3/statuses/1"
-         *                     }
-         *                   },
-         *                   "_type": "Status",
-         *                   "id": 1,
-         *                   "name": "New",
-         *                   "position": 1,
-         *                   "isDefault": true,
-         *                   "isClosed": false,
-         *                   "defaultDoneRatio": 0,
-         *                   "createdAt": "2014-05-21T08:51:20.759Z",
-         *                   "updatedAt": "2014-05-21T09:12:00.237Z"
-         *                 },
-         *                 {
-         *                   "_links": {
-         *                     "self": {
-         *                       "href": "/api/v3/statuses/2"
-         *                     }
-         *                   },
-         *                   "_type": "Status",
-         *                   "id": 2,
-         *                   "name": "Closed",
-         *                   "position": 2,
-         *                   "isDefault": false,
-         *                   "isClosed": true,
-         *                   "defaultDoneRatio": 100,
-         *                   "createdAt": "2014-05-21T08:51:20.759Z",
-         *                   "updatedAt": "2014-05-21T09:12:00.237Z"
-         *                 }
-         *               ]
-         *             }
-         *           }
-         *         },
-         *         "validationErrors": {
-         *           "subject": {
-         *             "_type": "Error",
-         *             "errorIdentifier": "urn:openproject-org:api:v3:errors:BadExampleError",
-         *             "message": "For the purpose of this example we need a validation error. The remainder of the response pretends there were no errors."
-         *           }
-         *         }
-         *       }
-         *     }
-         */
-        example_form_model: Record<string, never>;
-        /**
-         * @example {
-         *       "_type": "Schema",
-         *       "_dependencies": [],
-         *       "_links": {
-         *         "self": {
-         *           "href": "/api/v3/example/schema"
-         *         }
-         *       },
-         *       "lockVersion": {
-         *         "name": "Resource Version",
-         *         "type": "Integer",
-         *         "writable": false
-         *       },
-         *       "subject": {
-         *         "name": "Subject",
-         *         "type": "String",
-         *         "minLength": 1,
-         *         "maxLength": 255
-         *       },
-         *       "status": {
-         *         "_links": {
-         *           "allowedValues": [
-         *             {
-         *               "href": "/api/v3/statuses/1",
-         *               "title": "New"
-         *             },
-         *             {
-         *               "href": "/api/v3/statuses/2",
-         *               "title": "Closed"
-         *             }
-         *           ]
-         *         },
-         *         "name": "Status",
-         *         "type": "Status",
-         *         "location": "_links",
-         *         "_embedded": {
-         *           "allowedValues": [
-         *             {
-         *               "_links": {
-         *                 "self": {
-         *                   "href": "/api/v3/statuses/1"
-         *                 }
-         *               },
-         *               "_type": "Status",
-         *               "id": 1,
-         *               "name": "New",
-         *               "position": 1,
-         *               "isDefault": true,
-         *               "isClosed": false,
-         *               "defaultDoneRatio": 0,
-         *               "createdAt": "2014-05-21T08:51:20.991Z",
-         *               "updatedAt": "2014-05-21T09:12:00.155Z"
-         *             },
-         *             {
-         *               "_links": {
-         *                 "self": {
-         *                   "href": "/api/v3/statuses/2"
-         *                 }
-         *               },
-         *               "_type": "Status",
-         *               "id": 2,
-         *               "name": "Closed",
-         *               "position": 2,
-         *               "isDefault": false,
-         *               "isClosed": true,
-         *               "defaultDoneRatio": 100,
-         *               "createdAt": "2014-05-21T08:51:20.991Z",
-         *               "updatedAt": "2014-05-21T09:12:00.155Z"
-         *             }
-         *           ]
-         *         }
-         *       }
-         *     }
-         */
-        example_schema_model: Record<string, never>;
-        file_link_origin_data_model: {
-            /** @description Linked file's id on the origin */
-            id: string;
-            /** @description Linked file's name on the origin */
+            date: string;
+            /** @description Descriptive name for the day. */
             name: string;
-            /**
-             * @description MIME type of the linked file.
-             *
-             *     To link a folder entity, the custom MIME type `application/x-op-directory` MUST be provided. Otherwise it defaults back to
-             *     an unknown MIME type.
-             */
-            mimeType?: string;
-            /** @description file size on origin in bytes */
-            size?: number;
-            /**
-             * Format: date-time
-             * @description Timestamp of the creation datetime of the file on the origin
-             */
-            createdAt?: string;
-            /**
-             * Format: date-time
-             * @description Timestamp of the datetime of the last modification of the file on the origin
-             */
-            lastModifiedAt?: string;
-            /** @description Display name of the author that created the file on the origin */
-            createdByName?: string;
-            /** @description Display name of the author that modified the file on the origin last */
-            lastModifiedByName?: string;
-        };
-        /**
-         * @example {
-         *       "id": 1337,
-         *       "_type": "OAuthApplication",
-         *       "name": "Vader's secure OAuth app",
-         *       "clientId": "O5h6WObhMg1Z8IcLHRE3_LMh4jJYmmca2V6OTFSv8DA",
-         *       "confidential": true,
-         *       "createdAt": "2022-12-07T12:56:42.626Z",
-         *       "updatedAt": "2022-12-07T12:56:42.626Z",
-         *       "scopes": [
-         *         "api_v3"
-         *       ],
-         *       "_links": {
-         *         "self": {
-         *           "href": "/api/v3/oauth_applications/1337"
-         *         },
-         *         "owner": {
-         *           "href": "/api/v3/users/13",
-         *           "title": "Darth Vader"
-         *         },
-         *         "integration": {
-         *           "href": "/api/v3/storages/42",
-         *           "title": "Death Star Cloud"
-         *         },
-         *         "redirectUri": [
-         *           {
-         *             "href": "https://death-star.cloud.tools/index.php/apps/integration_openproject/oauth-redirect"
-         *           }
-         *         ]
-         *       }
-         *     }
-         */
-        oauth_application_read_model: {
-            id: number;
-            /** @enum {string} */
-            _type: "OAuthApplication";
-            /** @description The name of the OAuth 2 application */
-            name: string;
-            /** @description OAuth 2 client id */
-            clientId: string;
-            /** @description OAuth 2 client secret. This is only returned when creating a new OAuth application. */
-            clientSecret?: string;
-            /** @description true, if OAuth 2 credentials are confidential, false, if no secret is stored */
-            confidential: boolean;
-            /**
-             * Format: date-time
-             * @description The time the OAuth 2 Application was created at
-             */
-            createdAt?: string;
-            /**
-             * Format: date-time
-             * @description The time the OAuth 2 Application was last updated
-             */
-            updatedAt?: string;
-            /** @description An array of the scopes of the OAuth 2 Application */
-            scopes?: string[];
-            _links: {
-                self: components["schemas"]["link"] & unknown;
-                owner: components["schemas"]["link"] & unknown;
-                integration?: components["schemas"]["link"] & unknown;
-                redirectUri: (components["schemas"]["link"] & unknown)[];
-            };
-        };
-        /**
-         * @example {
-         *       "id": 1337,
-         *       "_type": "OAuthClientCredentials",
-         *       "clientId": "O5h6WObhMg1Z8IcLHRE3_LMh4jJYmmca2V6OTFSv8DA",
-         *       "confidential": true,
-         *       "createdAt": "2022-12-07T12:56:42.836Z",
-         *       "updatedAt": "2022-12-07T12:56:42.836Z",
-         *       "_links": {
-         *         "self": {
-         *           "href": "/api/v3/oauth_client_credentials/1337"
-         *         },
-         *         "integration": {
-         *           "href": "/api/v3/storages/42",
-         *           "title": "Death Star Cloud"
-         *         }
-         *       }
-         *     }
-         */
-        oauth_client_credentials_read_model: {
-            id: number;
-            /** @enum {string} */
-            _type: "OAuthClientCredentials";
-            /** @description OAuth 2 client id */
-            clientId: string;
-            /** @description true, if OAuth 2 credentials are confidential, false, if no secret is stored */
-            confidential: boolean;
-            /**
-             * Format: date-time
-             * @description The time the OAuth client credentials were created at
-             */
-            createdAt?: string;
-            /**
-             * Format: date-time
-             * @description The time the OAuth client credentials were last updated
-             */
-            updatedAt?: string;
-            _links: {
-                self: components["schemas"]["link"] & unknown;
-                integration: components["schemas"]["link"] & unknown;
-            };
-        };
-        storage_read_model: {
-            /** @description Storage id */
-            id: number;
-            /** @enum {string} */
-            _type: "Storage";
-            /** @description Storage name */
-            name: string;
-            /**
-             * @description The audience that the storage expects in tokens for requests to it,
-             *     usually the storage's client ID at the identity provider.
-             *
-             *     This is only required for authentication through single-sign-on and so far
-             *     only supported for provider type Nextcloud.
-             */
-            storageAudience?: string;
-            /**
-             * @description The scope that will be requested when requesting a token for the storage through token exchange. Has no effect if no
-             *     token exchange is performed.
-             *
-             *     This is only required for authentication through single-sign-on and so far only supported for provider type Nextcloud.
-             */
-            tokenExchangeScope?: string;
-            /**
-             * @description The tenant id of a file storage of type OneDrive.
-             *
-             *     Ignored if the provider type is not OneDrive. May be null if the storage is not configured completely.
-             */
-            tenantId?: string | null;
-            /**
-             * @description The drive id of a file storage of type OneDrive.
-             *
-             *     Ignored if the provider type is not OneDrive. May be null if the storage is not configured completely.
-             */
-            driveId?: string | null;
-            /**
-             * @description Whether the storage has the application password to use for the Nextcloud storage.
-             *
-             *     Ignored if the provider type is not Nextcloud.
-             */
-            hasApplicationPassword?: boolean;
-            /**
-             * @description A string with all the characters forbidden to be used for file and folder names in the storage. Used by OpenProject to avoid
-             *     creating files with unsupported names (e.g. when creating project folders).
-             *
-             *     Only supported for provider type Nextcloud so far.
-             */
-            forbiddenFileNameCharacters?: string;
-            /**
-             * Format: date-time
-             * @description Time of creation
-             */
-            createdAt?: string;
-            /**
-             * Format: date-time
-             * @description Time of the most recent change to the storage
-             */
-            updatedAt?: string;
-            /** @description Indication, if the storage is fully configured */
-            configured?: boolean;
-            _embedded?: {
-                oauthApplication?: components["schemas"]["oauth_application_read_model"];
-                oauthClientCredentials?: components["schemas"]["oauth_client_credentials_read_model"];
-            };
-            _links: {
-                self: components["schemas"]["link"] & unknown;
-                type: components["schemas"]["link"] & unknown;
-                authenticationMethod?: components["schemas"]["link"] & unknown;
-                origin?: components["schemas"]["link"] & unknown;
-                open: components["schemas"]["link"] & unknown;
-                authorizationState: components["schemas"]["link"] & unknown;
-                authorize?: components["schemas"]["link"] & unknown;
-                oauthApplication?: components["schemas"]["link"] & unknown;
-                oauthClientCredentials?: components["schemas"]["link"] & unknown;
-            };
-        };
-        /**
-         * @example {
-         *       "id": 1337,
-         *       "_type": "FileLink",
-         *       "createdAt": "2021-12-20T13:37:00.211Z",
-         *       "updatedAt": "2021-12-20T13:37:00.211Z",
-         *       "originData": {
-         *         "id": "5503",
-         *         "name": "logo.png",
-         *         "mimeType": "image/png",
-         *         "size": 16042,
-         *         "createdAt": "2021-12-19T09:42:10.170Z",
-         *         "lastModifiedAt": "2021-12-20T14:00:13.987Z",
-         *         "createdByName": "Luke Skywalker",
-         *         "lastModifiedByName": "Anakin Skywalker"
-         *       },
-         *       "_embedded": {
-         *         "storage": {
-         *           "id": 1337,
-         *           "_type": "Storage",
-         *           "name": "It's no moon",
-         *           "createdAt": "2021-12-20T13:37:00.211Z",
-         *           "updatedAt": "2021-12-20T13:37:00.211Z",
-         *           "_links": {
-         *             "self": {
-         *               "href": "/api/v3/storages/1337",
-         *               "title": "It's no moon"
-         *             },
-         *             "type": {
-         *               "href": "urn:openproject-org:api:v3:storages:nextcloud",
-         *               "title": "Nextcloud"
-         *             },
-         *             "origin": {
-         *               "href": "https://nextcloud.deathstar.rocks/"
-         *             },
-         *             "open": {
-         *               "href": "https://example.com/a-link-to-open-the-file"
-         *             },
-         *             "authorizationState": {
-         *               "href": "urn:openproject-org:api:v3:storages:authorization:Connected"
-         *             }
-         *           }
-         *         },
-         *         "container": {
-         *           "_hint": "Work package resource shortened for brevity",
-         *           "_type": "WorkPackage",
-         *           "id": 1528,
-         *           "subject": "Develop API"
-         *         }
-         *       },
-         *       "_links": {
-         *         "self": {
-         *           "href": "/api/v3/work_package/17/file_links/1337"
-         *         },
-         *         "storage": {
-         *           "href": "/api/v3/storage/42",
-         *           "title": "It's no moon"
-         *         },
-         *         "container": {
-         *           "href": "/api/v3/work_package/17",
-         *           "title": "Develop API"
-         *         },
-         *         "creator": {
-         *           "href": "/api/v3/users/33",
-         *           "title": "Obi-Wan Kenobi"
-         *         },
-         *         "delete": {
-         *           "href": "/api/v3/work_package/17/file_links/1337"
-         *         },
-         *         "status": {
-         *           "href": "urn:openproject-org:api:v3:file-links:permission:ViewAllowed",
-         *           "title": "View allowed"
-         *         },
-         *         "originOpen": {
-         *           "href": "https://nextcloud.deathstar.rocks/index.php/f/5503?openfile=1"
-         *         },
-         *         "staticOriginOpen": {
-         *           "href": "/api/v3/file_links/1337/open"
-         *         },
-         *         "originOpenLocation": {
-         *           "href": "https://nextcloud.deathstar.rocks/index.php/f/5503?openfile=0"
-         *         },
-         *         "staticOriginOpenLocation": {
-         *           "href": "/api/v3/file_links/1337/open?location=true"
-         *         },
-         *         "staticOriginDownload": {
-         *           "href": "/api/v3/file_links/1337/download"
-         *         }
-         *       }
-         *     }
-         */
-        file_link_read_model: {
-            /** @description File link id */
-            id?: number;
-            /** @enum {string} */
-            _type?: "FileLink";
-            /**
-             * Format: date-time
-             * @description Time of creation
-             */
-            createdAt?: string;
-            /**
-             * Format: date-time
-             * @description Time of the most recent change to the file link
-             */
-            updatedAt?: string;
-            originData?: components["schemas"]["file_link_origin_data_model"];
-            _embedded?: {
-                storage: components["schemas"]["storage_read_model"];
-            };
+            /** @description `true` for a working day, `false` otherwise. */
+            working: boolean;
             _links?: {
-                self?: components["schemas"]["link"] & unknown;
-                storage?: components["schemas"]["link"] & unknown;
-                container?: components["schemas"]["link"] & unknown;
-                creator?: components["schemas"]["link"] & unknown;
-                delete?: components["schemas"]["link"] & unknown;
-                status?: components["schemas"]["link"] & unknown;
-                originOpen?: components["schemas"]["link"] & unknown;
-                staticOriginOpen?: components["schemas"]["link"] & unknown;
-                originOpenLocation?: components["schemas"]["link"] & unknown;
-                staticOriginOpenLocation?: components["schemas"]["link"] & unknown;
-                staticOriginDownload?: components["schemas"]["link"] & unknown;
-            };
-        };
-        paginated_collection_model: components["schemas"]["collection_model"] & {
-            /** @description Amount of elements that a response will hold. */
-            pageSize: number;
-            /** @description The page number that is requested from paginated collection. */
-            offset: number;
-            _links?: {
-                jumpTo: components["schemas"]["link"] & unknown;
-                changeSize: components["schemas"]["link"] & unknown;
-            };
-        };
-        grid_widget_model: {
-            /** @enum {string} */
-            _type: "GridWidget";
-            /** @description The grid widget's unique identifier. Can be null, if a new widget is created within a grid. */
-            id: number | null;
-            /** @description An alternative, human legible, and unique identifier. */
-            identifier: string;
-            /** @description The index of the starting row of the widget. The row is inclusive. */
-            startRow: number;
-            /** @description The index of the ending row of the widget. The row is exclusive. */
-            endRow: number;
-            /** @description The index of the starting column of the widget. The column is inclusive. */
-            startColumn: number;
-            /** @description The index of the ending column of the widget. The column is exclusive. */
-            endColumn: number;
-            options?: Record<string, never>;
-        };
-        grid_read_model: {
-            /** @enum {string} */
-            _type: "Grid";
-            /** @description Grid's id */
-            id: number;
-            /** @description The number of rows the grid has */
-            rowCount: number;
-            /** @description The number of columns the grid has */
-            columnCount: number;
-            /**
-             * @description The set of `GridWidget`s selected for the grid.
-             *
-             *     # Conditions
-             *
-             *     - The widgets must not overlap.
-             */
-            widgets: components["schemas"]["grid_widget_model"][];
-            /**
-             * Format: date-time
-             * @description The time the grid was created.
-             */
-            createdAt?: string;
-            /**
-             * Format: date-time
-             * @description The time the grid was last updated.
-             */
-            updatedAt?: string;
-            _links: {
-                self: components["schemas"]["link"] & unknown;
-                attachments?: components["schemas"]["link"] & unknown;
-                addAttachment?: components["schemas"]["link"] & unknown;
-                scope: components["schemas"]["link"] & unknown;
-                updateImmediately?: components["schemas"]["link"] & unknown;
-                update?: components["schemas"]["link"] & unknown;
-                delete?: components["schemas"]["link"] & unknown;
-            };
-        };
-        grid_collection_model: components["schemas"]["paginated_collection_model"] & {
-            _embedded: {
-                elements: components["schemas"]["grid_read_model"][];
-            };
-        };
-        grid_write_model: {
-            /** @description The number of rows the grid has */
-            rowCount?: number;
-            /** @description The number of columns the grid has */
-            columnCount?: number;
-            /**
-             * @description The set of `GridWidget`s selected for the grid.
-             *
-             *     # Conditions
-             *
-             *     - The widgets must not overlap.
-             */
-            widgets?: components["schemas"]["grid_widget_model"][];
-            _links?: {
-                scope?: components["schemas"]["link"] & unknown;
-            };
-        };
-        principal_model: {
-            /** @enum {string} */
-            _type: "User" | "Group" | "PlaceholderUser";
-            /** @description The principal's unique identifier. */
-            id: number;
-            /** @description The principal's display name, layout depends on instance settings. */
-            name: string;
-            /**
-             * Format: date-time
-             * @description Time of creation
-             */
-            createdAt?: string;
-            /**
-             * Format: date-time
-             * @description Time of the most recent change to the principal
-             */
-            updatedAt?: string;
-            _links: {
-                self: components["schemas"]["link"] & unknown;
-                memberships?: components["schemas"]["link"] & unknown;
-            };
-        };
-        user_model: components["schemas"]["principal_model"] & components["schemas"]["custom_field_properties"] & {
-            /** @enum {string} */
-            _type: "User";
-            /**
-             * Format: uri
-             * @description URL to user's avatar
-             */
-            avatar: string | null;
-            /**
-             * @description The user's login name
-             *
-             *     # Conditions
-             *
-             *     - User is self, or `create_user` or `manage_user` permission globally
-             */
-            login?: string;
-            /**
-             * @description The user's first name
-             *
-             *     # Conditions
-             *
-             *     - User is self, or `create_user` or `manage_user` permission globally
-             */
-            firstName?: string;
-            /**
-             * @description The user's last name
-             *
-             *     # Conditions
-             *
-             *     - User is self, or `create_user` or `manage_user` permission globally
-             */
-            lastName?: string;
-            /**
-             * @description The user's email address
-             *
-             *     # Conditions
-             *
-             *     - E-Mail address not hidden
-             *     - User is not a new record
-             *     - User is self, or `create_user` or `manage_user` permission globally
-             */
-            email?: string;
-            /**
-             * @description Flag indicating whether or not the user is an admin
-             *
-             *     # Conditions
-             *
-             *     - `admin`
-             */
-            admin?: boolean;
-            /**
-             * @description The current activation status of the user.
-             *
-             *     # Conditions
-             *
-             *     - User is self, or `create_user` or `manage_user` permission globally
-             */
-            status?: string;
-            /**
-             * @description User's language | ISO 639-1 format
-             *
-             *     # Conditions
-             *
-             *     - User is self, or `create_user` or `manage_user` permission globally
-             */
-            language?: string;
-            /**
-             * @deprecated
-             * @description User's identity_url for OmniAuth authentication.
-             *     **Deprecated:** It will be removed in the near future.
-             *
-             *     # Conditions
-             *
-             *     - User is self, or `create_user` or `manage_user` permission globally
-             */
-            identityUrl?: string | null;
-            /**
-             * Format: date-time
-             * @description Time of creation
-             */
-            createdAt?: string;
-            /**
-             * Format: date-time
-             * @description Time of the most recent change to the user
-             */
-            updatedAt?: string;
-            _links?: {
-                showUser?: components["schemas"]["link"] & unknown;
-                updateImmediately?: components["schemas"]["link"] & unknown;
-                lock?: components["schemas"]["link"] & unknown;
-                unlock?: components["schemas"]["link"] & unknown;
-                delete?: components["schemas"]["link"] & unknown;
-                authSource?: components["schemas"]["link"] & unknown;
-            };
-        };
-        group_model: components["schemas"]["principal_model"] & components["schemas"]["custom_field_properties"] & {
-            /** @enum {string} */
-            _type: "Group";
-            _embedded: {
-                /** @description Embedded list of members. */
-                members?: components["schemas"]["user_model"][];
-            };
-            _links?: {
-                self?: components["schemas"]["link"] & unknown;
-                members?: (components["schemas"]["link"] & unknown)[];
-                memberships?: components["schemas"]["link"] & unknown;
-                delete?: components["schemas"]["link"] & unknown;
-                updateImmediately?: components["schemas"]["link"] & unknown;
-            };
-        };
-        /**
-         * @example {
-         *       "_type": "Collection",
-         *       "total": 2,
-         *       "count": 2,
-         *       "_links": {
-         *         "self": {
-         *           "href": "/api/v3/groups"
-         *         }
-         *       },
-         *       "_embedded": {
-         *         "elements": [
-         *           {
-         *             "_type": "Group",
-         *             "id": 1337,
-         *             "name": "Stormtroopers",
-         *             "createdAt": "2022-09-23T11:06:36.300Z",
-         *             "updatedAt": "2022-09-23T11:06:36.300Z",
-         *             "_links": {
-         *               "self": {
-         *                 "href": "/api/v3/groups/9",
-         *                 "title": "Stormtroopers"
-         *               },
-         *               "delete": {
-         *                 "href": "/api/v3/group/9",
-         *                 "method": "delete"
-         *               },
-         *               "memberships": {
-         *                 "href": "/api/v3/memberships?filters=[{\"principal\":{\"operator\":\"=\",\"values\":[\"9\"]}}]",
-         *                 "title": "Memberships"
-         *               },
-         *               "updateImmediately": {
-         *                 "href": "/api/v3/group/9",
-         *                 "method": "patch"
-         *               },
-         *               "members": [
-         *                 {
-         *                   "href": "/api/v3/users/363",
-         *                   "title": "ST-097E"
-         *                 },
-         *                 {
-         *                   "href": "/api/v3/users/60",
-         *                   "title": "ST-C-334"
-         *                 }
-         *               ]
-         *             }
-         *           },
-         *           {
-         *             "_abbreviated": "Group resource shortened for brevity",
-         *             "id": 1338
-         *           }
-         *         ]
-         *       }
-         *     }
-         */
-        group_collection_model: components["schemas"]["collection_model"] & {
-            _links: {
-                self: components["schemas"]["link"] & unknown;
-            };
-            _embedded: {
-                elements: components["schemas"]["group_model"][];
-            };
-        };
-        /**
-         * @example {
-         *       "name": "Emperor's guard",
-         *       "_links": {
-         *         "members": [
-         *           {
-         *             "href": "/api/v3/users/42"
-         *           },
-         *           {
-         *             "href": "/api/v3/users/43"
-         *           },
-         *           {
-         *             "href": "/api/v3/users/44"
-         *           }
-         *         ]
-         *       }
-         *     }
-         */
-        group_write_model: {
-            /** @description The new group name. */
-            name?: string;
-            _links?: {
-                members?: (components["schemas"]["link"] & unknown)[];
-            };
-        };
-        /**
-         * @example {
-         *       "_type": "HelpText",
-         *       "id": 1,
-         *       "attribute": "id",
-         *       "scope": "WorkPackage",
-         *       "caption": "Some plain text caption",
-         *       "helpText": {
-         *         "format": "markdown",
-         *         "raw": "Help text for id attribute.",
-         *         "html": "<p>Help text for id attribute.</p>"
-         *       },
-         *       "_links": {
-         *         "self": {
-         *           "href": "/api/v3/help_texts/1"
-         *         },
-         *         "editText": {
-         *           "href": "/admin/attribute_help_texts/1/edit",
-         *           "type": "text/html"
-         *         },
-         *         "attachments": {
-         *           "href": "/api/v3/help_texts/1/attachments"
-         *         },
-         *         "addAttachment": {
-         *           "href": "/api/v3/help_texts/1/attachments",
-         *           "method": "post"
-         *         }
-         *       }
-         *     }
-         */
-        help_text_model: {
-            /** @enum {string} */
-            _type: "HelpText";
-            /** Format: int64 */
-            id: number;
-            /** @description The attribute the help text is assigned to. */
-            attribute: string;
-            /** @enum {string} */
-            scope: "WorkPackage" | "Project";
-            helpText: components["schemas"]["formattable"];
-            _links: {
-                self: components["schemas"]["link"] & unknown;
-                editText: components["schemas"]["link"] & unknown;
-                attachments: components["schemas"]["link"] & unknown;
-                addAttachment: components["schemas"]["link"] & unknown;
-            };
-        };
-        /**
-         * @example {
-         *       "total": 2,
-         *       "count": 2,
-         *       "_type": "Collection",
-         *       "_embedded": {
-         *         "elements": [
-         *           {
-         *             "_type": "HelpText",
-         *             "_links": {
-         *               "self": {
-         *                 "href": "/api/v3/help_texts/1"
-         *               },
-         *               "editText": {
-         *                 "href": "/admin/attribute_help_texts/1/edit",
-         *                 "type": "text/html"
-         *               },
-         *               "attachments": {
-         *                 "href": "/api/v3/help_texts/1/attachments"
-         *               },
-         *               "addAttachment": {
-         *                 "href": "/api/v3/help_texts/1/attachments",
-         *                 "method": "post"
-         *               }
-         *             },
-         *             "id": 1,
-         *             "attribute": "id",
-         *             "attributeCaption": "ID",
-         *             "scope": "WorkPackage",
-         *             "helpText": {
-         *               "format": "markdown",
-         *               "raw": "Help text for id attribute.",
-         *               "html": "<p>Help text for id attribute.</p>"
-         *             }
-         *           },
-         *           {
-         *             "_type": "HelpText",
-         *             "_links": {
-         *               "self": {
-         *                 "href": "/api/v3/help_texts/2"
-         *               },
-         *               "editText": {
-         *                 "href": "/admin/attribute_help_texts/2/edit",
-         *                 "type": "text/html"
-         *               },
-         *               "attachments": {
-         *                 "href": "/api/v3/help_texts/2/attachments"
-         *               },
-         *               "addAttachment": {
-         *                 "href": "/api/v3/help_texts/2/attachments",
-         *                 "method": "post"
-         *               }
-         *             },
-         *             "id": 2,
-         *             "attribute": "status",
-         *             "attributeCaption": "Status",
-         *             "scope": "WorkPackage",
-         *             "helpText": {
-         *               "format": "markdown",
-         *               "raw": "Help text for status attribute.",
-         *               "html": "<p>Help text for status attribute.</p>"
-         *             }
-         *           }
-         *         ]
-         *       },
-         *       "_links": {
-         *         "self": {
-         *           "href": "/api/v3/help_texts"
-         *         }
-         *       }
-         *     }
-         */
-        help_text_collection_model: components["schemas"]["collection_model"] & {
-            _links: {
-                self: components["schemas"]["link"] & unknown;
-            };
-            _embedded: {
-                elements: components["schemas"]["help_text_model"][];
-            };
-        };
-        custom_comment_properties: {
-            [key: string]: null | string;
-        };
-        project_model: components["schemas"]["custom_field_properties"] & components["schemas"]["custom_comment_properties"] & {
-            /** @enum {string} */
-            _type?: "Project";
-            /** @description Projects' id */
-            id?: number;
-            identifier?: string;
-            name?: string;
-            /** @description Indicates whether the project is currently active or already archived */
-            active?: boolean;
-            /** @description Indicates whether the project is favorited by the current user */
-            favorited?: boolean;
-            statusExplanation?: components["schemas"]["formattable"] & unknown;
-            /** @description Indicates whether the project is accessible for everybody */
-            public?: boolean;
-            description?: components["schemas"]["formattable"];
-            /**
-             * Format: date-time
-             * @description Time of creation. Can be writable by admins with the `apiv3_write_readonly_attributes` setting enabled.
-             */
-            createdAt?: string;
-            /**
-             * Format: date-time
-             * @description Time of the most recent change to the project
-             */
-            updatedAt?: string;
-            _links?: {
-                update?: components["schemas"]["link"] & unknown;
-                updateImmediately?: components["schemas"]["link"] & unknown;
-                delete?: components["schemas"]["link"] & unknown;
-                favor?: components["schemas"]["link"] & unknown;
-                disfavor?: components["schemas"]["link"] & unknown;
-                createWorkPackage?: components["schemas"]["link"] & unknown;
-                createWorkPackageImmediately?: components["schemas"]["link"] & unknown;
-                self: components["schemas"]["link"] & unknown;
-                categories: components["schemas"]["link"] & unknown;
-                types?: components["schemas"]["link"] & unknown;
-                versions?: components["schemas"]["link"] & unknown;
-                memberships?: components["schemas"]["link"] & unknown;
-                workPackages?: components["schemas"]["link"] & unknown;
-                parent?: components["schemas"]["link"] & unknown;
-                status?: components["schemas"]["link"] & unknown;
-                storages?: (components["schemas"]["link"] & unknown)[];
-                projectStorages?: components["schemas"]["link"] & unknown;
-                ancestors?: (components["schemas"]["link"] & unknown)[];
-            };
-        };
-        meeting_model: {
-            /** @enum {string} */
-            _type: "Meeting";
-            /** @description Identifier of this meeting */
-            id: number;
-            /** @description The meeting's title */
-            title: string;
-            /** @description The meeting's location */
-            location?: string;
-            /** @description The version of the item as used for optimistic locking */
-            lockVersion: number;
-            /**
-             * Format: date-time
-             * @description The scheduled meeting start time.
-             */
-            startTime: string;
-            /**
-             * Format: date-time
-             * @description The scheduled meeting end time.
-             */
-            endTime: string;
-            /**
-             * Format: duration
-             * @description The meeting duration in hours.
-             */
-            duration: string;
-            /**
-             * @description The current state of the meeting. Possible values:
-             *
-             *     - *open*: the meeting is open
-             *     - *draft*: the meeting is in draft state
-             *     - *in_progress*: the meeting is currently in progress
-             *     - *cancelled*: the meeting has been cancelled
-             *     - *closed*: the meeting is closed
-             * @enum {string}
-             */
-            state?: "open" | "draft" | "in_progress" | "cancelled" | "closed";
-            /**
-             * @description How the meeting template is shared. Only applicable for one-time templates. Possible values:
-             *
-             *     - *none*: not shared
-             *     - *descendants*: shared with descendant projects
-             *     - *system*: shared globally
-             * @enum {string}
-             */
-            sharing?: "none" | "descendants" | "system";
-            /** @description Whether this meeting is a template. */
-            template?: boolean;
-            /** @description Whether to send email notifications to participants. */
-            notify?: boolean;
-            /**
-             * Format: date-time
-             * @description Time of creation. Can be writable by admins with the `apiv3_write_readonly_attributes` setting enabled.
-             */
-            createdAt: string;
-            /**
-             * Format: date-time
-             * @description Time of the most recent change to the meeting.
-             */
-            updatedAt: string;
-            _embedded?: {
-                attachments: components["schemas"]["attachments_model"];
-                author: components["schemas"]["user_model"];
-                project?: components["schemas"]["project_model"];
-            };
-            _links?: {
-                self?: components["schemas"]["link"] & unknown;
-                schema?: components["schemas"]["link"] & unknown;
-                update?: components["schemas"]["link"] & unknown;
-                updateImmediately?: components["schemas"]["link"] & unknown;
-                delete?: components["schemas"]["link"] & unknown;
-                author?: components["schemas"]["link"] & unknown;
-                project?: components["schemas"]["link"] & unknown;
-                attachments?: components["schemas"]["link"] & unknown;
-                addAttachment?: components["schemas"]["link"] & unknown;
-            };
-        };
-        meeting_collection_model: components["schemas"]["paginated_collection_model"] & {
-            _embedded: {
-                elements: components["schemas"]["meeting_model"][];
-            };
-            _links: {
-                self: components["schemas"]["link"] & unknown;
-            };
-        };
-        meeting_write_model: {
-            /** @description The meeting's title */
-            title?: string;
-            /** @description The meeting's location */
-            location?: string;
-            /**
-             * Format: date-time
-             * @description The scheduled meeting start time.
-             */
-            startTime?: string;
-            /** @description The meeting duration as an ISO 8601 duration (e.g. `PT1H` for 1 hour, `PT1H30M` for 1.5 hours). */
-            duration?: string;
-            /**
-             * @description The current state of the meeting. Possible values:
-             *
-             *     - *open*
-             *     - *draft*
-             *     - *in_progress*
-             *     - *cancelled*
-             *     - *closed*
-             * @enum {string}
-             */
-            state?: "open" | "draft" | "in_progress" | "cancelled" | "closed";
-            /**
-             * @description How the meeting template is shared. Only applicable for one-time templates.
-             * @enum {string}
-             */
-            sharing?: "none" | "descendants" | "system";
-            /** @description Whether this meeting is a template. */
-            template?: boolean;
-            /** @description Whether to send email notifications to participants. */
-            notify?: boolean;
-            /**
-             * @description The version of the item as used for optimistic locking.
-             *
-             *     Required for PATCH operations to detect concurrent modifications.
-             */
-            lockVersion?: number;
-            _links?: {
-                project?: components["schemas"]["link"] & unknown;
-            };
-        };
-        meeting_agenda_item_model: {
-            /** @enum {string} */
-            _type: "MeetingAgendaItem";
-            /** @description Identifier of this agenda item */
-            id: number;
-            /** @description The agenda item's title. Required for simple items. */
-            title: string;
-            notes?: components["schemas"]["formattable"];
-            /** @description The position of the agenda item within its section. */
-            position: number;
-            /** @description The agenda item's duration in minutes. */
-            durationInMinutes?: number | null;
-            /**
-             * @description The type of this agenda item. Possible values:
-             *
-             *     - *simple*: a simple text agenda item
-             *     - *work_package*: an agenda item linked to a work package
-             * @enum {string}
-             */
-            itemType: "simple" | "work_package";
-            /** @description The version of the item as used for optimistic locking. */
-            lockVersion?: number;
-            /**
-             * Format: date-time
-             * @description Time of creation.
-             */
-            createdAt: string;
-            /**
-             * Format: date-time
-             * @description Time of the most recent change.
-             */
-            updatedAt: string;
-            _links?: {
-                self?: components["schemas"]["link"] & unknown;
-                meeting?: components["schemas"]["link"] & unknown;
-                author?: components["schemas"]["link"] & unknown;
-                presenter?: components["schemas"]["link"] & unknown;
-                workPackage?: components["schemas"]["link"] & unknown;
-                section?: components["schemas"]["link"] & unknown;
-            };
-        };
-        meeting_agenda_item_collection_model: {
-            /** @enum {string} */
-            _type: "Collection";
-            count: number;
-            total: number;
-            _embedded: {
-                elements: components["schemas"]["meeting_agenda_item_model"][];
-            };
-            _links: {
-                self: components["schemas"]["link"] & unknown;
-            };
-        };
-        meeting_agenda_item_write_model: {
-            /** @description The agenda item's title. */
-            title?: string;
-            notes?: components["schemas"]["formattable"];
-            /** @description The agenda item's duration in minutes. */
-            durationInMinutes?: number | null;
-            /**
-             * @description The type of this agenda item (simple or work_package).
-             * @enum {string}
-             */
-            itemType?: "simple" | "work_package";
-            /** @description The version of the item as used for optimistic locking. Required for PATCH operations. */
-            lockVersion?: number;
-            _links?: {
-                workPackage?: components["schemas"]["link"] & unknown;
-                presenter?: components["schemas"]["link"] & unknown;
-                section?: components["schemas"]["link"] & unknown;
-            };
-        };
-        meeting_outcome_model: {
-            /** @enum {string} */
-            _type: "MeetingOutcome";
-            /** @description Identifier of this outcome */
-            id: number;
-            /**
-             * @description The type of this outcome. Possible values:
-             *
-             *     - *information*: an informational outcome with notes
-             *     - *work_package*: an outcome linked to a work package
-             * @enum {string}
-             */
-            kind: "information" | "work_package";
-            notes?: components["schemas"]["formattable"];
-            /**
-             * Format: date-time
-             * @description Time of creation.
-             */
-            createdAt: string;
-            /**
-             * Format: date-time
-             * @description Time of the most recent change.
-             */
-            updatedAt: string;
-            _links?: {
-                self?: components["schemas"]["link"] & unknown;
-                author?: components["schemas"]["link"] & unknown;
-                agendaItem?: components["schemas"]["link"] & unknown;
-                workPackage?: components["schemas"]["link"] & unknown;
-            };
-        };
-        meeting_outcome_collection_model: {
-            /** @enum {string} */
-            _type: "Collection";
-            count: number;
-            total: number;
-            _embedded: {
-                elements: components["schemas"]["meeting_outcome_model"][];
-            };
-            _links: {
-                self: components["schemas"]["link"] & unknown;
-            };
-        };
-        meeting_outcome_write_model: {
-            /**
-             * @description The type of this outcome. Possible values:
-             *
-             *     - *information*: an informational outcome with notes
-             *     - *work_package*: an outcome linked to a work package
-             * @enum {string}
-             */
-            kind?: "information" | "work_package";
-            notes?: components["schemas"]["formattable"];
-            _links?: {
-                workPackage?: components["schemas"]["link"] & unknown;
-            };
-        };
-        meeting_section_model: {
-            /** @enum {string} */
-            _type: "MeetingSection";
-            /** @description Identifier of this section */
-            id: number;
-            /** @description The section's title. */
-            title: string;
-            /** @description The position of the section within the meeting. */
-            position: number;
-            /**
-             * Format: date-time
-             * @description Time of creation.
-             */
-            createdAt: string;
-            /**
-             * Format: date-time
-             * @description Time of the most recent change.
-             */
-            updatedAt: string;
-            _links?: {
-                self?: components["schemas"]["link"] & unknown;
-                meeting?: components["schemas"]["link"] & unknown;
-            };
-        };
-        meeting_section_collection_model: {
-            /** @enum {string} */
-            _type: "Collection";
-            count: number;
-            total: number;
-            _embedded: {
-                elements: components["schemas"]["meeting_section_model"][];
-            };
-            _links: {
-                self: components["schemas"]["link"] & unknown;
-            };
-        };
-        meeting_section_write_model: {
-            /** @description The section's title. */
-            title?: string;
-        };
-        program_model: components["schemas"]["custom_field_properties"] & components["schemas"]["custom_comment_properties"] & {
-            /** @enum {string} */
-            _type?: "Program";
-            /** @description Programs' id */
-            id?: number;
-            identifier?: string;
-            name?: string;
-            /** @description Indicates whether the program is currently active or already archived */
-            active?: boolean;
-            /** @description Indicates whether the program is favorited by the current user */
-            favorited?: boolean;
-            statusExplanation?: components["schemas"]["formattable"] & unknown;
-            /** @description Indicates whether the program is accessible for everybody */
-            public?: boolean;
-            description?: components["schemas"]["formattable"];
-            /**
-             * Format: date-time
-             * @description Time of creation. Can be writable by admins with the `apiv3_write_readonly_attributes` setting enabled.
-             */
-            createdAt?: string;
-            /**
-             * Format: date-time
-             * @description Time of the most recent change to the program
-             */
-            updatedAt?: string;
-            _links?: {
-                update?: components["schemas"]["link"] & unknown;
-                updateImmediately?: components["schemas"]["link"] & unknown;
-                delete?: components["schemas"]["link"] & unknown;
-                favor?: components["schemas"]["link"] & unknown;
-                disfavor?: components["schemas"]["link"] & unknown;
-                createWorkPackage?: components["schemas"]["link"] & unknown;
-                createWorkPackageImmediately?: components["schemas"]["link"] & unknown;
-                self: components["schemas"]["link"] & unknown;
-                categories: components["schemas"]["link"] & unknown;
-                types?: components["schemas"]["link"] & unknown;
-                versions?: components["schemas"]["link"] & unknown;
-                memberships?: components["schemas"]["link"] & unknown;
-                workPackages?: components["schemas"]["link"] & unknown;
-                parent?: components["schemas"]["link"] & unknown;
-                status?: components["schemas"]["link"] & unknown;
-                storages?: (components["schemas"]["link"] & unknown)[];
-                projectStorages?: components["schemas"]["link"] & unknown;
-                ancestors?: (components["schemas"]["link"] & unknown)[];
-            };
-        };
-        portfolio_model: components["schemas"]["custom_field_properties"] & components["schemas"]["custom_comment_properties"] & {
-            /** @enum {string} */
-            _type?: "Portfolio";
-            /** @description Portfolios' id */
-            id?: number;
-            identifier?: string;
-            name?: string;
-            /** @description Indicates whether the portfolio is currently active or already archived */
-            active?: boolean;
-            /** @description Indicates whether the portfolio is favorited by the current user */
-            favorited?: boolean;
-            statusExplanation?: components["schemas"]["formattable"] & unknown;
-            /** @description Indicates whether the portfolio is accessible for everybody */
-            public?: boolean;
-            description?: components["schemas"]["formattable"];
-            /**
-             * Format: date-time
-             * @description Time of creation. Can be writable by admins with the `apiv3_write_readonly_attributes` setting enabled.
-             */
-            createdAt?: string;
-            /**
-             * Format: date-time
-             * @description Time of the most recent change to the portfolio
-             */
-            updatedAt?: string;
-            _links?: {
-                update?: components["schemas"]["link"] & unknown;
-                updateImmediately?: components["schemas"]["link"] & unknown;
-                delete?: components["schemas"]["link"] & unknown;
-                favor?: components["schemas"]["link"] & unknown;
-                disfavor?: components["schemas"]["link"] & unknown;
-                createWorkPackage?: components["schemas"]["link"] & unknown;
-                createWorkPackageImmediately?: components["schemas"]["link"] & unknown;
-                self: components["schemas"]["link"] & unknown;
-                categories: components["schemas"]["link"] & unknown;
-                types?: components["schemas"]["link"] & unknown;
-                versions?: components["schemas"]["link"] & unknown;
-                memberships?: components["schemas"]["link"] & unknown;
-                workPackages?: components["schemas"]["link"] & unknown;
-                parent?: components["schemas"]["link"] & unknown;
-                status?: components["schemas"]["link"] & unknown;
-                storages?: (components["schemas"]["link"] & unknown)[];
-                projectStorages?: components["schemas"]["link"] & unknown;
-                ancestors?: (components["schemas"]["link"] & unknown)[];
-            };
-        };
-        /**
-         * @example {
-         *       "_type": "Role",
-         *       "id": 3,
-         *       "name": "Manager",
-         *       "_links": {
-         *         "self": {
-         *           "href": "/api/v3/roles/3",
-         *           "title": "Manager"
-         *         }
-         *       }
-         *     }
-         */
-        role_model: {
-            /** @enum {string} */
-            _type?: "Role";
-            /** @description Role id */
-            readonly id?: number;
-            /** @description Role name */
-            name: string;
-            _links?: {
-                self: components["schemas"]["link"] & unknown;
-            };
-        };
-        membership_read_model: {
-            /** @enum {string} */
-            _type: "Membership";
-            /** @description The membership's id */
-            id: number;
-            /**
-             * Format: date-time
-             * @description The time the membership was created.
-             */
-            createdAt: string;
-            /**
-             * Format: date-time
-             * @description The time the membership was last updated.
-             */
-            updatedAt: string;
-            _embedded?: {
-                project?: components["schemas"]["project_model"] | components["schemas"]["program_model"] | components["schemas"]["portfolio_model"];
-                principal?: components["schemas"]["user_model"] | components["schemas"]["group_model"];
-                roles?: components["schemas"]["role_model"][];
-            };
-            _links: {
-                self: components["schemas"]["link"] & unknown;
-                schema: components["schemas"]["link"] & unknown;
-                update?: components["schemas"]["link"] & unknown;
-                updateImmediately?: components["schemas"]["link"] & unknown;
-                project: components["schemas"]["link"] & unknown;
-                principal: components["schemas"]["link"] & unknown;
-                roles: (components["schemas"]["link"] & unknown)[];
-            };
-        };
-        membership_collection_model: components["schemas"]["paginated_collection_model"] & {
-            _embedded: {
-                elements: components["schemas"]["membership_read_model"][];
-            };
-        };
-        membership_write_model: {
-            _links: {
-                principal?: components["schemas"]["link"] & unknown;
-                roles?: (components["schemas"]["link"] & unknown)[];
-                project?: components["schemas"]["link"] & unknown;
-            };
-            _meta?: {
-                notificationMessage?: components["schemas"]["formattable"] & unknown;
+                self: components["schemas"]["Link"];
                 /**
-                 * @description Set to false, if no notification should get sent.
-                 * @default true
+                 * @description A list of resources describing why this day is a non-working day.
+                 *     Linked resources can be `NonWorkingDay` and `WeekDay` resources.
+                 *     This property is absent for working days.
                  */
-                sendNotification: boolean;
-            };
-        };
-        offset_paginated_collection_links: components["schemas"]["collection_links"] & {
-            jumpTo: components["schemas"]["link"] & unknown;
-            changeSize: components["schemas"]["link"] & unknown;
-            previousByOffset?: components["schemas"]["link"] & unknown;
-            nextByOffset?: components["schemas"]["link"] & unknown;
-        };
-        offset_paginated_collection_model: components["schemas"]["collection_model"] & {
-            /**
-             * @description The amount of elements per page. If not set by the request this value defaults to the server's system
-             *     settings.
-             */
-            pageSize: number;
-            /** @description The page offset indicating on which page the element collection starts. */
-            offset: number;
-            _links: components["schemas"]["offset_paginated_collection_links"];
-        };
-        project_collection_model: components["schemas"]["offset_paginated_collection_model"] & {
-            _links: components["schemas"]["offset_paginated_collection_links"] & {
-                representations?: (components["schemas"]["link"] & unknown)[];
-            };
-            _embedded: {
-                elements: components["schemas"]["project_model"][];
-            };
-        };
-        schema_model: {
-            /** @enum {string} */
-            _type: "Schema";
-            /** @description A list of dependencies between one property's value and another property */
-            _dependencies?: string[];
-            _links: {
-                self?: components["schemas"]["link"] & unknown;
-            };
-        };
-        schema_property_model: {
-            /** @description The resource type for this property. */
-            type: string;
-            /** @description The name of the property. */
-            name: string;
-            /** @description Indicates, if the property is required for submitting a request of this schema. */
-            required: boolean;
-            /** @description Indicates, if the property has a default. */
-            hasDefault: boolean;
-            /** @description Indicates, if the property is writable when sending a request of this schema. */
-            writable: boolean;
-            /** @description Additional options for the property. */
-            options?: Record<string, never>;
-            /**
-             * @description Defines the json path where the property is located in the payload.
-             * @default
-             */
-            location: string;
-            /** @description A placeholder for the property to display if the property has no value. */
-            placeholder?: string;
-            /** @description Useful links for this property (e.g. an endpoint to fetch allowed values) */
-            _links?: Record<string, never>;
-        };
-        membership_schema_model: components["schemas"]["schema_model"] & {
-            id: components["schemas"]["schema_property_model"];
-            createdAt: components["schemas"]["schema_property_model"];
-            updatedAt: components["schemas"]["schema_property_model"];
-            notificationMessage: components["schemas"]["schema_property_model"];
-            project: components["schemas"]["schema_property_model"];
-            principal: components["schemas"]["schema_property_model"];
-            roles: components["schemas"]["schema_property_model"];
-        };
-        membership_form_model: {
-            /** @enum {string} */
-            _type: "Form";
-            _embedded: {
-                payload: components["schemas"]["membership_write_model"];
-                schema: components["schemas"]["membership_schema_model"];
-                validationError: {
-                    base?: components["schemas"]["error_response"];
-                    principal?: components["schemas"]["error_response"];
-                    roles?: components["schemas"]["error_response"];
-                };
-            };
-            _links: {
-                self: components["schemas"]["link"] & unknown;
-                validate: (components["schemas"]["link"] & unknown)[];
-                commit: components["schemas"]["link"] & unknown;
+                nonWorkingReasons?: components["schemas"]["Link"][];
+                weekDay?: components["schemas"]["Link"] & unknown;
             };
         };
         /**
          * @example {
+         *       "_type": "Query",
+         *       "name": "default",
+         *       "filters": [
+         *         {
+         *           "_type": "StatusQueryFilter",
+         *           "name": "Status",
+         *           "_links": {
+         *             "filter": {
+         *               "href": "/api/v3/queries/filters/status",
+         *               "title": "Status"
+         *             },
+         *             "operator": {
+         *               "href": "/api/v3/queries/operators/o",
+         *               "title": "open"
+         *             },
+         *             "schema": {
+         *               "href": "/api/v3/queries/filter_instance_schemas/status"
+         *             },
+         *             "values": []
+         *           }
+         *         }
+         *       ],
+         *       "public": false,
+         *       "sums": false,
+         *       "timelineVisible": false,
+         *       "timelineZoomLevel": "days",
+         *       "timelineLabels": {},
+         *       "highlightingMode": "inline",
+         *       "timestamps": [
+         *         "P0D"
+         *       ],
+         *       "showHierarchies": true,
+         *       "starred": false,
+         *       "_embedded": {
+         *         "results": {
+         *           "_type": "WorkPackageCollection",
+         *           "total": 234,
+         *           "count": 30,
+         *           "pageSize": 2,
+         *           "offset": 1,
+         *           "_embedded": {
+         *             "elements": [
+         *               "<--- shortened for brevity --->"
+         *             ]
+         *           },
+         *           "_links": {
+         *             "self": {
+         *               "href": "/api/v3/work_packages?filters=%5B%7B%22status%22%3A%7B%22operator%22%3A%22o%22%2C%22values%22%3A%5B%5D%7D%7D%2C%7B%22dueDate%22%3A%7B%22operator%22%3A%22%3Ct%2B%22%2C%22values%22%3A%5B%221%22%5D%7D%7D%5D&offset=1&pageSize=2&sortBy=%5B%5B%22parent%22%2C%22desc%22%5D%5D"
+         *             },
+         *             "jumpTo": {
+         *               "href": "/api/v3/work_packages?filters=%5B%7B%22status%22%3A%7B%22operator%22%3A%22o%22%2C%22values%22%3A%5B%5D%7D%7D%2C%7B%22dueDate%22%3A%7B%22operator%22%3A%22%3Ct%2B%22%2C%22values%22%3A%5B%221%22%5D%7D%7D%5D&offset=%7Boffset%7D&pageSize=2&sortBy=%5B%5B%22parent%22%2C%22desc%22%5D%5D",
+         *               "templated": true
+         *             },
+         *             "changeSize": {
+         *               "href": "/api/v3/work_packages?filters=%5B%7B%22status%22%3A%7B%22operator%22%3A%22o%22%2C%22values%22%3A%5B%5D%7D%7D%2C%7B%22dueDate%22%3A%7B%22operator%22%3A%22%3Ct%2B%22%2C%22values%22%3A%5B%221%22%5D%7D%7D%5D&offset=1&pageSize=%7Bsize%7D&sortBy=%5B%5B%22parent%22%2C%22desc%22%5D%5D",
+         *               "templated": true
+         *             },
+         *             "createWorkPackage": {
+         *               "href": "/api/v3/work_packages/form",
+         *               "method": "post"
+         *             },
+         *             "createWorkPackageImmediate": {
+         *               "href": "/api/v3/work_packages",
+         *               "method": "post"
+         *             }
+         *           },
+         *           "highlightedAttributes": []
+         *         }
+         *       },
          *       "_links": {
          *         "self": {
-         *           "href": "/api/v3/my_preferences"
+         *           "href": "/api/v3/queries/default",
+         *           "title": "Default"
          *         },
+         *         "results": {
+         *           "href": "/api/v3/work_packages?filters=%5B%7B%22status%22%3A%7B%22operator%22%3A%22o%22%2C%22values%22%3A%5B%5D%7D%7D%2C%7B%22dueDate%22%3A%7B%22operator%22%3A%22%3Ct%2B%22%2C%22values%22%3A%5B%221%22%5D%7D%7D%5D&offset=1&pageSize=2&sortBy=%5B%5B%22parent%22%2C%22desc%22%5D%5D"
+         *         },
+         *         "columns": [
+         *           {
+         *             "href": "/api/v3/queries/columns/id",
+         *             "title": "ID"
+         *           },
+         *           {
+         *             "href": "/api/v3/queries/columns/subject",
+         *             "title": "Subject"
+         *           },
+         *           {
+         *             "href": "/api/v3/queries/columns/type",
+         *             "title": "Type"
+         *           },
+         *           {
+         *             "href": "/api/v3/queries/columns/status",
+         *             "title": "Status"
+         *           },
+         *           {
+         *             "href": "/api/v3/queries/columns/priority",
+         *             "title": "Priority"
+         *           },
+         *           {
+         *             "href": "/api/v3/queries/columns/assignee",
+         *             "title": "Assignee"
+         *           },
+         *           {
+         *             "href": "/api/v3/queries/columns/updated_at",
+         *             "title": "Updated on"
+         *           }
+         *         ],
+         *         "highlightedAttributes": [],
+         *         "groupBy": {
+         *           "href": null,
+         *           "title": null
+         *         },
+         *         "sortBy": [
+         *           {
+         *             "href": "/api/v3/queries/sort_bys/parent-desc",
+         *             "title": "Parent (Descending)"
+         *           }
+         *         ],
          *         "user": {
          *           "href": "/api/v3/users/1",
-         *           "title": "John Sheppard"
-         *         },
-         *         "updateImmediately": {
-         *           "href": "/api/v3/users/3/preferences",
-         *           "method": "patch"
-         *         }
-         *       },
-         *       "_type": "UserPreferences",
-         *       "commentSortDescending": true,
-         *       "disableKeyboardShortcuts": false,
-         *       "timeZone": "Europe/Berlin",
-         *       "warnOnLeavingUnsaved": true,
-         *       "notifications": [
-         *         {
-         *           "watched": false,
-         *           "involved": true,
-         *           "mentioned": false,
-         *           "shared": true,
-         *           "newsAdded": "false,",
-         *           "newsCommented": false,
-         *           "documentAdded": false,
-         *           "forumMessages": false,
-         *           "wikiPageAdded": false,
-         *           "wikiPageUpdated": false,
-         *           "membershipAdded": false,
-         *           "membershipUpdated": false,
-         *           "workPackageCommented": false,
-         *           "workPackageProcessed": false,
-         *           "workPackagePrioritized": false,
-         *           "workPackageScheduled": false,
-         *           "_links": {
-         *             "project": {
-         *               "href": null
-         *             }
-         *           }
-         *         }
-         *       ]
-         *     }
-         */
-        user_preferences_model: Record<string, never>;
-        /**
-         * @example {
-         *       "_type": "Collection",
-         *       "total": 78,
-         *       "count": 2,
-         *       "pageSize": 2,
-         *       "offset": 1,
-         *       "_embedded": {
-         *         "elements": [
-         *           {
-         *             "_type": "News",
-         *             "id": 1,
-         *             "title": "asperiores possimus nam doloribus ab",
-         *             "summary": "Celebrer spiculum colo viscus claustrum atque. Id nulla culpa sumptus. Comparo crapula depopulo demonstro.",
-         *             "description": {
-         *               "format": "markdown",
-         *               "raw": "Videlicet deserunt aequitas cognatus. Concedo quia est quia pariatur vorago vallum. Calco autem atavus accusamus conscendo cornu ulterius. Tam patria ago consectetur ventito sustineo nihil caecus. Supra officiis eos velociter somniculosus tonsor qui. Suffragium aduro arguo angustus cogito quia tolero vulnus. Supplanto sortitus cresco apud vestrum qui.",
-         *               "html": "<p>Videlicet deserunt aequitas cognatus. Concedo quia est quia pariatur vorago vallum. Calco autem atavus accusamus conscendo cornu ulterius. Tam patria ago consectetur ventito sustineo nihil caecus. Supra officiis eos velociter somniculosus tonsor qui. Suffragium aduro arguo angustus cogito quia tolero vulnus. Supplanto sortitus cresco apud vestrum qui.</p>"
-         *             },
-         *             "createdAt": "2015-03-20T12:57:01.509Z",
-         *             "_links": {
-         *               "self": {
-         *                 "href": "/api/v3/news/1",
-         *                 "title": "asperiores possimus nam doloribus ab"
-         *               },
-         *               "project": {
-         *                 "href": "/api/v3/projects/1",
-         *                 "title": "Seeded Project"
-         *               },
-         *               "author": {
-         *                 "href": "/api/v3/users/2",
-         *                 "title": "Peggie Feeney"
-         *               },
-         *               "updateImmediately": {
-         *                 "href": "api/v3/news/1",
-         *                 "method": "patch"
-         *               },
-         *               "delete": {
-         *                 "href": "api/v3/news/1",
-         *                 "method": "delete"
-         *               }
-         *             }
-         *           },
-         *           {
-         *             "_type": "News",
-         *             "id": 2,
-         *             "title": "terminatio tutamen. Officia adeptio sp",
-         *             "summary": "Consequatur sequi surculus creo tui aequitas.",
-         *             "description": {
-         *               "format": "markdown",
-         *               "raw": "Amicitia alius cattus voluntarius. Virgo viduo terminatio tutamen. Officia adeptio spectaculum atavus nisi cum concido bis. Harum caecus auxilium sol theatrum eaque consequatur. Omnis aeger suus adipisci cicuta. Cur delicate alias curto cursim atqui talio fugiat.",
-         *               "html": "<p>Amicitia alius cattus voluntarius. Virgo viduo terminatio tutamen. Officia adeptio spectaculum atavus nisi cum concido bis. Harum caecus auxilium sol theatrum eaque consequatur. Omnis aeger suus adipisci cicuta. Cur delicate alias curto cursim atqui talio fugiat.</p>"
-         *             },
-         *             "createdAt": "2015-03-20T12:57:01.509Z",
-         *             "_links": {
-         *               "self": {
-         *                 "href": "/api/v3/news/2",
-         *                 "title": "terminatio tutamen. Officia adeptio sp"
-         *               },
-         *               "project": {
-         *                 "href": "/api/v3/projects/1",
-         *                 "title": "Seeded Project"
-         *               },
-         *               "author": {
-         *                 "href": "/api/v3/users/2",
-         *                 "title": "Peggie Feeney"
-         *               },
-         *               "updateImmediately": {
-         *                 "href": "api/v3/news/2",
-         *                 "method": "patch"
-         *               },
-         *               "delete": {
-         *                 "href": "api/v3/news/2",
-         *                 "method": "delete"
-         *               }
-         *             }
-         *           }
-         *         ]
-         *       },
-         *       "_links": {
-         *         "self": {
-         *           "href": "/api/v3/news?offset=1&pageSize=2"
-         *         },
-         *         "jumpTo": {
-         *           "href": "/api/v3/news?offset=%7Boffset%7D&pageSize=2",
-         *           "templated": true
-         *         },
-         *         "changeSize": {
-         *           "href": "/api/v3/news?offset=1&pageSize=%7Bsize%7D",
-         *           "templated": true
-         *         },
-         *         "nextByOffset": {
-         *           "href": "/api/v3/news?offset=2&pageSize=2"
-         *         }
-         *       }
-         *     }
-         */
-        list_of_news_model: Record<string, never>;
-        /**
-         * @example {
-         *       "title": "asperiores possimus nam doloribus ab",
-         *       "summary": "Celebrer spiculum colo viscus claustrum atque. Id nulla culpa sumptus. Comparo crapula depopulo demonstro.",
-         *       "description": {
-         *         "format": "markdown",
-         *         "raw": "**Videlicet deserunt aequitas cognatus**. Concedo quia est quia pariatur vorago vallum. Calco autem atavus accusamus conscendo cornu ulterius. Tam patria ago consectetur ventito sustineo nihil caecus. Supra officiis eos velociter somniculosus tonsor qui. Suffragium aduro arguo angustus cogito quia tolero vulnus. Supplanto sortitus cresco apud vestrum qui."
-         *       },
-         *       "_links": {
-         *         "project": {
-         *           "href": "/api/v3/projects/1"
-         *         }
-         *       }
-         *     }
-         */
-        news_create_model: {
-            /** @description The headline of the news */
-            readonly title?: string;
-            /** @description A short summary */
-            readonly summary?: string;
-            description?: components["schemas"]["formattable"] & unknown;
-            _links?: {
-                project: components["schemas"]["link"] & unknown;
-            };
-        };
-        /**
-         * @example {
-         *       "_type": "News",
-         *       "id": 1,
-         *       "title": "asperiores possimus nam doloribus ab",
-         *       "summary": "Celebrer spiculum colo viscus claustrum atque. Id nulla culpa sumptus. Comparo crapula depopulo demonstro.",
-         *       "description": {
-         *         "format": "markdown",
-         *         "raw": "Videlicet deserunt aequitas cognatus. Concedo quia est quia pariatur vorago vallum. Calco autem atavus accusamus conscendo cornu ulterius. Tam patria ago consectetur ventito sustineo nihil caecus. Supra officiis eos velociter somniculosus tonsor qui. Suffragium aduro arguo angustus cogito quia tolero vulnus. Supplanto sortitus cresco apud vestrum qui.",
-         *         "html": "<p>Videlicet deserunt aequitas cognatus. Concedo quia est quia pariatur vorago vallum. Calco autem atavus accusamus conscendo cornu ulterius. Tam patria ago consectetur ventito sustineo nihil caecus. Supra officiis eos velociter somniculosus tonsor qui. Suffragium aduro arguo angustus cogito quia tolero vulnus. Supplanto sortitus cresco apud vestrum qui.</p>"
-         *       },
-         *       "createdAt": "2015-03-20T12:57:01.908Z",
-         *       "_links": {
-         *         "self": {
-         *           "href": "/api/v3/news/1",
-         *           "title": "asperiores possimus nam doloribus ab"
+         *           "title": "OpenProject Admin"
          *         },
          *         "project": {
-         *           "href": "/api/v3/projects/1",
-         *           "title": "A project"
-         *         },
-         *         "author": {
-         *           "href": "/api/v3/users/2",
-         *           "title": "Peggie Feeney"
-         *         },
-         *         "updateImmediately": {
-         *           "href": "api/v3/news/1",
-         *           "method": "patch"
-         *         },
-         *         "delete": {
-         *           "href": "api/v3/news/1",
-         *           "method": "delete"
-         *         }
-         *       },
-         *       "_embedded": {
-         *         "project": {
-         *           "_type": "Workspace..."
-         *         },
-         *         "author": {
-         *           "_type": "User..."
+         *           "href": null
          *         }
          *       }
          *     }
          */
-        news_model: {
-            /** @description News' id */
-            readonly id?: number;
-            /** @description The headline of the news */
-            readonly title?: string;
-            /** @description A short summary */
-            readonly summary?: string;
-            description?: components["schemas"]["formattable"] & unknown;
-            /**
-             * Format: date-time
-             * @description The time the news was created at
-             */
-            readonly createdAt?: string;
-            _links?: {
-                self: components["schemas"]["link"] & unknown;
-                project: components["schemas"]["link"] & unknown;
-                author: components["schemas"]["link"] & unknown;
-                updateImmediately?: components["schemas"]["link"] & unknown;
-                delete?: components["schemas"]["link"] & unknown;
-            };
-        };
-        values_property_model: {
-            /** @enum {string} */
-            _type: "Values::Property";
-            /** @description The key of the key - value pair represented by the Values::Property */
-            property: string;
-            /** @description The value of the key - value pair represented by the Values::Property */
-            value: string;
-            _links: {
-                self: components["schemas"]["link"] & unknown;
-                schema: components["schemas"]["link"] & unknown;
-            };
-        };
-        notification_model: {
-            /** @enum {string} */
-            _type?: "Notification";
-            /** @description Notification id */
-            id?: number;
-            /**
-             * @description The reason for the notification
-             * @enum {string}
-             */
-            reason?: "assigned" | "commented" | "created" | "dateAlert" | "mentioned" | "prioritized" | "processed" | "responsible" | "subscribed" | "scheduled" | "watched";
-            /** @description Whether the notification is marked as read */
-            readIAN?: boolean;
-            /** @description A list of objects including detailed information about the notification. */
-            details?: components["schemas"]["values_property_model"][];
-            /**
-             * Format: date-time
-             * @description The time the notification was created at
-             */
-            createdAt?: string;
-            /**
-             * Format: date-time
-             * @description The time the notification was last updated
-             */
-            updatedAt?: string;
-            _embedded?: {
-                actor?: components["schemas"]["user_model"];
-                project: components["schemas"]["project_model"] | components["schemas"]["program_model"] | components["schemas"]["portfolio_model"];
-                activity?: components["schemas"]["activity_model"];
-                resource: components["schemas"]["work_package_model"];
-            };
-            _links?: {
-                self: components["schemas"]["link"] & unknown;
-                readIAN?: components["schemas"]["link"] & unknown;
-                unreadIAN?: components["schemas"]["link"] & unknown;
-                project: components["schemas"]["link"] & unknown;
-                actor: components["schemas"]["link"] & unknown;
-                resource: components["schemas"]["link"] & unknown;
-                activity: components["schemas"]["link"] & unknown;
-            };
-        };
-        notification_collection_model: components["schemas"]["collection_model"] & {
-            _links: {
-                self: components["schemas"]["link"] & unknown;
-                jumpTo?: components["schemas"]["link"] & unknown;
-                changeSize?: components["schemas"]["link"] & unknown;
-            };
-            _embedded: {
-                elements: components["schemas"]["notification_model"][];
-                detailsSchemas: components["schemas"]["schema_model"][];
-            };
-        };
-        placeholder_user_model: components["schemas"]["principal_model"] & {
-            /** @enum {string} */
-            _type: "PlaceholderUser";
-            /**
-             * @description The current activation status of the placeholder user.
-             *
-             *     # Conditions
-             *
-             *     - User has `manage_placeholder_user` permission globally
-             */
-            status?: string;
-            _links?: {
-                showUser: components["schemas"]["link"] & unknown;
-                delete?: components["schemas"]["link"] & unknown;
-                updateImmediately?: components["schemas"]["link"] & unknown;
-            };
-        };
-        /**
-         * @example {
-         *       "_type": "Collection",
-         *       "total": 3,
-         *       "count": 3,
-         *       "_links": {
-         *         "self": {
-         *           "href": "/api/v3/principals"
-         *         }
-         *       },
-         *       "_embedded": {
-         *         "elements": [
-         *           {
-         *             "_abbreviated": "User resource shortened for brevity",
-         *             "_type": "User",
-         *             "id": 1337
-         *           },
-         *           {
-         *             "_abbreviated": "Group resource shortened for brevity",
-         *             "_type": "Group",
-         *             "id": 1338
-         *           },
-         *           {
-         *             "_abbreviated": "PlaceholderUser resource shortened for brevity",
-         *             "_type": "PlaceholderUser",
-         *             "id": 1339
-         *           }
-         *         ]
-         *       }
-         *     }
-         */
-        principal_collection_model: components["schemas"]["offset_paginated_collection_model"] & {
-            _embedded: {
-                elements: (components["schemas"]["user_model"] | components["schemas"]["placeholder_user_model"] | components["schemas"]["group_model"])[];
-            };
-        };
-        placeholder_user_create_model: {
-            /** @description The new name of the placeholder user to be created. */
-            name?: string;
-        };
-        portfolio_collection_model: components["schemas"]["offset_paginated_collection_model"] & {
-            _links: components["schemas"]["offset_paginated_collection_links"] & {
-                representations?: (components["schemas"]["link"] & unknown)[];
-            };
-            _embedded: {
-                elements: components["schemas"]["portfolio_model"][];
-            };
-        };
-        /**
-         * @example {
-         *       "_type": "Post",
-         *       "id": 1,
-         *       "subject": "A post with a subject",
-         *       "_embedded": {
-         *         "project": {
-         *           "_type": "Project..."
-         *         }
-         *       },
-         *       "_links": {
-         *         "self": {
-         *           "href": "/api/v3/posts/1"
-         *         },
-         *         "attachments": {
-         *           "href": "/api/v3/posts/1/attachments"
-         *         },
-         *         "addAttachment": {
-         *           "href": "/api/v3/posts/1/attachments",
-         *           "method": "post"
-         *         },
-         *         "project": {
-         *           "href": "/api/v3/projects/1",
-         *           "title": "A project with a title"
-         *         }
-         *       }
-         *     }
-         */
-        post_model: {
-            /** @description Identifier of this post */
-            readonly id?: number;
-            /** @description The post's subject */
-            subject: string;
-            _links?: {
-                addAttachment?: components["schemas"]["link"] & unknown;
-            };
-        };
-        /**
-         * @example {
-         *       "_type": "Priority",
-         *       "_links": {
-         *         "self": {
-         *           "href": "/api/v3/priorities/1",
-         *           "title": "Low"
-         *         }
-         *       },
-         *       "id": 1,
-         *       "name": "Low",
-         *       "position": 1,
-         *       "isDefault": false,
-         *       "isActive": true
-         *     }
-         */
-        priority_model: {
-            /** @description Priority id */
-            readonly id?: number;
-            /** @description Priority name */
-            readonly name?: string;
-            /** @description Sort index of the priority */
-            readonly position?: number;
-            /** @description Indicates whether this is the default value */
-            readonly isDefault?: boolean;
-            /** @description Indicates whether the priority is available */
-            isActive?: boolean;
-            _links?: {
-                self: components["schemas"]["link"] & unknown;
-            };
-        };
-        priority_collection_model: components["schemas"]["collection_model"] & {
-            _links: {
-                readonly self: components["schemas"]["link"] & {
-                    self?: components["schemas"]["link"] & unknown;
-                };
-            };
-            _embedded: {
-                elements: components["schemas"]["priority_model"][];
-            };
-        };
-        program_collection_model: components["schemas"]["offset_paginated_collection_model"] & {
-            _links: components["schemas"]["offset_paginated_collection_links"] & {
-                representations?: (components["schemas"]["link"] & unknown)[];
-            };
-            _embedded: {
-                elements: components["schemas"]["program_model"][];
-            };
-        };
-        /**
-         * @example {
-         *       "_type": "ProjectPhase",
-         *       "id": 1337,
-         *       "name": "Initiating",
-         *       "active": true,
-         *       "createdAt": "2023-01-20T14:30:00.368Z",
-         *       "updatedAt": "2023-05-23T11:57:48.618Z",
-         *       "_links": {
-         *         "self": {
-         *           "href": "/api/v3/project_phases/23"
-         *         },
-         *         "definition": {
-         *           "title": "Initiating",
-         *           "href": "/api/v3/project_definitions/11"
-         *         },
-         *         "project": {
-         *           "title": "Death Star 3.0",
-         *           "href": "/api/v3/projects/11"
-         *         }
-         *       }
-         *     }
-         */
-        project_phase_model: {
-            /** @enum {string} */
-            _type: "ProjectPhase";
-            /** @description The project phase's id */
-            id: number;
-            name: string;
-            active: boolean;
-            /**
-             * Format: date-time
-             * @description Time of creation
-             */
-            createdAt: string;
-            /**
-             * Format: date-time
-             * @description Time of the most recent change to the project phase
-             */
-            updatedAt: string;
-            _links?: {
-                self: components["schemas"]["link"] & unknown;
-                definition: components["schemas"]["link"] & unknown;
-                project: components["schemas"]["link"] & unknown;
-            };
-        };
-        /**
-         * @example {
-         *       "_type": "ProjectPhaseDefinition",
-         *       "id": 1337,
-         *       "name": "Initiating",
-         *       "startGate": true,
-         *       "startGateName": "Before Initiating",
-         *       "finishGate": true,
-         *       "finishGateName": null,
-         *       "createdAt": "2023-01-20T14:30:00.368Z",
-         *       "updatedAt": "2023-05-23T11:57:48.618Z",
-         *       "_links": {
-         *         "self": {
-         *           "href": "/api/v3/project_phase_definitions/23"
-         *         }
-         *       }
-         *     }
-         */
-        project_phase_definition_model: {
-            /** @enum {string} */
-            _type: "ProjectPhaseDefinition";
-            /** @description The project phase definition's id */
-            id: number;
-            name: string;
-            startGate: boolean;
-            startGateName: string | null;
-            finishGate: boolean;
-            finishGateName: string | null;
-            /**
-             * Format: date-time
-             * @description Time of creation
-             */
-            createdAt: string;
-            /**
-             * Format: date-time
-             * @description Time of the most recent change to the project phase definition
-             */
-            updatedAt: string;
-            _links?: {
-                self: components["schemas"]["link"] & unknown;
-            };
-        };
-        /**
-         * @example {
-         *       "_type": "Collection",
-         *       "total": 2,
-         *       "count": 2,
-         *       "_links": {
-         *         "self": {
-         *           "href": "/api/v3/project_phase_definitions"
-         *         }
-         *       },
-         *       "_embedded": {
-         *         "elements": [
-         *           {
-         *             "id": 14,
-         *             "name": "Initiating",
-         *             "_type": "ProjectPhaseDefinition",
-         *             "_abbreviated": "project phase definition resource shortened for brevity"
-         *           },
-         *           {
-         *             "id": 15,
-         *             "name": "Executing",
-         *             "_type": "ProjectPhaseDefinition",
-         *             "_abbreviated": "project phase definition resource shortened for brevity"
-         *           }
-         *         ]
-         *       }
-         *     }
-         */
-        project_phase_definition_collection_model: components["schemas"]["offset_paginated_collection_model"] & {
-            _links: {
-                self: components["schemas"]["link"] & unknown;
-            };
-            _embedded: {
-                elements: components["schemas"]["project_phase_definition_model"][];
-            };
-        };
-        /**
-         * @example {
-         *       "_type": "ProjectStorage",
-         *       "id": 1337,
-         *       "projectFolderMode": "manual",
-         *       "createdAt": "2023-01-20T14:30:00.368Z",
-         *       "updatedAt": "2023-05-23T11:57:48.618Z",
-         *       "_links": {
-         *         "self": {
-         *           "href": "/api/v3/project_storages/23"
-         *         },
-         *         "projectFolder": {
-         *           "href": "/api/v3/storages/81/files/30"
-         *         },
-         *         "creator": {
-         *           "title": "Darth Vader",
-         *           "href": "/api/v3/users/3"
-         *         },
-         *         "project": {
-         *           "title": "Death Star 3.0",
-         *           "href": "/api/v3/projects/11"
-         *         },
-         *         "storage": {
-         *           "title": "Palpatine's Data Vault",
-         *           "href": "/api/v3/storages/81"
-         *         },
-         *         "open": {
-         *           "href": "/api/v3/storages/81/open"
-         *         },
-         *         "openWithConnectionEnsured": {
-         *           "href": "/api/v3/storages/81/open"
-         *         }
-         *       }
-         *     }
-         */
-        project_storage_model: {
-            /** @enum {string} */
-            _type: "ProjectStorage";
-            /** @description The project storage's id */
-            id: number;
-            /** @enum {string} */
-            projectFolderMode: "inactive" | "manual";
-            /**
-             * Format: date-time
-             * @description Time of creation
-             */
-            createdAt: string;
-            /**
-             * Format: date-time
-             * @description Time of the most recent change to the project storage
-             */
-            updatedAt: string;
-            _links?: {
-                self: components["schemas"]["link"] & unknown;
-                creator: components["schemas"]["link"] & unknown;
-                storage: components["schemas"]["link"] & unknown;
-                project: components["schemas"]["link"] & unknown;
-                projectFolder?: components["schemas"]["link"] & unknown;
-                open?: components["schemas"]["link"] & unknown;
-                openWithConnectionEnsured?: components["schemas"]["link"] & unknown;
-            };
-        };
-        /**
-         * @example {
-         *       "_type": "Collection",
-         *       "total": 2,
-         *       "count": 2,
-         *       "_links": {
-         *         "self": {
-         *           "href": "/api/v3/project_storages?filters=%5B%7B%22storage%22%3A%7B%22operator%22%3A%22%3D%22%2C%22values%22%3A%5B%2281%22%5D%7D%7D%5D"
-         *         }
-         *       },
-         *       "_embedded": {
-         *         "elements": [
-         *           {
-         *             "id": 1337,
-         *             "_type": "ProjectStorage",
-         *             "_abbreviated": "project storage resource shortened for brevity"
-         *           },
-         *           {
-         *             "id": 1338,
-         *             "_type": "ProjectStorage",
-         *             "_abbreviated": "File Link resource shortened for brevity"
-         *           }
-         *         ]
-         *       }
-         *     }
-         */
-        project_storage_collection_model: components["schemas"]["collection_model"] & {
-            _links: {
-                self: components["schemas"]["link"] & unknown;
-            };
-            _embedded: {
-                elements: components["schemas"]["project_storage_model"][];
-            };
-        };
-        /**
-         * @description A schema for a workspace. This schema defines the attributes of a workspace.
-         * @example {
-         *       "_type": "Schema",
-         *       "_dependencies": [],
-         *       "_attributeGroups": [
-         *         {
-         *           "_type": "ProjectFormCustomFieldSection",
-         *           "name": "Project Details",
-         *           "attributes": [
-         *             "customField30",
-         *             "customField34"
-         *           ]
-         *         },
-         *         {
-         *           "_type": "ProjectFormCustomFieldSection",
-         *           "name": "Budget Information",
-         *           "attributes": [
-         *             "customField31",
-         *             "customField32",
-         *             "customField35"
-         *           ]
-         *         }
-         *       ],
-         *       "id": {
-         *         "type": "Integer",
-         *         "name": "ID",
-         *         "required": true,
-         *         "hasDefault": false,
-         *         "writable": false
-         *       },
-         *       "name": {
-         *         "type": "String",
-         *         "name": "Name",
-         *         "required": true,
-         *         "hasDefault": false,
-         *         "writable": true,
-         *         "minLength": 1,
-         *         "maxLength": 255
-         *       },
-         *       "identifier": {
-         *         "type": "String",
-         *         "name": "Identifier",
-         *         "required": true,
-         *         "hasDefault": false,
-         *         "writable": true,
-         *         "minLength": 1,
-         *         "maxLength": 100
-         *       },
-         *       "description": {
-         *         "type": "Formattable",
-         *         "name": "Description",
-         *         "required": false,
-         *         "hasDefault": false,
-         *         "writable": true
-         *       },
-         *       "public": {
-         *         "type": "Boolean",
-         *         "name": "Public",
-         *         "required": true,
-         *         "hasDefault": false,
-         *         "writable": true
-         *       },
-         *       "active": {
-         *         "type": "Boolean",
-         *         "name": "Active",
-         *         "required": true,
-         *         "hasDefault": true,
-         *         "writable": true
-         *       },
-         *       "status": {
-         *         "type": "ProjectStatus",
-         *         "name": "Status",
-         *         "required": false,
-         *         "hasDefault": true,
-         *         "writable": true,
-         *         "_links": {
-         *           "allowedValues": [
-         *             {
-         *               "href": "/api/v3/project_statuses/on_track",
-         *               "title": "On track"
-         *             },
-         *             {
-         *               "href": "/api/v3/project_statuses/at_risk",
-         *               "title": "At risk"
-         *             },
-         *             {
-         *               "href": "/api/v3/project_statuses/off_track",
-         *               "title": "Off track"
-         *             }
-         *           ]
-         *         }
-         *       },
-         *       "statusExplanation": {
-         *         "type": "Formattable",
-         *         "name": "Status explanation",
-         *         "required": false,
-         *         "hasDefault": false,
-         *         "writable": true
-         *       },
-         *       "parent": {
-         *         "type": "Workspace",
-         *         "name": "Subproject of",
-         *         "required": false,
-         *         "hasDefault": false,
-         *         "writable": true,
-         *         "location": "_links",
-         *         "visibility": "default",
-         *         "_links": {}
-         *       },
-         *       "createdAt": {
-         *         "type": "DateTime",
-         *         "name": "Created on",
-         *         "required": true,
-         *         "hasDefault": false,
-         *         "writable": false
-         *       },
-         *       "updatedAt": {
-         *         "type": "DateTime",
-         *         "name": "Updated on",
-         *         "required": true,
-         *         "hasDefault": false,
-         *         "writable": false
-         *       },
-         *       "customField30": {
-         *         "type": "Integer",
-         *         "name": "Integer project custom field",
-         *         "required": false,
-         *         "hasDefault": false,
-         *         "writable": true,
-         *         "visibility": "default"
-         *       },
-         *       "customField31": {
-         *         "type": "CustomOption",
-         *         "name": "List project custom field",
-         *         "required": false,
-         *         "hasDefault": false,
-         *         "writable": true,
-         *         "location": "_links",
-         *         "visibility": "default",
-         *         "_links": {}
-         *       },
-         *       "customField32": {
-         *         "type": "Version",
-         *         "name": "Version project custom field",
-         *         "required": false,
-         *         "hasDefault": false,
-         *         "writable": true,
-         *         "location": "_links",
-         *         "visibility": "default",
-         *         "_links": {}
-         *       },
-         *       "customField34": {
-         *         "type": "Boolean",
-         *         "name": "Boolean project custom field",
-         *         "required": false,
-         *         "hasDefault": false,
-         *         "writable": true,
-         *         "visibility": "default"
-         *       },
-         *       "customField35": {
-         *         "type": "String",
-         *         "name": "Text project custom field",
-         *         "required": true,
-         *         "hasDefault": false,
-         *         "writable": true,
-         *         "visibility": "default"
-         *       },
-         *       "customComment35": {
-         *         "type": "String",
-         *         "name": "Text project custom field comment",
-         *         "required": false,
-         *         "hasDefault": false,
-         *         "writable": true
-         *       },
-         *       "_links": {
-         *         "self": {
-         *           "href": "/api/v3/workspaces/schema"
-         *         }
-         *       }
-         *     }
-         */
-        workspaces_schema_model: {
-            /**
-             * @description The type identifier for this resource
-             * @enum {string}
-             */
-            _type?: "Schema";
-            /** @description Schema dependencies (currently empty for workspaces) */
-            _dependencies?: unknown[];
-            /**
-             * @description Defines the organizational structure of project custom fields into sections for UI rendering.
-             *
-             *     Each attribute group represents a project attribute section containing related project attributes.
-             *     The sections determine how project attributes are visually organized and grouped in forms.
-             *
-             *     **Key behaviors:**
-             *     - Admin-only project attributes appear only for users with admin privileges
-             *     - Empty sections (with no accessible project attributes) are omitted from the response
-             *     - The order reflects the configured section positioning in admin settings
-             *     - Each section contains only project attributes assigned to that specific section
-             *
-             *     **Example structure:**
-             *     ```json
-             *     [
-             *       {
-             *         "_type": "ProjectFormCustomFieldSection",
-             *         "name": "Project Details",
-             *         "attributes": ["customField1", "customField3"]
-             *       },
-             *       {
-             *         "_type": "ProjectFormCustomFieldSection",
-             *         "name": "Budget Information",
-             *         "attributes": ["customField2", "customField4"]
-             *       }
-             *     ]
-             *     ```
-             */
-            _attributeGroups?: {
-                /**
-                 * @description The type identifier for this resource
-                 * @enum {string}
-                 */
-                _type?: "ProjectFormCustomFieldSection";
-                /** @description The unique identifier of the custom field section */
-                id?: number;
-                /** @description The human-readable name of the custom field section */
-                name?: string;
-                /**
-                 * @description Array of camelCase custom field attribute names belonging to this section.
-                 *     Only includes custom fields visible to the current user.
-                 */
-                attributes?: string[];
-            }[];
-            id?: components["schemas"]["schema_property_model"];
-            name?: components["schemas"]["schema_property_model"];
-            identifier?: components["schemas"]["schema_property_model"];
-            description?: components["schemas"]["schema_property_model"];
-            public?: components["schemas"]["schema_property_model"];
-            active?: components["schemas"]["schema_property_model"];
-            status?: components["schemas"]["schema_property_model"];
-            statusExplanation?: components["schemas"]["schema_property_model"];
-            parent?: components["schemas"]["schema_property_model"];
-            createdAt?: components["schemas"]["schema_property_model"];
-            updatedAt?: components["schemas"]["schema_property_model"];
-            /** @description Links related to this resource */
-            _links?: {
-                self?: {
-                    /** @example /api/v3/workspaces/schema */
-                    href?: string;
-                };
-            };
-        } & {
-            [key: string]: components["schemas"]["schema_property_model"] | components["schemas"]["schema_property_model"];
-        };
-        /**
-         * @example {
-         *       "_type": "ProjectStatus",
-         *       "id": "on_track",
-         *       "name": "On track",
-         *       "_links": {
-         *         "self": {
-         *           "href": "/api/v3/project_statuses/on_track"
-         *         }
-         *       }
-         *     }
-         */
-        view_project_status_model: Record<string, never>;
-        list_available_parent_project_candidates_model: components["schemas"]["collection_model"] & {
-            _links: {
-                self: components["schemas"]["link"] & unknown;
-            };
-            _embedded: {
-                /** @description Collection of projects */
-                readonly elements?: (components["schemas"]["project_model"] & components["schemas"]["program_model"] & components["schemas"]["portfolio_model"])[];
-            };
-        };
-        /**
-         * @example {
-         *       "_links": {
-         *         "self": {
-         *           "href": "/api/v3/projects/1/budgets"
-         *         }
-         *       },
-         *       "_type": "Collection",
-         *       "total": 2,
-         *       "count": 2,
-         *       "_embedded": {
-         *         "elements": [
-         *           {
-         *             "_type": "Budget",
-         *             "_links": {
-         *               "self": {
-         *                 "href": "/api/v3/budgets/1",
-         *                 "title": "Q3 2015"
-         *               }
-         *             },
-         *             "id": 1,
-         *             "subject": "Q3 2015"
-         *           },
-         *           {
-         *             "_type": "Budget",
-         *             "_links": {
-         *               "self": {
-         *                 "href": "/api/v3/budgets/2",
-         *                 "title": "Q4 2015"
-         *               }
-         *             },
-         *             "id": 2,
-         *             "subject": "Q4 2015"
-         *           }
-         *         ]
-         *       }
-         *     }
-         */
-        budgets_by_project_model: Record<string, never>;
+        Default_QueryModel: Record<string, never>;
         /**
          * @example {
          *       "_type": "Query",
@@ -9865,7 +6316,221 @@ export interface components {
          *       }
          *     }
          */
-        default_query_for_workspace_model: Record<string, never>;
+        Default_Query_for_WorkspaceModel: Record<string, never>;
+        /**
+         * @example {
+         *       "_type": "Document",
+         *       "id": 1,
+         *       "title": "Some other document",
+         *       "description": {
+         *         "format": "markdown",
+         *         "raw": "Videlicet deserunt aequitas cognatus. Concedo quia est quia pariatur vorago vallum. Calco autem atavus accusamus conscendo cornu ulterius. Tam patria ago consectetur ventito sustineo nihil caecus. Supra officiis eos velociter somniculosus tonsor qui. Suffragium aduro arguo angustus cogito quia tolero vulnus. Supplanto sortitus cresco apud vestrum qui.",
+         *         "html": "<p>Videlicet deserunt aequitas cognatus. Concedo quia est quia pariatur vorago vallum. Calco autem atavus accusamus conscendo cornu ulterius. Tam patria ago consectetur ventito sustineo nihil caecus. Supra officiis eos velociter somniculosus tonsor qui. Suffragium aduro arguo angustus cogito quia tolero vulnus. Supplanto sortitus cresco apud vestrum qui.</p>"
+         *       },
+         *       "createdAt": "2018-12-10T20:53:39.539Z",
+         *       "_links": {
+         *         "attachments": {
+         *           "href": "/api/v3/documents/1/attachments"
+         *         },
+         *         "addAttachment": {
+         *           "href": "/api/v3/documents/1/attachments",
+         *           "method": "post"
+         *         },
+         *         "self": {
+         *           "href": "/api/v3/documents/1",
+         *           "title": "Some document"
+         *         },
+         *         "project": {
+         *           "href": "/api/v3/projects/19",
+         *           "title": "Some project"
+         *         }
+         *       },
+         *       "_embedded": {
+         *         "project": {
+         *           "_type": "Project..."
+         *         },
+         *         "attachments": {
+         *           "_type": "Collection",
+         *           "total": 2,
+         *           "count": 2,
+         *           "_embedded...": {
+         *             "elements": []
+         *           },
+         *           "_links": {
+         *             "self": {
+         *               "href": "/api/v3/documents/1/attachments"
+         *             }
+         *           }
+         *         }
+         *       }
+         *     }
+         */
+        DocumentModel: {
+            /** @description Document's id */
+            readonly id?: number;
+            /** @description The title chosen for the document */
+            title?: string;
+            description?: components["schemas"]["Formattable"] & unknown;
+            /**
+             * Format: date-time
+             * @description The time the document was created at
+             */
+            readonly createdAt?: string;
+            _links?: {
+                self: components["schemas"]["Link"] & unknown;
+                project: components["schemas"]["Link"] & unknown;
+                attachments: components["schemas"]["Link"] & unknown;
+            };
+        };
+        /**
+         * @example {
+         *       "_type": "Collection",
+         *       "total": 2,
+         *       "count": 2,
+         *       "pageSize": 30,
+         *       "offset": 1,
+         *       "_embedded": {
+         *         "elements": [
+         *           {
+         *             "description": {
+         *               "format": "markdown",
+         *               "raw": "Videlicet deserunt aequitas cognatus. Concedo quia est quia pariatur vorago vallum. Calco autem atavus accusamus conscendo cornu ulterius. Tam patria ago consectetur ventito sustineo nihil caecus. Supra officiis eos velociter somniculosus tonsor qui. Suffragium aduro arguo angustus cogito quia tolero vulnus. Supplanto sortitus cresco apud vestrum qui.",
+         *               "html": "<p>Videlicet deserunt aequitas cognatus. Concedo quia est quia pariatur vorago vallum. Calco autem atavus accusamus conscendo cornu ulterius. Tam patria ago consectetur ventito sustineo nihil caecus. Supra officiis eos velociter somniculosus tonsor qui. Suffragium aduro arguo angustus cogito quia tolero vulnus. Supplanto sortitus cresco apud vestrum qui.</p>"
+         *             },
+         *             "_type": "Document",
+         *             "id": 1,
+         *             "title": "Some other document",
+         *             "createdAt": "2018-12-10T20:53:39.966Z",
+         *             "_links": {
+         *               "attachments": {
+         *                 "href": "/api/v3/documents/1/attachments"
+         *               },
+         *               "addAttachment": {
+         *                 "href": "/api/v3/documents/1/attachments",
+         *                 "method": "post"
+         *               },
+         *               "self": {
+         *                 "href": "/api/v3/documents/1",
+         *                 "title": "Some document"
+         *               },
+         *               "project": {
+         *                 "href": "/api/v3/projects/19",
+         *                 "title": "Some project"
+         *               }
+         *             }
+         *           },
+         *           {
+         *             "description": {
+         *               "format": "markdown",
+         *               "raw": "Videlicet deserunt aequitas cognatus. Concedo quia est quia pariatur vorago vallum. Calco autem atavus accusamus conscendo cornu ulterius. Tam patria ago consectetur ventito sustineo nihil caecus. Supra officiis eos velociter somniculosus tonsor qui. Suffragium aduro arguo angustus cogito quia tolero vulnus. Supplanto sortitus cresco apud vestrum qui.",
+         *               "html": "<p>Videlicet deserunt aequitas cognatus. Concedo quia est quia pariatur vorago vallum. Calco autem atavus accusamus conscendo cornu ulterius. Tam patria ago consectetur ventito sustineo nihil caecus. Supra officiis eos velociter somniculosus tonsor qui. Suffragium aduro arguo angustus cogito quia tolero vulnus. Supplanto sortitus cresco apud vestrum qui.</p>"
+         *             },
+         *             "_type": "Document",
+         *             "id": 2,
+         *             "title": "Some other document",
+         *             "createdAt": "2018-12-10T20:55:54.886Z",
+         *             "_links": {
+         *               "attachments": {
+         *                 "href": "/api/v3/documents/2/attachments"
+         *               },
+         *               "addAttachment": {
+         *                 "href": "/api/v3/documents/2/attachments",
+         *                 "method": "post"
+         *               },
+         *               "self": {
+         *                 "href": "/api/v3/documents/2",
+         *                 "title": "Some other document"
+         *               },
+         *               "project": {
+         *                 "href": "/api/v3/projects/29",
+         *                 "title": "Some other project"
+         *               }
+         *             }
+         *           }
+         *         ]
+         *       },
+         *       "_links": {
+         *         "self": {
+         *           "href": "/api/v3/documents?offset=1&pageSize=30"
+         *         },
+         *         "jumpTo": {
+         *           "href": "/api/v3/documents?offset=%7Boffset%7D&pageSize=30",
+         *           "templated": true
+         *         },
+         *         "changeSize": {
+         *           "href": "/api/v3/documents?offset=1&pageSize=%7Bsize%7D",
+         *           "templated": true
+         *         }
+         *       }
+         *     }
+         */
+        DocumentsModel: Record<string, never>;
+        /**
+         * @example {
+         *       "_type": "EmojiReaction",
+         *       "id": "1-thumbs_up",
+         *       "reaction": "thumbs_up",
+         *       "emoji": "👍",
+         *       "reactionsCount": 3,
+         *       "firstReactionAt": "2024-04-08T15:37:19.275Z",
+         *       "_links": {
+         *         "self": {
+         *           "href": "/api/v3/emoji_reactions/1-thumbs_up"
+         *         },
+         *         "reactable": {
+         *           "href": "/api/v3/activities/1"
+         *         },
+         *         "reactingUsers": [
+         *           {
+         *             "href": "/api/v3/users/435",
+         *             "title": "John Doe"
+         *           },
+         *           {
+         *             "href": "/api/v3/users/436",
+         *             "title": "Jane Smith"
+         *           },
+         *           {
+         *             "href": "/api/v3/users/437",
+         *             "title": "Bob Johnson"
+         *           }
+         *         ]
+         *       }
+         *     }
+         */
+        EmojiReactionModel: {
+            /** @enum {string} */
+            _type?: "EmojiReaction";
+            /**
+             * @description Emoji reaction id (format: reactable_id-reaction)
+             * @example 1-thumbs_up
+             */
+            id?: string;
+            /**
+             * @description The reaction identifier
+             * @example thumbs_up
+             */
+            reaction?: string;
+            /**
+             * @description The emoji character
+             * @example 👍
+             */
+            emoji?: string;
+            /**
+             * @description Number of users who reacted with this emoji
+             * @example 3
+             */
+            reactionsCount?: number;
+            /**
+             * Format: date-time
+             * @description Time of the first reaction
+             */
+            firstReactionAt?: string;
+            _links?: {
+                self?: components["schemas"]["Link"] & unknown;
+                reactable?: components["schemas"]["Link"] & unknown;
+                reactingUsers?: (components["schemas"]["Link"] & unknown)[];
+            };
+        };
         /**
          * @example {
          *       "_type": "Collection",
@@ -9874,402 +6539,985 @@ export interface components {
          *       "_embedded": {
          *         "elements": [
          *           {
-         *             "_type": "QueryFilterInstanceSchema",
-         *             "_dependencies": [
-         *               {
-         *                 "_type": "SchemaDependency",
-         *                 "on": "operator",
-         *                 "dependencies": {
-         *                   "/api/v3/queries/operators/=": {
-         *                     "values": {
-         *                       "type": "[]User",
-         *                       "name": "Values",
-         *                       "required": true,
-         *                       "hasDefault": false,
-         *                       "writable": true,
-         *                       "_links": {}
-         *                     }
-         *                   },
-         *                   "/api/v3/queries/operators/!": {
-         *                     "values": {
-         *                       "type": "[]User",
-         *                       "name": "Values",
-         *                       "required": true,
-         *                       "hasDefault": false,
-         *                       "writable": true,
-         *                       "_links": {}
-         *                     }
-         *                   },
-         *                   "/api/v3/queries/operators/!*": {},
-         *                   "/api/v3/queries/operators/*": {}
-         *                 }
-         *               }
-         *             ],
-         *             "name": {
-         *               "type": "String",
-         *               "name": "Name",
-         *               "required": true,
-         *               "hasDefault": true,
-         *               "writable": false
-         *             },
-         *             "filter": {
-         *               "type": "QueryFilter",
-         *               "name": "Filter",
-         *               "required": true,
-         *               "hasDefault": false,
-         *               "writable": true,
-         *               "_links": {}
-         *             },
+         *             "_type": "EmojiReaction",
+         *             "id": "1-thumbs_up",
+         *             "reaction": "thumbs_up",
+         *             "emoji": "👍",
+         *             "reactionsCount": 3,
+         *             "firstReactionAt": "2024-04-08T15:37:19.275Z",
          *             "_links": {
          *               "self": {
-         *                 "href": "/api/v3/queries/filter_instance_schemas/assignee"
+         *                 "href": "/api/v3/emoji_reactions/1-thumbs_up"
          *               },
-         *               "filter": {
-         *                 "href": "/api/v3/queries/filters/assignee",
-         *                 "title": "Assignee"
-         *               }
+         *               "reactable": {
+         *                 "href": "/api/v3/activities/1"
+         *               },
+         *               "reactingUsers": [
+         *                 {
+         *                   "href": "/api/v3/users/435",
+         *                   "title": "John Doe"
+         *                 },
+         *                 {
+         *                   "href": "/api/v3/users/436",
+         *                   "title": "Jane Smith"
+         *                 },
+         *                 {
+         *                   "href": "/api/v3/users/437",
+         *                   "title": "Bob Johnson"
+         *                 }
+         *               ]
          *             }
          *           },
          *           {
-         *             "_type": "QueryFilterInstanceSchema",
-         *             "_dependencies": [
-         *               {
-         *                 "_type": "SchemaDependency",
-         *                 "on": "operator",
-         *                 "dependencies": {
-         *                   "/api/v3/queries/operators/=": {
-         *                     "values": {
-         *                       "type": "[]User",
-         *                       "name": "Values",
-         *                       "required": true,
-         *                       "hasDefault": false,
-         *                       "writable": true,
-         *                       "_links": {}
-         *                     }
-         *                   },
-         *                   "/api/v3/queries/operators/!": {
-         *                     "values": {
-         *                       "type": "[]User",
-         *                       "name": "Values",
-         *                       "required": true,
-         *                       "hasDefault": false,
-         *                       "writable": true,
-         *                       "_links": {}
-         *                     }
-         *                   }
-         *                 }
-         *               }
-         *             ],
-         *             "name": {
-         *               "type": "String",
-         *               "name": "Name",
-         *               "required": true,
-         *               "hasDefault": true,
-         *               "writable": false
-         *             },
-         *             "filter": {
-         *               "type": "QueryFilter",
-         *               "name": "Filter",
-         *               "required": true,
-         *               "hasDefault": false,
-         *               "writable": true,
-         *               "_links": {}
-         *             },
+         *             "_type": "EmojiReaction",
+         *             "id": "1-heart",
+         *             "reaction": "heart",
+         *             "emoji": "❤️",
+         *             "reactionsCount": 1,
+         *             "firstReactionAt": "2024-04-08T15:38:19.275Z",
          *             "_links": {
          *               "self": {
-         *                 "href": "/api/v3/queries/filter_instance_schemas/author"
+         *                 "href": "/api/v3/emoji_reactions/1-heart"
          *               },
-         *               "filter": {
-         *                 "href": "/api/v3/queries/filters/author",
-         *                 "title": "Author"
-         *               }
+         *               "reactable": {
+         *                 "href": "/api/v3/activities/1"
+         *               },
+         *               "reactingUsers": [
+         *                 {
+         *                   "href": "/api/v3/users/435",
+         *                   "title": "John Doe"
+         *                 }
+         *               ]
          *             }
          *           }
          *         ]
          *       },
          *       "_links": {
          *         "self": {
-         *           "href": "/api/v3/workspaces/42/queries/filter_instance_schemas"
+         *           "href": "/api/v3/activities/1/emoji_reactions"
          *         }
          *       }
          *     }
          */
-        query_filter_instance_schemas_for_workspace_model: Record<string, never>;
+        EmojiReactions_Model: {
+            /** @enum {string} */
+            _type?: "Collection";
+            /** @description Total number of emoji reactions */
+            total?: number;
+            /** @description Number of emoji reactions in this response */
+            count?: number;
+            _embedded?: {
+                elements?: components["schemas"]["EmojiReactionModel"][];
+            };
+            _links?: {
+                self?: components["schemas"]["Link"] & unknown;
+            };
+        };
+        ErrorResponse: {
+            _embedded?: {
+                details?: {
+                    /** @example project */
+                    attribute?: string;
+                };
+            };
+            /** @enum {string} */
+            _type: "Error";
+            /** @example urn:openproject-org:api:v3:errors:PropertyConstraintViolation */
+            errorIdentifier: string;
+            /** @example Project can't be blank. */
+            message: string;
+        };
+        /**
+         * @example {
+         *       "_links": {
+         *         "self": {
+         *           "href": "/api/v3/example/form"
+         *         },
+         *         "validate": {
+         *           "href": "/api/v3/example/form",
+         *           "method": "POST"
+         *         },
+         *         "previewMarkup": {
+         *           "href": "/api/v3/render/markdown",
+         *           "method": "POST"
+         *         },
+         *         "commit": {
+         *           "href": "/api/v3/example",
+         *           "method": "PATCH"
+         *         }
+         *       },
+         *       "_type": "Form",
+         *       "_embedded": {
+         *         "payload": {
+         *           "_links": {
+         *             "status": {
+         *               "href": "/api/v3/statuses/1"
+         *             }
+         *           },
+         *           "_type": "Example",
+         *           "lockVersion": 5,
+         *           "subject": "An example title"
+         *         },
+         *         "schema": {
+         *           "_type": "Schema",
+         *           "_links": {
+         *             "self": {
+         *               "href": "/api/v3/example/schema"
+         *             }
+         *           },
+         *           "lockVersion": {
+         *             "type": "Integer",
+         *             "writable": false
+         *           },
+         *           "subject": {
+         *             "type": "String",
+         *             "minLength": 1,
+         *             "maxLength": 255
+         *           },
+         *           "status": {
+         *             "_links": {
+         *               "allowedValues": [
+         *                 {
+         *                   "href": "/api/v3/statuses/1",
+         *                   "title": "New"
+         *                 },
+         *                 {
+         *                   "href": "/api/v3/statuses/2",
+         *                   "title": "Closed"
+         *                 }
+         *               ]
+         *             },
+         *             "type": "Status",
+         *             "_embedded": {
+         *               "allowedValues": [
+         *                 {
+         *                   "_links": {
+         *                     "self": {
+         *                       "href": "/api/v3/statuses/1"
+         *                     }
+         *                   },
+         *                   "_type": "Status",
+         *                   "id": 1,
+         *                   "name": "New",
+         *                   "position": 1,
+         *                   "isDefault": true,
+         *                   "isClosed": false,
+         *                   "defaultDoneRatio": 0,
+         *                   "createdAt": "2014-05-21T08:51:20.759Z",
+         *                   "updatedAt": "2014-05-21T09:12:00.237Z"
+         *                 },
+         *                 {
+         *                   "_links": {
+         *                     "self": {
+         *                       "href": "/api/v3/statuses/2"
+         *                     }
+         *                   },
+         *                   "_type": "Status",
+         *                   "id": 2,
+         *                   "name": "Closed",
+         *                   "position": 2,
+         *                   "isDefault": false,
+         *                   "isClosed": true,
+         *                   "defaultDoneRatio": 100,
+         *                   "createdAt": "2014-05-21T08:51:20.759Z",
+         *                   "updatedAt": "2014-05-21T09:12:00.237Z"
+         *                 }
+         *               ]
+         *             }
+         *           }
+         *         },
+         *         "validationErrors": {
+         *           "subject": {
+         *             "_type": "Error",
+         *             "errorIdentifier": "urn:openproject-org:api:v3:errors:BadExampleError",
+         *             "message": "For the purpose of this example we need a validation error. The remainder of the response pretends there were no errors."
+         *           }
+         *         }
+         *       }
+         *     }
+         */
+        Example_FormModel: Record<string, never>;
         /**
          * @example {
          *       "_type": "Schema",
          *       "_dependencies": [],
-         *       "id": {
+         *       "_links": {
+         *         "self": {
+         *           "href": "/api/v3/example/schema"
+         *         }
+         *       },
+         *       "lockVersion": {
+         *         "name": "Resource Version",
          *         "type": "Integer",
-         *         "name": "ID",
-         *         "required": true,
-         *         "hasDefault": false,
          *         "writable": false
          *       },
-         *       "name": {
+         *       "subject": {
+         *         "name": "Subject",
          *         "type": "String",
-         *         "name": "Name",
-         *         "required": true,
-         *         "hasDefault": false,
-         *         "writable": true,
          *         "minLength": 1,
          *         "maxLength": 255
          *       },
-         *       "createdAt": {
-         *         "type": "DateTime",
-         *         "name": "Created on",
-         *         "required": true,
-         *         "hasDefault": false,
-         *         "writable": false
-         *       },
-         *       "updatedAt": {
-         *         "type": "DateTime",
-         *         "name": "Updated on",
-         *         "required": true,
-         *         "hasDefault": false,
-         *         "writable": false
-         *       },
-         *       "user": {
-         *         "type": "User",
-         *         "name": "User",
-         *         "required": true,
-         *         "hasDefault": true,
-         *         "writable": false
-         *       },
-         *       "project": {
-         *         "type": "Workspace",
-         *         "name": "Project",
-         *         "required": false,
-         *         "hasDefault": false,
-         *         "writable": true,
-         *         "_links": {}
-         *       },
-         *       "public": {
-         *         "type": "Boolean",
-         *         "name": "Public",
-         *         "required": false,
-         *         "hasDefault": true,
-         *         "writable": true
-         *       },
-         *       "sums": {
-         *         "type": "Boolean",
-         *         "name": "Sums",
-         *         "required": false,
-         *         "hasDefault": true,
-         *         "writable": true
-         *       },
-         *       "timelineVisible": {
-         *         "type": "Boolean",
-         *         "name": "Timeline visible",
-         *         "required": false,
-         *         "hasDefault": true,
-         *         "writable": true
-         *       },
-         *       "timelineZoomLevel": {
-         *         "type": "String",
-         *         "name": "Timeline zoom level",
-         *         "required": false,
-         *         "hasDefault": true,
-         *         "writable": true
-         *       },
-         *       "showHierarchies": {
-         *         "type": "Boolean",
-         *         "name": "Show hierarchies",
-         *         "required": false,
-         *         "hasDefault": true,
-         *         "writable": true
-         *       },
-         *       "starred": {
-         *         "type": "Boolean",
-         *         "name": "Starred",
-         *         "required": false,
-         *         "hasDefault": true,
-         *         "writable": true
-         *       },
-         *       "columns": {
-         *         "type": "[]QueryColumn",
-         *         "name": "Columns",
-         *         "required": false,
-         *         "hasDefault": true,
-         *         "writable": true,
-         *         "_links": {}
-         *       },
-         *       "filters": {
-         *         "type": "[]QueryFilterInstance",
-         *         "name": "Filters",
-         *         "required": false,
-         *         "writable": true,
-         *         "hasDefault": true,
+         *       "status": {
          *         "_links": {
-         *           "allowedValuesSchemas": {
-         *             "href": "/api/v3/workspaces/42/queries/filter_instance_schemas"
-         *           }
-         *         }
-         *       },
-         *       "groupBy": {
-         *         "type": "[]QueryGroupBy",
-         *         "name": "Group results by",
-         *         "required": false,
-         *         "hasDefault": false,
-         *         "writable": true,
-         *         "_links": {}
-         *       },
-         *       "sortBy": {
-         *         "type": "[]QuerySortBy",
-         *         "name": "Sort by",
-         *         "required": false,
-         *         "hasDefault": true,
-         *         "writable": true,
-         *         "_links": {}
-         *       },
-         *       "results": {
-         *         "type": "WorkPackageCollection",
-         *         "name": "Results",
-         *         "required": false,
-         *         "hasDefault": false,
-         *         "writable": false
-         *       },
-         *       "_embedded": {
-         *         "filtersSchemas": {
-         *           "_type": "Collection",
-         *           "total": 20,
-         *           "count": 20,
-         *           "_embedded": {
-         *             "elements": [
-         *               {
-         *                 "_type": "QueryFilterInstanceSchema",
-         *                 "_dependencies": [
-         *                   {
-         *                     "_type": "SchemaDependency",
-         *                     "on": "operator",
-         *                     "dependencies": {
-         *                       "/api/v3/queries/operators/=": {
-         *                         "values": {
-         *                           "type": "[]User",
-         *                           "name": "Values",
-         *                           "required": true,
-         *                           "hasDefault": false,
-         *                           "writable": true,
-         *                           "_links": {}
-         *                         }
-         *                       },
-         *                       "/api/v3/queries/operators/!": {
-         *                         "values": {
-         *                           "type": "[]User",
-         *                           "name": "Values",
-         *                           "required": true,
-         *                           "hasDefault": false,
-         *                           "writable": true,
-         *                           "_links": {}
-         *                         }
-         *                       },
-         *                       "/api/v3/queries/operators/!*": {},
-         *                       "/api/v3/queries/operators/*": {}
-         *                     }
-         *                   }
-         *                 ],
-         *                 "name": {
-         *                   "type": "String",
-         *                   "name": "Name",
-         *                   "required": true,
-         *                   "hasDefault": true,
-         *                   "writable": false
-         *                 },
-         *                 "filter": {
-         *                   "type": "QueryFilter",
-         *                   "name": "Filter",
-         *                   "required": true,
-         *                   "hasDefault": false,
-         *                   "writable": true,
-         *                   "_links": {}
-         *                 },
-         *                 "_links": {
-         *                   "self": {
-         *                     "href": "/api/v3/queries/filter_instance_schemas/assignee"
-         *                   },
-         *                   "filter": {
-         *                     "href": "/api/v3/queries/filters/assignee",
-         *                     "title": "Assignee"
-         *                   }
+         *           "allowedValues": [
+         *             {
+         *               "href": "/api/v3/statuses/1",
+         *               "title": "New"
+         *             },
+         *             {
+         *               "href": "/api/v3/statuses/2",
+         *               "title": "Closed"
+         *             }
+         *           ]
+         *         },
+         *         "name": "Status",
+         *         "type": "Status",
+         *         "location": "_links",
+         *         "_embedded": {
+         *           "allowedValues": [
+         *             {
+         *               "_links": {
+         *                 "self": {
+         *                   "href": "/api/v3/statuses/1"
          *                 }
          *               },
-         *               {
-         *                 "_type": "QueryFilterInstanceSchema",
-         *                 "_dependencies": [
-         *                   {
-         *                     "_type": "SchemaDependency",
-         *                     "on": "operator",
-         *                     "dependencies": {
-         *                       "/api/v3/queries/operators/=": {
-         *                         "values": {
-         *                           "type": "[]User",
-         *                           "name": "Values",
-         *                           "required": true,
-         *                           "hasDefault": false,
-         *                           "writable": true,
-         *                           "_links": {}
-         *                         }
-         *                       },
-         *                       "/api/v3/queries/operators/!": {
-         *                         "values": {
-         *                           "type": "[]User",
-         *                           "name": "Values",
-         *                           "required": true,
-         *                           "hasDefault": false,
-         *                           "writable": true,
-         *                           "_links": {}
-         *                         }
-         *                       }
-         *                     }
-         *                   }
-         *                 ],
-         *                 "name": {
-         *                   "type": "String",
-         *                   "name": "Name",
-         *                   "required": true,
-         *                   "hasDefault": true,
-         *                   "writable": false
-         *                 },
-         *                 "filter": {
-         *                   "type": "QueryFilter",
-         *                   "name": "Filter",
-         *                   "required": true,
-         *                   "hasDefault": false,
-         *                   "writable": true,
-         *                   "_links": {}
-         *                 },
-         *                 "_links": {
-         *                   "self": {
-         *                     "href": "/api/v3/queries/filter_instance_schemas/author"
-         *                   },
-         *                   "filter": {
-         *                     "href": "/api/v3/queries/filters/author",
-         *                     "title": "Author"
-         *                   }
+         *               "_type": "Status",
+         *               "id": 1,
+         *               "name": "New",
+         *               "position": 1,
+         *               "isDefault": true,
+         *               "isClosed": false,
+         *               "defaultDoneRatio": 0,
+         *               "createdAt": "2014-05-21T08:51:20.991Z",
+         *               "updatedAt": "2014-05-21T09:12:00.155Z"
+         *             },
+         *             {
+         *               "_links": {
+         *                 "self": {
+         *                   "href": "/api/v3/statuses/2"
          *                 }
-         *               }
-         *             ]
-         *           },
-         *           "_links": {
-         *             "self": {
-         *               "href": "/api/v3/workspaces/42/queries/filter_instance_schemas"
+         *               },
+         *               "_type": "Status",
+         *               "id": 2,
+         *               "name": "Closed",
+         *               "position": 2,
+         *               "isDefault": false,
+         *               "isClosed": true,
+         *               "defaultDoneRatio": 100,
+         *               "createdAt": "2014-05-21T08:51:20.991Z",
+         *               "updatedAt": "2014-05-21T09:12:00.155Z"
          *             }
-         *           }
-         *         }
-         *       },
-         *       "_links": {
-         *         "self": {
-         *           "href": "/api/v3/workspaces/42/queries/schema"
+         *           ]
          *         }
          *       }
          *     }
          */
-        schema_for_workspace_queries_model: Record<string, never>;
+        Example_SchemaModel: Record<string, never>;
+        /**
+         * @example {
+         *       "_type": "Collection",
+         *       "total": 2,
+         *       "count": 2,
+         *       "pageSize": 30,
+         *       "offset": 1,
+         *       "_links": {
+         *         "self": {
+         *           "href": "/api/v3/work_packages/42/file_links"
+         *         },
+         *         "jumpTo": {
+         *           "href": "/api/v3/work_packages/42/file_links?offset=%7Boffset%7D&pageSize=30",
+         *           "templated": true
+         *         },
+         *         "changeSize": {
+         *           "href": "/api/v3/work_packages/42/file_links?offset=1&pageSize=%7Bsize%7D",
+         *           "templated": true
+         *         }
+         *       },
+         *       "_embedded": {
+         *         "elements": [
+         *           {
+         *             "id": 1337,
+         *             "_type": "FileLink",
+         *             "createdAt": "2021-12-20T13:37:00.211Z",
+         *             "updatedAt": "2021-12-20T13:37:00.211Z",
+         *             "originData": {
+         *               "id": "5503",
+         *               "name": "logo.png",
+         *               "mimeType": "image/png",
+         *               "size": 16042,
+         *               "createdAt": "2021-12-19T09:42:10.170Z",
+         *               "lastModifiedAt": "2021-12-20T14:00:13.987Z",
+         *               "createdByName": "Luke Skywalker",
+         *               "lastModifiedByName": "Anakin Skywalker"
+         *             },
+         *             "_links": {
+         *               "self": {
+         *                 "href": "/api/v3/work_package/17/file_links/1337",
+         *                 "title": "file link"
+         *               },
+         *               "storage": {
+         *                 "href": "/api/v3/storage/42",
+         *                 "title": "storage"
+         *               },
+         *               "container": {
+         *                 "href": "/api/v3/work_package/17",
+         *                 "title": "work package"
+         *               },
+         *               "creator": {
+         *                 "href": "/api/v3/users/33",
+         *                 "title": "Obi-Wan Kenobi"
+         *               },
+         *               "delete": {
+         *                 "href": "/api/v3/work_package/17/file_links/1337",
+         *                 "method": "delete"
+         *               },
+         *               "originOpen": {
+         *                 "href": "https://nextcloud.deathstar.rocks/index.php/f?fileid=5503"
+         *               },
+         *               "staticOriginOpen": {
+         *                 "href": "/api/v3/work_package/17/file_links/1337/open"
+         *               }
+         *             }
+         *           },
+         *           {
+         *             "_hint": "File Link resource shortened for brevity",
+         *             "id": 1338
+         *           }
+         *         ]
+         *       }
+         *     }
+         */
+        FileLinkCollectionReadModel: components["schemas"]["PaginatedCollectionModel"] & {
+            _links?: {
+                self?: components["schemas"]["Link"] & unknown;
+            };
+            _embedded?: {
+                elements?: components["schemas"]["FileLinkReadModel"][];
+            };
+        };
+        /**
+         * @example {
+         *       "_embedded": {
+         *         "elements": [
+         *           {
+         *             "originData": {
+         *               "id": "5503",
+         *               "name": "logo.png",
+         *               "mimeType": "image/png",
+         *               "size": 16042,
+         *               "createdAt": "2021-12-19T09:42:10.170Z",
+         *               "lastModifiedAt": "2021-12-20T14:00:13.987Z",
+         *               "createdByName": "Luke Skywalker",
+         *               "lastModifiedByName": "Anakin Skywalker"
+         *             },
+         *             "_links": {
+         *               "storage": {
+         *                 "href": "/api/v3/storage/42"
+         *               }
+         *             }
+         *           }
+         *         ]
+         *       }
+         *     }
+         */
+        FileLinkCollectionWriteModel: {
+            _embedded: {
+                elements: components["schemas"]["FileLinkWriteModel"][];
+            };
+        };
+        FileLinkOriginDataModel: {
+            /** @description Linked file's id on the origin */
+            id: string;
+            /** @description Linked file's name on the origin */
+            name: string;
+            /**
+             * @description MIME type of the linked file.
+             *
+             *     To link a folder entity, the custom MIME type `application/x-op-directory` MUST be provided. Otherwise it defaults back to
+             *     an unknown MIME type.
+             */
+            mimeType?: string;
+            /** @description file size on origin in bytes */
+            size?: number;
+            /**
+             * Format: date-time
+             * @description Timestamp of the creation datetime of the file on the origin
+             */
+            createdAt?: string;
+            /**
+             * Format: date-time
+             * @description Timestamp of the datetime of the last modification of the file on the origin
+             */
+            lastModifiedAt?: string;
+            /** @description Display name of the author that created the file on the origin */
+            createdByName?: string;
+            /** @description Display name of the author that modified the file on the origin last */
+            lastModifiedByName?: string;
+        };
+        /**
+         * @example {
+         *       "id": 1337,
+         *       "_type": "FileLink",
+         *       "createdAt": "2021-12-20T13:37:00.211Z",
+         *       "updatedAt": "2021-12-20T13:37:00.211Z",
+         *       "originData": {
+         *         "id": "5503",
+         *         "name": "logo.png",
+         *         "mimeType": "image/png",
+         *         "size": 16042,
+         *         "createdAt": "2021-12-19T09:42:10.170Z",
+         *         "lastModifiedAt": "2021-12-20T14:00:13.987Z",
+         *         "createdByName": "Luke Skywalker",
+         *         "lastModifiedByName": "Anakin Skywalker"
+         *       },
+         *       "_embedded": {
+         *         "storage": {
+         *           "id": 1337,
+         *           "_type": "Storage",
+         *           "name": "It's no moon",
+         *           "createdAt": "2021-12-20T13:37:00.211Z",
+         *           "updatedAt": "2021-12-20T13:37:00.211Z",
+         *           "_links": {
+         *             "self": {
+         *               "href": "/api/v3/storages/1337",
+         *               "title": "It's no moon"
+         *             },
+         *             "type": {
+         *               "href": "urn:openproject-org:api:v3:storages:nextcloud",
+         *               "title": "Nextcloud"
+         *             },
+         *             "origin": {
+         *               "href": "https://nextcloud.deathstar.rocks/"
+         *             },
+         *             "open": {
+         *               "href": "https://example.com/a-link-to-open-the-file"
+         *             },
+         *             "authorizationState": {
+         *               "href": "urn:openproject-org:api:v3:storages:authorization:Connected"
+         *             }
+         *           }
+         *         },
+         *         "container": {
+         *           "_hint": "Work package resource shortened for brevity",
+         *           "_type": "WorkPackage",
+         *           "id": 1528,
+         *           "subject": "Develop API"
+         *         }
+         *       },
+         *       "_links": {
+         *         "self": {
+         *           "href": "/api/v3/work_package/17/file_links/1337"
+         *         },
+         *         "storage": {
+         *           "href": "/api/v3/storage/42",
+         *           "title": "It's no moon"
+         *         },
+         *         "container": {
+         *           "href": "/api/v3/work_package/17",
+         *           "title": "Develop API"
+         *         },
+         *         "creator": {
+         *           "href": "/api/v3/users/33",
+         *           "title": "Obi-Wan Kenobi"
+         *         },
+         *         "delete": {
+         *           "href": "/api/v3/work_package/17/file_links/1337"
+         *         },
+         *         "status": {
+         *           "href": "urn:openproject-org:api:v3:file-links:permission:ViewAllowed",
+         *           "title": "View allowed"
+         *         },
+         *         "originOpen": {
+         *           "href": "https://nextcloud.deathstar.rocks/index.php/f/5503?openfile=1"
+         *         },
+         *         "staticOriginOpen": {
+         *           "href": "/api/v3/file_links/1337/open"
+         *         },
+         *         "originOpenLocation": {
+         *           "href": "https://nextcloud.deathstar.rocks/index.php/f/5503?openfile=0"
+         *         },
+         *         "staticOriginOpenLocation": {
+         *           "href": "/api/v3/file_links/1337/open?location=true"
+         *         },
+         *         "staticOriginDownload": {
+         *           "href": "/api/v3/file_links/1337/download"
+         *         }
+         *       }
+         *     }
+         */
+        FileLinkReadModel: {
+            /** @description File link id */
+            id?: number;
+            /** @enum {string} */
+            _type?: "FileLink";
+            /**
+             * Format: date-time
+             * @description Time of creation
+             */
+            createdAt?: string;
+            /**
+             * Format: date-time
+             * @description Time of the most recent change to the file link
+             */
+            updatedAt?: string;
+            originData?: components["schemas"]["FileLinkOriginDataModel"];
+            _embedded?: {
+                storage: components["schemas"]["StorageReadModel"];
+            };
+            _links?: {
+                self?: components["schemas"]["Link"] & unknown;
+                storage?: components["schemas"]["Link"] & unknown;
+                container?: components["schemas"]["Link"] & unknown;
+                creator?: components["schemas"]["Link"] & unknown;
+                delete?: components["schemas"]["Link"] & unknown;
+                status?: components["schemas"]["Link"] & unknown;
+                originOpen?: components["schemas"]["Link"] & unknown;
+                staticOriginOpen?: components["schemas"]["Link"] & unknown;
+                originOpenLocation?: components["schemas"]["Link"] & unknown;
+                staticOriginOpenLocation?: components["schemas"]["Link"] & unknown;
+                staticOriginDownload?: components["schemas"]["Link"] & unknown;
+            };
+        };
+        /**
+         * @example {
+         *       "originData": {
+         *         "id": "5503",
+         *         "name": "logo.png",
+         *         "mimeType": "image/png",
+         *         "size": 16042,
+         *         "createdAt": "2021-12-19T09:42:10.170Z",
+         *         "lastModifiedAt": "2021-12-20T14:00:13.987Z",
+         *         "createdByName": "Luke Skywalker",
+         *         "lastModifiedByName": "Anakin Skywalker"
+         *       },
+         *       "_links": {
+         *         "storageUrl": {
+         *           "href": "https://nextcloud.my-deathstar.org"
+         *         }
+         *       }
+         *     }
+         */
+        FileLinkWriteModel: {
+            originData: components["schemas"]["FileLinkOriginDataModel"];
+            _links: {
+                storage: components["schemas"]["Link"] & unknown;
+            } | {
+                storageUrl: components["schemas"]["Link"] & unknown;
+            };
+        };
+        FileUploadForm: {
+            metadata?: {
+                fileName?: string;
+            };
+            /** Format: binary */
+            file?: string;
+        };
+        /**
+         * @example {
+         *       "format": "markdown",
+         *       "raw": "I am formatted!",
+         *       "html": "I am formatted!"
+         *     }
+         */
+        Formattable: {
+            /**
+             * @description Indicates the formatting language of the raw text
+             * @example markdown
+             * @enum {string}
+             */
+            readonly format: "plain" | "markdown" | "custom";
+            /**
+             * @description The raw text, as entered by the user
+             * @example I **am** formatted!
+             */
+            raw?: string;
+            /**
+             * @description The text converted to HTML according to the format
+             * @example I <strong>am</strong> formatted!
+             */
+            readonly html?: string;
+        };
+        GridCollectionModel: components["schemas"]["PaginatedCollectionModel"] & {
+            _embedded: {
+                elements: components["schemas"]["GridReadModel"][];
+            };
+        };
+        GridReadModel: {
+            /** @enum {string} */
+            _type: "Grid";
+            /** @description Grid's id */
+            id: number;
+            /** @description The number of rows the grid has */
+            rowCount: number;
+            /** @description The number of columns the grid has */
+            columnCount: number;
+            /**
+             * @description The set of `GridWidget`s selected for the grid.
+             *
+             *     # Conditions
+             *
+             *     - The widgets must not overlap.
+             */
+            widgets: components["schemas"]["GridWidgetModel"][];
+            /**
+             * Format: date-time
+             * @description The time the grid was created.
+             */
+            createdAt?: string;
+            /**
+             * Format: date-time
+             * @description The time the grid was last updated.
+             */
+            updatedAt?: string;
+            _links: {
+                self: components["schemas"]["Link"] & unknown;
+                attachments?: components["schemas"]["Link"] & unknown;
+                addAttachment?: components["schemas"]["Link"] & unknown;
+                scope: components["schemas"]["Link"] & unknown;
+                updateImmediately?: components["schemas"]["Link"] & unknown;
+                update?: components["schemas"]["Link"] & unknown;
+                delete?: components["schemas"]["Link"] & unknown;
+            };
+        };
+        GridWidgetModel: {
+            /** @enum {string} */
+            _type: "GridWidget";
+            /** @description The grid widget's unique identifier. Can be null, if a new widget is created within a grid. */
+            id: number | null;
+            /** @description An alternative, human legible, and unique identifier. */
+            identifier: string;
+            /** @description The index of the starting row of the widget. The row is inclusive. */
+            startRow: number;
+            /** @description The index of the ending row of the widget. The row is exclusive. */
+            endRow: number;
+            /** @description The index of the starting column of the widget. The column is inclusive. */
+            startColumn: number;
+            /** @description The index of the ending column of the widget. The column is exclusive. */
+            endColumn: number;
+            options?: Record<string, never>;
+        };
+        GridWriteModel: {
+            /** @description The number of rows the grid has */
+            rowCount?: number;
+            /** @description The number of columns the grid has */
+            columnCount?: number;
+            /**
+             * @description The set of `GridWidget`s selected for the grid.
+             *
+             *     # Conditions
+             *
+             *     - The widgets must not overlap.
+             */
+            widgets?: components["schemas"]["GridWidgetModel"][];
+            _links?: {
+                scope?: components["schemas"]["Link"] & unknown;
+            };
+        };
+        /**
+         * @example {
+         *       "_type": "Collection",
+         *       "total": 2,
+         *       "count": 2,
+         *       "_links": {
+         *         "self": {
+         *           "href": "/api/v3/groups"
+         *         }
+         *       },
+         *       "_embedded": {
+         *         "elements": [
+         *           {
+         *             "_type": "Group",
+         *             "id": 1337,
+         *             "name": "Stormtroopers",
+         *             "createdAt": "2022-09-23T11:06:36.300Z",
+         *             "updatedAt": "2022-09-23T11:06:36.300Z",
+         *             "_links": {
+         *               "self": {
+         *                 "href": "/api/v3/groups/9",
+         *                 "title": "Stormtroopers"
+         *               },
+         *               "delete": {
+         *                 "href": "/api/v3/group/9",
+         *                 "method": "delete"
+         *               },
+         *               "memberships": {
+         *                 "href": "/api/v3/memberships?filters=[{\"principal\":{\"operator\":\"=\",\"values\":[\"9\"]}}]",
+         *                 "title": "Memberships"
+         *               },
+         *               "updateImmediately": {
+         *                 "href": "/api/v3/group/9",
+         *                 "method": "patch"
+         *               },
+         *               "members": [
+         *                 {
+         *                   "href": "/api/v3/users/363",
+         *                   "title": "ST-097E"
+         *                 },
+         *                 {
+         *                   "href": "/api/v3/users/60",
+         *                   "title": "ST-C-334"
+         *                 }
+         *               ]
+         *             }
+         *           },
+         *           {
+         *             "_abbreviated": "Group resource shortened for brevity",
+         *             "id": 1338
+         *           }
+         *         ]
+         *       }
+         *     }
+         */
+        GroupCollectionModel: components["schemas"]["CollectionModel"] & {
+            _links: {
+                self: components["schemas"]["Link"] & unknown;
+            };
+            _embedded: {
+                elements: components["schemas"]["GroupModel"][];
+            };
+        };
+        GroupModel: components["schemas"]["PrincipalModel"] & components["schemas"]["CustomFieldProperties"] & {
+            /** @enum {string} */
+            _type: "Group";
+            _embedded: {
+                /** @description Embedded list of members. */
+                members?: components["schemas"]["UserModel"][];
+            };
+            _links?: {
+                self?: components["schemas"]["Link"] & unknown;
+                members?: (components["schemas"]["Link"] & unknown)[];
+                memberships?: components["schemas"]["Link"] & unknown;
+                delete?: components["schemas"]["Link"] & unknown;
+                updateImmediately?: components["schemas"]["Link"] & unknown;
+            };
+        };
+        /**
+         * @example {
+         *       "name": "Emperor's guard",
+         *       "_links": {
+         *         "members": [
+         *           {
+         *             "href": "/api/v3/users/42"
+         *           },
+         *           {
+         *             "href": "/api/v3/users/43"
+         *           },
+         *           {
+         *             "href": "/api/v3/users/44"
+         *           }
+         *         ]
+         *       }
+         *     }
+         */
+        GroupWriteModel: {
+            /** @description The new group name. */
+            name?: string;
+            _links?: {
+                members?: (components["schemas"]["Link"] & unknown)[];
+            };
+        };
+        /**
+         * @example {
+         *       "total": 2,
+         *       "count": 2,
+         *       "_type": "Collection",
+         *       "_embedded": {
+         *         "elements": [
+         *           {
+         *             "_type": "HelpText",
+         *             "_links": {
+         *               "self": {
+         *                 "href": "/api/v3/help_texts/1"
+         *               },
+         *               "editText": {
+         *                 "href": "/admin/attribute_help_texts/1/edit",
+         *                 "type": "text/html"
+         *               },
+         *               "attachments": {
+         *                 "href": "/api/v3/help_texts/1/attachments"
+         *               },
+         *               "addAttachment": {
+         *                 "href": "/api/v3/help_texts/1/attachments",
+         *                 "method": "post"
+         *               }
+         *             },
+         *             "id": 1,
+         *             "attribute": "id",
+         *             "attributeCaption": "ID",
+         *             "scope": "WorkPackage",
+         *             "helpText": {
+         *               "format": "markdown",
+         *               "raw": "Help text for id attribute.",
+         *               "html": "<p>Help text for id attribute.</p>"
+         *             }
+         *           },
+         *           {
+         *             "_type": "HelpText",
+         *             "_links": {
+         *               "self": {
+         *                 "href": "/api/v3/help_texts/2"
+         *               },
+         *               "editText": {
+         *                 "href": "/admin/attribute_help_texts/2/edit",
+         *                 "type": "text/html"
+         *               },
+         *               "attachments": {
+         *                 "href": "/api/v3/help_texts/2/attachments"
+         *               },
+         *               "addAttachment": {
+         *                 "href": "/api/v3/help_texts/2/attachments",
+         *                 "method": "post"
+         *               }
+         *             },
+         *             "id": 2,
+         *             "attribute": "status",
+         *             "attributeCaption": "Status",
+         *             "scope": "WorkPackage",
+         *             "helpText": {
+         *               "format": "markdown",
+         *               "raw": "Help text for status attribute.",
+         *               "html": "<p>Help text for status attribute.</p>"
+         *             }
+         *           }
+         *         ]
+         *       },
+         *       "_links": {
+         *         "self": {
+         *           "href": "/api/v3/help_texts"
+         *         }
+         *       }
+         *     }
+         */
+        HelpTextCollectionModel: components["schemas"]["CollectionModel"] & {
+            _links: {
+                self: components["schemas"]["Link"] & unknown;
+            };
+            _embedded: {
+                elements: components["schemas"]["HelpTextModel"][];
+            };
+        };
+        /**
+         * @example {
+         *       "_type": "HelpText",
+         *       "id": 1,
+         *       "attribute": "id",
+         *       "scope": "WorkPackage",
+         *       "caption": "Some plain text caption",
+         *       "helpText": {
+         *         "format": "markdown",
+         *         "raw": "Help text for id attribute.",
+         *         "html": "<p>Help text for id attribute.</p>"
+         *       },
+         *       "_links": {
+         *         "self": {
+         *           "href": "/api/v3/help_texts/1"
+         *         },
+         *         "editText": {
+         *           "href": "/admin/attribute_help_texts/1/edit",
+         *           "type": "text/html"
+         *         },
+         *         "attachments": {
+         *           "href": "/api/v3/help_texts/1/attachments"
+         *         },
+         *         "addAttachment": {
+         *           "href": "/api/v3/help_texts/1/attachments",
+         *           "method": "post"
+         *         }
+         *       }
+         *     }
+         */
+        HelpTextModel: {
+            /** @enum {string} */
+            _type: "HelpText";
+            /** Format: int64 */
+            id: number;
+            /** @description The attribute the help text is assigned to. */
+            attribute: string;
+            /** @enum {string} */
+            scope: "WorkPackage" | "Project";
+            helpText: components["schemas"]["Formattable"];
+            _links: {
+                self: components["schemas"]["Link"] & unknown;
+                editText: components["schemas"]["Link"] & unknown;
+                attachments: components["schemas"]["Link"] & unknown;
+                addAttachment: components["schemas"]["Link"] & unknown;
+            };
+        };
+        HierarchyItemCollectionModel: components["schemas"]["CollectionModel"] & {
+            _links: {
+                self: components["schemas"]["Link"] & unknown;
+            };
+            _embedded: {
+                elements: components["schemas"]["HierarchyItemReadModel"][];
+            };
+        };
+        HierarchyItemReadModel: {
+            /** @enum {string} */
+            _type: "HierarchyItem";
+            /** @description Hierarchy item identifier */
+            id: number;
+            /** @description The label of the hierarchy item */
+            label: string | null;
+            /**
+             * @description The short name of the hierarchy item. If this attribute is set, the `weight` and
+             *     the `formattedWeight` are `null`.
+             */
+            short: string | null;
+            /**
+             * @description The accurate weight of the hierarchy item. As a decimal precision number it is written as a string to
+             *     not loose precision with conversion to a floating point number.
+             *     If this attribute is set, the `short` is null.
+             */
+            weight: string | null;
+            /**
+             * @description The formatted weight of the hierarchy item. The standard formatting of the OpenProject server is used to
+             *     convert this number into a representable format - i.e. falling back to scientific notation for very small and
+             *     very big numbers.
+             *     If this attribute is set, the `short` is null.
+             */
+            formattedWeight: string | null;
+            /** @description The hierarchy depth. The root item has a depth of 0. */
+            depth: number;
+            _links: {
+                self: components["schemas"]["Link"] & unknown;
+                parent?: components["schemas"]["Link"] & unknown;
+                children: (components["schemas"]["Link"] & unknown)[];
+                branch: components["schemas"]["Link"] & unknown;
+            };
+        };
+        /**
+         * @example {
+         *       "href": "/api/v3/work_packages",
+         *       "method": "POST"
+         *     }
+         */
+        Link: {
+            /** @description URL to the referenced resource (might be relative) */
+            href: string | null;
+            /** @description Representative label for the resource */
+            title?: string;
+            /**
+             * @description If true the href contains parts that need to be replaced by the client
+             * @default false
+             */
+            templated: boolean;
+            /**
+             * @description The HTTP verb to use when requesting the resource
+             * @default GET
+             */
+            method: string;
+            /** @description The payload to send in the request to achieve the desired result */
+            payload?: Record<string, never>;
+            /** @description An optional unique identifier to the link object */
+            identifier?: string;
+            /** @description The MIME-Type of the returned resource. */
+            type?: string;
+        };
         /**
          * @example {
          *       "_links": {
          *         "self": {
-         *           "href": "/api/v3/work_packages"
+         *           "href": "/api/v3/actions"
          *         }
          *       },
          *       "total": 2,
@@ -10278,319 +7526,1378 @@ export interface components {
          *       "_embedded": {
          *         "elements": [
          *           {
-         *             "_abbreviated": "Work package resource shortened for brevity",
-         *             "_type": "WorkPackage",
          *             "_links": {
          *               "self": {
-         *                 "href": "/api/v3/work_packages/1"
+         *                 "href": "/api/v3/actions/work_packages/create",
+         *                 "title": "Add work package"
          *               }
          *             },
-         *             "id": 1
+         *             "_type": "Action",
+         *             "id": "work_packages/create",
+         *             "name": "Add work package",
+         *             "description": "Creating a work package within a project including the uploading of attachments. Some attributes might not be selected, e.g version which requires a second permission",
+         *             "modules": [
+         *               "work_packages"
+         *             ]
          *           },
          *           {
-         *             "_abbreviated": "Work package resource shortened for brevity",
-         *             "_type": "WorkPackage",
          *             "_links": {
          *               "self": {
-         *                 "href": "/api/v3/work_packages/2"
+         *                 "href": "/api/v3/actions/work_packages/assign_versions",
+         *                 "title": "Assigning version"
          *               }
          *             },
-         *             "id": 2
+         *             "_type": "Action",
+         *             "id": "work_packages/assign_versions",
+         *             "name": "Assign version",
+         *             "description": "Assigning a work package to a version when creating/updating a work package. Only principals having this permission can assign a value to the version property of the work package resource.",
+         *             "modules": [
+         *               "work_packages",
+         *               "versions"
+         *             ]
          *           }
          *         ]
          *       }
          *     }
          */
-        work_packages_model: components["schemas"]["collection_model"] & {
+        List_actionsModel: Record<string, never>;
+        List_available_parent_project_candidatesModel: components["schemas"]["CollectionModel"] & {
             _links: {
-                self: components["schemas"]["link"] & unknown;
+                self: components["schemas"]["Link"] & unknown;
             };
             _embedded: {
-                elements: components["schemas"]["work_package_model"][];
-            };
-        };
-        /**
-         * @description This model is used for creating and updating work packages. It can also be used for validation against the work
-         *     package form endpoints.
-         */
-        work_package_write_model: {
-            /** @description Work package subject */
-            subject?: string;
-            description?: components["schemas"]["formattable"] & unknown;
-            /**
-             * @description Uses manual scheduling mode when true (default). Uses automatic scheduling
-             *     mode when false. Can be automatic only when predecessors or children are
-             *     present.
-             */
-            scheduleManually?: boolean;
-            /**
-             * Format: date
-             * @description Scheduled beginning of a work package
-             */
-            startDate?: string | null;
-            /**
-             * Format: date
-             * @description Scheduled end of a work package
-             */
-            dueDate?: string | null;
-            /**
-             * Format: duration
-             * @description Time a work package likely needs to be completed excluding its descendants
-             */
-            estimatedTime?: string | null;
-            /**
-             * Format: duration
-             * @description The amount of time in hours the work package needs to be completed. This value must be bigger or equal to `P1D`,
-             *     and any the value will get floored to the nearest day.
-             *
-             *     The duration has no effect, unless either a start date or a due date is set.
-             *
-             *     Not available for milestone type of work packages.
-             */
-            duration?: string | null;
-            /**
-             * @description When scheduling, whether or not to ignore the non working days being defined.
-             *     A work package with the flag set to true will be allowed to be scheduled to a non working day.
-             */
-            ignoreNonWorkingDays?: boolean;
-            _links?: {
-                category?: components["schemas"]["link"] & unknown;
-                type?: components["schemas"]["link"] & unknown;
-                priority?: components["schemas"]["link"] & unknown;
-                project?: components["schemas"]["link"] & unknown;
-                status?: components["schemas"]["link"] & unknown;
-                responsible?: components["schemas"]["link"] & unknown;
-                assignee?: components["schemas"]["link"] & unknown;
-                version?: components["schemas"]["link"] & unknown;
-                parent?: components["schemas"]["link"] & unknown;
-            };
-            /** @description Meta information for the work package request */
-            _meta?: {
-                /**
-                 * @description When set to true, explicitly validates all required custom fields on the work package, regardless of whether
-                 *     they are provided in the request body. This overrides the default behavior where only custom fields included
-                 *     in the request are validated. Use this parameter when you need to ensure all required custom fields have
-                 *     valid values before allowing the update to proceed.
-                 * @default false
-                 */
-                validateCustomFields: boolean;
-            };
-        };
-        /**
-         * @description A schema for a work package. This schema defines the attributes of a work package.
-         *
-         *     TODO: Incomplete, needs to be updated with the real behaviour of schemas (when does which attribute appear?).
-         */
-        work_package_schema_model: {
-            /** @enum {string} */
-            _type?: "Schema";
-            /** @description TBD */
-            _dependencies?: string[];
-            /** @description TBD (WorkPackageFormAttributeGroup) */
-            _attributeGroups?: Record<string, never>[];
-            lockVersion?: components["schemas"]["schema_property_model"];
-            id?: components["schemas"]["schema_property_model"];
-            subject?: components["schemas"]["schema_property_model"];
-            description?: components["schemas"]["schema_property_model"];
-            duration?: components["schemas"]["schema_property_model"];
-            scheduleManually?: components["schemas"]["schema_property_model"];
-            ignoreNonWorkingDays?: components["schemas"]["schema_property_model"];
-            startDate?: components["schemas"]["schema_property_model"];
-            dueDate?: components["schemas"]["schema_property_model"];
-            derivedStartDate?: components["schemas"]["schema_property_model"];
-            derivedDueDate?: components["schemas"]["schema_property_model"];
-            estimatedTime?: components["schemas"]["schema_property_model"];
-            derivedEstimatedTime?: components["schemas"]["schema_property_model"];
-            remainingTime?: components["schemas"]["schema_property_model"];
-            derivedRemainingTime?: components["schemas"]["schema_property_model"];
-            percentageDone?: components["schemas"]["schema_property_model"];
-            derivedPercentageDone?: components["schemas"]["schema_property_model"];
-            readonly?: components["schemas"]["schema_property_model"];
-            createdAt?: components["schemas"]["schema_property_model"];
-            updatedAt?: components["schemas"]["schema_property_model"];
-            author?: components["schemas"]["schema_property_model"];
-            position?: components["schemas"]["schema_property_model"];
-            project?: components["schemas"]["schema_property_model"];
-            projectPhase?: components["schemas"]["schema_property_model"];
-            projectPhaseDefinition?: components["schemas"]["schema_property_model"];
-            parent?: components["schemas"]["schema_property_model"];
-            sprint?: components["schemas"]["schema_property_model"];
-            storyPoints?: components["schemas"]["schema_property_model"];
-            assignee?: components["schemas"]["schema_property_model"];
-            responsible?: components["schemas"]["schema_property_model"];
-            type?: components["schemas"]["schema_property_model"];
-            status?: components["schemas"]["schema_property_model"];
-            category?: components["schemas"]["schema_property_model"];
-            version?: components["schemas"]["schema_property_model"];
-            priority?: components["schemas"]["schema_property_model"];
-            _links?: {
-                self?: components["schemas"]["link"] & unknown;
-            };
-        };
-        /**
-         * @description The work package creation form. This object is returned, whenever a work package form endpoint is called. It contains
-         *     an allowed payload definition, the full schema and any validation errors on the current request body.
-         */
-        work_package_form_model: {
-            /** @enum {string} */
-            _type?: "Form";
-            _embedded?: {
-                payload?: components["schemas"]["work_package_write_model"];
-                schema?: components["schemas"]["work_package_schema_model"];
-                /**
-                 * @description All validation errors, where the key is the faulty property. The object is empty, if the request body is
-                 *     valid.
-                 */
-                validationErrors?: Record<string, never>;
-            };
-            _links?: {
-                self?: components["schemas"]["link"] & unknown;
-                validate?: components["schemas"]["link"] & unknown;
-                previewMarkup?: components["schemas"]["link"] & unknown;
-                customFields?: components["schemas"]["link"] & unknown;
-                configureForm?: components["schemas"]["link"] & unknown;
-            };
-        };
-        available_assignees_model: components["schemas"]["collection_model"] & {
-            _links: {
-                self: components["schemas"]["link"] & unknown;
-            };
-            _embedded: {
-                readonly elements?: (components["schemas"]["user_model"] & unknown)[];
-            };
-        };
-        categories_by_workspace_model: components["schemas"]["collection_model"] & {
-            _links: {
-                self: components["schemas"]["link"] & unknown;
-            };
-            _embedded: {
-                readonly elements?: (components["schemas"]["category_model"] & unknown)[];
-            };
-        };
-        sprint_model: {
-            /** @description Sprint id */
-            id: number;
-            /** @enum {string} */
-            _type: "Sprint";
-            /** @description Sprint name */
-            name: string;
-            description?: components["schemas"]["formattable"];
-            /** Format: date */
-            startDate: string | null;
-            /** Format: date */
-            finishDate: string | null;
-            /**
-             * Format: date-time
-             * @description Time of creation
-             */
-            createdAt: string;
-            /**
-             * Format: date-time
-             * @description Time of the most recent change to the sprint
-             */
-            updatedAt: string;
-            _links?: {
-                self: components["schemas"]["link"] & unknown;
-                definingWorkspace: components["schemas"]["link"] & unknown;
-                status?: components["schemas"]["link"] & unknown;
-            };
-        };
-        sprint_collection_model: components["schemas"]["collection_model"] & {
-            _links: {
-                self: components["schemas"]["link"] & unknown;
-            };
-            _embedded: {
-                elements: components["schemas"]["sprint_model"][];
+                /** @description Collection of projects */
+                readonly elements?: (components["schemas"]["ProjectModel"] & components["schemas"]["ProgramModel"] & components["schemas"]["PortfolioModel"])[];
             };
         };
         /**
          * @example {
          *       "_links": {
          *         "self": {
-         *           "href": "/api/v3/types/1"
+         *           "href": "/api/v3/capabilities"
+         *         },
+         *         "changeSize": {
+         *           "href": "/api/v3/capabilities?pageSize={size}",
+         *           "templated": true
+         *         },
+         *         "jumpTo": {
+         *           "href": "/api/v3/capabilities?offset={offset}",
+         *           "templated": true
          *         }
          *       },
-         *       "_type": "Type",
-         *       "id": 1,
-         *       "name": "Bug",
-         *       "color": "#ff0000",
-         *       "position": 1,
-         *       "isDefault": true,
-         *       "isMilestone": false,
-         *       "createdAt": "2014-05-21T08:51:20.624Z",
-         *       "updatedAt": "2014-05-21T08:51:20.624Z"
+         *       "total": 4,
+         *       "count": 4,
+         *       "_type": "Collection",
+         *       "_embedded": {
+         *         "elements": [
+         *           {
+         *             "_links": {
+         *               "self": {
+         *                 "href": "/api/v3/capabilities/work_packages/create/p123-567"
+         *               },
+         *               "action": {
+         *                 "href": "/api/v3/actions/work_packages/create",
+         *                 "title": "Add work package"
+         *               },
+         *               "context": {
+         *                 "href": "/api/v3/projects/123",
+         *                 "title": "A project"
+         *               },
+         *               "principal": {
+         *                 "href": "/api/v3/users/567",
+         *                 "title": "Some user"
+         *               }
+         *             },
+         *             "_type": "Capability",
+         *             "id": "work_packages/create/p123-567"
+         *           },
+         *           {
+         *             "_links": {
+         *               "self": {
+         *                 "href": "/api/v3/capabilities/work_packages/assignee/p123-567"
+         *               },
+         *               "action": {
+         *                 "href": "/api/v3/actions/work_packages/assignee"
+         *               },
+         *               "context": {
+         *                 "href": "/api/v3/projects/123",
+         *                 "title": "A project"
+         *               },
+         *               "principal": {
+         *                 "href": "/api/v3/users/567",
+         *                 "title": "Some user"
+         *               }
+         *             },
+         *             "_type": "Capability",
+         *             "id": "work_packages/assignee/p123-567"
+         *           },
+         *           {
+         *             "_links": {
+         *               "self": {
+         *                 "href": "/api/v3/capabilities/memberships/create/p345-821",
+         *                 "title": "Create members"
+         *               },
+         *               "action": {
+         *                 "href": "/api/v3/actions/memberships/create"
+         *               },
+         *               "context": {
+         *                 "href": "/api/v3/projects/345",
+         *                 "title": "A project"
+         *               },
+         *               "principal": {
+         *                 "href": "/api/v3/users/821",
+         *                 "title": "Some user"
+         *               }
+         *             },
+         *             "_type": "Capability",
+         *             "id": "memberships/create/p345-821"
+         *           },
+         *           {
+         *             "_links": {
+         *               "self": {
+         *                 "href": "/api/v3/capabilities/users/delete/g-567",
+         *                 "title": "Delete user"
+         *               },
+         *               "context": {
+         *                 "href": "/api/v3/capabilities/context/global",
+         *                 "title": "Global"
+         *               },
+         *               "principal": {
+         *                 "href": "/api/v3/users/567",
+         *                 "title": "Some user"
+         *               }
+         *             },
+         *             "_type": "Capability",
+         *             "id": "users/delete/g-567"
+         *           }
+         *         ]
+         *       }
          *     }
          */
-        type_model: {
-            /** @description Type id */
-            readonly id: number;
-            /** @description Type name */
-            readonly name: string;
-            /** @description The color used to represent this type */
-            readonly color: string | null;
-            /** @description Sort index of the type */
-            readonly position: number;
-            /** @description Is this type active by default in new projects? */
-            readonly isDefault: boolean;
-            /** @description Do work packages of this type represent a milestone? */
-            readonly isMilestone: boolean;
+        List_capabilitiesModel: Record<string, never>;
+        /**
+         * @example {
+         *       "_type": "Collection",
+         *       "total": 78,
+         *       "count": 2,
+         *       "pageSize": 2,
+         *       "offset": 1,
+         *       "_embedded": {
+         *         "elements": [
+         *           {
+         *             "_type": "News",
+         *             "id": 1,
+         *             "title": "asperiores possimus nam doloribus ab",
+         *             "summary": "Celebrer spiculum colo viscus claustrum atque. Id nulla culpa sumptus. Comparo crapula depopulo demonstro.",
+         *             "description": {
+         *               "format": "markdown",
+         *               "raw": "Videlicet deserunt aequitas cognatus. Concedo quia est quia pariatur vorago vallum. Calco autem atavus accusamus conscendo cornu ulterius. Tam patria ago consectetur ventito sustineo nihil caecus. Supra officiis eos velociter somniculosus tonsor qui. Suffragium aduro arguo angustus cogito quia tolero vulnus. Supplanto sortitus cresco apud vestrum qui.",
+         *               "html": "<p>Videlicet deserunt aequitas cognatus. Concedo quia est quia pariatur vorago vallum. Calco autem atavus accusamus conscendo cornu ulterius. Tam patria ago consectetur ventito sustineo nihil caecus. Supra officiis eos velociter somniculosus tonsor qui. Suffragium aduro arguo angustus cogito quia tolero vulnus. Supplanto sortitus cresco apud vestrum qui.</p>"
+         *             },
+         *             "createdAt": "2015-03-20T12:57:01.509Z",
+         *             "_links": {
+         *               "self": {
+         *                 "href": "/api/v3/news/1",
+         *                 "title": "asperiores possimus nam doloribus ab"
+         *               },
+         *               "project": {
+         *                 "href": "/api/v3/projects/1",
+         *                 "title": "Seeded Project"
+         *               },
+         *               "author": {
+         *                 "href": "/api/v3/users/2",
+         *                 "title": "Peggie Feeney"
+         *               },
+         *               "updateImmediately": {
+         *                 "href": "api/v3/news/1",
+         *                 "method": "patch"
+         *               },
+         *               "delete": {
+         *                 "href": "api/v3/news/1",
+         *                 "method": "delete"
+         *               }
+         *             }
+         *           },
+         *           {
+         *             "_type": "News",
+         *             "id": 2,
+         *             "title": "terminatio tutamen. Officia adeptio sp",
+         *             "summary": "Consequatur sequi surculus creo tui aequitas.",
+         *             "description": {
+         *               "format": "markdown",
+         *               "raw": "Amicitia alius cattus voluntarius. Virgo viduo terminatio tutamen. Officia adeptio spectaculum atavus nisi cum concido bis. Harum caecus auxilium sol theatrum eaque consequatur. Omnis aeger suus adipisci cicuta. Cur delicate alias curto cursim atqui talio fugiat.",
+         *               "html": "<p>Amicitia alius cattus voluntarius. Virgo viduo terminatio tutamen. Officia adeptio spectaculum atavus nisi cum concido bis. Harum caecus auxilium sol theatrum eaque consequatur. Omnis aeger suus adipisci cicuta. Cur delicate alias curto cursim atqui talio fugiat.</p>"
+         *             },
+         *             "createdAt": "2015-03-20T12:57:01.509Z",
+         *             "_links": {
+         *               "self": {
+         *                 "href": "/api/v3/news/2",
+         *                 "title": "terminatio tutamen. Officia adeptio sp"
+         *               },
+         *               "project": {
+         *                 "href": "/api/v3/projects/1",
+         *                 "title": "Seeded Project"
+         *               },
+         *               "author": {
+         *                 "href": "/api/v3/users/2",
+         *                 "title": "Peggie Feeney"
+         *               },
+         *               "updateImmediately": {
+         *                 "href": "api/v3/news/2",
+         *                 "method": "patch"
+         *               },
+         *               "delete": {
+         *                 "href": "api/v3/news/2",
+         *                 "method": "delete"
+         *               }
+         *             }
+         *           }
+         *         ]
+         *       },
+         *       "_links": {
+         *         "self": {
+         *           "href": "/api/v3/news?offset=1&pageSize=2"
+         *         },
+         *         "jumpTo": {
+         *           "href": "/api/v3/news?offset=%7Boffset%7D&pageSize=2",
+         *           "templated": true
+         *         },
+         *         "changeSize": {
+         *           "href": "/api/v3/news?offset=1&pageSize=%7Bsize%7D",
+         *           "templated": true
+         *         },
+         *         "nextByOffset": {
+         *           "href": "/api/v3/news?offset=2&pageSize=2"
+         *         }
+         *       }
+         *     }
+         */
+        List_of_NewsModel: Record<string, never>;
+        /**
+         * @example {
+         *       "_links": {
+         *         "self": {
+         *           "href": "/api/v3/versions/2/workspaces"
+         *         }
+         *       },
+         *       "total": 1,
+         *       "count": 1,
+         *       "_type": "Collection",
+         *       "_embedded": {
+         *         "elements": [
+         *           {
+         *             "_type": "Project",
+         *             "_links": {
+         *               "self": {
+         *                 "href": "/api/v3/projects/1",
+         *                 "title": "Lorem"
+         *               },
+         *               "categories": {
+         *                 "href": "/api/v3/projects/1/categories"
+         *               },
+         *               "versions": {
+         *                 "href": "/api/v3/projects/1/versions"
+         *               },
+         *               "status": {
+         *                 "href": "/api/v3/project_statuses/on_track",
+         *                 "title": "On track"
+         *               }
+         *             },
+         *             "id": 1,
+         *             "identifier": "project_identifier",
+         *             "name": "Project example",
+         *             "description": {
+         *               "format": "markdown",
+         *               "raw": "Lorem **ipsum** dolor sit amet",
+         *               "html": "<p>Lorem <strong>ipsum</strong> dolor sit amet</p>"
+         *             },
+         *             "active": true,
+         *             "statusExplanation": {
+         *               "format": "markdown",
+         *               "raw": "Everything **fine**",
+         *               "html": "<p>Everything <strong>fine</strong></p>"
+         *             },
+         *             "createdAt": "2014-05-21T08:51:20.142Z",
+         *             "updatedAt": "2014-05-21T08:51:20.142Z"
+         *           }
+         *         ]
+         *       }
+         *     }
+         */
+        List_workspaces_by_versionModel: Record<string, never>;
+        MeetingAgendaItemModel: {
+            /** @enum {string} */
+            _type: "MeetingAgendaItem";
+            /** @description Identifier of this agenda item */
+            id: number;
+            /** @description The agenda item's title. Required for simple items. */
+            title: string;
+            notes?: components["schemas"]["Formattable"];
+            /** @description The position of the agenda item within its section. */
+            position: number;
+            /** @description The agenda item's duration in minutes. */
+            durationInMinutes?: number | null;
+            /**
+             * @description The type of this agenda item. Possible values:
+             *
+             *     - *simple*: a simple text agenda item
+             *     - *work_package*: an agenda item linked to a work package
+             * @enum {string}
+             */
+            itemType: "simple" | "work_package";
+            /** @description The version of the item as used for optimistic locking. */
+            lockVersion?: number;
+            /**
+             * Format: date-time
+             * @description Time of creation.
+             */
+            createdAt: string;
+            /**
+             * Format: date-time
+             * @description Time of the most recent change.
+             */
+            updatedAt: string;
+            _links?: {
+                self?: components["schemas"]["Link"] & unknown;
+                meeting?: components["schemas"]["Link"] & unknown;
+                author?: components["schemas"]["Link"] & unknown;
+                presenter?: components["schemas"]["Link"] & unknown;
+                workPackage?: components["schemas"]["Link"] & unknown;
+                section?: components["schemas"]["Link"] & unknown;
+            };
+        };
+        MeetingAgendaItemWriteModel: {
+            /** @description The agenda item's title. */
+            title?: string;
+            notes?: components["schemas"]["Formattable"];
+            /** @description The agenda item's duration in minutes. */
+            durationInMinutes?: number | null;
+            /**
+             * @description The type of this agenda item (simple or work_package).
+             * @enum {string}
+             */
+            itemType?: "simple" | "work_package";
+            /** @description The version of the item as used for optimistic locking. Required for PATCH operations. */
+            lockVersion?: number;
+            _links?: {
+                workPackage?: components["schemas"]["Link"] & unknown;
+                presenter?: components["schemas"]["Link"] & unknown;
+                section?: components["schemas"]["Link"] & unknown;
+            };
+        };
+        MeetingAgendaItemCollectionModel: {
+            /** @enum {string} */
+            _type: "Collection";
+            count: number;
+            total: number;
+            _embedded: {
+                elements: components["schemas"]["MeetingAgendaItemModel"][];
+            };
+            _links: {
+                self: components["schemas"]["Link"] & unknown;
+            };
+        };
+        MeetingCollectionModel: components["schemas"]["PaginatedCollectionModel"] & {
+            _embedded: {
+                elements: components["schemas"]["MeetingModel"][];
+            };
+            _links: {
+                self: components["schemas"]["Link"] & unknown;
+            };
+        };
+        MeetingModel: {
+            /** @enum {string} */
+            _type: "Meeting";
+            /** @description Identifier of this meeting */
+            id: number;
+            /** @description The meeting's title */
+            title: string;
+            /** @description The meeting's location */
+            location?: string;
+            /** @description The version of the item as used for optimistic locking */
+            lockVersion: number;
+            /**
+             * Format: date-time
+             * @description The scheduled meeting start time.
+             */
+            startTime: string;
+            /**
+             * Format: date-time
+             * @description The scheduled meeting end time.
+             */
+            endTime: string;
+            /**
+             * Format: duration
+             * @description The meeting duration in hours.
+             */
+            duration: string;
+            /**
+             * @description The current state of the meeting. Possible values:
+             *
+             *     - *open*: the meeting is open
+             *     - *draft*: the meeting is in draft state
+             *     - *in_progress*: the meeting is currently in progress
+             *     - *cancelled*: the meeting has been cancelled
+             *     - *closed*: the meeting is closed
+             * @enum {string}
+             */
+            state?: "open" | "draft" | "in_progress" | "cancelled" | "closed";
+            /**
+             * @description How the meeting template is shared. Only applicable for one-time templates. Possible values:
+             *
+             *     - *none*: not shared
+             *     - *descendants*: shared with descendant projects
+             *     - *system*: shared globally
+             * @enum {string}
+             */
+            sharing?: "none" | "descendants" | "system";
+            /** @description Whether this meeting is a template. */
+            template?: boolean;
+            /** @description Whether to send email notifications to participants. */
+            notify?: boolean;
+            /**
+             * Format: date-time
+             * @description Time of creation. Can be writable by admins with the `apiv3_write_readonly_attributes` setting enabled.
+             */
+            createdAt: string;
+            /**
+             * Format: date-time
+             * @description Time of the most recent change to the meeting.
+             */
+            updatedAt: string;
+            _embedded?: {
+                attachments: components["schemas"]["Attachments_Model"];
+                author: components["schemas"]["UserModel"];
+                project?: components["schemas"]["ProjectModel"];
+            };
+            _links?: {
+                self?: components["schemas"]["Link"] & unknown;
+                schema?: components["schemas"]["Link"] & unknown;
+                update?: components["schemas"]["Link"] & unknown;
+                updateImmediately?: components["schemas"]["Link"] & unknown;
+                delete?: components["schemas"]["Link"] & unknown;
+                author?: components["schemas"]["Link"] & unknown;
+                project?: components["schemas"]["Link"] & unknown;
+                attachments?: components["schemas"]["Link"] & unknown;
+                addAttachment?: components["schemas"]["Link"] & unknown;
+            };
+        };
+        MeetingSectionModel: {
+            /** @enum {string} */
+            _type: "MeetingSection";
+            /** @description Identifier of this section */
+            id: number;
+            /** @description The section's title. */
+            title: string;
+            /** @description The position of the section within the meeting. */
+            position: number;
+            /**
+             * Format: date-time
+             * @description Time of creation.
+             */
+            createdAt: string;
+            /**
+             * Format: date-time
+             * @description Time of the most recent change.
+             */
+            updatedAt: string;
+            _links?: {
+                self?: components["schemas"]["Link"] & unknown;
+                meeting?: components["schemas"]["Link"] & unknown;
+            };
+        };
+        MeetingSectionWriteModel: {
+            /** @description The section's title. */
+            title?: string;
+        };
+        MeetingSectionCollectionModel: {
+            /** @enum {string} */
+            _type: "Collection";
+            count: number;
+            total: number;
+            _embedded: {
+                elements: components["schemas"]["MeetingSectionModel"][];
+            };
+            _links: {
+                self: components["schemas"]["Link"] & unknown;
+            };
+        };
+        MeetingWriteModel: {
+            /** @description The meeting's title */
+            title?: string;
+            /** @description The meeting's location */
+            location?: string;
+            /**
+             * Format: date-time
+             * @description The scheduled meeting start time.
+             */
+            startTime?: string;
+            /** @description The meeting duration as an ISO 8601 duration (e.g. `PT1H` for 1 hour, `PT1H30M` for 1.5 hours). */
+            duration?: string;
+            /**
+             * @description The current state of the meeting. Possible values:
+             *
+             *     - *open*
+             *     - *draft*
+             *     - *in_progress*
+             *     - *cancelled*
+             *     - *closed*
+             * @enum {string}
+             */
+            state?: "open" | "draft" | "in_progress" | "cancelled" | "closed";
+            /**
+             * @description How the meeting template is shared. Only applicable for one-time templates.
+             * @enum {string}
+             */
+            sharing?: "none" | "descendants" | "system";
+            /** @description Whether this meeting is a template. */
+            template?: boolean;
+            /** @description Whether to send email notifications to participants. */
+            notify?: boolean;
+            /**
+             * @description The version of the item as used for optimistic locking.
+             *
+             *     Required for PATCH operations to detect concurrent modifications.
+             */
+            lockVersion?: number;
+            _links?: {
+                project?: components["schemas"]["Link"] & unknown;
+            };
+        };
+        /**
+         * Format: html
+         * @example <p>Hello world! <a href="http://example.com">This</a> <strong>is</strong> markdown!</p>
+         */
+        MarkdownModel: string;
+        MembershipCollectionModel: components["schemas"]["PaginatedCollectionModel"] & {
+            _embedded: {
+                elements: components["schemas"]["MembershipReadModel"][];
+            };
+        };
+        MembershipFormModel: {
+            /** @enum {string} */
+            _type: "Form";
+            _embedded: {
+                payload: components["schemas"]["MembershipWriteModel"];
+                schema: components["schemas"]["MembershipSchemaModel"];
+                validationError: {
+                    base?: components["schemas"]["ErrorResponse"];
+                    principal?: components["schemas"]["ErrorResponse"];
+                    roles?: components["schemas"]["ErrorResponse"];
+                };
+            };
+            _links: {
+                self: components["schemas"]["Link"] & unknown;
+                validate: (components["schemas"]["Link"] & unknown)[];
+                commit: components["schemas"]["Link"] & unknown;
+            };
+        };
+        MembershipReadModel: {
+            /** @enum {string} */
+            _type: "Membership";
+            /** @description The membership's id */
+            id: number;
+            /**
+             * Format: date-time
+             * @description The time the membership was created.
+             */
+            createdAt: string;
+            /**
+             * Format: date-time
+             * @description The time the membership was last updated.
+             */
+            updatedAt: string;
+            _embedded?: {
+                project?: components["schemas"]["ProjectModel"] | components["schemas"]["ProgramModel"] | components["schemas"]["PortfolioModel"];
+                principal?: components["schemas"]["UserModel"] | components["schemas"]["GroupModel"];
+                roles?: components["schemas"]["RoleModel"][];
+            };
+            _links: {
+                self: components["schemas"]["Link"] & unknown;
+                schema: components["schemas"]["Link"] & unknown;
+                update?: components["schemas"]["Link"] & unknown;
+                updateImmediately?: components["schemas"]["Link"] & unknown;
+                project: components["schemas"]["Link"] & unknown;
+                principal: components["schemas"]["Link"] & unknown;
+                roles: (components["schemas"]["Link"] & unknown)[];
+            };
+        };
+        MembershipSchemaModel: components["schemas"]["SchemaModel"] & {
+            id: components["schemas"]["SchemaPropertyModel"];
+            createdAt: components["schemas"]["SchemaPropertyModel"];
+            updatedAt: components["schemas"]["SchemaPropertyModel"];
+            notificationMessage: components["schemas"]["SchemaPropertyModel"];
+            project: components["schemas"]["SchemaPropertyModel"];
+            principal: components["schemas"]["SchemaPropertyModel"];
+            roles: components["schemas"]["SchemaPropertyModel"];
+        };
+        MembershipWriteModel: {
+            _links: {
+                principal?: components["schemas"]["Link"] & unknown;
+                roles?: (components["schemas"]["Link"] & unknown)[];
+                project?: components["schemas"]["Link"] & unknown;
+            };
+            _meta?: {
+                notificationMessage?: components["schemas"]["Formattable"] & unknown;
+                /**
+                 * @description Set to false, if no notification should get sent.
+                 * @default true
+                 */
+                sendNotification: boolean;
+            };
+        };
+        /**
+         * @example {
+         *       "title": "asperiores possimus nam doloribus ab",
+         *       "summary": "Celebrer spiculum colo viscus claustrum atque. Id nulla culpa sumptus. Comparo crapula depopulo demonstro.",
+         *       "description": {
+         *         "format": "markdown",
+         *         "raw": "**Videlicet deserunt aequitas cognatus**. Concedo quia est quia pariatur vorago vallum. Calco autem atavus accusamus conscendo cornu ulterius. Tam patria ago consectetur ventito sustineo nihil caecus. Supra officiis eos velociter somniculosus tonsor qui. Suffragium aduro arguo angustus cogito quia tolero vulnus. Supplanto sortitus cresco apud vestrum qui."
+         *       },
+         *       "_links": {
+         *         "project": {
+         *           "href": "/api/v3/projects/1"
+         *         }
+         *       }
+         *     }
+         */
+        NewsCreateModel: {
+            /** @description The headline of the news */
+            readonly title?: string;
+            /** @description A short summary */
+            readonly summary?: string;
+            description?: components["schemas"]["Formattable"] & unknown;
+            _links?: {
+                project: components["schemas"]["Link"] & unknown;
+            };
+        };
+        /**
+         * @example {
+         *       "_type": "News",
+         *       "id": 1,
+         *       "title": "asperiores possimus nam doloribus ab",
+         *       "summary": "Celebrer spiculum colo viscus claustrum atque. Id nulla culpa sumptus. Comparo crapula depopulo demonstro.",
+         *       "description": {
+         *         "format": "markdown",
+         *         "raw": "Videlicet deserunt aequitas cognatus. Concedo quia est quia pariatur vorago vallum. Calco autem atavus accusamus conscendo cornu ulterius. Tam patria ago consectetur ventito sustineo nihil caecus. Supra officiis eos velociter somniculosus tonsor qui. Suffragium aduro arguo angustus cogito quia tolero vulnus. Supplanto sortitus cresco apud vestrum qui.",
+         *         "html": "<p>Videlicet deserunt aequitas cognatus. Concedo quia est quia pariatur vorago vallum. Calco autem atavus accusamus conscendo cornu ulterius. Tam patria ago consectetur ventito sustineo nihil caecus. Supra officiis eos velociter somniculosus tonsor qui. Suffragium aduro arguo angustus cogito quia tolero vulnus. Supplanto sortitus cresco apud vestrum qui.</p>"
+         *       },
+         *       "createdAt": "2015-03-20T12:57:01.908Z",
+         *       "_links": {
+         *         "self": {
+         *           "href": "/api/v3/news/1",
+         *           "title": "asperiores possimus nam doloribus ab"
+         *         },
+         *         "project": {
+         *           "href": "/api/v3/projects/1",
+         *           "title": "A project"
+         *         },
+         *         "author": {
+         *           "href": "/api/v3/users/2",
+         *           "title": "Peggie Feeney"
+         *         },
+         *         "updateImmediately": {
+         *           "href": "api/v3/news/1",
+         *           "method": "patch"
+         *         },
+         *         "delete": {
+         *           "href": "api/v3/news/1",
+         *           "method": "delete"
+         *         }
+         *       },
+         *       "_embedded": {
+         *         "project": {
+         *           "_type": "Workspace..."
+         *         },
+         *         "author": {
+         *           "_type": "User..."
+         *         }
+         *       }
+         *     }
+         */
+        NewsModel: {
+            /** @description News' id */
+            readonly id?: number;
+            /** @description The headline of the news */
+            readonly title?: string;
+            /** @description A short summary */
+            readonly summary?: string;
+            description?: components["schemas"]["Formattable"] & unknown;
+            /**
+             * Format: date-time
+             * @description The time the news was created at
+             */
+            readonly createdAt?: string;
+            _links?: {
+                self: components["schemas"]["Link"] & unknown;
+                project: components["schemas"]["Link"] & unknown;
+                author: components["schemas"]["Link"] & unknown;
+                updateImmediately?: components["schemas"]["Link"] & unknown;
+                delete?: components["schemas"]["Link"] & unknown;
+            };
+        };
+        /**
+         * @example {
+         *       "_type": "Collection",
+         *       "total": 2,
+         *       "count": 2,
+         *       "_links": {
+         *         "self": {
+         *           "href": "/api/v3/non_working?filters=[{\"interval\":{\"operator\":\"<>d\",\"values\":[\"2022-04-29\",\"2022-12-24\"]}}]"
+         *         }
+         *       },
+         *       "_embedded": {
+         *         "elements": [
+         *           {
+         *             "_type": "NonWorkingDay",
+         *             "date": "2022-12-24",
+         *             "name": "Christmas Evening",
+         *             "_links": {
+         *               "self": {
+         *                 "href": "/api/v3/days/non_working/2022-04-24"
+         *               },
+         *               "weekday": {
+         *                 "href": "/api/v3/days/week/6",
+         *                 "title": "Saturday"
+         *               }
+         *             }
+         *           },
+         *           {
+         *             "_type": "NonWorkingDay",
+         *             "date": "2022-05-01",
+         *             "name": "Labour day",
+         *             "_links": {
+         *               "self": {
+         *                 "href": "/api/v3/days/non_working/2022-05-01"
+         *               },
+         *               "weekday": {
+         *                 "href": "/api/v3/days/week/7",
+         *                 "title": "Sunday"
+         *               }
+         *             }
+         *           }
+         *         ]
+         *       }
+         *     }
+         */
+        NonWorkingDayCollectionModel: components["schemas"]["CollectionModel"] & {
+            _links: {
+                self: components["schemas"]["Link"] & unknown;
+            };
+            _embedded: {
+                /** @description The array of non working days. Each day has a name and a date. */
+                elements: components["schemas"]["NonWorkingDayModel"][];
+            };
+        };
+        /**
+         * @example {
+         *       "_type": "NonWorkingDay",
+         *       "date": "2022-12-25",
+         *       "name": "Christmas",
+         *       "_links": {
+         *         "self": {
+         *           "href": "/api/v3/days/non_working/2022-12-25",
+         *           "title": "Christmas"
+         *         }
+         *       }
+         *     }
+         */
+        NonWorkingDayModel: {
+            /** @enum {string} */
+            _type: "NonWorkingDay";
+            /**
+             * Format: date
+             * @description Date of the non-working day.
+             */
+            date: string;
+            /** @description Descriptive name for the non-working day. */
+            name: string;
+            _links?: {
+                self: components["schemas"]["Link"] & unknown;
+            };
+        };
+        NotificationCollectionModel: components["schemas"]["CollectionModel"] & {
+            _links: {
+                self: components["schemas"]["Link"] & unknown;
+                jumpTo?: components["schemas"]["Link"] & unknown;
+                changeSize?: components["schemas"]["Link"] & unknown;
+            };
+            _embedded: {
+                elements: components["schemas"]["NotificationModel"][];
+                detailsSchemas: components["schemas"]["SchemaModel"][];
+            };
+        };
+        NotificationModel: {
+            /** @enum {string} */
+            _type?: "Notification";
+            /** @description Notification id */
+            id?: number;
+            /**
+             * @description The reason for the notification
+             * @enum {string}
+             */
+            reason?: "assigned" | "commented" | "created" | "dateAlert" | "mentioned" | "prioritized" | "processed" | "responsible" | "subscribed" | "scheduled" | "watched";
+            /** @description Whether the notification is marked as read */
+            readIAN?: boolean;
+            /** @description A list of objects including detailed information about the notification. */
+            details?: components["schemas"]["ValuesPropertyModel"][];
+            /**
+             * Format: date-time
+             * @description The time the notification was created at
+             */
+            createdAt?: string;
+            /**
+             * Format: date-time
+             * @description The time the notification was last updated
+             */
+            updatedAt?: string;
+            _embedded?: {
+                actor?: components["schemas"]["UserModel"];
+                project: components["schemas"]["ProjectModel"] | components["schemas"]["ProgramModel"] | components["schemas"]["PortfolioModel"];
+                activity?: components["schemas"]["ActivityModel"];
+                resource: components["schemas"]["WorkPackageModel"];
+            };
+            _links?: {
+                self: components["schemas"]["Link"] & unknown;
+                readIAN?: components["schemas"]["Link"] & unknown;
+                unreadIAN?: components["schemas"]["Link"] & unknown;
+                project: components["schemas"]["Link"] & unknown;
+                actor: components["schemas"]["Link"] & unknown;
+                resource: components["schemas"]["Link"] & unknown;
+                activity: components["schemas"]["Link"] & unknown;
+            };
+        };
+        /**
+         * @example {
+         *       "id": 1337,
+         *       "_type": "OAuthApplication",
+         *       "name": "Vader's secure OAuth app",
+         *       "clientId": "O5h6WObhMg1Z8IcLHRE3_LMh4jJYmmca2V6OTFSv8DA",
+         *       "confidential": true,
+         *       "createdAt": "2022-12-07T12:56:42.626Z",
+         *       "updatedAt": "2022-12-07T12:56:42.626Z",
+         *       "scopes": [
+         *         "api_v3"
+         *       ],
+         *       "_links": {
+         *         "self": {
+         *           "href": "/api/v3/oauth_applications/1337"
+         *         },
+         *         "owner": {
+         *           "href": "/api/v3/users/13",
+         *           "title": "Darth Vader"
+         *         },
+         *         "integration": {
+         *           "href": "/api/v3/storages/42",
+         *           "title": "Death Star Cloud"
+         *         },
+         *         "redirectUri": [
+         *           {
+         *             "href": "https://death-star.cloud.tools/index.php/apps/integration_openproject/oauth-redirect"
+         *           }
+         *         ]
+         *       }
+         *     }
+         */
+        OAuthApplicationReadModel: {
+            id: number;
+            /** @enum {string} */
+            _type: "OAuthApplication";
+            /** @description The name of the OAuth 2 application */
+            name: string;
+            /** @description OAuth 2 client id */
+            clientId: string;
+            /** @description OAuth 2 client secret. This is only returned when creating a new OAuth application. */
+            clientSecret?: string;
+            /** @description true, if OAuth 2 credentials are confidential, false, if no secret is stored */
+            confidential: boolean;
+            /**
+             * Format: date-time
+             * @description The time the OAuth 2 Application was created at
+             */
+            createdAt?: string;
+            /**
+             * Format: date-time
+             * @description The time the OAuth 2 Application was last updated
+             */
+            updatedAt?: string;
+            /** @description An array of the scopes of the OAuth 2 Application */
+            scopes?: string[];
+            _links: {
+                self: components["schemas"]["Link"] & unknown;
+                owner: components["schemas"]["Link"] & unknown;
+                integration?: components["schemas"]["Link"] & unknown;
+                redirectUri: (components["schemas"]["Link"] & unknown)[];
+            };
+        };
+        /**
+         * @example {
+         *       "id": 1337,
+         *       "_type": "OAuthClientCredentials",
+         *       "clientId": "O5h6WObhMg1Z8IcLHRE3_LMh4jJYmmca2V6OTFSv8DA",
+         *       "confidential": true,
+         *       "createdAt": "2022-12-07T12:56:42.836Z",
+         *       "updatedAt": "2022-12-07T12:56:42.836Z",
+         *       "_links": {
+         *         "self": {
+         *           "href": "/api/v3/oauth_client_credentials/1337"
+         *         },
+         *         "integration": {
+         *           "href": "/api/v3/storages/42",
+         *           "title": "Death Star Cloud"
+         *         }
+         *       }
+         *     }
+         */
+        OAuthClientCredentialsReadModel: {
+            id: number;
+            /** @enum {string} */
+            _type: "OAuthClientCredentials";
+            /** @description OAuth 2 client id */
+            clientId: string;
+            /** @description true, if OAuth 2 credentials are confidential, false, if no secret is stored */
+            confidential: boolean;
+            /**
+             * Format: date-time
+             * @description The time the OAuth client credentials were created at
+             */
+            createdAt?: string;
+            /**
+             * Format: date-time
+             * @description The time the OAuth client credentials were last updated
+             */
+            updatedAt?: string;
+            _links: {
+                self: components["schemas"]["Link"] & unknown;
+                integration: components["schemas"]["Link"] & unknown;
+            };
+        };
+        /**
+         * @example {
+         *       "clientId": "O5h6WObhMg1Z8IcLHRE3_LMh4jJYmmca2V6OTFSv8DA",
+         *       "clientSecret": "LSk52mn4jmtSYTgH0NzDj-u2z5LMpT8bsS0BouwJQQw"
+         *     }
+         */
+        OAuthClientCredentialsWriteModel: {
+            /** @description OAuth 2 client id */
+            clientId: string;
+            /** @description OAuth 2 client secret */
+            clientSecret: string;
+        };
+        OffsetPaginatedCollectionLinks: components["schemas"]["CollectionLinks"] & {
+            jumpTo: components["schemas"]["Link"] & unknown;
+            changeSize: components["schemas"]["Link"] & unknown;
+            previousByOffset?: components["schemas"]["Link"] & unknown;
+            nextByOffset?: components["schemas"]["Link"] & unknown;
+        };
+        OffsetPaginatedCollectionModel: components["schemas"]["CollectionModel"] & {
+            /**
+             * @description The amount of elements per page. If not set by the request this value defaults to the server's system
+             *     settings.
+             */
+            pageSize: number;
+            /** @description The page offset indicating on which page the element collection starts. */
+            offset: number;
+            _links: components["schemas"]["OffsetPaginatedCollectionLinks"];
+        };
+        PaginatedCollectionModel: components["schemas"]["CollectionModel"] & {
+            /** @description Amount of elements that a response will hold. */
+            pageSize: number;
+            /** @description The page number that is requested from paginated collection. */
+            offset: number;
+            _links?: {
+                jumpTo: components["schemas"]["Link"] & unknown;
+                changeSize: components["schemas"]["Link"] & unknown;
+            };
+        };
+        /**
+         * @example {
+         *       "_type": "Collection",
+         *       "total": 2,
+         *       "count": 2,
+         *       "_links": {
+         *         "self": {
+         *           "href": "/api/v3/placeholder_users"
+         *         }
+         *       },
+         *       "_embedded": {
+         *         "elements": [
+         *           {
+         *             "_abbreviated": "PlaceholderUser resource shortened for brevity",
+         *             "_type": "PlaceholderUser",
+         *             "id": 1337
+         *           },
+         *           {
+         *             "_abbreviated": "PlaceholderUser resource shortened for brevity",
+         *             "_type": "PlaceholderUser",
+         *             "id": 1338
+         *           }
+         *         ]
+         *       }
+         *     }
+         */
+        PlaceholderUserCollectionModel: components["schemas"]["CollectionModel"] & {
+            _links: {
+                self: components["schemas"]["Link"] & unknown;
+            };
+            _embedded: {
+                elements: components["schemas"]["PlaceholderUserModel"][];
+            };
+        };
+        PlaceholderUserCreateModel: {
+            /** @description The new name of the placeholder user to be created. */
+            name?: string;
+        };
+        PlaceholderUserModel: components["schemas"]["PrincipalModel"] & {
+            /** @enum {string} */
+            _type: "PlaceholderUser";
+            /**
+             * @description The current activation status of the placeholder user.
+             *
+             *     # Conditions
+             *
+             *     - User has `manage_placeholder_user` permission globally
+             */
+            status?: string;
+            _links?: {
+                showUser: components["schemas"]["Link"] & unknown;
+                delete?: components["schemas"]["Link"] & unknown;
+                updateImmediately?: components["schemas"]["Link"] & unknown;
+            };
+        };
+        /**
+         * Format: html
+         * @example <p>Hello world! This *is* plain text!</p>
+         */
+        Plain_TextModel: string;
+        PortfolioCollectionModel: components["schemas"]["OffsetPaginatedCollectionModel"] & {
+            _links: components["schemas"]["OffsetPaginatedCollectionLinks"] & {
+                representations?: (components["schemas"]["Link"] & unknown)[];
+            };
+            _embedded: {
+                elements: components["schemas"]["PortfolioModel"][];
+            };
+        };
+        PortfolioModel: components["schemas"]["CustomFieldProperties"] & components["schemas"]["CustomCommentProperties"] & {
+            /** @enum {string} */
+            _type?: "Portfolio";
+            /** @description Portfolios' id */
+            id?: number;
+            identifier?: string;
+            name?: string;
+            /** @description Indicates whether the portfolio is currently active or already archived */
+            active?: boolean;
+            /** @description Indicates whether the portfolio is favorited by the current user */
+            favorited?: boolean;
+            statusExplanation?: components["schemas"]["Formattable"] & unknown;
+            /** @description Indicates whether the portfolio is accessible for everybody */
+            public?: boolean;
+            description?: components["schemas"]["Formattable"];
+            /**
+             * Format: date-time
+             * @description Time of creation. Can be writable by admins with the `apiv3_write_readonly_attributes` setting enabled.
+             */
+            createdAt?: string;
+            /**
+             * Format: date-time
+             * @description Time of the most recent change to the portfolio
+             */
+            updatedAt?: string;
+            _links?: {
+                update?: components["schemas"]["Link"] & unknown;
+                updateImmediately?: components["schemas"]["Link"] & unknown;
+                delete?: components["schemas"]["Link"] & unknown;
+                favor?: components["schemas"]["Link"] & unknown;
+                disfavor?: components["schemas"]["Link"] & unknown;
+                createWorkPackage?: components["schemas"]["Link"] & unknown;
+                createWorkPackageImmediately?: components["schemas"]["Link"] & unknown;
+                self: components["schemas"]["Link"] & unknown;
+                categories: components["schemas"]["Link"] & unknown;
+                types?: components["schemas"]["Link"] & unknown;
+                versions?: components["schemas"]["Link"] & unknown;
+                memberships?: components["schemas"]["Link"] & unknown;
+                workPackages?: components["schemas"]["Link"] & unknown;
+                parent?: components["schemas"]["Link"] & unknown;
+                status?: components["schemas"]["Link"] & unknown;
+                storages?: (components["schemas"]["Link"] & unknown)[];
+                projectStorages?: components["schemas"]["Link"] & unknown;
+                ancestors?: (components["schemas"]["Link"] & unknown)[];
+            };
+        };
+        /**
+         * @example {
+         *       "_type": "Post",
+         *       "id": 1,
+         *       "subject": "A post with a subject",
+         *       "_embedded": {
+         *         "project": {
+         *           "_type": "Project..."
+         *         }
+         *       },
+         *       "_links": {
+         *         "self": {
+         *           "href": "/api/v3/posts/1"
+         *         },
+         *         "attachments": {
+         *           "href": "/api/v3/posts/1/attachments"
+         *         },
+         *         "addAttachment": {
+         *           "href": "/api/v3/posts/1/attachments",
+         *           "method": "post"
+         *         },
+         *         "project": {
+         *           "href": "/api/v3/projects/1",
+         *           "title": "A project with a title"
+         *         }
+         *       }
+         *     }
+         */
+        PostModel: {
+            /** @description Identifier of this post */
+            readonly id?: number;
+            /** @description The post's subject */
+            subject: string;
+            _links?: {
+                addAttachment?: components["schemas"]["Link"] & unknown;
+            };
+        };
+        /**
+         * @example {
+         *       "_type": "Collection",
+         *       "total": 3,
+         *       "count": 3,
+         *       "_links": {
+         *         "self": {
+         *           "href": "/api/v3/principals"
+         *         }
+         *       },
+         *       "_embedded": {
+         *         "elements": [
+         *           {
+         *             "_abbreviated": "User resource shortened for brevity",
+         *             "_type": "User",
+         *             "id": 1337
+         *           },
+         *           {
+         *             "_abbreviated": "Group resource shortened for brevity",
+         *             "_type": "Group",
+         *             "id": 1338
+         *           },
+         *           {
+         *             "_abbreviated": "PlaceholderUser resource shortened for brevity",
+         *             "_type": "PlaceholderUser",
+         *             "id": 1339
+         *           }
+         *         ]
+         *       }
+         *     }
+         */
+        PrincipalCollectionModel: components["schemas"]["OffsetPaginatedCollectionModel"] & {
+            _embedded: {
+                elements: (components["schemas"]["UserModel"] | components["schemas"]["PlaceholderUserModel"] | components["schemas"]["GroupModel"])[];
+            };
+        };
+        PrincipalModel: {
+            /** @enum {string} */
+            _type: "User" | "Group" | "PlaceholderUser";
+            /** @description The principal's unique identifier. */
+            id: number;
+            /** @description The principal's display name, layout depends on instance settings. */
+            name: string;
             /**
              * Format: date-time
              * @description Time of creation
              */
-            readonly createdAt: string;
+            createdAt?: string;
             /**
              * Format: date-time
-             * @description Time of the most recent change to the user
+             * @description Time of the most recent change to the principal
              */
-            updatedAt: string;
-            _links?: {
-                self: components["schemas"]["link"] & unknown;
+            updatedAt?: string;
+            _links: {
+                self: components["schemas"]["Link"] & unknown;
+                memberships?: components["schemas"]["Link"] & unknown;
             };
         };
-        types_by_workspace_model: components["schemas"]["collection_model"] & {
+        PriorityCollectionModel: components["schemas"]["CollectionModel"] & {
             _links: {
-                self: components["schemas"]["link"] & unknown;
+                readonly self: components["schemas"]["Link"] & {
+                    self?: components["schemas"]["Link"] & unknown;
+                };
             };
             _embedded: {
-                readonly elements?: (components["schemas"]["type_model"] & unknown)[];
+                elements: components["schemas"]["PriorityModel"][];
             };
         };
-        custom_field_linked_properties: {
-            [key: string]: components["schemas"]["link"] & unknown;
+        /**
+         * @example {
+         *       "_type": "Priority",
+         *       "_links": {
+         *         "self": {
+         *           "href": "/api/v3/priorities/1",
+         *           "title": "Low"
+         *         }
+         *       },
+         *       "id": 1,
+         *       "name": "Low",
+         *       "position": 1,
+         *       "isDefault": false,
+         *       "isActive": true
+         *     }
+         */
+        PriorityModel: {
+            /** @description Priority id */
+            readonly id?: number;
+            /** @description Priority name */
+            readonly name?: string;
+            /** @description Sort index of the priority */
+            readonly position?: number;
+            /** @description Indicates whether this is the default value */
+            readonly isDefault?: boolean;
+            /** @description Indicates whether the priority is available */
+            isActive?: boolean;
+            _links?: {
+                self: components["schemas"]["Link"] & unknown;
+            };
         };
-        version_read_model: components["schemas"]["custom_field_properties"] & {
-            /** @description Version id */
-            id: number;
+        ProgramCollectionModel: components["schemas"]["OffsetPaginatedCollectionModel"] & {
+            _links: components["schemas"]["OffsetPaginatedCollectionLinks"] & {
+                representations?: (components["schemas"]["Link"] & unknown)[];
+            };
+            _embedded: {
+                elements: components["schemas"]["ProgramModel"][];
+            };
+        };
+        ProgramModel: components["schemas"]["CustomFieldProperties"] & components["schemas"]["CustomCommentProperties"] & {
             /** @enum {string} */
-            _type: "Version";
-            /** @description Version name */
+            _type?: "Program";
+            /** @description Programs' id */
+            id?: number;
+            identifier?: string;
+            name?: string;
+            /** @description Indicates whether the program is currently active or already archived */
+            active?: boolean;
+            /** @description Indicates whether the program is favorited by the current user */
+            favorited?: boolean;
+            statusExplanation?: components["schemas"]["Formattable"] & unknown;
+            /** @description Indicates whether the program is accessible for everybody */
+            public?: boolean;
+            description?: components["schemas"]["Formattable"];
+            /**
+             * Format: date-time
+             * @description Time of creation. Can be writable by admins with the `apiv3_write_readonly_attributes` setting enabled.
+             */
+            createdAt?: string;
+            /**
+             * Format: date-time
+             * @description Time of the most recent change to the program
+             */
+            updatedAt?: string;
+            _links?: {
+                update?: components["schemas"]["Link"] & unknown;
+                updateImmediately?: components["schemas"]["Link"] & unknown;
+                delete?: components["schemas"]["Link"] & unknown;
+                favor?: components["schemas"]["Link"] & unknown;
+                disfavor?: components["schemas"]["Link"] & unknown;
+                createWorkPackage?: components["schemas"]["Link"] & unknown;
+                createWorkPackageImmediately?: components["schemas"]["Link"] & unknown;
+                self: components["schemas"]["Link"] & unknown;
+                categories: components["schemas"]["Link"] & unknown;
+                types?: components["schemas"]["Link"] & unknown;
+                versions?: components["schemas"]["Link"] & unknown;
+                memberships?: components["schemas"]["Link"] & unknown;
+                workPackages?: components["schemas"]["Link"] & unknown;
+                parent?: components["schemas"]["Link"] & unknown;
+                status?: components["schemas"]["Link"] & unknown;
+                storages?: (components["schemas"]["Link"] & unknown)[];
+                projectStorages?: components["schemas"]["Link"] & unknown;
+                ancestors?: (components["schemas"]["Link"] & unknown)[];
+            };
+        };
+        ProjectCollectionModel: components["schemas"]["OffsetPaginatedCollectionModel"] & {
+            _links: components["schemas"]["OffsetPaginatedCollectionLinks"] & {
+                representations?: (components["schemas"]["Link"] & unknown)[];
+            };
+            _embedded: {
+                elements: components["schemas"]["ProjectModel"][];
+            };
+        };
+        ProjectModel: components["schemas"]["CustomFieldProperties"] & components["schemas"]["CustomCommentProperties"] & {
+            /** @enum {string} */
+            _type?: "Project";
+            /** @description Projects' id */
+            id?: number;
+            identifier?: string;
+            name?: string;
+            /** @description Indicates whether the project is currently active or already archived */
+            active?: boolean;
+            /** @description Indicates whether the project is favorited by the current user */
+            favorited?: boolean;
+            statusExplanation?: components["schemas"]["Formattable"] & unknown;
+            /** @description Indicates whether the project is accessible for everybody */
+            public?: boolean;
+            description?: components["schemas"]["Formattable"];
+            /**
+             * Format: date-time
+             * @description Time of creation. Can be writable by admins with the `apiv3_write_readonly_attributes` setting enabled.
+             */
+            createdAt?: string;
+            /**
+             * Format: date-time
+             * @description Time of the most recent change to the project
+             */
+            updatedAt?: string;
+            _links?: {
+                update?: components["schemas"]["Link"] & unknown;
+                updateImmediately?: components["schemas"]["Link"] & unknown;
+                delete?: components["schemas"]["Link"] & unknown;
+                favor?: components["schemas"]["Link"] & unknown;
+                disfavor?: components["schemas"]["Link"] & unknown;
+                createWorkPackage?: components["schemas"]["Link"] & unknown;
+                createWorkPackageImmediately?: components["schemas"]["Link"] & unknown;
+                self: components["schemas"]["Link"] & unknown;
+                categories: components["schemas"]["Link"] & unknown;
+                types?: components["schemas"]["Link"] & unknown;
+                versions?: components["schemas"]["Link"] & unknown;
+                memberships?: components["schemas"]["Link"] & unknown;
+                workPackages?: components["schemas"]["Link"] & unknown;
+                parent?: components["schemas"]["Link"] & unknown;
+                status?: components["schemas"]["Link"] & unknown;
+                storages?: (components["schemas"]["Link"] & unknown)[];
+                projectStorages?: components["schemas"]["Link"] & unknown;
+                ancestors?: (components["schemas"]["Link"] & unknown)[];
+            };
+        };
+        /**
+         * @example {
+         *       "_type": "ProjectPhase",
+         *       "id": 1337,
+         *       "name": "Initiating",
+         *       "active": true,
+         *       "createdAt": "2023-01-20T14:30:00.368Z",
+         *       "updatedAt": "2023-05-23T11:57:48.618Z",
+         *       "_links": {
+         *         "self": {
+         *           "href": "/api/v3/project_phases/23"
+         *         },
+         *         "definition": {
+         *           "title": "Initiating",
+         *           "href": "/api/v3/project_definitions/11"
+         *         },
+         *         "project": {
+         *           "title": "Death Star 3.0",
+         *           "href": "/api/v3/projects/11"
+         *         }
+         *       }
+         *     }
+         */
+        ProjectPhaseModel: {
+            /** @enum {string} */
+            _type: "ProjectPhase";
+            /** @description The project phase's id */
+            id: number;
             name: string;
-            description: components["schemas"]["formattable"];
-            /** Format: date */
-            startDate: string | null;
-            /** Format: date */
-            endDate: string | null;
-            /**
-             * @description The current status of the version. This could be:
-             *
-             *     - *open*: if the version is available to be assigned to work packages in all shared projects
-             *     - *locked*: if the version is not finished, but locked for further assignments to work packages
-             *     - *closed*: if the version is finished
-             * @enum {string}
-             */
-            status: "open" | "locked" | "closed";
-            /**
-             * @description The indicator of how the version is shared between projects. This could be:
-             *
-             *     - *none*: if the version is only available in the defining project
-             *     - *descendants*: if the version is shared with the descendants of the defining project
-             *     - *hierarchy*: if the version is shared with the descendants and the ancestors of the defining project
-             *     - *tree*: if the version is shared with the root project of the defining project and all descendants of the root project
-             *     - *system*: if the version is shared globally
-             * @enum {string}
-             */
-            sharing: "none" | "descendants" | "hierarchy" | "tree" | "system";
+            active: boolean;
             /**
              * Format: date-time
              * @description Time of creation
@@ -10598,30 +8905,188 @@ export interface components {
             createdAt: string;
             /**
              * Format: date-time
-             * @description Time of the most recent change to the version
+             * @description Time of the most recent change to the project phase
              */
             updatedAt: string;
-            _links?: components["schemas"]["custom_field_linked_properties"] & {
-                self: components["schemas"]["link"] & unknown;
-                schema: components["schemas"]["link"] & unknown;
-                update?: components["schemas"]["link"] & unknown;
-                delete?: components["schemas"]["link"] & unknown;
-                updateImmediately?: components["schemas"]["link"] & unknown;
-                definingProject: components["schemas"]["link"] & unknown;
-                availableInProjects: components["schemas"]["link"] & unknown;
+            _links?: {
+                self: components["schemas"]["Link"] & unknown;
+                definition: components["schemas"]["Link"] & unknown;
+                project: components["schemas"]["Link"] & unknown;
             };
         };
-        versions_by_workspace_model: components["schemas"]["collection_model"] & {
+        /**
+         * @example {
+         *       "_type": "ProjectPhaseDefinition",
+         *       "id": 1337,
+         *       "name": "Initiating",
+         *       "startGate": true,
+         *       "startGateName": "Before Initiating",
+         *       "finishGate": true,
+         *       "finishGateName": null,
+         *       "createdAt": "2023-01-20T14:30:00.368Z",
+         *       "updatedAt": "2023-05-23T11:57:48.618Z",
+         *       "_links": {
+         *         "self": {
+         *           "href": "/api/v3/project_phase_definitions/23"
+         *         }
+         *       }
+         *     }
+         */
+        ProjectPhaseDefinitionModel: {
+            /** @enum {string} */
+            _type: "ProjectPhaseDefinition";
+            /** @description The project phase definition's id */
+            id: number;
+            name: string;
+            startGate: boolean;
+            startGateName: string | null;
+            finishGate: boolean;
+            finishGateName: string | null;
+            /**
+             * Format: date-time
+             * @description Time of creation
+             */
+            createdAt: string;
+            /**
+             * Format: date-time
+             * @description Time of the most recent change to the project phase definition
+             */
+            updatedAt: string;
+            _links?: {
+                self: components["schemas"]["Link"] & unknown;
+            };
+        };
+        /**
+         * @example {
+         *       "_type": "Collection",
+         *       "total": 2,
+         *       "count": 2,
+         *       "_links": {
+         *         "self": {
+         *           "href": "/api/v3/project_phase_definitions"
+         *         }
+         *       },
+         *       "_embedded": {
+         *         "elements": [
+         *           {
+         *             "id": 14,
+         *             "name": "Initiating",
+         *             "_type": "ProjectPhaseDefinition",
+         *             "_abbreviated": "project phase definition resource shortened for brevity"
+         *           },
+         *           {
+         *             "id": 15,
+         *             "name": "Executing",
+         *             "_type": "ProjectPhaseDefinition",
+         *             "_abbreviated": "project phase definition resource shortened for brevity"
+         *           }
+         *         ]
+         *       }
+         *     }
+         */
+        ProjectPhaseDefinitionCollectionModel: components["schemas"]["OffsetPaginatedCollectionModel"] & {
             _links: {
-                self: components["schemas"]["link"] & unknown;
+                self: components["schemas"]["Link"] & unknown;
             };
             _embedded: {
-                readonly elements?: (components["schemas"]["version_read_model"] & unknown)[];
+                elements: components["schemas"]["ProjectPhaseDefinitionModel"][];
             };
         };
-        project_configuration_model: components["schemas"]["configuration_model"] & {
-            /** @description Whether internal comments are enabled for this project */
-            readonly enabledInternalComments?: boolean;
+        /**
+         * @example {
+         *       "_type": "Collection",
+         *       "total": 2,
+         *       "count": 2,
+         *       "_links": {
+         *         "self": {
+         *           "href": "/api/v3/project_storages?filters=%5B%7B%22storage%22%3A%7B%22operator%22%3A%22%3D%22%2C%22values%22%3A%5B%2281%22%5D%7D%7D%5D"
+         *         }
+         *       },
+         *       "_embedded": {
+         *         "elements": [
+         *           {
+         *             "id": 1337,
+         *             "_type": "ProjectStorage",
+         *             "_abbreviated": "project storage resource shortened for brevity"
+         *           },
+         *           {
+         *             "id": 1338,
+         *             "_type": "ProjectStorage",
+         *             "_abbreviated": "File Link resource shortened for brevity"
+         *           }
+         *         ]
+         *       }
+         *     }
+         */
+        ProjectStorageCollectionModel: components["schemas"]["CollectionModel"] & {
+            _links: {
+                self: components["schemas"]["Link"] & unknown;
+            };
+            _embedded: {
+                elements: components["schemas"]["ProjectStorageModel"][];
+            };
+        };
+        /**
+         * @example {
+         *       "_type": "ProjectStorage",
+         *       "id": 1337,
+         *       "projectFolderMode": "manual",
+         *       "createdAt": "2023-01-20T14:30:00.368Z",
+         *       "updatedAt": "2023-05-23T11:57:48.618Z",
+         *       "_links": {
+         *         "self": {
+         *           "href": "/api/v3/project_storages/23"
+         *         },
+         *         "projectFolder": {
+         *           "href": "/api/v3/storages/81/files/30"
+         *         },
+         *         "creator": {
+         *           "title": "Darth Vader",
+         *           "href": "/api/v3/users/3"
+         *         },
+         *         "project": {
+         *           "title": "Death Star 3.0",
+         *           "href": "/api/v3/projects/11"
+         *         },
+         *         "storage": {
+         *           "title": "Palpatine's Data Vault",
+         *           "href": "/api/v3/storages/81"
+         *         },
+         *         "open": {
+         *           "href": "/api/v3/storages/81/open"
+         *         },
+         *         "openWithConnectionEnsured": {
+         *           "href": "/api/v3/storages/81/open"
+         *         }
+         *       }
+         *     }
+         */
+        ProjectStorageModel: {
+            /** @enum {string} */
+            _type: "ProjectStorage";
+            /** @description The project storage's id */
+            id: number;
+            /** @enum {string} */
+            projectFolderMode: "inactive" | "manual";
+            /**
+             * Format: date-time
+             * @description Time of creation
+             */
+            createdAt: string;
+            /**
+             * Format: date-time
+             * @description Time of the most recent change to the project storage
+             */
+            updatedAt: string;
+            _links?: {
+                self: components["schemas"]["Link"] & unknown;
+                creator: components["schemas"]["Link"] & unknown;
+                storage: components["schemas"]["Link"] & unknown;
+                project: components["schemas"]["Link"] & unknown;
+                projectFolder?: components["schemas"]["Link"] & unknown;
+                open?: components["schemas"]["Link"] & unknown;
+                openWithConnectionEnsured?: components["schemas"]["Link"] & unknown;
+            };
         };
         /**
          * @example {
@@ -10800,32 +9265,14 @@ export interface components {
          *       }
          *     }
          */
-        queries_model: Record<string, never>;
-        /**
-         * @example {
-         *       "name": "New query name"
-         *     }
-         */
-        query_create_form: {
-            /** @description Query name. */
-            name?: string;
-        };
-        query_filter_instance_model: {
-            _links: {
-                filter: components["schemas"]["link"];
-                schema: components["schemas"]["link"];
-                operator?: components["schemas"]["link"];
-            };
-            _type: string;
-            name: string;
-        };
-        query_model: {
+        QueriesModel: Record<string, never>;
+        QueryModel: {
             /** @description Query id */
             readonly id?: number;
             /** @description Query name */
             readonly name?: string;
             /** @description A set of QueryFilters which will be applied to the work packages to determine the resulting work packages */
-            filters?: components["schemas"]["query_filter_instance_model"][];
+            filters?: components["schemas"]["Query_Filter_Instance_Model"][];
             /** @description Should sums (of supported properties) be shown? */
             readonly sums?: boolean;
             /**
@@ -10875,89 +9322,12 @@ export interface components {
              */
             readonly updatedAt: string;
             _links?: {
-                star?: components["schemas"]["link"] & unknown;
-                unstar?: components["schemas"]["link"] & unknown;
-                update?: components["schemas"]["link"] & unknown;
-                updateImmediately?: components["schemas"]["link"] & unknown;
+                star?: components["schemas"]["Link"] & unknown;
+                unstar?: components["schemas"]["Link"] & unknown;
+                update?: components["schemas"]["Link"] & unknown;
+                updateImmediately?: components["schemas"]["Link"] & unknown;
             };
         };
-        /**
-         * @example {
-         *       "_links": {
-         *         "self": {
-         *           "href": "/api/v3/queries/available_projects"
-         *         }
-         *       },
-         *       "_type": "Collection",
-         *       "total": 2,
-         *       "count": 2,
-         *       "_embedded": {
-         *         "elements": [
-         *           {
-         *             "_type": "Project",
-         *             "_links": {
-         *               "self": {
-         *                 "href": "/api/v3/projects/6",
-         *                 "title": "A project"
-         *               },
-         *               "createWorkPackage": {
-         *                 "href": "/api/v3/projects/6/work_packages/form",
-         *                 "method": "post"
-         *               },
-         *               "createWorkPackageImmediate": {
-         *                 "href": "/api/v3/projects/6/work_packages",
-         *                 "method": "post"
-         *               },
-         *               "categories": {
-         *                 "href": "/api/v3/projects/6/categories"
-         *               },
-         *               "versions": {
-         *                 "href": "/api/v3/projects/6/versions"
-         *               }
-         *             },
-         *             "id": 6,
-         *             "identifier": "a_project",
-         *             "name": "A project",
-         *             "description": "Eveniet molestias omnis quis aut qui eum adipisci.",
-         *             "createdAt": "2015-07-06T13:28:14+00:00",
-         *             "updatedAt": "2015-10-01T09:55:02+00:00",
-         *             "type": "Customer Project"
-         *           },
-         *           {
-         *             "_type": "Project",
-         *             "_links": {
-         *               "self": {
-         *                 "href": "/api/v3/projects/14",
-         *                 "title": "Another project"
-         *               },
-         *               "createWorkPackage": {
-         *                 "href": "/api/v3/projects/14/work_packages/form",
-         *                 "method": "post"
-         *               },
-         *               "createWorkPackageImmediate": {
-         *                 "href": "/api/v3/projects/14/work_packages",
-         *                 "method": "post"
-         *               },
-         *               "categories": {
-         *                 "href": "/api/v3/projects/14/categories"
-         *               },
-         *               "versions": {
-         *                 "href": "/api/v3/projects/14/versions"
-         *               }
-         *             },
-         *             "id": 14,
-         *             "identifier": "another_project",
-         *             "name": "Another project",
-         *             "description": "",
-         *             "createdAt": "2016-02-29T12:50:20+00:00",
-         *             "updatedAt": "2016-02-29T12:50:20+00:00",
-         *             "type": null
-         *           }
-         *         ]
-         *       }
-         *     }
-         */
-        available_projects_for_query_model: Record<string, never>;
         /**
          * @example {
          *       "_type": "QueryColumn::Property",
@@ -10971,7 +9341,7 @@ export interface components {
          *       }
          *     }
          */
-        query_column_model: {
+        Query_ColumnModel: {
             /** @description Query column id */
             readonly id: string;
             /** @description Query column name */
@@ -10979,135 +9349,89 @@ export interface components {
         };
         /**
          * @example {
-         *       "_type": "Query",
-         *       "name": "default",
-         *       "filters": [
-         *         {
-         *           "_type": "StatusQueryFilter",
-         *           "name": "Status",
-         *           "_links": {
-         *             "filter": {
-         *               "href": "/api/v3/queries/filters/status",
-         *               "title": "Status"
-         *             },
-         *             "operator": {
-         *               "href": "/api/v3/queries/operators/o",
-         *               "title": "open"
-         *             },
-         *             "schema": {
-         *               "href": "/api/v3/queries/filter_instance_schemas/status"
-         *             },
-         *             "values": []
-         *           }
-         *         }
-         *       ],
-         *       "public": false,
-         *       "sums": false,
-         *       "timelineVisible": false,
-         *       "timelineZoomLevel": "days",
-         *       "timelineLabels": {},
-         *       "highlightingMode": "inline",
-         *       "timestamps": [
-         *         "P0D"
-         *       ],
-         *       "showHierarchies": true,
-         *       "starred": false,
-         *       "_embedded": {
-         *         "results": {
-         *           "_type": "WorkPackageCollection",
-         *           "total": 234,
-         *           "count": 30,
-         *           "pageSize": 2,
-         *           "offset": 1,
-         *           "_embedded": {
-         *             "elements": [
-         *               "<--- shortened for brevity --->"
-         *             ]
-         *           },
-         *           "_links": {
-         *             "self": {
-         *               "href": "/api/v3/work_packages?filters=%5B%7B%22status%22%3A%7B%22operator%22%3A%22o%22%2C%22values%22%3A%5B%5D%7D%7D%2C%7B%22dueDate%22%3A%7B%22operator%22%3A%22%3Ct%2B%22%2C%22values%22%3A%5B%221%22%5D%7D%7D%5D&offset=1&pageSize=2&sortBy=%5B%5B%22parent%22%2C%22desc%22%5D%5D"
-         *             },
-         *             "jumpTo": {
-         *               "href": "/api/v3/work_packages?filters=%5B%7B%22status%22%3A%7B%22operator%22%3A%22o%22%2C%22values%22%3A%5B%5D%7D%7D%2C%7B%22dueDate%22%3A%7B%22operator%22%3A%22%3Ct%2B%22%2C%22values%22%3A%5B%221%22%5D%7D%7D%5D&offset=%7Boffset%7D&pageSize=2&sortBy=%5B%5B%22parent%22%2C%22desc%22%5D%5D",
-         *               "templated": true
-         *             },
-         *             "changeSize": {
-         *               "href": "/api/v3/work_packages?filters=%5B%7B%22status%22%3A%7B%22operator%22%3A%22o%22%2C%22values%22%3A%5B%5D%7D%7D%2C%7B%22dueDate%22%3A%7B%22operator%22%3A%22%3Ct%2B%22%2C%22values%22%3A%5B%221%22%5D%7D%7D%5D&offset=1&pageSize=%7Bsize%7D&sortBy=%5B%5B%22parent%22%2C%22desc%22%5D%5D",
-         *               "templated": true
-         *             },
-         *             "createWorkPackage": {
-         *               "href": "/api/v3/work_packages/form",
-         *               "method": "post"
-         *             },
-         *             "createWorkPackageImmediate": {
-         *               "href": "/api/v3/work_packages",
-         *               "method": "post"
-         *             }
-         *           },
-         *           "highlightedAttributes": []
-         *         }
-         *       },
+         *       "name": "New query name"
+         *     }
+         */
+        Query_Create_Form: {
+            /** @description Query name. */
+            name?: string;
+        };
+        /**
+         * @example {
+         *       "_type": "QueryFilter",
+         *       "id": "status",
          *       "_links": {
          *         "self": {
-         *           "href": "/api/v3/queries/default",
-         *           "title": "Default"
-         *         },
-         *         "results": {
-         *           "href": "/api/v3/work_packages?filters=%5B%7B%22status%22%3A%7B%22operator%22%3A%22o%22%2C%22values%22%3A%5B%5D%7D%7D%2C%7B%22dueDate%22%3A%7B%22operator%22%3A%22%3Ct%2B%22%2C%22values%22%3A%5B%221%22%5D%7D%7D%5D&offset=1&pageSize=2&sortBy=%5B%5B%22parent%22%2C%22desc%22%5D%5D"
-         *         },
-         *         "columns": [
-         *           {
-         *             "href": "/api/v3/queries/columns/id",
-         *             "title": "ID"
-         *           },
-         *           {
-         *             "href": "/api/v3/queries/columns/subject",
-         *             "title": "Subject"
-         *           },
-         *           {
-         *             "href": "/api/v3/queries/columns/type",
-         *             "title": "Type"
-         *           },
-         *           {
-         *             "href": "/api/v3/queries/columns/status",
-         *             "title": "Status"
-         *           },
-         *           {
-         *             "href": "/api/v3/queries/columns/priority",
-         *             "title": "Priority"
-         *           },
-         *           {
-         *             "href": "/api/v3/queries/columns/assignee",
-         *             "title": "Assignee"
-         *           },
-         *           {
-         *             "href": "/api/v3/queries/columns/updated_at",
-         *             "title": "Updated on"
-         *           }
-         *         ],
-         *         "highlightedAttributes": [],
-         *         "groupBy": {
-         *           "href": null,
-         *           "title": null
-         *         },
-         *         "sortBy": [
-         *           {
-         *             "href": "/api/v3/queries/sort_bys/parent-desc",
-         *             "title": "Parent (Descending)"
-         *           }
-         *         ],
-         *         "user": {
-         *           "href": "/api/v3/users/1",
-         *           "title": "OpenProject Admin"
-         *         },
-         *         "project": {
-         *           "href": null
+         *           "href": "/api/v3/queries/filters/status",
+         *           "title": "Status"
          *         }
          *       }
          *     }
          */
-        default_query_model: Record<string, never>;
+        Query_FilterModel: {
+            /** @description QueryFilter id */
+            id: string;
+        };
+        Query_Filter_Instance_Model: {
+            _links: {
+                filter: components["schemas"]["Link"];
+                schema: components["schemas"]["Link"];
+                operator?: components["schemas"]["Link"];
+            };
+            _type: string;
+            name: string;
+        };
+        /**
+         * @example {
+         *       "_type": "QueryFilterInstanceSchema",
+         *       "_dependencies": [
+         *         {
+         *           "_type": "SchemaDependency",
+         *           "on": "operator",
+         *           "dependencies": {
+         *             "/api/v3/queries/operators/=": {
+         *               "values": {
+         *                 "type": "[]User",
+         *                 "name": "Values",
+         *                 "required": true,
+         *                 "hasDefault": false,
+         *                 "writable": true,
+         *                 "_links": {}
+         *               }
+         *             },
+         *             "/api/v3/queries/operators/!": {
+         *               "values": {
+         *                 "type": "[]User",
+         *                 "name": "Values",
+         *                 "required": true,
+         *                 "hasDefault": false,
+         *                 "writable": true,
+         *                 "_links": {}
+         *               }
+         *             }
+         *           }
+         *         }
+         *       ],
+         *       "name": "A name",
+         *       "_links": {
+         *         "self": {
+         *           "href": "/api/v3/queries/filter_instance_schemas/author"
+         *         },
+         *         "filter": {
+         *           "href": "/api/v3/queries/filters/author",
+         *           "title": "Author"
+         *         }
+         *       }
+         *     }
+         */
+        Query_Filter_Instance_SchemaModel: {
+            /** @description Describes the name attribute */
+            readonly name: string;
+            _links: {
+                self: components["schemas"]["Link"] & unknown;
+                filter: components["schemas"]["Link"] & unknown;
+            };
+        };
         /**
          * @example {
          *       "_type": "Collection",
@@ -11236,74 +9560,136 @@ export interface components {
          *       }
          *     }
          */
-        query_filter_instance_schemas_model: Record<string, never>;
+        Query_Filter_Instance_SchemasModel: Record<string, never>;
         /**
          * @example {
-         *       "_type": "QueryFilterInstanceSchema",
-         *       "_dependencies": [
-         *         {
-         *           "_type": "SchemaDependency",
-         *           "on": "operator",
-         *           "dependencies": {
-         *             "/api/v3/queries/operators/=": {
-         *               "values": {
-         *                 "type": "[]User",
-         *                 "name": "Values",
-         *                 "required": true,
-         *                 "hasDefault": false,
-         *                 "writable": true,
-         *                 "_links": {}
+         *       "_type": "Collection",
+         *       "total": 2,
+         *       "count": 2,
+         *       "_embedded": {
+         *         "elements": [
+         *           {
+         *             "_type": "QueryFilterInstanceSchema",
+         *             "_dependencies": [
+         *               {
+         *                 "_type": "SchemaDependency",
+         *                 "on": "operator",
+         *                 "dependencies": {
+         *                   "/api/v3/queries/operators/=": {
+         *                     "values": {
+         *                       "type": "[]User",
+         *                       "name": "Values",
+         *                       "required": true,
+         *                       "hasDefault": false,
+         *                       "writable": true,
+         *                       "_links": {}
+         *                     }
+         *                   },
+         *                   "/api/v3/queries/operators/!": {
+         *                     "values": {
+         *                       "type": "[]User",
+         *                       "name": "Values",
+         *                       "required": true,
+         *                       "hasDefault": false,
+         *                       "writable": true,
+         *                       "_links": {}
+         *                     }
+         *                   },
+         *                   "/api/v3/queries/operators/!*": {},
+         *                   "/api/v3/queries/operators/*": {}
+         *                 }
          *               }
+         *             ],
+         *             "name": {
+         *               "type": "String",
+         *               "name": "Name",
+         *               "required": true,
+         *               "hasDefault": true,
+         *               "writable": false
          *             },
-         *             "/api/v3/queries/operators/!": {
-         *               "values": {
-         *                 "type": "[]User",
-         *                 "name": "Values",
-         *                 "required": true,
-         *                 "hasDefault": false,
-         *                 "writable": true,
-         *                 "_links": {}
+         *             "filter": {
+         *               "type": "QueryFilter",
+         *               "name": "Filter",
+         *               "required": true,
+         *               "hasDefault": false,
+         *               "writable": true,
+         *               "_links": {}
+         *             },
+         *             "_links": {
+         *               "self": {
+         *                 "href": "/api/v3/queries/filter_instance_schemas/assignee"
+         *               },
+         *               "filter": {
+         *                 "href": "/api/v3/queries/filters/assignee",
+         *                 "title": "Assignee"
+         *               }
+         *             }
+         *           },
+         *           {
+         *             "_type": "QueryFilterInstanceSchema",
+         *             "_dependencies": [
+         *               {
+         *                 "_type": "SchemaDependency",
+         *                 "on": "operator",
+         *                 "dependencies": {
+         *                   "/api/v3/queries/operators/=": {
+         *                     "values": {
+         *                       "type": "[]User",
+         *                       "name": "Values",
+         *                       "required": true,
+         *                       "hasDefault": false,
+         *                       "writable": true,
+         *                       "_links": {}
+         *                     }
+         *                   },
+         *                   "/api/v3/queries/operators/!": {
+         *                     "values": {
+         *                       "type": "[]User",
+         *                       "name": "Values",
+         *                       "required": true,
+         *                       "hasDefault": false,
+         *                       "writable": true,
+         *                       "_links": {}
+         *                     }
+         *                   }
+         *                 }
+         *               }
+         *             ],
+         *             "name": {
+         *               "type": "String",
+         *               "name": "Name",
+         *               "required": true,
+         *               "hasDefault": true,
+         *               "writable": false
+         *             },
+         *             "filter": {
+         *               "type": "QueryFilter",
+         *               "name": "Filter",
+         *               "required": true,
+         *               "hasDefault": false,
+         *               "writable": true,
+         *               "_links": {}
+         *             },
+         *             "_links": {
+         *               "self": {
+         *                 "href": "/api/v3/queries/filter_instance_schemas/author"
+         *               },
+         *               "filter": {
+         *                 "href": "/api/v3/queries/filters/author",
+         *                 "title": "Author"
          *               }
          *             }
          *           }
-         *         }
-         *       ],
-         *       "name": "A name",
+         *         ]
+         *       },
          *       "_links": {
          *         "self": {
-         *           "href": "/api/v3/queries/filter_instance_schemas/author"
-         *         },
-         *         "filter": {
-         *           "href": "/api/v3/queries/filters/author",
-         *           "title": "Author"
+         *           "href": "/api/v3/workspaces/42/queries/filter_instance_schemas"
          *         }
          *       }
          *     }
          */
-        query_filter_instance_schema_model: {
-            /** @description Describes the name attribute */
-            readonly name: string;
-            _links: {
-                self: components["schemas"]["link"] & unknown;
-                filter: components["schemas"]["link"] & unknown;
-            };
-        };
-        /**
-         * @example {
-         *       "_type": "QueryFilter",
-         *       "id": "status",
-         *       "_links": {
-         *         "self": {
-         *           "href": "/api/v3/queries/filters/status",
-         *           "title": "Status"
-         *         }
-         *       }
-         *     }
-         */
-        query_filter_model: {
-            /** @description QueryFilter id */
-            id: string;
-        };
+        Query_Filter_Instance_Schemas_For_WorkspaceModel: Record<string, never>;
         /**
          * @example {
          *       "_type": "QueryOperator",
@@ -11317,11 +9703,605 @@ export interface components {
          *       }
          *     }
          */
-        query_operator_model: {
+        Query_OperatorModel: {
             /** @description Query operator id */
             readonly id: string;
             /** @description Query operator name */
             name: string;
+        };
+        /**
+         * @example {
+         *       "_type": "QuerySortBy",
+         *       "id": "status-asc",
+         *       "name": "Status (Ascending)",
+         *       "_links": {
+         *         "self": {
+         *           "href": "/api/v3/queries/sort_bys/status-asc",
+         *           "title": "Status (Ascending)"
+         *         },
+         *         "column": {
+         *           "href": "/api/v3/queries/columns/status",
+         *           "title": "Status"
+         *         },
+         *         "direction": {
+         *           "href": "urn:openproject-org:api:v3:queries:directions:asc",
+         *           "title": "Ascending"
+         *         }
+         *       }
+         *     }
+         */
+        Query_Sort_ByModel: {
+            /** @description QuerySortBy id */
+            readonly id: string;
+            /** @description QuerySortBy name */
+            name: string;
+        };
+        /**
+         * @example {
+         *       "name": "Updated query name"
+         *     }
+         */
+        Query_Update_Form: {
+            /** @description Query name. */
+            name?: string;
+        };
+        RecurringMeetingCollectionModel: components["schemas"]["PaginatedCollectionModel"] & {
+            _embedded: {
+                elements: components["schemas"]["RecurringMeetingModel"][];
+            };
+            _links: {
+                self: components["schemas"]["Link"] & unknown;
+            };
+        };
+        RecurringMeetingModel: {
+            /** @enum {string} */
+            _type: "RecurringMeeting";
+            /** @description Identifier of this recurring meeting */
+            id: number;
+            /** @description The recurring meeting's title */
+            title: string;
+            /**
+             * @description The recurrence frequency. Possible values:
+             *
+             *     - *daily*: repeats every day (or every N days depending on interval)
+             *     - *working_days*: repeats on working days only
+             *     - *weekly*: repeats every week (or every N weeks depending on interval)
+             * @enum {string}
+             */
+            frequency: "daily" | "working_days" | "weekly";
+            /**
+             * @description The interval between occurrences. For example, an interval of 2 with a weekly frequency
+             *     means the meeting occurs every 2 weeks. Not applicable for working_days frequency.
+             */
+            interval: number;
+            /**
+             * @description How the recurrence ends. Possible values:
+             *
+             *     - *specific_date*: ends on a specific date
+             *     - *iterations*: ends after a specific number of occurrences
+             *     - *never*: never ends
+             * @enum {string}
+             */
+            endAfter: "specific_date" | "iterations" | "never";
+            /**
+             * Format: date
+             * @description The date on which the recurrence ends. Only present when endAfter is `specific_date`.
+             */
+            endDate?: string | null;
+            /**
+             * @description The number of occurrences after which the recurrence ends.
+             *     Only present when endAfter is `iterations`.
+             */
+            iterations?: number | null;
+            /** @description The time zone in which the recurring meeting is scheduled (e.g. "Europe/Berlin"). */
+            timeZone?: string;
+            /**
+             * Format: date-time
+             * @description The scheduled start time of the recurring meeting.
+             */
+            startTime: string;
+            /** @description The meeting's location (inherited from the template meeting). */
+            location?: string;
+            /** @description The meeting duration in hours (inherited from the template meeting). */
+            duration?: number;
+            /** @description Whether to send email notifications to participants (inherited from the template meeting). */
+            notify?: boolean;
+            /**
+             * Format: date-time
+             * @description Time of creation.
+             */
+            createdAt: string;
+            /**
+             * Format: date-time
+             * @description Time of the most recent change to the recurring meeting.
+             */
+            updatedAt: string;
+            _links?: {
+                self?: components["schemas"]["Link"] & unknown;
+                updateImmediately?: components["schemas"]["Link"] & unknown;
+                delete?: components["schemas"]["Link"] & unknown;
+                template?: components["schemas"]["Link"] & unknown;
+                project?: components["schemas"]["Link"] & unknown;
+                author?: components["schemas"]["Link"] & unknown;
+                occurrencesUpcoming?: components["schemas"]["Link"] & unknown;
+                occurrencesPast?: components["schemas"]["Link"] & unknown;
+                occurrencesCancelled?: components["schemas"]["Link"] & unknown;
+                occurrencesOpen?: components["schemas"]["Link"] & unknown;
+            };
+        };
+        RecurringMeetingWriteModel: {
+            /** @description The recurring meeting's title */
+            title?: string;
+            /**
+             * @description The recurrence frequency. Possible values:
+             *
+             *     - *daily*
+             *     - *working_days*
+             *     - *weekly*
+             * @enum {string}
+             */
+            frequency?: "daily" | "working_days" | "weekly";
+            /** @description The interval between occurrences. Not applicable for working_days frequency. */
+            interval?: number;
+            /**
+             * @description How the recurrence ends. Possible values:
+             *
+             *     - *specific_date*
+             *     - *iterations*
+             *     - *never*
+             * @enum {string}
+             */
+            endAfter?: "specific_date" | "iterations" | "never";
+            /**
+             * Format: date
+             * @description The date on which the recurrence ends. Required when endAfter is `specific_date`.
+             */
+            endDate?: string | null;
+            /**
+             * @description The number of occurrences after which the recurrence ends.
+             *     Required when endAfter is `iterations`.
+             */
+            iterations?: number | null;
+            /**
+             * Format: date-time
+             * @description The scheduled start time of the recurring meeting.
+             */
+            startTime?: string;
+            /** @description The meeting's location. */
+            location?: string;
+            /** @description The meeting duration in hours. */
+            duration?: number;
+            /** @description Whether to send email notifications to participants. */
+            notify?: boolean;
+            _links?: {
+                project?: components["schemas"]["Link"] & unknown;
+            };
+        };
+        RecurringMeetingOccurrenceCollectionModel: components["schemas"]["CollectionModel"] & {
+            _links: {
+                self: components["schemas"]["Link"] & unknown;
+            };
+            _embedded: {
+                elements: components["schemas"]["RecurringMeetingOccurrenceModel"][];
+            };
+        };
+        RecurringMeetingOccurrenceModel: {
+            /** @enum {string} */
+            _type: "MeetingOccurrence";
+            /**
+             * Format: date-time
+             * @description The start time of this occurrence.
+             */
+            startTime: string;
+            /**
+             * @description The current state of the occurrence. Possible values:
+             *
+             *     - *open*: the occurrence has been instantiated as a meeting
+             *     - *cancelled*: the occurrence has been cancelled
+             *     - *scheduled*: the occurrence is scheduled but not yet instantiated
+             * @enum {string}
+             */
+            state: "open" | "cancelled" | "scheduled";
+            _links?: {
+                self?: components["schemas"]["Link"] & unknown;
+                meeting?: components["schemas"]["Link"] & unknown;
+                recurringMeeting?: components["schemas"]["Link"] & unknown;
+            };
+        };
+        RelationCollectionModel: components["schemas"]["CollectionModel"] & {
+            _links: {
+                self: components["schemas"]["Link"] & unknown;
+            };
+            _embedded: {
+                elements: components["schemas"]["RelationReadModel"][];
+            };
+        };
+        RelationReadModel: {
+            /** @enum {string} */
+            _type?: "Relation";
+            /** @description Relation ID */
+            id?: number;
+            /** @description The internationalised name of this type of relation */
+            name?: string;
+            /**
+             * @description The relation type.
+             * @enum {string}
+             */
+            type?: "relates" | "duplicates" | "duplicated" | "blocks" | "blocked" | "precedes" | "follows" | "includes" | "partof" | "requires" | "required";
+            /**
+             * @description The type of relation from the perspective of the related work package.
+             * @enum {string}
+             */
+            reverseType?: "relates" | "duplicates" | "duplicated" | "blocks" | "blocked" | "precedes" | "follows" | "includes" | "partof" | "requires" | "required";
+            /** @description A descriptive text for the relation. */
+            description?: string | null;
+            /** @description The lag in days between closing of `from` and start of `to` */
+            lag?: number | null;
+            _embedded?: {
+                from?: components["schemas"]["WorkPackageModel"];
+                to?: components["schemas"]["WorkPackageModel"];
+            };
+            _links?: {
+                self?: components["schemas"]["Link"] & unknown;
+                updateImmediately?: components["schemas"]["Link"] & unknown;
+                delete?: components["schemas"]["Link"] & unknown;
+                from?: components["schemas"]["Link"] & unknown;
+                to?: components["schemas"]["Link"] & unknown;
+            };
+        };
+        RelationWriteModel: {
+            /**
+             * @description The relation type.
+             * @enum {string}
+             */
+            type: "relates" | "duplicates" | "duplicated" | "blocks" | "blocked" | "precedes" | "follows" | "includes" | "partof" | "requires" | "required";
+            /** @description A descriptive text for the relation. */
+            description?: string | null;
+            /** @description The lag in days between closing of `from` and start of `to` */
+            lag?: number | null;
+            _links: {
+                to?: components["schemas"]["Link"] & unknown;
+            };
+        };
+        ReminderModel: {
+            /** @description Reminder id */
+            readonly id?: number;
+            /** @description The note of the reminder */
+            note?: string;
+            /**
+             * Format: date-time
+             * @description The date and time when the reminder is due
+             */
+            remindAt?: string;
+            _links?: {
+                self?: components["schemas"]["Link"] & unknown;
+                creator: components["schemas"]["Link"] & unknown;
+                remindable: components["schemas"]["Link"] & unknown;
+            };
+        };
+        /**
+         * @example {
+         *       "_type": "Revision",
+         *       "_links": {
+         *         "self": {
+         *           "href": "/api/v3/revisions/1"
+         *         },
+         *         "project": {
+         *           "href": "/api/v3/projects/1"
+         *         },
+         *         "author": {
+         *           "href": "/api/v3/users/1"
+         *         },
+         *         "showRevision": {
+         *           "href": "/projects/identifier/repository/revision/11f4b07"
+         *         }
+         *       },
+         *       "id": 1,
+         *       "identifier": "11f4b07dff4f4ce9548a52b7d002daca7cd63ec6",
+         *       "formattedIdentifier": "11f4b07",
+         *       "authorName": "Some Developer",
+         *       "message": {
+         *         "format": "plain",
+         *         "raw": "This revision provides new features\n\nAn elaborate description",
+         *         "html": "<p>This revision provides new features<br/><br/>An elaborate description</p>"
+         *       },
+         *       "createdAt": "2015-07-21T13:36:59.859Z"
+         *     }
+         */
+        RevisionModel: {
+            /** @description Revision's id, assigned by OpenProject */
+            readonly id?: number;
+            /** @description The raw SCM identifier of the revision (e.g. full SHA hash) */
+            readonly identifier: string;
+            /** @description The SCM identifier of the revision, formatted (e.g. shortened unambiguous SHA hash). May be identical to identifier in many cases */
+            readonly formattedIdentifier: string;
+            /** @description The name of the author that committed this revision. Note that this name is retrieved from the repository and does not identify a user in OpenProject. */
+            readonly authorName: string;
+            message: components["schemas"]["Formattable"] & unknown;
+            /**
+             * Format: date-time
+             * @description The time this revision was committed to the repository
+             */
+            createdAt: string;
+            _links?: {
+                self: components["schemas"]["Link"] & unknown;
+                project: components["schemas"]["Link"] & unknown;
+                author?: components["schemas"]["Link"] & unknown;
+                showRevision: components["schemas"]["Link"] & unknown;
+            };
+        };
+        /**
+         * @example {
+         *       "_links": {
+         *         "self": {
+         *           "href": "/api/v3/work_packages/42/revisions"
+         *         }
+         *       },
+         *       "total": 2,
+         *       "count": 2,
+         *       "_type": "Collection",
+         *       "_embedded": {
+         *         "elements": [
+         *           {
+         *             "_type": "Revision",
+         *             "_links": {
+         *               "self": {
+         *                 "href": "/api/v3/revisions/13"
+         *               },
+         *               "project": {
+         *                 "href": "/api/v3/projects/1",
+         *                 "title": "A Test Project"
+         *               },
+         *               "author": {
+         *                 "href": "/api/v3/users/1",
+         *                 "title": "John Sheppard - j.sheppard"
+         *               },
+         *               "showRevision": {
+         *                 "href": "/projects/identifier/repository/revision/11f4b07"
+         *               }
+         *             },
+         *             "id": 13,
+         *             "identifier": "11f4b07dff4f4ce9548a52b7d002daca7cd63ec6",
+         *             "formattedIdentifier": "11f4b07",
+         *             "authorName": "John Sheppard",
+         *             "message": {
+         *               "format": "plain",
+         *               "raw": "This revision provides new features\n\nAn elaborate description",
+         *               "html": "<p>This revision provides new features<br/><br/>An elaborate description</p>"
+         *             },
+         *             "createdAt": "2015-07-21T13:36:59.201Z"
+         *           },
+         *           {
+         *             "_type": "Revision",
+         *             "_links": {
+         *               "self": {
+         *                 "href": "/api/v3/revisions/14"
+         *               },
+         *               "project": {
+         *                 "href": "/api/v3/projects/1",
+         *                 "title": "A Test Project"
+         *               },
+         *               "author": {
+         *                 "href": "/api/v3/users/2",
+         *                 "title": "Jim Sheppard - j.sheppard"
+         *               },
+         *               "showRevision": {
+         *                 "href": "/projects/identifier/repository/revision/029ed72a"
+         *               }
+         *             },
+         *             "id": 13,
+         *             "identifier": "029ed72a3b7b7c4ab332b1f6eaa6576e7c946059",
+         *             "formattedIdentifier": "029ed72a",
+         *             "authorName": "j1msheppard",
+         *             "message": {
+         *               "format": "plain",
+         *               "raw": "This revision fixes some stuff\n\nMore information here",
+         *               "html": "<p>This revision fixes some stuff<br/><br/>More information here</p>"
+         *             },
+         *             "createdAt": "2015-06-30T08:47:00.548Z"
+         *           }
+         *         ]
+         *       }
+         *     }
+         */
+        RevisionsModel: Record<string, never>;
+        /**
+         * @example {
+         *       "_type": "Role",
+         *       "id": 3,
+         *       "name": "Manager",
+         *       "_links": {
+         *         "self": {
+         *           "href": "/api/v3/roles/3",
+         *           "title": "Manager"
+         *         }
+         *       }
+         *     }
+         */
+        RoleModel: {
+            /** @enum {string} */
+            _type?: "Role";
+            /** @description Role id */
+            readonly id?: number;
+            /** @description Role name */
+            name: string;
+            _links?: {
+                self: components["schemas"]["Link"] & unknown;
+            };
+        };
+        /**
+         * @example {
+         *       "_type": "Collection",
+         *       "total": 5,
+         *       "count": 5,
+         *       "_embedded": {
+         *         "elements": [
+         *           {
+         *             "_type": "Role",
+         *             "id": 3,
+         *             "name": "Manager",
+         *             "_links": {
+         *               "self": {
+         *                 "href": "/api/v3/roles/3",
+         *                 "title": "Manager"
+         *               }
+         *             }
+         *           },
+         *           {
+         *             "_type": "Role",
+         *             "id": 2,
+         *             "name": "Anonymous",
+         *             "_links": {
+         *               "self": {
+         *                 "href": "/api/v3/roles/2",
+         *                 "title": "Anonymous"
+         *               }
+         *             }
+         *           },
+         *           {
+         *             "_type": "Role",
+         *             "id": 5,
+         *             "name": "Reader",
+         *             "_links": {
+         *               "self": {
+         *                 "href": "/api/v3/roles/5",
+         *                 "title": "Reader"
+         *               }
+         *             }
+         *           },
+         *           {
+         *             "_type": "Role",
+         *             "id": 4,
+         *             "name": "Member",
+         *             "_links": {
+         *               "self": {
+         *                 "href": "/api/v3/roles/4",
+         *                 "title": "Member"
+         *               }
+         *             }
+         *           },
+         *           {
+         *             "_type": "Role",
+         *             "id": 1,
+         *             "name": "Non member",
+         *             "_links": {
+         *               "self": {
+         *                 "href": "/api/v3/roles/1",
+         *                 "title": "Non member"
+         *               }
+         *             }
+         *           }
+         *         ]
+         *       },
+         *       "_links": {
+         *         "self": {
+         *           "href": "/api/v3/roles"
+         *         }
+         *       }
+         *     }
+         */
+        RolesModel: Record<string, never>;
+        /**
+         * @example {
+         *       "_type": "Root",
+         *       "instanceName": "OpenProject",
+         *       "coreVersion": "12.1.0",
+         *       "_links": {
+         *         "self": {
+         *           "href": "/api/v3"
+         *         },
+         *         "configuration": {
+         *           "href": "/api/v3/configuration"
+         *         },
+         *         "memberships": {
+         *           "href": "/api/v3/memberships"
+         *         },
+         *         "priorities": {
+         *           "href": "/api/v3/priorities"
+         *         },
+         *         "relations": {
+         *           "href": "/api/v3/relations"
+         *         },
+         *         "statuses": {
+         *           "href": "/api/v3/statuses"
+         *         },
+         *         "time_entries": {
+         *           "href": "/api/v3/time_entries"
+         *         },
+         *         "types": {
+         *           "href": "/api/v3/types"
+         *         },
+         *         "user": {
+         *           "href": "/api/v3/users/3",
+         *           "title": "Anakin Skywalker"
+         *         },
+         *         "userPreferences": {
+         *           "href": "/api/v3/users/3/preferences"
+         *         },
+         *         "workPackages": {
+         *           "href": "/api/v3/work_packages"
+         *         }
+         *       }
+         *     }
+         */
+        RootModel: {
+            /** @enum {string} */
+            _type: "Root";
+            /** @description The name of the OpenProject instance */
+            instanceName: string;
+            /**
+             * @description The OpenProject core version number for the instance
+             *
+             *     # Conditions
+             *
+             *     **Permission** requires admin privileges
+             */
+            coreVersion?: string;
+            _links: {
+                self: components["schemas"]["Link"] & unknown;
+                configuration: components["schemas"]["Link"] & unknown;
+                memberships: components["schemas"]["Link"] & unknown;
+                priorities: components["schemas"]["Link"] & unknown;
+                relations: components["schemas"]["Link"] & unknown;
+                statuses: components["schemas"]["Link"] & unknown;
+                time_entries: components["schemas"]["Link"] & unknown;
+                types: components["schemas"]["Link"] & unknown;
+                user: components["schemas"]["Link"] & unknown;
+                userPreferences: components["schemas"]["Link"] & unknown;
+                workPackages: components["schemas"]["Link"] & unknown;
+            };
+        };
+        SchemaModel: {
+            /** @enum {string} */
+            _type: "Schema";
+            /** @description A list of dependencies between one property's value and another property */
+            _dependencies?: string[];
+            _links: {
+                self?: components["schemas"]["Link"] & unknown;
+            };
+        };
+        SchemaPropertyModel: {
+            /** @description The resource type for this property. */
+            type: string;
+            /** @description The name of the property. */
+            name: string;
+            /** @description Indicates, if the property is required for submitting a request of this schema. */
+            required: boolean;
+            /** @description Indicates, if the property has a default. */
+            hasDefault: boolean;
+            /** @description Indicates, if the property is writable when sending a request of this schema. */
+            writable: boolean;
+            /** @description Additional options for the property. */
+            options?: Record<string, never>;
+            /**
+             * @description Defines the json path where the property is located in the payload.
+             * @default
+             */
+            location: string;
+            /** @description A placeholder for the property to display if the property has no value. */
+            placeholder?: string;
+            /** @description Useful links for this property (e.g. an endpoint to fetch allowed values) */
+            _links?: Record<string, never>;
         };
         /**
          * @example {
@@ -11630,42 +10610,312 @@ export interface components {
          *       }
          *     }
          */
-        schema_for_global_queries_model: Record<string, never>;
+        Schema_For_Global_QueriesModel: Record<string, never>;
         /**
          * @example {
-         *       "_type": "QuerySortBy",
-         *       "id": "status-asc",
-         *       "name": "Status (Ascending)",
+         *       "_type": "Schema",
+         *       "_dependencies": [],
+         *       "id": {
+         *         "type": "Integer",
+         *         "name": "ID",
+         *         "required": true,
+         *         "hasDefault": false,
+         *         "writable": false
+         *       },
+         *       "name": {
+         *         "type": "String",
+         *         "name": "Name",
+         *         "required": true,
+         *         "hasDefault": false,
+         *         "writable": true,
+         *         "minLength": 1,
+         *         "maxLength": 255
+         *       },
+         *       "createdAt": {
+         *         "type": "DateTime",
+         *         "name": "Created on",
+         *         "required": true,
+         *         "hasDefault": false,
+         *         "writable": false
+         *       },
+         *       "updatedAt": {
+         *         "type": "DateTime",
+         *         "name": "Updated on",
+         *         "required": true,
+         *         "hasDefault": false,
+         *         "writable": false
+         *       },
+         *       "user": {
+         *         "type": "User",
+         *         "name": "User",
+         *         "required": true,
+         *         "hasDefault": true,
+         *         "writable": false
+         *       },
+         *       "project": {
+         *         "type": "Workspace",
+         *         "name": "Project",
+         *         "required": false,
+         *         "hasDefault": false,
+         *         "writable": true,
+         *         "_links": {}
+         *       },
+         *       "public": {
+         *         "type": "Boolean",
+         *         "name": "Public",
+         *         "required": false,
+         *         "hasDefault": true,
+         *         "writable": true
+         *       },
+         *       "sums": {
+         *         "type": "Boolean",
+         *         "name": "Sums",
+         *         "required": false,
+         *         "hasDefault": true,
+         *         "writable": true
+         *       },
+         *       "timelineVisible": {
+         *         "type": "Boolean",
+         *         "name": "Timeline visible",
+         *         "required": false,
+         *         "hasDefault": true,
+         *         "writable": true
+         *       },
+         *       "timelineZoomLevel": {
+         *         "type": "String",
+         *         "name": "Timeline zoom level",
+         *         "required": false,
+         *         "hasDefault": true,
+         *         "writable": true
+         *       },
+         *       "showHierarchies": {
+         *         "type": "Boolean",
+         *         "name": "Show hierarchies",
+         *         "required": false,
+         *         "hasDefault": true,
+         *         "writable": true
+         *       },
+         *       "starred": {
+         *         "type": "Boolean",
+         *         "name": "Starred",
+         *         "required": false,
+         *         "hasDefault": true,
+         *         "writable": true
+         *       },
+         *       "columns": {
+         *         "type": "[]QueryColumn",
+         *         "name": "Columns",
+         *         "required": false,
+         *         "hasDefault": true,
+         *         "writable": true,
+         *         "_links": {}
+         *       },
+         *       "filters": {
+         *         "type": "[]QueryFilterInstance",
+         *         "name": "Filters",
+         *         "required": false,
+         *         "writable": true,
+         *         "hasDefault": true,
+         *         "_links": {
+         *           "allowedValuesSchemas": {
+         *             "href": "/api/v3/workspaces/42/queries/filter_instance_schemas"
+         *           }
+         *         }
+         *       },
+         *       "groupBy": {
+         *         "type": "[]QueryGroupBy",
+         *         "name": "Group results by",
+         *         "required": false,
+         *         "hasDefault": false,
+         *         "writable": true,
+         *         "_links": {}
+         *       },
+         *       "sortBy": {
+         *         "type": "[]QuerySortBy",
+         *         "name": "Sort by",
+         *         "required": false,
+         *         "hasDefault": true,
+         *         "writable": true,
+         *         "_links": {}
+         *       },
+         *       "results": {
+         *         "type": "WorkPackageCollection",
+         *         "name": "Results",
+         *         "required": false,
+         *         "hasDefault": false,
+         *         "writable": false
+         *       },
+         *       "_embedded": {
+         *         "filtersSchemas": {
+         *           "_type": "Collection",
+         *           "total": 20,
+         *           "count": 20,
+         *           "_embedded": {
+         *             "elements": [
+         *               {
+         *                 "_type": "QueryFilterInstanceSchema",
+         *                 "_dependencies": [
+         *                   {
+         *                     "_type": "SchemaDependency",
+         *                     "on": "operator",
+         *                     "dependencies": {
+         *                       "/api/v3/queries/operators/=": {
+         *                         "values": {
+         *                           "type": "[]User",
+         *                           "name": "Values",
+         *                           "required": true,
+         *                           "hasDefault": false,
+         *                           "writable": true,
+         *                           "_links": {}
+         *                         }
+         *                       },
+         *                       "/api/v3/queries/operators/!": {
+         *                         "values": {
+         *                           "type": "[]User",
+         *                           "name": "Values",
+         *                           "required": true,
+         *                           "hasDefault": false,
+         *                           "writable": true,
+         *                           "_links": {}
+         *                         }
+         *                       },
+         *                       "/api/v3/queries/operators/!*": {},
+         *                       "/api/v3/queries/operators/*": {}
+         *                     }
+         *                   }
+         *                 ],
+         *                 "name": {
+         *                   "type": "String",
+         *                   "name": "Name",
+         *                   "required": true,
+         *                   "hasDefault": true,
+         *                   "writable": false
+         *                 },
+         *                 "filter": {
+         *                   "type": "QueryFilter",
+         *                   "name": "Filter",
+         *                   "required": true,
+         *                   "hasDefault": false,
+         *                   "writable": true,
+         *                   "_links": {}
+         *                 },
+         *                 "_links": {
+         *                   "self": {
+         *                     "href": "/api/v3/queries/filter_instance_schemas/assignee"
+         *                   },
+         *                   "filter": {
+         *                     "href": "/api/v3/queries/filters/assignee",
+         *                     "title": "Assignee"
+         *                   }
+         *                 }
+         *               },
+         *               {
+         *                 "_type": "QueryFilterInstanceSchema",
+         *                 "_dependencies": [
+         *                   {
+         *                     "_type": "SchemaDependency",
+         *                     "on": "operator",
+         *                     "dependencies": {
+         *                       "/api/v3/queries/operators/=": {
+         *                         "values": {
+         *                           "type": "[]User",
+         *                           "name": "Values",
+         *                           "required": true,
+         *                           "hasDefault": false,
+         *                           "writable": true,
+         *                           "_links": {}
+         *                         }
+         *                       },
+         *                       "/api/v3/queries/operators/!": {
+         *                         "values": {
+         *                           "type": "[]User",
+         *                           "name": "Values",
+         *                           "required": true,
+         *                           "hasDefault": false,
+         *                           "writable": true,
+         *                           "_links": {}
+         *                         }
+         *                       }
+         *                     }
+         *                   }
+         *                 ],
+         *                 "name": {
+         *                   "type": "String",
+         *                   "name": "Name",
+         *                   "required": true,
+         *                   "hasDefault": true,
+         *                   "writable": false
+         *                 },
+         *                 "filter": {
+         *                   "type": "QueryFilter",
+         *                   "name": "Filter",
+         *                   "required": true,
+         *                   "hasDefault": false,
+         *                   "writable": true,
+         *                   "_links": {}
+         *                 },
+         *                 "_links": {
+         *                   "self": {
+         *                     "href": "/api/v3/queries/filter_instance_schemas/author"
+         *                   },
+         *                   "filter": {
+         *                     "href": "/api/v3/queries/filters/author",
+         *                     "title": "Author"
+         *                   }
+         *                 }
+         *               }
+         *             ]
+         *           },
+         *           "_links": {
+         *             "self": {
+         *               "href": "/api/v3/workspaces/42/queries/filter_instance_schemas"
+         *             }
+         *           }
+         *         }
+         *       },
          *       "_links": {
          *         "self": {
-         *           "href": "/api/v3/queries/sort_bys/status-asc",
-         *           "title": "Status (Ascending)"
-         *         },
-         *         "column": {
-         *           "href": "/api/v3/queries/columns/status",
-         *           "title": "Status"
-         *         },
-         *         "direction": {
-         *           "href": "urn:openproject-org:api:v3:queries:directions:asc",
-         *           "title": "Ascending"
+         *           "href": "/api/v3/workspaces/42/queries/schema"
          *         }
          *       }
          *     }
          */
-        query_sort_by_model: {
-            /** @description QuerySortBy id */
-            readonly id: string;
-            /** @description QuerySortBy name */
-            name: string;
+        Schema_For_Workspace_QueriesModel: Record<string, never>;
+        SprintCollectionModel: components["schemas"]["CollectionModel"] & {
+            _links: {
+                self: components["schemas"]["Link"] & unknown;
+            };
+            _embedded: {
+                elements: components["schemas"]["SprintModel"][];
+            };
         };
-        /**
-         * @example {
-         *       "name": "Updated query name"
-         *     }
-         */
-        query_update_form: {
-            /** @description Query name. */
-            name?: string;
+        SprintModel: {
+            /** @description Sprint id */
+            id: number;
+            /** @enum {string} */
+            _type: "Sprint";
+            /** @description Sprint name */
+            name: string;
+            description?: components["schemas"]["Formattable"];
+            /** Format: date */
+            startDate: string | null;
+            /** Format: date */
+            finishDate: string | null;
+            /**
+             * Format: date-time
+             * @description Time of creation
+             */
+            createdAt: string;
+            /**
+             * Format: date-time
+             * @description Time of the most recent change to the sprint
+             */
+            updatedAt: string;
+            _links?: {
+                self: components["schemas"]["Link"] & unknown;
+                definingWorkspace: components["schemas"]["Link"] & unknown;
+                status?: components["schemas"]["Link"] & unknown;
+            };
         };
         /**
          * @example {
@@ -11811,7 +11061,631 @@ export interface components {
          *       }
          *     }
          */
-        star_query_model: Record<string, never>;
+        Star_QueryModel: Record<string, never>;
+        StatusCollectionModel: components["schemas"]["CollectionModel"] & {
+            _embedded: {
+                elements: components["schemas"]["StatusModel"][];
+            };
+        };
+        StatusModel: {
+            /** @enum {string} */
+            _type?: "Status";
+            /** @description Status id */
+            id?: number;
+            /** @description Status name */
+            name?: string;
+            /** @description Indicates, whether work package of this status are considered closed */
+            isClosed?: boolean;
+            /**
+             * Format: hex-code
+             * @description The color of the status
+             */
+            color?: string | null;
+            /** @description True, if this status is the default status for new work packages */
+            isDefault?: boolean;
+            /** @description Indicates, whether work package of this status are readonly */
+            isReadonly?: boolean;
+            /**
+             * @description Indicates, whether work package of this status are excluded from totals of `Work`, `Remaining work`, and
+             *     `% Complete` in a hierarchy.
+             */
+            excludedFromTotals?: boolean;
+            /** @description The percentageDone being applied when changing to this status */
+            defaultDoneRatio?: number;
+            /** @description Sort index of the status */
+            position?: number;
+            _links?: {
+                self: components["schemas"]["Link"] & unknown;
+            };
+        };
+        StorageCollectionModel: components["schemas"]["CollectionModel"] & {
+            _links: {
+                self: components["schemas"]["Link"] & unknown;
+            };
+            _embedded: {
+                elements: components["schemas"]["StorageReadModel"][];
+            };
+        };
+        /**
+         * @example {
+         *       "id": "42",
+         *       "name": "readme.md",
+         *       "_type": "StorageFile",
+         *       "location": "/readme.md",
+         *       "_links": {
+         *         "self": {
+         *           "href": "urn:openproject-org:api:v3:storages:storage_file:no_link_provided"
+         *         }
+         *       }
+         *     }
+         */
+        StorageFileModel: components["schemas"]["FileLinkOriginDataModel"] & {
+            /** @enum {string} */
+            _type: "StorageFile";
+            /** @description Location identification for file in storage */
+            location: string;
+            _links: {
+                self: components["schemas"]["Link"] & unknown;
+            };
+        };
+        /**
+         * @example {
+         *       "_type": "StorageFiles",
+         *       "files": [
+         *         {
+         *           "id": "42",
+         *           "name": "readme.md",
+         *           "_type": "StorageFile",
+         *           "location": "/readme.md",
+         *           "mimeType": "text/markdown",
+         *           "size": 4096,
+         *           "createdAt": "2021-12-19T09:42:10.170Z",
+         *           "lastModifiedAt": "2021-12-20T14:00:13.987Z",
+         *           "createdByName": "Luke Skywalker",
+         *           "lastModifiedByName": "Anakin Skywalker",
+         *           "_links": {
+         *             "self": {
+         *               "href": "urn:openproject-org:api:v3:storages:storage_file:no_link_provided"
+         *             }
+         *           }
+         *         },
+         *         {
+         *           "id": "43",
+         *           "name": "readme.pdf",
+         *           "_type": "StorageFile",
+         *           "location": "/readme.pdf",
+         *           "mimeType": "application/pdf",
+         *           "size": 2048,
+         *           "createdAt": "2021-12-19T09:42:10.170Z",
+         *           "lastModifiedAt": "2021-12-20T14:00:13.987Z",
+         *           "createdByName": "Luke Skywalker",
+         *           "lastModifiedByName": "Anakin Skywalker",
+         *           "_links": {
+         *             "self": {
+         *               "href": "urn:openproject-org:api:v3:storages:storage_file:no_link_provided"
+         *             }
+         *           }
+         *         }
+         *       ],
+         *       "parent": {
+         *         "id": "41",
+         *         "name": "/",
+         *         "_type": "StorageFile",
+         *         "location": "/",
+         *         "mimeType": "application/x-op-directory",
+         *         "size": 6144,
+         *         "createdAt": "2021-12-20T09:42:10.170Z",
+         *         "lastModifiedAt": "2021-12-21T14:00:13.987Z",
+         *         "createdByName": "Luke Skywalker",
+         *         "lastModifiedByName": "Anakin Skywalker",
+         *         "_links": {
+         *           "self": {
+         *             "href": "urn:openproject-org:api:v3:storages:storage_file:no_link_provided"
+         *           }
+         *         }
+         *       },
+         *       "ancestors": [],
+         *       "_links": {
+         *         "self": {
+         *           "href": "urn:openproject-org:api:v3:storages:storage_file:no_link_provided"
+         *         }
+         *       }
+         *     }
+         */
+        StorageFilesModel: {
+            /** @enum {string} */
+            _type: "StorageFiles";
+            /** @description List of files provided by the selected storage. */
+            files: components["schemas"]["StorageFileModel"][];
+            parent: components["schemas"]["StorageFileModel"] & unknown;
+            /** @description List of ancestors of the parent directory. Can be empty, if parent directory was root directory. */
+            ancestors: components["schemas"]["StorageFileModel"][];
+            _links: {
+                self: components["schemas"]["Link"] & unknown;
+            };
+        };
+        StorageFolderWriteModel: {
+            /** @description Name of the folder to be created */
+            name: string;
+            /** @description Unique identifier of the parent folder in which the new folder should be created in */
+            parentId: string;
+        };
+        StorageFileUploadPreparationModel: {
+            /** @description The project identifier, from where a user starts uploading a file. */
+            projectId: number;
+            /** @description The file name. */
+            fileName: string;
+            /**
+             * @description The directory to which the file is to be uploaded. For root directories, the value `/` must
+             *     be provided.
+             */
+            parent: string;
+        };
+        StorageFileUploadLinkModel: {
+            /** @enum {string} */
+            _type: "UploadLink";
+            _links: {
+                self: components["schemas"]["Link"] & unknown;
+                destination: components["schemas"]["Link"] & unknown;
+            };
+        };
+        StorageReadModel: {
+            /** @description Storage id */
+            id: number;
+            /** @enum {string} */
+            _type: "Storage";
+            /** @description Storage name */
+            name: string;
+            /**
+             * @description The audience that the storage expects in tokens for requests to it,
+             *     usually the storage's client ID at the identity provider.
+             *
+             *     This is only required for authentication through single-sign-on and so far
+             *     only supported for provider type Nextcloud.
+             */
+            storageAudience?: string;
+            /**
+             * @description The scope that will be requested when requesting a token for the storage through token exchange. Has no effect if no
+             *     token exchange is performed.
+             *
+             *     This is only required for authentication through single-sign-on and so far only supported for provider type Nextcloud.
+             */
+            tokenExchangeScope?: string;
+            /**
+             * @description The tenant id of a file storage of type OneDrive.
+             *
+             *     Ignored if the provider type is not OneDrive. May be null if the storage is not configured completely.
+             */
+            tenantId?: string | null;
+            /**
+             * @description The drive id of a file storage of type OneDrive.
+             *
+             *     Ignored if the provider type is not OneDrive. May be null if the storage is not configured completely.
+             */
+            driveId?: string | null;
+            /**
+             * @description Whether the storage has the application password to use for the Nextcloud storage.
+             *
+             *     Ignored if the provider type is not Nextcloud.
+             */
+            hasApplicationPassword?: boolean;
+            /**
+             * @description A string with all the characters forbidden to be used for file and folder names in the storage. Used by OpenProject to avoid
+             *     creating files with unsupported names (e.g. when creating project folders).
+             *
+             *     Only supported for provider type Nextcloud so far.
+             */
+            forbiddenFileNameCharacters?: string;
+            /**
+             * Format: date-time
+             * @description Time of creation
+             */
+            createdAt?: string;
+            /**
+             * Format: date-time
+             * @description Time of the most recent change to the storage
+             */
+            updatedAt?: string;
+            /** @description Indication, if the storage is fully configured */
+            configured?: boolean;
+            _embedded?: {
+                oauthApplication?: components["schemas"]["OAuthApplicationReadModel"];
+                oauthClientCredentials?: components["schemas"]["OAuthClientCredentialsReadModel"];
+            };
+            _links: {
+                self: components["schemas"]["Link"] & unknown;
+                type: components["schemas"]["Link"] & unknown;
+                authenticationMethod?: components["schemas"]["Link"] & unknown;
+                origin?: components["schemas"]["Link"] & unknown;
+                open: components["schemas"]["Link"] & unknown;
+                authorizationState: components["schemas"]["Link"] & unknown;
+                authorize?: components["schemas"]["Link"] & unknown;
+                oauthApplication?: components["schemas"]["Link"] & unknown;
+                oauthClientCredentials?: components["schemas"]["Link"] & unknown;
+            };
+        };
+        /**
+         * @example {
+         *       "name": "Coruscant",
+         *       "applicationPassword": "qJ_VLNReW@sd-Edz2hyC",
+         *       "_links": {
+         *         "origin": {
+         *           "href": "https://nextcloud.deathstar.rocks"
+         *         },
+         *         "type": {
+         *           "href": "urn:openproject-org:api:v3:storages:Nextcloud"
+         *         }
+         *       }
+         *     }
+         */
+        StorageWriteModel: {
+            /** @description Storage name, if not provided, falls back to a default. */
+            name?: string;
+            /**
+             * @description The audience that the storage expects in tokens for requests to it,
+             *     usually the storage's client ID at the identity provider.
+             *
+             *     This is only required for authentication through single-sign-on and so far
+             *     only supported for provider type Nextcloud.
+             */
+            storageAudience?: string;
+            /**
+             * @description The scope that will be requested when requesting a token for the storage through token exchange. Has no effect if no
+             *     token exchange is performed.
+             *
+             *     This is only required for authentication through single-sign-on and so far only supported for provider type Nextcloud.
+             */
+            tokenExchangeScope?: string;
+            /**
+             * @description The application password to use for the Nextcloud storage. Ignored if the provider type is not Nextcloud.
+             *
+             *     If a string is provided, the password is set and automatic management is enabled for the storage.
+             *     If null is provided, the password is unset and automatic management is disabled for the storage.
+             */
+            applicationPassword?: string | null;
+            /**
+             * @description A string with all the characters forbidden to be used for file and folder names in the storage. Used by OpenProject to avoid
+             *     creating files with unsupported names (e.g. when creating project folders).
+             *
+             *     Only supported for provider type Nextcloud so far.
+             */
+            forbiddenFileNameCharacters?: string;
+            _links?: {
+                origin: components["schemas"]["Link"] & unknown;
+                type: components["schemas"]["Link"] & unknown;
+                authenticationMethod?: components["schemas"]["Link"] & unknown;
+            };
+        };
+        /**
+         * @example {
+         *       "_type": "TimeEntriesActivity",
+         *       "id": 18,
+         *       "name": "Management",
+         *       "position": 8,
+         *       "default": false,
+         *       "_embedded": {
+         *         "projects": []
+         *       },
+         *       "_links": {
+         *         "self": {
+         *           "href": "/api/v3/time_entries/activities/18",
+         *           "title": "Management"
+         *         },
+         *         "projects": [
+         *           {
+         *             "href": "/api/v3/projects/death_star_v2",
+         *             "title": "DeathStarV2"
+         *           },
+         *           {
+         *             "href": "/api/v3/projects/star_killer_base",
+         *             "title": "StarKillerBase"
+         *           }
+         *         ]
+         *       }
+         *     }
+         */
+        TimeEntryActivityModel: {
+            /** @enum {string} */
+            _type: "TimeEntriesActivity";
+            /** @description Time entry id */
+            id: number;
+            /** @description The human readable name chosen for this activity */
+            name: string;
+            /** @description The rank the activity has in a list of activities */
+            position: number;
+            /** @description Flag to signal whether this activity is the default activity */
+            default: boolean;
+            _embedded: {
+                projects: (components["schemas"]["ProjectModel"] | components["schemas"]["ProgramModel"] | components["schemas"]["PortfolioModel"])[];
+            };
+            _links: {
+                self: components["schemas"]["Link"] & unknown;
+                projects: (components["schemas"]["Link"] & unknown)[];
+            };
+        };
+        /**
+         * @example {
+         *       "_type": "Collection",
+         *       "total": 39,
+         *       "count": 2,
+         *       "pageSize": 2,
+         *       "offset": 1,
+         *       "_embedded": {
+         *         "elements": [
+         *           {
+         *             "_type": "TimeEntry",
+         *             "id": 5,
+         *             "comment": {
+         *               "format": "plain",
+         *               "raw": "Some comment",
+         *               "html": "<p>Some comment</p>"
+         *             },
+         *             "spentOn": "2015-03-20",
+         *             "hours": "PT5H",
+         *             "startTime": "2015-03-20T10:00:00.000Z",
+         *             "endTime": "2015-03-20T15:00:00.000Z",
+         *             "createdAt": "2015-03-20T12:56:56.803Z",
+         *             "updatedAt": "2015-03-20T12:56:56.803Z",
+         *             "_links": {
+         *               "self": {
+         *                 "href": "/api/v3/time_entries/1"
+         *               },
+         *               "updateImmediately": {
+         *                 "href": "/api/v3/time_entries/1",
+         *                 "method": "patch"
+         *               },
+         *               "delete": {
+         *                 "href": "/api/v3/time_entries/1",
+         *                 "method": "delete"
+         *               },
+         *               "project": {
+         *                 "href": "/api/v3/projects/1",
+         *                 "title": "Some project"
+         *               },
+         *               "entity": {
+         *                 "href": "/api/v3/work_packages/1",
+         *                 "title": "Some work package"
+         *               },
+         *               "user": {
+         *                 "href": "/api/v3/users/2",
+         *                 "title": "Some user"
+         *               },
+         *               "activity": {
+         *                 "href": "/api/v3/time_entries/activities/18",
+         *                 "title": "Some time entry activity"
+         *               }
+         *             }
+         *           },
+         *           {
+         *             "_type": "TimeEntry",
+         *             "id": 10,
+         *             "comment": {
+         *               "format": "plain",
+         *               "raw": "Another comment",
+         *               "html": "<p>Another comment</p>"
+         *             },
+         *             "spentOn": "2015-03-21",
+         *             "hours": "PT7H",
+         *             "startTime": "2015-03-20T15:00:00.000Z",
+         *             "endTime": "2015-03-20T22:00:00.000Z",
+         *             "createdAt": "2015-03-20T12:56:56.569Z",
+         *             "updatedAt": "2015-03-20T12:56:56.371Z",
+         *             "_links": {
+         *               "self": {
+         *                 "href": "/api/v3/time_entries/2"
+         *               },
+         *               "project": {
+         *                 "href": "/api/v3/projects/42",
+         *                 "title": "Some other project"
+         *               },
+         *               "entity": {
+         *                 "href": "/api/v3/work_packages/541",
+         *                 "title": "Some other work package"
+         *               },
+         *               "user": {
+         *                 "href": "/api/v3/users/6",
+         *                 "title": "Some other project"
+         *               },
+         *               "activity": {
+         *                 "href": "/api/v3/time_entries/activities/14",
+         *                 "title": "some other time entry activity"
+         *               }
+         *             }
+         *           }
+         *         ]
+         *       },
+         *       "_links": {
+         *         "self": {
+         *           "href": "/api/v3/time_entries?offset=1&pageSize=2"
+         *         },
+         *         "jumpTo": {
+         *           "href": "/api/v3/time_entries?offset=%7Boffset%7D&pageSize=2",
+         *           "templated": true
+         *         },
+         *         "changeSize": {
+         *           "href": "/api/v3/time_entries?offset=1&pageSize=%7Bsize%7D",
+         *           "templated": true
+         *         },
+         *         "nextByOffset": {
+         *           "href": "/api/v3/time_entries?offset=2&pageSize=2"
+         *         },
+         *         "createTimeEntry": {
+         *           "href": "/api/v3/time_entries/form",
+         *           "method": "post"
+         *         },
+         *         "createTimeEntryImmediately": {
+         *           "href": "/api/v3/time_entries",
+         *           "method": "post"
+         *         }
+         *       }
+         *     }
+         */
+        TimeEntryCollectionModel: components["schemas"]["CollectionModel"] & {
+            _links: {
+                self: components["schemas"]["Link"] & unknown;
+            };
+            _embedded: {
+                elements: components["schemas"]["TimeEntryModel"][];
+            };
+        };
+        TimeEntryModel: components["schemas"]["CustomFieldProperties"] & {
+            /** @description The id of the time entry */
+            id?: number;
+            comment?: components["schemas"]["Formattable"] & unknown;
+            /**
+             * Format: date
+             * @description The date the expenditure is booked for
+             */
+            spentOn?: string;
+            /**
+             * Format: duration
+             * @description The time quantifying the expenditure
+             */
+            hours?: string;
+            /** @description Whether the time entry is actively tracking time */
+            ongoing?: boolean;
+            /**
+             * Format: date-time
+             * @description The time the time entry was created
+             */
+            createdAt?: string;
+            /**
+             * Format: date-time
+             * @description The time the time entry was started, or null if the time entry does not have a start time.
+             *
+             *     The time is returned as UTC time, if presented to the user it should be converted to the user's timezone.
+             *
+             *     This field is only available if the global `allow_tracking_start_and_end_times` setting is enabled.
+             */
+            startTime?: string | null;
+            /**
+             * Format: date-time
+             * @description The time the time entry was ended, or null if the time entry does not have a start time.
+             *
+             *     The time is returned as UTC time, if presented to the user it should be converted to the user's timezone.
+             *
+             *     This field is only available if the global `allow_tracking_start_and_end_times` setting is enabled.
+             */
+            endTime?: string | null;
+            /**
+             * Format: date-time
+             * @description The time the time entry was last updated
+             */
+            updatedAt?: string;
+            _links?: {
+                self: components["schemas"]["Link"] & unknown;
+                updateImmediately?: components["schemas"]["Link"] & unknown;
+                update?: components["schemas"]["Link"] & unknown;
+                delete?: components["schemas"]["Link"] & unknown;
+                schema?: components["schemas"]["Link"] & unknown;
+                project: components["schemas"]["Link"] & unknown;
+                entity: components["schemas"]["Link"] & unknown;
+                user: components["schemas"]["Link"] & unknown;
+                activity: components["schemas"]["Link"] & unknown;
+            };
+        };
+        /**
+         * @example {
+         *       "_links": {
+         *         "self": {
+         *           "href": "/api/v3/types/1"
+         *         }
+         *       },
+         *       "_type": "Type",
+         *       "id": 1,
+         *       "name": "Bug",
+         *       "color": "#ff0000",
+         *       "position": 1,
+         *       "isDefault": true,
+         *       "isMilestone": false,
+         *       "createdAt": "2014-05-21T08:51:20.624Z",
+         *       "updatedAt": "2014-05-21T08:51:20.624Z"
+         *     }
+         */
+        TypeModel: {
+            /** @description Type id */
+            readonly id: number;
+            /** @description Type name */
+            readonly name: string;
+            /** @description The color used to represent this type */
+            readonly color: string | null;
+            /** @description Sort index of the type */
+            readonly position: number;
+            /** @description Is this type active by default in new projects? */
+            readonly isDefault: boolean;
+            /** @description Do work packages of this type represent a milestone? */
+            readonly isMilestone: boolean;
+            /**
+             * Format: date-time
+             * @description Time of creation
+             */
+            readonly createdAt: string;
+            /**
+             * Format: date-time
+             * @description Time of the most recent change to the user
+             */
+            updatedAt: string;
+            _links?: {
+                self: components["schemas"]["Link"] & unknown;
+            };
+        };
+        /**
+         * @example {
+         *       "_links": {
+         *         "self": {
+         *           "href": "/api/v3/types"
+         *         }
+         *       },
+         *       "total": 2,
+         *       "count": 2,
+         *       "_type": "Collection",
+         *       "_embedded": {
+         *         "elements": [
+         *           {
+         *             "_links": {
+         *               "self": {
+         *                 "href": "/api/v3/types/1"
+         *               }
+         *             },
+         *             "_type": "Type",
+         *             "id": 1,
+         *             "name": "Bug",
+         *             "color": "#ff0000",
+         *             "position": 1,
+         *             "isDefault": true,
+         *             "isMilestone": false,
+         *             "createdAt": "2014-05-21T08:51:20.429Z",
+         *             "updatedAt": "2014-05-21T08:51:20.429Z"
+         *           },
+         *           {
+         *             "_links": {
+         *               "self": {
+         *                 "href": "/api/v3/types/2"
+         *               }
+         *             },
+         *             "_type": "Type",
+         *             "id": 2,
+         *             "name": "Feature",
+         *             "color": "#888",
+         *             "position": 2,
+         *             "isDefault": false,
+         *             "isMilestone": false,
+         *             "createdAt": "2014-05-21T08:51:20.429Z",
+         *             "updatedAt": "2014-05-21T08:51:20.429Z"
+         *           }
+         *         ]
+         *       }
+         *     }
+         */
+        TypesModel: Record<string, never>;
+        Types_by_WorkspaceModel: components["schemas"]["CollectionModel"] & {
+            _links: {
+                self: components["schemas"]["Link"] & unknown;
+            };
+            _embedded: {
+                readonly elements?: (components["schemas"]["TypeModel"] & unknown)[];
+            };
+        };
         /**
          * @example {
          *       "_type": "Query",
@@ -11956,906 +11830,761 @@ export interface components {
          *       }
          *     }
          */
-        unstar_query_model: Record<string, never>;
-        recurring_meeting_model: {
-            /** @enum {string} */
-            _type: "RecurringMeeting";
-            /** @description Identifier of this recurring meeting */
-            id: number;
-            /** @description The recurring meeting's title */
-            title: string;
-            /**
-             * @description The recurrence frequency. Possible values:
-             *
-             *     - *daily*: repeats every day (or every N days depending on interval)
-             *     - *working_days*: repeats on working days only
-             *     - *weekly*: repeats every week (or every N weeks depending on interval)
-             *     - *monthly_day_of_month*: repeats monthly on a specific day of month (for example, the 16th)
-             *     - *monthly_nth_weekday*: repeats monthly by weekday pattern (for example, first Tuesday, last Friday)
-             * @enum {string}
-             */
-            frequency: "daily" | "working_days" | "weekly" | "monthly_day_of_month" | "monthly_nth_weekday";
-            /**
-             * @description The interval between occurrences. For example, an interval of 2 with a weekly frequency
-             *     means the meeting occurs every 2 weeks. Not applicable for working_days frequency.
-             */
-            interval: number;
-            /**
-             * @description Day of month for `monthly_day_of_month` frequency.
-             *     Used when frequency is `monthly_day_of_month`.
-             */
-            monthlyDay?: number;
-            /**
-             * @description Ordinal position for `monthly_nth_weekday` frequency.
-             *     Allowed values:
-             *     - `1` (first)
-             *     - `2` (second)
-             *     - `3` (third)
-             *     - `4` (fourth)
-             *     - `-1` (last)
-             *     Used when frequency is `monthly_nth_weekday`.
-             * @enum {integer}
-             */
-            monthlyOrdinal?: 1 | 2 | 3 | 4 | -1;
-            /**
-             * @description Weekday for `monthly_nth_weekday` frequency.
-             *     Used when frequency is `monthly_nth_weekday`.
-             * @enum {string}
-             */
-            monthlyWeekday?: "sunday" | "monday" | "tuesday" | "wednesday" | "thursday" | "friday" | "saturday";
-            /**
-             * @description How the recurrence ends. Possible values:
-             *
-             *     - *specific_date*: ends on a specific date
-             *     - *iterations*: ends after a specific number of occurrences
-             *     - *never*: never ends
-             * @enum {string}
-             */
-            endAfter: "specific_date" | "iterations" | "never";
-            /**
-             * Format: date
-             * @description The date on which the recurrence ends. Only present when endAfter is `specific_date`.
-             */
-            endDate?: string | null;
-            /**
-             * @description The number of occurrences after which the recurrence ends.
-             *     Only present when endAfter is `iterations`.
-             */
-            iterations?: number | null;
-            /** @description The time zone in which the recurring meeting is scheduled (e.g. "Europe/Berlin"). */
-            timeZone?: string;
-            /**
-             * Format: date-time
-             * @description The scheduled start time of the recurring meeting.
-             */
-            startTime: string;
-            /** @description The meeting's location (inherited from the template meeting). */
-            location?: string;
-            /** @description The meeting duration in hours (inherited from the template meeting). */
-            duration?: number;
-            /** @description Whether to send email notifications to participants (inherited from the template meeting). */
-            notify?: boolean;
-            /**
-             * Format: date-time
-             * @description Time of creation.
-             */
-            createdAt: string;
-            /**
-             * Format: date-time
-             * @description Time of the most recent change to the recurring meeting.
-             */
-            updatedAt: string;
-            _links?: {
-                self?: components["schemas"]["link"] & unknown;
-                updateImmediately?: components["schemas"]["link"] & unknown;
-                delete?: components["schemas"]["link"] & unknown;
-                template?: components["schemas"]["link"] & unknown;
-                project?: components["schemas"]["link"] & unknown;
-                author?: components["schemas"]["link"] & unknown;
-                occurrencesUpcoming?: components["schemas"]["link"] & unknown;
-                occurrencesPast?: components["schemas"]["link"] & unknown;
-                occurrencesCancelled?: components["schemas"]["link"] & unknown;
-                occurrencesOpen?: components["schemas"]["link"] & unknown;
-            };
-        };
-        recurring_meeting_collection_model: components["schemas"]["paginated_collection_model"] & {
-            _embedded: {
-                elements: components["schemas"]["recurring_meeting_model"][];
-            };
-            _links: {
-                self: components["schemas"]["link"] & unknown;
-            };
-        };
-        recurring_meeting_write_model: {
-            /** @description The recurring meeting's title */
-            title?: string;
-            /**
-             * @description The recurrence frequency. Possible values:
-             *
-             *     - *daily*
-             *     - *working_days*
-             *     - *weekly*
-             *     - *monthly_day_of_month*
-             *     - *monthly_nth_weekday*
-             * @enum {string}
-             */
-            frequency?: "daily" | "working_days" | "weekly" | "monthly_day_of_month" | "monthly_nth_weekday";
-            /** @description The interval between occurrences. Not applicable for working_days frequency. */
-            interval?: number;
-            /**
-             * @description Day of month for `monthly_day_of_month` frequency.
-             *     Required for `monthly_day_of_month` unless inferred from `startTime`.
-             */
-            monthlyDay?: number;
-            /**
-             * @description Ordinal position for `monthly_nth_weekday` frequency.
-             *     Required for `monthly_nth_weekday` unless inferred from `startTime`.
-             *     Allowed values:
-             *     - `1` (first)
-             *     - `2` (second)
-             *     - `3` (third)
-             *     - `4` (fourth)
-             *     - `-1` (last)
-             * @enum {integer}
-             */
-            monthlyOrdinal?: 1 | 2 | 3 | 4 | -1;
-            /**
-             * @description Weekday for `monthly_nth_weekday` frequency.
-             *     Required for `monthly_nth_weekday` unless inferred from `startTime`.
-             * @enum {string}
-             */
-            monthlyWeekday?: "sunday" | "monday" | "tuesday" | "wednesday" | "thursday" | "friday" | "saturday";
-            /**
-             * @description How the recurrence ends. Possible values:
-             *
-             *     - *specific_date*
-             *     - *iterations*
-             *     - *never*
-             * @enum {string}
-             */
-            endAfter?: "specific_date" | "iterations" | "never";
-            /**
-             * Format: date
-             * @description The date on which the recurrence ends. Required when endAfter is `specific_date`.
-             */
-            endDate?: string | null;
-            /**
-             * @description The number of occurrences after which the recurrence ends.
-             *     Required when endAfter is `iterations`.
-             */
-            iterations?: number | null;
-            /**
-             * Format: date-time
-             * @description The scheduled start time of the recurring meeting.
-             */
-            startTime?: string;
-            /** @description The meeting's location. */
-            location?: string;
-            /** @description The meeting duration in hours. */
-            duration?: number;
-            /** @description Whether to send email notifications to participants. */
-            notify?: boolean;
-            _links?: {
-                project?: components["schemas"]["link"] & unknown;
-            };
-        };
-        recurring_meeting_occurrence_model: {
-            /** @enum {string} */
-            _type: "MeetingOccurrence";
-            /**
-             * Format: date-time
-             * @description The start time of this occurrence.
-             */
-            startTime: string;
-            /**
-             * @description The current state of the occurrence. Possible values:
-             *
-             *     - *open*: the occurrence has been instantiated as a meeting
-             *     - *cancelled*: the occurrence has been cancelled
-             *     - *scheduled*: the occurrence is scheduled but not yet instantiated
-             * @enum {string}
-             */
-            state: "open" | "cancelled" | "scheduled";
-            _links?: {
-                self?: components["schemas"]["link"] & unknown;
-                meeting?: components["schemas"]["link"] & unknown;
-                recurringMeeting?: components["schemas"]["link"] & unknown;
-            };
-        };
-        recurring_meeting_occurrence_collection_model: components["schemas"]["collection_model"] & {
-            _links: {
-                self: components["schemas"]["link"] & unknown;
-            };
-            _embedded: {
-                elements: components["schemas"]["recurring_meeting_occurrence_model"][];
-            };
-        };
-        relation_read_model: {
-            /** @enum {string} */
-            _type?: "Relation";
-            /** @description Relation ID */
-            id?: number;
-            /** @description The internationalised name of this type of relation */
-            name?: string;
-            /**
-             * @description The relation type.
-             * @enum {string}
-             */
-            type?: "relates" | "duplicates" | "duplicated" | "blocks" | "blocked" | "precedes" | "follows" | "includes" | "partof" | "requires" | "required";
-            /**
-             * @description The type of relation from the perspective of the related work package.
-             * @enum {string}
-             */
-            reverseType?: "relates" | "duplicates" | "duplicated" | "blocks" | "blocked" | "precedes" | "follows" | "includes" | "partof" | "requires" | "required";
-            /** @description A descriptive text for the relation. */
-            description?: string | null;
-            /** @description The lag in days between closing of `from` and start of `to` */
-            lag?: number | null;
-            _embedded?: {
-                from?: components["schemas"]["work_package_model"];
-                to?: components["schemas"]["work_package_model"];
-            };
-            _links?: {
-                self?: components["schemas"]["link"] & unknown;
-                updateImmediately?: components["schemas"]["link"] & unknown;
-                delete?: components["schemas"]["link"] & unknown;
-                from?: components["schemas"]["link"] & unknown;
-                to?: components["schemas"]["link"] & unknown;
-            };
-        };
-        relation_collection_model: components["schemas"]["collection_model"] & {
-            _links: {
-                self: components["schemas"]["link"] & unknown;
-            };
-            _embedded: {
-                elements: components["schemas"]["relation_read_model"][];
-            };
-        };
-        relation_write_model: {
-            /**
-             * @description The relation type.
-             * @enum {string}
-             */
-            type: "relates" | "duplicates" | "duplicated" | "blocks" | "blocked" | "precedes" | "follows" | "includes" | "partof" | "requires" | "required";
-            /** @description A descriptive text for the relation. */
-            description?: string | null;
-            /** @description The lag in days between closing of `from` and start of `to` */
-            lag?: number | null;
-            _links: {
-                to?: components["schemas"]["link"] & unknown;
-            };
-        };
-        /**
-         * Format: html
-         * @example <p>Hello world! <a href="http://example.com">This</a> <strong>is</strong> markdown!</p>
-         */
-        markdown_model: string;
-        /**
-         * Format: html
-         * @example <p>Hello world! This *is* plain text!</p>
-         */
-        plain_text_model: string;
-        /**
-         * @example {
-         *       "_type": "Revision",
-         *       "_links": {
-         *         "self": {
-         *           "href": "/api/v3/revisions/1"
-         *         },
-         *         "project": {
-         *           "href": "/api/v3/projects/1"
-         *         },
-         *         "author": {
-         *           "href": "/api/v3/users/1"
-         *         },
-         *         "showRevision": {
-         *           "href": "/projects/identifier/repository/revision/11f4b07"
-         *         }
-         *       },
-         *       "id": 1,
-         *       "identifier": "11f4b07dff4f4ce9548a52b7d002daca7cd63ec6",
-         *       "formattedIdentifier": "11f4b07",
-         *       "authorName": "Some Developer",
-         *       "message": {
-         *         "format": "plain",
-         *         "raw": "This revision provides new features\n\nAn elaborate description",
-         *         "html": "<p>This revision provides new features<br/><br/>An elaborate description</p>"
-         *       },
-         *       "createdAt": "2015-07-21T13:36:59.859Z"
-         *     }
-         */
-        revision_model: {
-            /** @description Revision's id, assigned by OpenProject */
-            readonly id?: number;
-            /** @description The raw SCM identifier of the revision (e.g. full SHA hash) */
-            readonly identifier: string;
-            /** @description The SCM identifier of the revision, formatted (e.g. shortened unambiguous SHA hash). May be identical to identifier in many cases */
-            readonly formattedIdentifier: string;
-            /** @description The name of the author that committed this revision. Note that this name is retrieved from the repository and does not identify a user in OpenProject. */
-            readonly authorName: string;
-            message: components["schemas"]["formattable"] & unknown;
-            /**
-             * Format: date-time
-             * @description The time this revision was committed to the repository
-             */
-            createdAt: string;
-            _links?: {
-                self: components["schemas"]["link"] & unknown;
-                project: components["schemas"]["link"] & unknown;
-                author?: components["schemas"]["link"] & unknown;
-                showRevision: components["schemas"]["link"] & unknown;
-            };
-        };
-        reminder_model: {
-            /** @description Reminder id */
-            readonly id?: number;
-            /** @description The note of the reminder */
-            note?: string;
-            /**
-             * Format: date-time
-             * @description The date and time when the reminder is due
-             */
-            remindAt?: string;
-            _links?: {
-                self?: components["schemas"]["link"] & unknown;
-                creator: components["schemas"]["link"] & unknown;
-                remindable: components["schemas"]["link"] & unknown;
-            };
-        };
+        Unstar_QueryModel: Record<string, never>;
         /**
          * @example {
          *       "_type": "Collection",
-         *       "total": 5,
-         *       "count": 5,
+         *       "total": 2,
+         *       "count": 2,
+         *       "_links": {
+         *         "self": {
+         *           "href": "/api/v3/users"
+         *         }
+         *       },
          *       "_embedded": {
          *         "elements": [
          *           {
-         *             "_type": "Role",
-         *             "id": 3,
-         *             "name": "Manager",
-         *             "_links": {
-         *               "self": {
-         *                 "href": "/api/v3/roles/3",
-         *                 "title": "Manager"
-         *               }
-         *             }
+         *             "_abbreviated": "User resource shortened for brevity",
+         *             "_type": "User",
+         *             "id": 1337
          *           },
          *           {
-         *             "_type": "Role",
-         *             "id": 2,
-         *             "name": "Anonymous",
-         *             "_links": {
-         *               "self": {
-         *                 "href": "/api/v3/roles/2",
-         *                 "title": "Anonymous"
-         *               }
-         *             }
-         *           },
-         *           {
-         *             "_type": "Role",
-         *             "id": 5,
-         *             "name": "Reader",
-         *             "_links": {
-         *               "self": {
-         *                 "href": "/api/v3/roles/5",
-         *                 "title": "Reader"
-         *               }
-         *             }
-         *           },
-         *           {
-         *             "_type": "Role",
-         *             "id": 4,
-         *             "name": "Member",
-         *             "_links": {
-         *               "self": {
-         *                 "href": "/api/v3/roles/4",
-         *                 "title": "Member"
-         *               }
-         *             }
-         *           },
-         *           {
-         *             "_type": "Role",
-         *             "id": 1,
-         *             "name": "Non member",
-         *             "_links": {
-         *               "self": {
-         *                 "href": "/api/v3/roles/1",
-         *                 "title": "Non member"
-         *               }
-         *             }
+         *             "_abbreviated": "User resource shortened for brevity",
+         *             "_type": "User",
+         *             "id": 1338
          *           }
          *         ]
-         *       },
-         *       "_links": {
-         *         "self": {
-         *           "href": "/api/v3/roles"
-         *         }
          *       }
          *     }
          */
-        roles_model: Record<string, never>;
-        status_model: {
-            /** @enum {string} */
-            _type?: "Status";
-            /** @description Status id */
-            id?: number;
-            /** @description Status name */
-            name?: string;
-            /** @description Indicates, whether work package of this status are considered closed */
-            isClosed?: boolean;
-            /**
-             * Format: hex-code
-             * @description The color of the status
-             */
-            color?: string | null;
-            /** @description True, if this status is the default status for new work packages */
-            isDefault?: boolean;
-            /** @description Indicates, whether work package of this status are readonly */
-            isReadonly?: boolean;
-            /**
-             * @description Indicates, whether work package of this status are excluded from totals of `Work`, `Remaining work`, and
-             *     `% Complete` in a hierarchy.
-             */
-            excludedFromTotals?: boolean;
-            /** @description The percentageDone being applied when changing to this status */
-            defaultDoneRatio?: number;
-            /** @description Sort index of the status */
-            position?: number;
-            _links?: {
-                self: components["schemas"]["link"] & unknown;
-            };
-        };
-        status_collection_model: components["schemas"]["collection_model"] & {
-            _embedded: {
-                elements: components["schemas"]["status_model"][];
-            };
-        };
-        storage_collection_model: components["schemas"]["collection_model"] & {
+        UserCollectionModel: components["schemas"]["CollectionModel"] & {
             _links: {
-                self: components["schemas"]["link"] & unknown;
+                self: components["schemas"]["Link"] & unknown;
             };
             _embedded: {
-                elements: components["schemas"]["storage_read_model"][];
+                elements: components["schemas"]["UserModel"][];
             };
         };
         /**
          * @example {
-         *       "name": "Coruscant",
-         *       "applicationPassword": "qJ_VLNReW@sd-Edz2hyC",
-         *       "_links": {
-         *         "origin": {
-         *           "href": "https://nextcloud.deathstar.rocks"
-         *         },
-         *         "type": {
-         *           "href": "urn:openproject-org:api:v3:storages:Nextcloud"
-         *         }
-         *       }
+         *       "login": "j.sheppard",
+         *       "password": "idestroyedsouvereign",
+         *       "currentPassword": "iusedtobuildstarships",
+         *       "firstName": "John",
+         *       "lastName": "Sheppard",
+         *       "email": "shep@mail.com",
+         *       "admin": true,
+         *       "status": "active",
+         *       "language": "en"
          *     }
          */
-        storage_write_model: {
-            /** @description Storage name, if not provided, falls back to a default. */
-            name?: string;
+        UserCreateModel: {
+            admin: boolean;
+            email: string;
+            login: string;
             /**
-             * @description The audience that the storage expects in tokens for requests to it,
-             *     usually the storage's client ID at the identity provider.
+             * @description The user's password.
              *
-             *     This is only required for authentication through single-sign-on and so far
-             *     only supported for provider type Nextcloud.
+             *     *Conditions:*
+             *
+             *     Writable on create.
+             *
+             *     Writable on update only when:
+             *     - the caller updates their own account
+             *     - `currentPassword` is provided and valid
              */
-            storageAudience?: string;
+            password?: string;
             /**
-             * @description The scope that will be requested when requesting a token for the storage through token exchange. Has no effect if no
-             *     token exchange is performed.
+             * @description The user's current password.
              *
-             *     This is only required for authentication through single-sign-on and so far only supported for provider type Nextcloud.
+             *     *Conditions:*
+             *
+             *     Required when changing `password` for a self update (`PATCH /api/v3/users/me` or `PATCH /api/v3/users/{id}` where `id` is the caller).
+             *
+             *     Ignored for non-self updates (for example, administrators updating other users).
              */
-            tokenExchangeScope?: string;
+            currentPassword?: string;
+            firstName: string;
+            lastName: string;
             /**
-             * @description The application password to use for the Nextcloud storage. Ignored if the provider type is not Nextcloud.
+             * @description The current activation status of the user.
              *
-             *     If a string is provided, the password is set and automatic management is enabled for the storage.
-             *     If null is provided, the password is unset and automatic management is disabled for the storage.
-             */
-            applicationPassword?: string | null;
-            /**
-             * @description A string with all the characters forbidden to be used for file and folder names in the storage. Used by OpenProject to avoid
-             *     creating files with unsupported names (e.g. when creating project folders).
+             *     *Conditions:*
              *
-             *     Only supported for provider type Nextcloud so far.
+             *     Only writable on creation, not on update.
              */
-            forbiddenFileNameCharacters?: string;
-            _links?: {
-                origin: components["schemas"]["link"] & unknown;
-                type: components["schemas"]["link"] & unknown;
-                authenticationMethod?: components["schemas"]["link"] & unknown;
-            };
+            status?: string;
+            language: string;
         };
-        /**
-         * @example {
-         *       "id": "42",
-         *       "name": "readme.md",
-         *       "_type": "StorageFile",
-         *       "location": "/readme.md",
-         *       "_links": {
-         *         "self": {
-         *           "href": "urn:openproject-org:api:v3:storages:storage_file:no_link_provided"
-         *         }
-         *       }
-         *     }
-         */
-        storage_file_model: components["schemas"]["file_link_origin_data_model"] & {
+        UserModel: components["schemas"]["PrincipalModel"] & components["schemas"]["CustomFieldProperties"] & {
             /** @enum {string} */
-            _type: "StorageFile";
-            /** @description Location identification for file in storage */
-            location: string;
-            _links: {
-                self: components["schemas"]["link"] & unknown;
-            };
-        };
-        /**
-         * @example {
-         *       "_type": "StorageFiles",
-         *       "files": [
-         *         {
-         *           "id": "42",
-         *           "name": "readme.md",
-         *           "_type": "StorageFile",
-         *           "location": "/readme.md",
-         *           "mimeType": "text/markdown",
-         *           "size": 4096,
-         *           "createdAt": "2021-12-19T09:42:10.170Z",
-         *           "lastModifiedAt": "2021-12-20T14:00:13.987Z",
-         *           "createdByName": "Luke Skywalker",
-         *           "lastModifiedByName": "Anakin Skywalker",
-         *           "_links": {
-         *             "self": {
-         *               "href": "urn:openproject-org:api:v3:storages:storage_file:no_link_provided"
-         *             }
-         *           }
-         *         },
-         *         {
-         *           "id": "43",
-         *           "name": "readme.pdf",
-         *           "_type": "StorageFile",
-         *           "location": "/readme.pdf",
-         *           "mimeType": "application/pdf",
-         *           "size": 2048,
-         *           "createdAt": "2021-12-19T09:42:10.170Z",
-         *           "lastModifiedAt": "2021-12-20T14:00:13.987Z",
-         *           "createdByName": "Luke Skywalker",
-         *           "lastModifiedByName": "Anakin Skywalker",
-         *           "_links": {
-         *             "self": {
-         *               "href": "urn:openproject-org:api:v3:storages:storage_file:no_link_provided"
-         *             }
-         *           }
-         *         }
-         *       ],
-         *       "parent": {
-         *         "id": "41",
-         *         "name": "/",
-         *         "_type": "StorageFile",
-         *         "location": "/",
-         *         "mimeType": "application/x-op-directory",
-         *         "size": 6144,
-         *         "createdAt": "2021-12-20T09:42:10.170Z",
-         *         "lastModifiedAt": "2021-12-21T14:00:13.987Z",
-         *         "createdByName": "Luke Skywalker",
-         *         "lastModifiedByName": "Anakin Skywalker",
-         *         "_links": {
-         *           "self": {
-         *             "href": "urn:openproject-org:api:v3:storages:storage_file:no_link_provided"
-         *           }
-         *         }
-         *       },
-         *       "ancestors": [],
-         *       "_links": {
-         *         "self": {
-         *           "href": "urn:openproject-org:api:v3:storages:storage_file:no_link_provided"
-         *         }
-         *       }
-         *     }
-         */
-        storage_files_model: {
-            /** @enum {string} */
-            _type: "StorageFiles";
-            /** @description List of files provided by the selected storage. */
-            files: components["schemas"]["storage_file_model"][];
-            parent: components["schemas"]["storage_file_model"] & unknown;
-            /** @description List of ancestors of the parent directory. Can be empty, if parent directory was root directory. */
-            ancestors: components["schemas"]["storage_file_model"][];
-            _links: {
-                self: components["schemas"]["link"] & unknown;
-            };
-        };
-        storage_file_upload_preparation_model: {
-            /** @description The project identifier, from where a user starts uploading a file. */
-            projectId: number;
-            /** @description The file name. */
-            fileName: string;
+            _type: "User";
             /**
-             * @description The directory to which the file is to be uploaded. For root directories, the value `/` must
-             *     be provided.
+             * Format: uri
+             * @description URL to user's avatar
              */
-            parent: string;
-        };
-        storage_file_upload_link_model: {
-            /** @enum {string} */
-            _type: "UploadLink";
-            _links: {
-                self: components["schemas"]["link"] & unknown;
-                destination: components["schemas"]["link"] & unknown;
-            };
-        };
-        storage_folder_write_model: {
-            /** @description Name of the folder to be created */
-            name: string;
-            /** @description Unique identifier of the parent folder in which the new folder should be created in */
-            parentId: string;
-        };
-        /**
-         * @example {
-         *       "clientId": "O5h6WObhMg1Z8IcLHRE3_LMh4jJYmmca2V6OTFSv8DA",
-         *       "clientSecret": "LSk52mn4jmtSYTgH0NzDj-u2z5LMpT8bsS0BouwJQQw"
-         *     }
-         */
-        oauth_client_credentials_write_model: {
-            /** @description OAuth 2 client id */
-            clientId: string;
-            /** @description OAuth 2 client secret */
-            clientSecret: string;
-        };
-        time_entry_model: components["schemas"]["custom_field_properties"] & {
-            /** @description The id of the time entry */
-            id?: number;
-            comment?: components["schemas"]["formattable"] & unknown;
+            avatar: string | null;
             /**
-             * Format: date
-             * @description The date the expenditure is booked for
+             * @description The user's login name
+             *
+             *     # Conditions
+             *
+             *     - User is self, or `create_user` or `manage_user` permission globally
              */
-            spentOn?: string;
+            login?: string;
             /**
-             * Format: duration
-             * @description The time quantifying the expenditure
+             * @description The user's first name
+             *
+             *     # Conditions
+             *
+             *     - User is self, or `create_user` or `manage_user` permission globally
              */
-            hours?: string;
-            /** @description Whether the time entry is actively tracking time */
-            ongoing?: boolean;
+            firstName?: string;
+            /**
+             * @description The user's last name
+             *
+             *     # Conditions
+             *
+             *     - User is self, or `create_user` or `manage_user` permission globally
+             */
+            lastName?: string;
+            /**
+             * @description The user's email address
+             *
+             *     # Conditions
+             *
+             *     - E-Mail address not hidden
+             *     - User is not a new record
+             *     - User is self, or `create_user` or `manage_user` permission globally
+             */
+            email?: string;
+            /**
+             * @description Flag indicating whether or not the user is an admin
+             *
+             *     # Conditions
+             *
+             *     - `admin`
+             */
+            admin?: boolean;
+            /**
+             * @description The current activation status of the user.
+             *
+             *     # Conditions
+             *
+             *     - User is self, or `create_user` or `manage_user` permission globally
+             */
+            status?: string;
+            /**
+             * @description User's language | ISO 639-1 format
+             *
+             *     # Conditions
+             *
+             *     - User is self, or `create_user` or `manage_user` permission globally
+             */
+            language?: string;
+            /**
+             * @deprecated
+             * @description User's identity_url for OmniAuth authentication.
+             *     **Deprecated:** It will be removed in the near future.
+             *
+             *     # Conditions
+             *
+             *     - User is self, or `create_user` or `manage_user` permission globally
+             */
+            identityUrl?: string | null;
             /**
              * Format: date-time
-             * @description The time the time entry was created
+             * @description Time of creation
              */
             createdAt?: string;
             /**
              * Format: date-time
-             * @description The time the time entry was started, or null if the time entry does not have a start time.
-             *
-             *     The time is returned as UTC time, if presented to the user it should be converted to the user's timezone.
-             *
-             *     This field is only available if the global `allow_tracking_start_and_end_times` setting is enabled.
-             */
-            startTime?: string | null;
-            /**
-             * Format: date-time
-             * @description The time the time entry was ended, or null if the time entry does not have a start time.
-             *
-             *     The time is returned as UTC time, if presented to the user it should be converted to the user's timezone.
-             *
-             *     This field is only available if the global `allow_tracking_start_and_end_times` setting is enabled.
-             */
-            endTime?: string | null;
-            /**
-             * Format: date-time
-             * @description The time the time entry was last updated
+             * @description Time of the most recent change to the user
              */
             updatedAt?: string;
             _links?: {
-                self: components["schemas"]["link"] & unknown;
-                updateImmediately?: components["schemas"]["link"] & unknown;
-                update?: components["schemas"]["link"] & unknown;
-                delete?: components["schemas"]["link"] & unknown;
-                schema?: components["schemas"]["link"] & unknown;
-                project: components["schemas"]["link"] & unknown;
-                entity: components["schemas"]["link"] & unknown;
-                user: components["schemas"]["link"] & unknown;
-                activity: components["schemas"]["link"] & unknown;
+                showUser?: components["schemas"]["Link"] & unknown;
+                updateImmediately?: components["schemas"]["Link"] & unknown;
+                lock?: components["schemas"]["Link"] & unknown;
+                unlock?: components["schemas"]["Link"] & unknown;
+                delete?: components["schemas"]["Link"] & unknown;
+                authSource?: components["schemas"]["Link"] & unknown;
             };
         };
         /**
          * @example {
-         *       "_type": "Collection",
-         *       "total": 39,
-         *       "count": 2,
-         *       "pageSize": 2,
-         *       "offset": 1,
-         *       "_embedded": {
-         *         "elements": [
-         *           {
-         *             "_type": "TimeEntry",
-         *             "id": 5,
-         *             "comment": {
-         *               "format": "plain",
-         *               "raw": "Some comment",
-         *               "html": "<p>Some comment</p>"
-         *             },
-         *             "spentOn": "2015-03-20",
-         *             "hours": "PT5H",
-         *             "startTime": "2015-03-20T10:00:00.000Z",
-         *             "endTime": "2015-03-20T15:00:00.000Z",
-         *             "createdAt": "2015-03-20T12:56:56.803Z",
-         *             "updatedAt": "2015-03-20T12:56:56.803Z",
-         *             "_links": {
-         *               "self": {
-         *                 "href": "/api/v3/time_entries/1"
-         *               },
-         *               "updateImmediately": {
-         *                 "href": "/api/v3/time_entries/1",
-         *                 "method": "patch"
-         *               },
-         *               "delete": {
-         *                 "href": "/api/v3/time_entries/1",
-         *                 "method": "delete"
-         *               },
-         *               "project": {
-         *                 "href": "/api/v3/projects/1",
-         *                 "title": "Some project"
-         *               },
-         *               "entity": {
-         *                 "href": "/api/v3/work_packages/1",
-         *                 "title": "Some work package"
-         *               },
-         *               "user": {
-         *                 "href": "/api/v3/users/2",
-         *                 "title": "Some user"
-         *               },
-         *               "activity": {
-         *                 "href": "/api/v3/time_entries/activities/18",
-         *                 "title": "Some time entry activity"
-         *               }
-         *             }
-         *           },
-         *           {
-         *             "_type": "TimeEntry",
-         *             "id": 10,
-         *             "comment": {
-         *               "format": "plain",
-         *               "raw": "Another comment",
-         *               "html": "<p>Another comment</p>"
-         *             },
-         *             "spentOn": "2015-03-21",
-         *             "hours": "PT7H",
-         *             "startTime": "2015-03-20T15:00:00.000Z",
-         *             "endTime": "2015-03-20T22:00:00.000Z",
-         *             "createdAt": "2015-03-20T12:56:56.569Z",
-         *             "updatedAt": "2015-03-20T12:56:56.371Z",
-         *             "_links": {
-         *               "self": {
-         *                 "href": "/api/v3/time_entries/2"
-         *               },
-         *               "project": {
-         *                 "href": "/api/v3/projects/42",
-         *                 "title": "Some other project"
-         *               },
-         *               "entity": {
-         *                 "href": "/api/v3/work_packages/541",
-         *                 "title": "Some other work package"
-         *               },
-         *               "user": {
-         *                 "href": "/api/v3/users/6",
-         *                 "title": "Some other project"
-         *               },
-         *               "activity": {
-         *                 "href": "/api/v3/time_entries/activities/14",
-         *                 "title": "some other time entry activity"
-         *               }
-         *             }
-         *           }
-         *         ]
-         *       },
-         *       "_links": {
-         *         "self": {
-         *           "href": "/api/v3/time_entries?offset=1&pageSize=2"
-         *         },
-         *         "jumpTo": {
-         *           "href": "/api/v3/time_entries?offset=%7Boffset%7D&pageSize=2",
-         *           "templated": true
-         *         },
-         *         "changeSize": {
-         *           "href": "/api/v3/time_entries?offset=1&pageSize=%7Bsize%7D",
-         *           "templated": true
-         *         },
-         *         "nextByOffset": {
-         *           "href": "/api/v3/time_entries?offset=2&pageSize=2"
-         *         },
-         *         "createTimeEntry": {
-         *           "href": "/api/v3/time_entries/form",
-         *           "method": "post"
-         *         },
-         *         "createTimeEntryImmediately": {
-         *           "href": "/api/v3/time_entries",
-         *           "method": "post"
-         *         }
-         *       }
-         *     }
-         */
-        time_entry_collection_model: components["schemas"]["collection_model"] & {
-            _links: {
-                self: components["schemas"]["link"] & unknown;
-            };
-            _embedded: {
-                elements: components["schemas"]["time_entry_model"][];
-            };
-        };
-        /**
-         * @example {
-         *       "_type": "TimeEntriesActivity",
-         *       "id": 18,
-         *       "name": "Management",
-         *       "position": 8,
-         *       "default": false,
-         *       "_embedded": {
-         *         "projects": []
-         *       },
-         *       "_links": {
-         *         "self": {
-         *           "href": "/api/v3/time_entries/activities/18",
-         *           "title": "Management"
-         *         },
-         *         "projects": [
-         *           {
-         *             "href": "/api/v3/projects/death_star_v2",
-         *             "title": "DeathStarV2"
-         *           },
-         *           {
-         *             "href": "/api/v3/projects/star_killer_base",
-         *             "title": "StarKillerBase"
-         *           }
-         *         ]
-         *       }
-         *     }
-         */
-        time_entry_activity_model: {
-            /** @enum {string} */
-            _type: "TimeEntriesActivity";
-            /** @description Time entry id */
-            id: number;
-            /** @description The human readable name chosen for this activity */
-            name: string;
-            /** @description The rank the activity has in a list of activities */
-            position: number;
-            /** @description Flag to signal whether this activity is the default activity */
-            default: boolean;
-            _embedded: {
-                projects: (components["schemas"]["project_model"] | components["schemas"]["program_model"] | components["schemas"]["portfolio_model"])[];
-            };
-            _links: {
-                self: components["schemas"]["link"] & unknown;
-                projects: (components["schemas"]["link"] & unknown)[];
-            };
-        };
-        /**
-         * @example {
-         *       "_links": {
-         *         "self": {
-         *           "href": "/api/v3/time_entries/available_projects"
-         *         }
-         *       },
          *       "_type": "Collection",
          *       "total": 2,
          *       "count": 2,
+         *       "_links": {
+         *         "self": {
+         *           "href": "/api/v3/users/42/non_working_times"
+         *         }
+         *       },
          *       "_embedded": {
          *         "elements": [
          *           {
-         *             "_type": "Project..."
+         *             "_type": "UserNonWorkingTime",
+         *             "id": 7,
+         *             "startDate": "2025-06-16",
+         *             "endDate": "2025-06-20",
+         *             "_links": {
+         *               "self": {
+         *                 "href": "/api/v3/users/42/non_working_times/7"
+         *               },
+         *               "user": {
+         *                 "href": "/api/v3/users/42",
+         *                 "title": "Jane Doe"
+         *               }
+         *             }
          *           },
          *           {
-         *             "_type": "Project..."
+         *             "_type": "UserNonWorkingTime",
+         *             "id": 8,
+         *             "startDate": "2025-12-24",
+         *             "endDate": "2025-12-24",
+         *             "_links": {
+         *               "self": {
+         *                 "href": "/api/v3/users/42/non_working_times/8"
+         *               },
+         *               "user": {
+         *                 "href": "/api/v3/users/42",
+         *                 "title": "Jane Doe"
+         *               }
+         *             }
          *           }
          *         ]
          *       }
          *     }
          */
-        available_projects_for_time_entries_model: Record<string, never>;
+        UserNonWorkingTimeCollectionModel: components["schemas"]["CollectionModel"] & {
+            _links: {
+                self: components["schemas"]["Link"] & unknown;
+            };
+            _embedded: {
+                /** @description The array of personal non-working times for the user, ordered by start date ascending. */
+                elements: components["schemas"]["UserNonWorkingTimeModel"][];
+            };
+        };
+        /**
+         * @example {
+         *       "_type": "UserNonWorkingTime",
+         *       "id": 7,
+         *       "startDate": "2025-06-16",
+         *       "endDate": "2025-06-20",
+         *       "_links": {
+         *         "self": {
+         *           "href": "/api/v3/users/42/non_working_times/7"
+         *         },
+         *         "user": {
+         *           "href": "/api/v3/users/42",
+         *           "title": "Jane Doe"
+         *         }
+         *       }
+         *     }
+         */
+        UserNonWorkingTimeModel: {
+            /** @enum {string} */
+            _type: "UserNonWorkingTime";
+            /** @description The unique identifier of the non-working time record. */
+            id: number;
+            /**
+             * Format: date
+             * @description The first date of the non-working time range in ISO 8601 format (YYYY-MM-DD).
+             */
+            startDate: string;
+            /**
+             * Format: date
+             * @description The last date of the non-working time range in ISO 8601 format (YYYY-MM-DD).
+             *     Must be greater than or equal to `startDate`.
+             */
+            endDate: string;
+            _links?: {
+                self: components["schemas"]["Link"] & unknown;
+                user: components["schemas"]["Link"] & unknown;
+            };
+        };
+        /**
+         * @example {
+         *       "_links": {
+         *         "self": {
+         *           "href": "/api/v3/my_preferences"
+         *         },
+         *         "user": {
+         *           "href": "/api/v3/users/1",
+         *           "title": "John Sheppard"
+         *         },
+         *         "updateImmediately": {
+         *           "href": "/api/v3/users/3/preferences",
+         *           "method": "patch"
+         *         }
+         *       },
+         *       "_type": "UserPreferences",
+         *       "commentSortDescending": true,
+         *       "disableKeyboardShortcuts": false,
+         *       "timeZone": "Europe/Berlin",
+         *       "warnOnLeavingUnsaved": true,
+         *       "notifications": [
+         *         {
+         *           "watched": false,
+         *           "involved": true,
+         *           "mentioned": false,
+         *           "shared": true,
+         *           "newsAdded": "false,",
+         *           "newsCommented": false,
+         *           "documentAdded": false,
+         *           "forumMessages": false,
+         *           "wikiPageAdded": false,
+         *           "wikiPageUpdated": false,
+         *           "membershipAdded": false,
+         *           "membershipUpdated": false,
+         *           "workPackageCommented": false,
+         *           "workPackageProcessed": false,
+         *           "workPackagePrioritized": false,
+         *           "workPackageScheduled": false,
+         *           "_links": {
+         *             "project": {
+         *               "href": null
+         *             }
+         *           }
+         *         }
+         *       ]
+         *     }
+         */
+        UserPreferencesModel: Record<string, never>;
+        /**
+         * @example {
+         *       "_type": "Collection",
+         *       "total": 2,
+         *       "count": 2,
+         *       "_links": {
+         *         "self": {
+         *           "href": "/api/v3/users/42/working_hours"
+         *         }
+         *       },
+         *       "_embedded": {
+         *         "elements": [
+         *           {
+         *             "_type": "UserWorkingHours",
+         *             "id": 2,
+         *             "validFrom": "2025-01-01",
+         *             "mondayHours": 6,
+         *             "tuesdayHours": 6,
+         *             "wednesdayHours": 6,
+         *             "thursdayHours": 6,
+         *             "fridayHours": 6,
+         *             "saturdayHours": 0,
+         *             "sundayHours": 0,
+         *             "availabilityFactor": 80,
+         *             "_links": {
+         *               "self": {
+         *                 "href": "/api/v3/users/42/working_hours/2"
+         *               },
+         *               "user": {
+         *                 "href": "/api/v3/users/42",
+         *                 "title": "Jane Doe"
+         *               }
+         *             }
+         *           },
+         *           {
+         *             "_type": "UserWorkingHours",
+         *             "id": 1,
+         *             "validFrom": "2024-01-01",
+         *             "mondayHours": 8,
+         *             "tuesdayHours": 8,
+         *             "wednesdayHours": 8,
+         *             "thursdayHours": 8,
+         *             "fridayHours": 8,
+         *             "saturdayHours": 0,
+         *             "sundayHours": 0,
+         *             "availabilityFactor": 100,
+         *             "_links": {
+         *               "self": {
+         *                 "href": "/api/v3/users/42/working_hours/1"
+         *               },
+         *               "user": {
+         *                 "href": "/api/v3/users/42",
+         *                 "title": "Jane Doe"
+         *               }
+         *             }
+         *           }
+         *         ]
+         *       }
+         *     }
+         */
+        UserWorkingHoursCollectionModel: components["schemas"]["CollectionModel"] & {
+            _links: {
+                self: components["schemas"]["Link"] & unknown;
+            };
+            _embedded: {
+                /** @description The array of working hours records for the user, ordered by `validFrom` descending. */
+                elements: components["schemas"]["UserWorkingHoursModel"][];
+            };
+        };
+        /**
+         * @example {
+         *       "_type": "UserWorkingHours",
+         *       "id": 1,
+         *       "validFrom": "2024-01-01",
+         *       "mondayHours": 8,
+         *       "tuesdayHours": 8,
+         *       "wednesdayHours": 8,
+         *       "thursdayHours": 8,
+         *       "fridayHours": 8,
+         *       "saturdayHours": 0,
+         *       "sundayHours": 0,
+         *       "availabilityFactor": 100,
+         *       "_links": {
+         *         "self": {
+         *           "href": "/api/v3/users/42/working_hours/1"
+         *         },
+         *         "user": {
+         *           "href": "/api/v3/users/42",
+         *           "title": "Jane Doe"
+         *         }
+         *       }
+         *     }
+         */
+        UserWorkingHoursModel: {
+            /** @enum {string} */
+            _type: "UserWorkingHours";
+            /** @description The unique identifier of the working hours record. */
+            id: number;
+            /**
+             * Format: date
+             * @description The date from which this working hours configuration is in effect (ISO 8601 format).
+             *     Multiple records may exist for a user; the one with the latest `validFrom` that is
+             *     not in the future is the currently active record.
+             */
+            validFrom: string;
+            /**
+             * Format: float
+             * @description Hours worked on Monday.
+             */
+            mondayHours: number;
+            /**
+             * Format: float
+             * @description Hours worked on Tuesday.
+             */
+            tuesdayHours: number;
+            /**
+             * Format: float
+             * @description Hours worked on Wednesday.
+             */
+            wednesdayHours: number;
+            /**
+             * Format: float
+             * @description Hours worked on Thursday.
+             */
+            thursdayHours: number;
+            /**
+             * Format: float
+             * @description Hours worked on Friday.
+             */
+            fridayHours: number;
+            /**
+             * Format: float
+             * @description Hours worked on Saturday.
+             */
+            saturdayHours: number;
+            /**
+             * Format: float
+             * @description Hours worked on Sunday.
+             */
+            sundayHours: number;
+            /** @description The percentage of working hours the user is available. Must be between 0 and 100. */
+            availabilityFactor: number;
+            _links?: {
+                self: components["schemas"]["Link"] & unknown;
+                user: components["schemas"]["Link"] & unknown;
+            };
+        };
+        ValuesPropertyModel: {
+            /** @enum {string} */
+            _type: "Values::Property";
+            /** @description The key of the key - value pair represented by the Values::Property */
+            property: string;
+            /** @description The value of the key - value pair represented by the Values::Property */
+            value: string;
+            _links: {
+                self: components["schemas"]["Link"] & unknown;
+                schema: components["schemas"]["Link"] & unknown;
+            };
+        };
+        VersionCollectionModel: components["schemas"]["CollectionModel"] & {
+            _links: {
+                self: components["schemas"]["Link"] & unknown;
+            };
+            _embedded: {
+                elements: components["schemas"]["VersionReadModel"][];
+            };
+        };
+        VersionReadModel: components["schemas"]["CustomFieldProperties"] & {
+            /** @description Version id */
+            id: number;
+            /** @enum {string} */
+            _type: "Version";
+            /** @description Version name */
+            name: string;
+            description: components["schemas"]["Formattable"];
+            /** Format: date */
+            startDate: string | null;
+            /** Format: date */
+            endDate: string | null;
+            /**
+             * @description The current status of the version. This could be:
+             *
+             *     - *open*: if the version is available to be assigned to work packages in all shared projects
+             *     - *locked*: if the version is not finished, but locked for further assignments to work packages
+             *     - *closed*: if the version is finished
+             * @enum {string}
+             */
+            status: "open" | "locked" | "closed";
+            /**
+             * @description The indicator of how the version is shared between projects. This could be:
+             *
+             *     - *none*: if the version is only available in the defining project
+             *     - *descendants*: if the version is shared with the descendants of the defining project
+             *     - *hierarchy*: if the version is shared with the descendants and the ancestors of the defining project
+             *     - *tree*: if the version is shared with the root project of the defining project and all descendants of the root project
+             *     - *system*: if the version is shared globally
+             * @enum {string}
+             */
+            sharing: "none" | "descendants" | "hierarchy" | "tree" | "system";
+            /**
+             * Format: date-time
+             * @description Time of creation
+             */
+            createdAt: string;
+            /**
+             * Format: date-time
+             * @description Time of the most recent change to the version
+             */
+            updatedAt: string;
+            _links?: components["schemas"]["CustomFieldLinkedProperties"] & {
+                self: components["schemas"]["Link"] & unknown;
+                schema: components["schemas"]["Link"] & unknown;
+                update?: components["schemas"]["Link"] & unknown;
+                delete?: components["schemas"]["Link"] & unknown;
+                updateImmediately?: components["schemas"]["Link"] & unknown;
+                definingProject: components["schemas"]["Link"] & unknown;
+                availableInProjects: components["schemas"]["Link"] & unknown;
+            };
+        };
+        VersionWriteModel: components["schemas"]["CustomFieldProperties"] & {
+            /** @description Version name */
+            name?: string;
+            description?: components["schemas"]["Formattable"];
+            /** Format: date */
+            startDate?: string | null;
+            /** Format: date */
+            endDate?: string | null;
+            /**
+             * @description The current status of the version. This could be:
+             *
+             *     - *open*: if the version is available to be assigned to work packages in all shared projects
+             *     - *locked*: if the version is not finished, but locked for further assignments to work packages
+             *     - *closed*: if the version is finished
+             * @enum {string}
+             */
+            status?: "open" | "locked" | "closed";
+            /**
+             * @description The indicator of how the version is shared between projects. This could be:
+             *
+             *     - *none*: if the version is only available in the defining project
+             *     - *descendants*: if the version is shared with the descendants of the defining project
+             *     - *hierarchy*: if the version is shared with the descendants and the ancestors of the defining project
+             *     - *tree*: if the version is shared with the root project of the defining project and all descendants of the root project
+             *     - *system*: if the version is shared globally
+             * @enum {string}
+             */
+            sharing?: "none" | "descendants" | "hierarchy" | "tree" | "system";
+            _links?: components["schemas"]["CustomFieldLinkedProperties"] & {
+                definingProject?: components["schemas"]["Link"] & unknown;
+            };
+        };
+        /**
+         * @example {
+         *       "_type": "Schema",
+         *       "_dependencies": [],
+         *       "id": {
+         *         "type": "Integer",
+         *         "name": "ID",
+         *         "required": true,
+         *         "hasDefault": false,
+         *         "writable": false
+         *       },
+         *       "name": {
+         *         "type": "String",
+         *         "name": "Name",
+         *         "required": true,
+         *         "hasDefault": false,
+         *         "writable": true,
+         *         "minLength": 1,
+         *         "maxLength": 60
+         *       },
+         *       "description": {
+         *         "type": "Formattable",
+         *         "name": "Description",
+         *         "required": false,
+         *         "hasDefault": false,
+         *         "writable": true
+         *       },
+         *       "startDate": {
+         *         "type": "Date",
+         *         "name": "Start date",
+         *         "required": false,
+         *         "hasDefault": false,
+         *         "writable": true
+         *       },
+         *       "endDate": {
+         *         "type": "Date",
+         *         "name": "Finish date",
+         *         "required": false,
+         *         "hasDefault": false,
+         *         "writable": false
+         *       },
+         *       "status": {
+         *         "type": "String",
+         *         "name": "Status",
+         *         "required": true,
+         *         "hasDefault": false,
+         *         "writable": true,
+         *         "visibility": "default",
+         *         "_links": {}
+         *       },
+         *       "sharing": {
+         *         "type": "String",
+         *         "name": "Sharing",
+         *         "required": true,
+         *         "hasDefault": false,
+         *         "writable": true,
+         *         "visibility": "default",
+         *         "_links": {}
+         *       },
+         *       "createdAt": {
+         *         "type": "DateTime",
+         *         "name": "Created on",
+         *         "required": true,
+         *         "hasDefault": false,
+         *         "writable": false
+         *       },
+         *       "updatedAt": {
+         *         "type": "DateTime",
+         *         "name": "Updated on",
+         *         "required": true,
+         *         "hasDefault": false,
+         *         "writable": false
+         *       },
+         *       "definingProject": {
+         *         "type": "Project",
+         *         "name": "Project",
+         *         "required": true,
+         *         "hasDefault": false,
+         *         "writable": true,
+         *         "_links": {}
+         *       },
+         *       "customField14": {
+         *         "type": "String",
+         *         "name": "text CF",
+         *         "required": false,
+         *         "hasDefault": false,
+         *         "writable": true,
+         *         "visibility": "default"
+         *       },
+         *       "customField40": {
+         *         "type": "CustomOption",
+         *         "name": "List CF",
+         *         "required": false,
+         *         "hasDefault": false,
+         *         "writable": true,
+         *         "location": "_links",
+         *         "visibility": "default",
+         *         "_links": {}
+         *       },
+         *       "_links": {
+         *         "self": {
+         *           "href": "/api/v3/versions/schema"
+         *         }
+         *       }
+         *     }
+         */
+        Version_schemaModel: Record<string, never>;
+        Versions_by_WorkspaceModel: components["schemas"]["CollectionModel"] & {
+            _links: {
+                self: components["schemas"]["Link"] & unknown;
+            };
+            _embedded: {
+                readonly elements?: (components["schemas"]["VersionReadModel"] & unknown)[];
+            };
+        };
+        /**
+         * @example {
+         *       "_links": {
+         *         "self": {
+         *           "href": "/api/v3/actions/work_packages/create",
+         *           "title": "Add work package"
+         *         }
+         *       },
+         *       "_type": "Action",
+         *       "id": "work_packages/create",
+         *       "name": "Add work package",
+         *       "description": "Creating a work package within a project including the uploading of attachments. Some attributes might not be selected, e.g version which requires a second permission",
+         *       "modules": [
+         *         "work_packages"
+         *       ]
+         *     }
+         */
+        View_actionModel: Record<string, never>;
+        /**
+         * @example {
+         *       "_links": {
+         *         "self": {
+         *           "href": "/api/v3/capabilities/work_packages/create/p123-567"
+         *         },
+         *         "action": {
+         *           "href": "/api/v3/actions/work_packages/create",
+         *           "title": "Add work package"
+         *         },
+         *         "context": {
+         *           "href": "/api/v3/projects/123",
+         *           "title": "A project"
+         *         },
+         *         "principal": {
+         *           "href": "/api/v3/users/567",
+         *           "title": "Some user"
+         *         }
+         *       },
+         *       "_type": "Capability",
+         *       "id": "work_packages/create/p123-567"
+         *     }
+         */
+        View_capabilitiesModel: Record<string, never>;
+        /**
+         * @example {
+         *       "_links": {
+         *         "self": {
+         *           "href": "/api/v3/capabilities/context/global"
+         *         }
+         *       },
+         *       "_type": "CapabilityContext::Global",
+         *       "id": "global"
+         *     }
+         */
+        View_global_contextModel: Record<string, never>;
+        /**
+         * @example {
+         *       "_type": "ProjectStatus",
+         *       "id": "on_track",
+         *       "name": "On track",
+         *       "_links": {
+         *         "self": {
+         *           "href": "/api/v3/project_statuses/on_track"
+         *         }
+         *       }
+         *     }
+         */
+        View_project_statusModel: Record<string, never>;
         /**
          * @example {
          *       "_type": "Schema",
@@ -12952,141 +12681,7 @@ export interface components {
          *       }
          *     }
          */
-        view_time_entry_schema_model: Record<string, never>;
-        /**
-         * @example {
-         *       "_links": {
-         *         "self": {
-         *           "href": "/api/v3/types"
-         *         }
-         *       },
-         *       "total": 2,
-         *       "count": 2,
-         *       "_type": "Collection",
-         *       "_embedded": {
-         *         "elements": [
-         *           {
-         *             "_links": {
-         *               "self": {
-         *                 "href": "/api/v3/types/1"
-         *               }
-         *             },
-         *             "_type": "Type",
-         *             "id": 1,
-         *             "name": "Bug",
-         *             "color": "#ff0000",
-         *             "position": 1,
-         *             "isDefault": true,
-         *             "isMilestone": false,
-         *             "createdAt": "2014-05-21T08:51:20.429Z",
-         *             "updatedAt": "2014-05-21T08:51:20.429Z"
-         *           },
-         *           {
-         *             "_links": {
-         *               "self": {
-         *                 "href": "/api/v3/types/2"
-         *               }
-         *             },
-         *             "_type": "Type",
-         *             "id": 2,
-         *             "name": "Feature",
-         *             "color": "#888",
-         *             "position": 2,
-         *             "isDefault": false,
-         *             "isMilestone": false,
-         *             "createdAt": "2014-05-21T08:51:20.429Z",
-         *             "updatedAt": "2014-05-21T08:51:20.429Z"
-         *           }
-         *         ]
-         *       }
-         *     }
-         */
-        types_model: Record<string, never>;
-        /**
-         * @example {
-         *       "_type": "Collection",
-         *       "total": 2,
-         *       "count": 2,
-         *       "_links": {
-         *         "self": {
-         *           "href": "/api/v3/users"
-         *         }
-         *       },
-         *       "_embedded": {
-         *         "elements": [
-         *           {
-         *             "_abbreviated": "User resource shortened for brevity",
-         *             "_type": "User",
-         *             "id": 1337
-         *           },
-         *           {
-         *             "_abbreviated": "User resource shortened for brevity",
-         *             "_type": "User",
-         *             "id": 1338
-         *           }
-         *         ]
-         *       }
-         *     }
-         */
-        user_collection_model: components["schemas"]["collection_model"] & {
-            _links: {
-                self: components["schemas"]["link"] & unknown;
-            };
-            _embedded: {
-                elements: components["schemas"]["user_model"][];
-            };
-        };
-        /**
-         * @example {
-         *       "login": "j.sheppard",
-         *       "password": "idestroyedsouvereign",
-         *       "currentPassword": "iusedtobuildstarships",
-         *       "firstName": "John",
-         *       "lastName": "Sheppard",
-         *       "email": "shep@mail.com",
-         *       "admin": true,
-         *       "status": "active",
-         *       "language": "en"
-         *     }
-         */
-        user_create_model: {
-            admin: boolean;
-            email: string;
-            login: string;
-            /**
-             * @description The user's password.
-             *
-             *     *Conditions:*
-             *
-             *     Writable on create.
-             *
-             *     Writable on update only when:
-             *     - the caller updates their own account
-             *     - `currentPassword` is provided and valid
-             */
-            password?: string;
-            /**
-             * @description The user's current password.
-             *
-             *     *Conditions:*
-             *
-             *     Required when changing `password` for a self update (`PATCH /api/v3/users/me` or `PATCH /api/v3/users/{id}` where `id` is the caller).
-             *
-             *     Ignored for non-self updates (for example, administrators updating other users).
-             */
-            currentPassword?: string;
-            firstName: string;
-            lastName: string;
-            /**
-             * @description The current activation status of the user.
-             *
-             *     *Conditions:*
-             *
-             *     Only writable on creation, not on update.
-             */
-            status?: string;
-            language: string;
-        };
+        View_time_entry_schemaModel: Record<string, never>;
         /**
          * @example {
          *       "_type": "Schema",
@@ -13225,1041 +12820,7 @@ export interface components {
          *       }
          *     }
          */
-        view_user_schema_model: Record<string, never>;
-        /**
-         * @example {
-         *       "_type": "UserNonWorkingTime",
-         *       "id": 7,
-         *       "startDate": "2025-06-16",
-         *       "endDate": "2025-06-20",
-         *       "_links": {
-         *         "self": {
-         *           "href": "/api/v3/users/42/non_working_times/7"
-         *         },
-         *         "user": {
-         *           "href": "/api/v3/users/42",
-         *           "title": "Jane Doe"
-         *         }
-         *       }
-         *     }
-         */
-        user_non_working_time_model: {
-            /** @enum {string} */
-            _type: "UserNonWorkingTime";
-            /** @description The unique identifier of the non-working time record. */
-            id: number;
-            /**
-             * Format: date
-             * @description The first date of the non-working time range in ISO 8601 format (YYYY-MM-DD).
-             */
-            startDate: string;
-            /**
-             * Format: date
-             * @description The last date of the non-working time range in ISO 8601 format (YYYY-MM-DD).
-             *     Must be greater than or equal to `startDate`.
-             */
-            endDate: string;
-            _links?: {
-                self: components["schemas"]["link"] & unknown;
-                user: components["schemas"]["link"] & unknown;
-            };
-        };
-        /**
-         * @example {
-         *       "_type": "Collection",
-         *       "total": 2,
-         *       "count": 2,
-         *       "_links": {
-         *         "self": {
-         *           "href": "/api/v3/users/42/non_working_times"
-         *         }
-         *       },
-         *       "_embedded": {
-         *         "elements": [
-         *           {
-         *             "_type": "UserNonWorkingTime",
-         *             "id": 7,
-         *             "startDate": "2025-06-16",
-         *             "endDate": "2025-06-20",
-         *             "_links": {
-         *               "self": {
-         *                 "href": "/api/v3/users/42/non_working_times/7"
-         *               },
-         *               "user": {
-         *                 "href": "/api/v3/users/42",
-         *                 "title": "Jane Doe"
-         *               }
-         *             }
-         *           },
-         *           {
-         *             "_type": "UserNonWorkingTime",
-         *             "id": 8,
-         *             "startDate": "2025-12-24",
-         *             "endDate": "2025-12-24",
-         *             "_links": {
-         *               "self": {
-         *                 "href": "/api/v3/users/42/non_working_times/8"
-         *               },
-         *               "user": {
-         *                 "href": "/api/v3/users/42",
-         *                 "title": "Jane Doe"
-         *               }
-         *             }
-         *           }
-         *         ]
-         *       }
-         *     }
-         */
-        user_non_working_time_collection_model: components["schemas"]["collection_model"] & {
-            _links: {
-                self: components["schemas"]["link"] & unknown;
-            };
-            _embedded: {
-                /** @description The array of personal non-working times for the user, ordered by start date ascending. */
-                elements: components["schemas"]["user_non_working_time_model"][];
-            };
-        };
-        /**
-         * @example {
-         *       "_type": "UserWorkingHours",
-         *       "id": 1,
-         *       "validFrom": "2024-01-01",
-         *       "mondayHours": 8,
-         *       "tuesdayHours": 8,
-         *       "wednesdayHours": 8,
-         *       "thursdayHours": 8,
-         *       "fridayHours": 8,
-         *       "saturdayHours": 0,
-         *       "sundayHours": 0,
-         *       "availabilityFactor": 100,
-         *       "_links": {
-         *         "self": {
-         *           "href": "/api/v3/users/42/working_hours/1"
-         *         },
-         *         "user": {
-         *           "href": "/api/v3/users/42",
-         *           "title": "Jane Doe"
-         *         }
-         *       }
-         *     }
-         */
-        user_working_hours_model: {
-            /** @enum {string} */
-            _type: "UserWorkingHours";
-            /** @description The unique identifier of the working hours record. */
-            id: number;
-            /**
-             * Format: date
-             * @description The date from which this working hours configuration is in effect (ISO 8601 format).
-             *     Multiple records may exist for a user; the one with the latest `validFrom` that is
-             *     not in the future is the currently active record.
-             */
-            validFrom: string;
-            /**
-             * Format: float
-             * @description Hours worked on Monday.
-             */
-            mondayHours: number;
-            /**
-             * Format: float
-             * @description Hours worked on Tuesday.
-             */
-            tuesdayHours: number;
-            /**
-             * Format: float
-             * @description Hours worked on Wednesday.
-             */
-            wednesdayHours: number;
-            /**
-             * Format: float
-             * @description Hours worked on Thursday.
-             */
-            thursdayHours: number;
-            /**
-             * Format: float
-             * @description Hours worked on Friday.
-             */
-            fridayHours: number;
-            /**
-             * Format: float
-             * @description Hours worked on Saturday.
-             */
-            saturdayHours: number;
-            /**
-             * Format: float
-             * @description Hours worked on Sunday.
-             */
-            sundayHours: number;
-            /** @description The percentage of working hours the user is available. Must be between 0 and 100. */
-            availabilityFactor: number;
-            _links?: {
-                self: components["schemas"]["link"] & unknown;
-                user: components["schemas"]["link"] & unknown;
-            };
-        };
-        /**
-         * @example {
-         *       "_type": "Collection",
-         *       "total": 2,
-         *       "count": 2,
-         *       "_links": {
-         *         "self": {
-         *           "href": "/api/v3/users/42/working_hours"
-         *         }
-         *       },
-         *       "_embedded": {
-         *         "elements": [
-         *           {
-         *             "_type": "UserWorkingHours",
-         *             "id": 2,
-         *             "validFrom": "2025-01-01",
-         *             "mondayHours": 6,
-         *             "tuesdayHours": 6,
-         *             "wednesdayHours": 6,
-         *             "thursdayHours": 6,
-         *             "fridayHours": 6,
-         *             "saturdayHours": 0,
-         *             "sundayHours": 0,
-         *             "availabilityFactor": 80,
-         *             "_links": {
-         *               "self": {
-         *                 "href": "/api/v3/users/42/working_hours/2"
-         *               },
-         *               "user": {
-         *                 "href": "/api/v3/users/42",
-         *                 "title": "Jane Doe"
-         *               }
-         *             }
-         *           },
-         *           {
-         *             "_type": "UserWorkingHours",
-         *             "id": 1,
-         *             "validFrom": "2024-01-01",
-         *             "mondayHours": 8,
-         *             "tuesdayHours": 8,
-         *             "wednesdayHours": 8,
-         *             "thursdayHours": 8,
-         *             "fridayHours": 8,
-         *             "saturdayHours": 0,
-         *             "sundayHours": 0,
-         *             "availabilityFactor": 100,
-         *             "_links": {
-         *               "self": {
-         *                 "href": "/api/v3/users/42/working_hours/1"
-         *               },
-         *               "user": {
-         *                 "href": "/api/v3/users/42",
-         *                 "title": "Jane Doe"
-         *               }
-         *             }
-         *           }
-         *         ]
-         *       }
-         *     }
-         */
-        user_working_hours_collection_model: components["schemas"]["collection_model"] & {
-            _links: {
-                self: components["schemas"]["link"] & unknown;
-            };
-            _embedded: {
-                /** @description The array of working hours records for the user, ordered by `validFrom` descending. */
-                elements: components["schemas"]["user_working_hours_model"][];
-            };
-        };
-        version_collection_model: components["schemas"]["collection_model"] & {
-            _links: {
-                self: components["schemas"]["link"] & unknown;
-            };
-            _embedded: {
-                elements: components["schemas"]["version_read_model"][];
-            };
-        };
-        version_write_model: components["schemas"]["custom_field_properties"] & {
-            /** @description Version name */
-            name?: string;
-            description?: components["schemas"]["formattable"];
-            /** Format: date */
-            startDate?: string | null;
-            /** Format: date */
-            endDate?: string | null;
-            /**
-             * @description The current status of the version. This could be:
-             *
-             *     - *open*: if the version is available to be assigned to work packages in all shared projects
-             *     - *locked*: if the version is not finished, but locked for further assignments to work packages
-             *     - *closed*: if the version is finished
-             * @enum {string}
-             */
-            status?: "open" | "locked" | "closed";
-            /**
-             * @description The indicator of how the version is shared between projects. This could be:
-             *
-             *     - *none*: if the version is only available in the defining project
-             *     - *descendants*: if the version is shared with the descendants of the defining project
-             *     - *hierarchy*: if the version is shared with the descendants and the ancestors of the defining project
-             *     - *tree*: if the version is shared with the root project of the defining project and all descendants of the root project
-             *     - *system*: if the version is shared globally
-             * @enum {string}
-             */
-            sharing?: "none" | "descendants" | "hierarchy" | "tree" | "system";
-            _links?: components["schemas"]["custom_field_linked_properties"] & {
-                definingProject?: components["schemas"]["link"] & unknown;
-            };
-        };
-        /**
-         * @example {
-         *       "_links": {
-         *         "self": {
-         *           "href": "/api/v3/versions/available_projects"
-         *         }
-         *       },
-         *       "_type": "Collection",
-         *       "total": 2,
-         *       "count": 2,
-         *       "_embedded": {
-         *         "elements": [
-         *           {
-         *             "_type": "Project",
-         *             "_links": {
-         *               "self": {
-         *                 "href": "/api/v3/projects/6",
-         *                 "title": "A project"
-         *               },
-         *               "editWorkPackage": {
-         *                 "href": "/api/v3/work_packages/{id}/form",
-         *                 "templated": true,
-         *                 "method": "post"
-         *               },
-         *               "createWorkPackage": {
-         *                 "href": "/api/v3/projects/6/work_packages/form",
-         *                 "method": "post"
-         *               },
-         *               "createWorkPackageImmediate": {
-         *                 "href": "/api/v3/projects/6/work_packages",
-         *                 "method": "post"
-         *               },
-         *               "categories": {
-         *                 "href": "/api/v3/projects/6/categories"
-         *               },
-         *               "versions": {
-         *                 "href": "/api/v3/projects/6/versions"
-         *               }
-         *             },
-         *             "id": 6,
-         *             "identifier": "a_project",
-         *             "name": "A project",
-         *             "description": "Eveniet molestias omnis quis aut qui eum adipisci. Atque aut aut in exercitationem adipisci amet. Nisi asperiores quia ratione veritatis enim exercitationem magnam. Aut fuga architecto adipisci nihil. Et repellat pariatur. Aliquam et sed perferendis nostrum quaerat. Fugit doloremque voluptatem.",
-         *             "createdAt": "2015-07-06T13:28:14+00:00",
-         *             "updatedAt": "2015-10-01T09:55:02+00:00",
-         *             "type": "Customer Project"
-         *           },
-         *           {
-         *             "_type": "Project",
-         *             "_links": {
-         *               "self": {
-         *                 "href": "/api/v3/projects/14",
-         *                 "title": "Another project"
-         *               },
-         *               "createWorkPackage": {
-         *                 "href": "/api/v3/projects/14/work_packages/form",
-         *                 "method": "post"
-         *               },
-         *               "createWorkPackageImmediate": {
-         *                 "href": "/api/v3/projects/14/work_packages",
-         *                 "method": "post"
-         *               },
-         *               "categories": {
-         *                 "href": "/api/v3/projects/14/categories"
-         *               },
-         *               "versions": {
-         *                 "href": "/api/v3/projects/14/versions"
-         *               }
-         *             },
-         *             "id": 14,
-         *             "identifier": "another_project",
-         *             "name": "Another project",
-         *             "description": "",
-         *             "createdAt": "2016-02-29T12:50:20+00:00",
-         *             "updatedAt": "2016-02-29T12:50:20+00:00",
-         *             "type": null
-         *           }
-         *         ]
-         *       }
-         *     }
-         */
-        available_projects_for_versions_model: Record<string, never>;
-        /**
-         * @example {
-         *       "_type": "Schema",
-         *       "_dependencies": [],
-         *       "id": {
-         *         "type": "Integer",
-         *         "name": "ID",
-         *         "required": true,
-         *         "hasDefault": false,
-         *         "writable": false
-         *       },
-         *       "name": {
-         *         "type": "String",
-         *         "name": "Name",
-         *         "required": true,
-         *         "hasDefault": false,
-         *         "writable": true,
-         *         "minLength": 1,
-         *         "maxLength": 60
-         *       },
-         *       "description": {
-         *         "type": "Formattable",
-         *         "name": "Description",
-         *         "required": false,
-         *         "hasDefault": false,
-         *         "writable": true
-         *       },
-         *       "startDate": {
-         *         "type": "Date",
-         *         "name": "Start date",
-         *         "required": false,
-         *         "hasDefault": false,
-         *         "writable": true
-         *       },
-         *       "endDate": {
-         *         "type": "Date",
-         *         "name": "Finish date",
-         *         "required": false,
-         *         "hasDefault": false,
-         *         "writable": false
-         *       },
-         *       "status": {
-         *         "type": "String",
-         *         "name": "Status",
-         *         "required": true,
-         *         "hasDefault": false,
-         *         "writable": true,
-         *         "visibility": "default",
-         *         "_links": {}
-         *       },
-         *       "sharing": {
-         *         "type": "String",
-         *         "name": "Sharing",
-         *         "required": true,
-         *         "hasDefault": false,
-         *         "writable": true,
-         *         "visibility": "default",
-         *         "_links": {}
-         *       },
-         *       "createdAt": {
-         *         "type": "DateTime",
-         *         "name": "Created on",
-         *         "required": true,
-         *         "hasDefault": false,
-         *         "writable": false
-         *       },
-         *       "updatedAt": {
-         *         "type": "DateTime",
-         *         "name": "Updated on",
-         *         "required": true,
-         *         "hasDefault": false,
-         *         "writable": false
-         *       },
-         *       "definingProject": {
-         *         "type": "Project",
-         *         "name": "Project",
-         *         "required": true,
-         *         "hasDefault": false,
-         *         "writable": true,
-         *         "_links": {}
-         *       },
-         *       "customField14": {
-         *         "type": "String",
-         *         "name": "text CF",
-         *         "required": false,
-         *         "hasDefault": false,
-         *         "writable": true,
-         *         "visibility": "default"
-         *       },
-         *       "customField40": {
-         *         "type": "CustomOption",
-         *         "name": "List CF",
-         *         "required": false,
-         *         "hasDefault": false,
-         *         "writable": true,
-         *         "location": "_links",
-         *         "visibility": "default",
-         *         "_links": {}
-         *       },
-         *       "_links": {
-         *         "self": {
-         *           "href": "/api/v3/versions/schema"
-         *         }
-         *       }
-         *     }
-         */
-        version_schema_model: Record<string, never>;
-        /**
-         * @example {
-         *       "_links": {
-         *         "self": {
-         *           "href": "/api/v3/versions/2/workspaces"
-         *         }
-         *       },
-         *       "total": 1,
-         *       "count": 1,
-         *       "_type": "Collection",
-         *       "_embedded": {
-         *         "elements": [
-         *           {
-         *             "_type": "Project",
-         *             "_links": {
-         *               "self": {
-         *                 "href": "/api/v3/projects/1",
-         *                 "title": "Lorem"
-         *               },
-         *               "categories": {
-         *                 "href": "/api/v3/projects/1/categories"
-         *               },
-         *               "versions": {
-         *                 "href": "/api/v3/projects/1/versions"
-         *               },
-         *               "status": {
-         *                 "href": "/api/v3/project_statuses/on_track",
-         *                 "title": "On track"
-         *               }
-         *             },
-         *             "id": 1,
-         *             "identifier": "project_identifier",
-         *             "name": "Project example",
-         *             "description": {
-         *               "format": "markdown",
-         *               "raw": "Lorem **ipsum** dolor sit amet",
-         *               "html": "<p>Lorem <strong>ipsum</strong> dolor sit amet</p>"
-         *             },
-         *             "active": true,
-         *             "statusExplanation": {
-         *               "format": "markdown",
-         *               "raw": "Everything **fine**",
-         *               "html": "<p>Everything <strong>fine</strong></p>"
-         *             },
-         *             "createdAt": "2014-05-21T08:51:20.142Z",
-         *             "updatedAt": "2014-05-21T08:51:20.142Z"
-         *           }
-         *         ]
-         *       }
-         *     }
-         */
-        list_workspaces_by_version_model: Record<string, never>;
-        /**
-         * @example {
-         *       "_type": "WikiPage",
-         *       "id": 72,
-         *       "title": "A wiki page with a name",
-         *       "_embedded": {
-         *         "project": {
-         *           "_type": "Project...",
-         *           "id": 12
-         *         }
-         *       },
-         *       "_links": {
-         *         "self": {
-         *           "href": "/api/v3/wiki_pages/72"
-         *         },
-         *         "attachments": {
-         *           "href": "/api/v3/wiki_pages/72/attachments"
-         *         },
-         *         "addAttachment": {
-         *           "href": "/api/v3/wiki_pages/72/attachments",
-         *           "method": "post"
-         *         },
-         *         "project": {
-         *           "href": "/api/v3/projects/12",
-         *           "title": "some project"
-         *         }
-         *       }
-         *     }
-         */
-        wiki_page_model: {
-            /** @description Identifier of this wiki page */
-            readonly id?: number;
-            /** @description The wiki page's title */
-            title: string;
-            _links?: {
-                addAttachment?: components["schemas"]["link"] & unknown;
-            };
-        };
-        work_package_patch_model: components["schemas"]["work_package_write_model"] & {
-            /** @description The version of the item as used for optimistic locking */
-            lockVersion: number;
-        };
-        /**
-         * @example {
-         *       "_links": {
-         *         "self": {
-         *           "href": "/api/v3/work_packages/1/revisions"
-         *         }
-         *       },
-         *       "total": 2,
-         *       "count": 2,
-         *       "_type": "Collection",
-         *       "_embedded": {
-         *         "elements": [
-         *           {
-         *             "_type": "Activity",
-         *             "_links": {
-         *               "self": {
-         *                 "href": "/api/v3/activity/1"
-         *               },
-         *               "workPackage": {
-         *                 "href": "/api/v3/work_packages/1"
-         *               },
-         *               "user": {
-         *                 "href": "/api/v3/users/1"
-         *               }
-         *             },
-         *             "id": 1,
-         *             "details": [],
-         *             "comment": {
-         *               "format": "markdown",
-         *               "raw": "Lorem ipsum dolor sit amet.",
-         *               "html": "<p>Lorem ipsum dolor sit amet.</p>"
-         *             },
-         *             "createdAt": "2014-05-21T08:51:20.396Z",
-         *             "updatedAt": "2014-05-21T09:14:02.324Z",
-         *             "version": 1
-         *           },
-         *           {
-         *             "_type": "Activity",
-         *             "_links": {
-         *               "self": {
-         *                 "href": "/api/v3/activity/2"
-         *               },
-         *               "workPackage": {
-         *                 "href": "/api/v3/work_packages/1"
-         *               },
-         *               "user": {
-         *                 "href": "/api/v3/users/1"
-         *               }
-         *             },
-         *             "id": 2,
-         *             "details": [],
-         *             "comment": {
-         *               "format": "markdown",
-         *               "raw": "Lorem ipsum dolor sit amet.",
-         *               "html": "<p>Lorem ipsum dolor sit amet.</p>"
-         *             },
-         *             "createdAt": "2014-05-21T09:51:22.769Z",
-         *             "updatedAt": "2014-05-21T10:14:02.927Z",
-         *             "version": 2
-         *           }
-         *         ]
-         *       }
-         *     }
-         */
-        work_package_activities_model: Record<string, never>;
-        /**
-         * @example {
-         *       "_links": {
-         *         "self": {
-         *           "href": "/api/v3/work_packages/5/available_projects"
-         *         }
-         *       },
-         *       "_type": "Collection",
-         *       "total": 2,
-         *       "count": 2,
-         *       "_embedded": {
-         *         "elements": [
-         *           {
-         *             "_type": "Project",
-         *             "_links": {
-         *               "self": {
-         *                 "href": "/api/v3/projects/6",
-         *                 "title": "A project"
-         *               },
-         *               "editWorkPackage": {
-         *                 "href": "/api/v3/work_packages/{id}/form",
-         *                 "templated": true,
-         *                 "method": "post"
-         *               },
-         *               "createWorkPackage": {
-         *                 "href": "/api/v3/projects/6/work_packages/form",
-         *                 "method": "post"
-         *               },
-         *               "createWorkPackageImmediate": {
-         *                 "href": "/api/v3/projects/6/work_packages",
-         *                 "method": "post"
-         *               },
-         *               "categories": {
-         *                 "href": "/api/v3/projects/6/categories"
-         *               },
-         *               "versions": {
-         *                 "href": "/api/v3/projects/6/versions"
-         *               }
-         *             },
-         *             "id": 6,
-         *             "identifier": "a_project",
-         *             "name": "A project",
-         *             "description": "Eveniet molestias omnis quis aut qui eum adipisci. Atque aut aut in exercitationem adipisci amet. Nisi asperiores quia ratione veritatis enim exercitationem magnam. Aut fuga architecto adipisci nihil. Et repellat pariatur. Aliquam et sed perferendis nostrum quaerat. Fugit doloremque voluptatem.",
-         *             "createdAt": "2015-07-06T13:28:14+00:00",
-         *             "updatedAt": "2015-10-01T09:55:02+00:00",
-         *             "type": "Customer Project"
-         *           },
-         *           {
-         *             "_type": "Project",
-         *             "_links": {
-         *               "self": {
-         *                 "href": "/api/v3/projects/14",
-         *                 "title": "Another project"
-         *               },
-         *               "createWorkPackage": {
-         *                 "href": "/api/v3/projects/14/work_packages/form",
-         *                 "method": "post"
-         *               },
-         *               "createWorkPackageImmediate": {
-         *                 "href": "/api/v3/projects/14/work_packages",
-         *                 "method": "post"
-         *               },
-         *               "categories": {
-         *                 "href": "/api/v3/projects/14/categories"
-         *               },
-         *               "versions": {
-         *                 "href": "/api/v3/projects/14/versions"
-         *               }
-         *             },
-         *             "id": 14,
-         *             "identifier": "another_project",
-         *             "name": "Another project",
-         *             "description": "",
-         *             "createdAt": "2016-02-29T12:50:20+00:00",
-         *             "updatedAt": "2016-02-29T12:50:20+00:00",
-         *             "type": null
-         *           }
-         *         ]
-         *       }
-         *     }
-         */
-        available_projects_for_work_package_model: Record<string, never>;
-        /**
-         * @example {
-         *       "_links": {
-         *         "self": {
-         *           "href": "/api/v3/projects/14/work_packages"
-         *         }
-         *       },
-         *       "total": 2,
-         *       "count": 2,
-         *       "_type": "Collection",
-         *       "_embedded": {
-         *         "elements": [
-         *           {
-         *             "_type": "WorkPackage",
-         *             "_links": {
-         *               "self": {
-         *                 "href": "/api/v3/work_packages/1"
-         *               }
-         *             },
-         *             "id": 1,
-         *             "subject": "Skipped other properties for brevity"
-         *           },
-         *           {
-         *             "_type": "WorkPackage",
-         *             "_links": {
-         *               "self": {
-         *                 "href": "/api/v3/work_packages/2"
-         *               }
-         *             },
-         *             "id": 2,
-         *             "subject": "Skipped other properties for brevity"
-         *           }
-         *         ]
-         *       }
-         *     }
-         */
-        available_relation_candidates_model: Record<string, never>;
-        /**
-         * @example {
-         *       "_links": {
-         *         "self": {
-         *           "href": "/api/v3/work_packages/1/available_watchers"
-         *         }
-         *       },
-         *       "total": 2,
-         *       "count": 2,
-         *       "_type": "Collection",
-         *       "_embedded": {
-         *         "elements": [
-         *           {
-         *             "_type": "User",
-         *             "_links": {
-         *               "self": {
-         *                 "href": "/api/v3/users/1",
-         *                 "title": "John Sheppard - j.sheppard"
-         *               },
-         *               "lock": {
-         *                 "href": "/api/v3/users/1/lock",
-         *                 "title": "Set lock on j.sheppard",
-         *                 "method": "POST"
-         *               },
-         *               "delete": {
-         *                 "href": "/api/v3/users/1",
-         *                 "title": "Delete j.sheppard",
-         *                 "method": "DELETE"
-         *               }
-         *             },
-         *             "id": 1,
-         *             "login": "j.sheppard",
-         *             "firstName": "John",
-         *             "lastName": "Sheppard",
-         *             "email": "shep@mail.com",
-         *             "avatar": "https://example.org/users/1/avatar",
-         *             "status": "active",
-         *             "createdAt": "2014-05-21T08:51:20.286Z",
-         *             "updatedAt": "2014-05-21T08:51:20.286Z"
-         *           },
-         *           {
-         *             "_type": "User",
-         *             "_links": {
-         *               "self": {
-         *                 "href": "/api/v3/users/2",
-         *                 "title": "Jim Sheppard - j.sheppard2"
-         *               },
-         *               "lock": {
-         *                 "href": "/api/v3/users/2/lock",
-         *                 "title": "Set lock on j.sheppard2",
-         *                 "method": "POST"
-         *               },
-         *               "delete": {
-         *                 "href": "/api/v3/users/2",
-         *                 "title": "Delete j.sheppard2",
-         *                 "method": "DELETE"
-         *               }
-         *             },
-         *             "id": 2,
-         *             "login": "j.sheppard2",
-         *             "firstName": "Jim",
-         *             "lastName": "Sheppard",
-         *             "email": "shep@mail.net",
-         *             "avatar": "https://example.org/users/1/avatar",
-         *             "status": "active",
-         *             "createdAt": "2014-05-21T08:51:20.286Z",
-         *             "updatedAt": "2014-05-21T08:51:20.286Z"
-         *           }
-         *         ]
-         *       }
-         *     }
-         */
-        available_watchers_model: Record<string, never>;
-        /**
-         * @example {
-         *       "_type": "Collection",
-         *       "total": 2,
-         *       "count": 2,
-         *       "pageSize": 30,
-         *       "offset": 1,
-         *       "_links": {
-         *         "self": {
-         *           "href": "/api/v3/work_packages/42/file_links"
-         *         },
-         *         "jumpTo": {
-         *           "href": "/api/v3/work_packages/42/file_links?offset=%7Boffset%7D&pageSize=30",
-         *           "templated": true
-         *         },
-         *         "changeSize": {
-         *           "href": "/api/v3/work_packages/42/file_links?offset=1&pageSize=%7Bsize%7D",
-         *           "templated": true
-         *         }
-         *       },
-         *       "_embedded": {
-         *         "elements": [
-         *           {
-         *             "id": 1337,
-         *             "_type": "FileLink",
-         *             "createdAt": "2021-12-20T13:37:00.211Z",
-         *             "updatedAt": "2021-12-20T13:37:00.211Z",
-         *             "originData": {
-         *               "id": "5503",
-         *               "name": "logo.png",
-         *               "mimeType": "image/png",
-         *               "size": 16042,
-         *               "createdAt": "2021-12-19T09:42:10.170Z",
-         *               "lastModifiedAt": "2021-12-20T14:00:13.987Z",
-         *               "createdByName": "Luke Skywalker",
-         *               "lastModifiedByName": "Anakin Skywalker"
-         *             },
-         *             "_links": {
-         *               "self": {
-         *                 "href": "/api/v3/work_package/17/file_links/1337",
-         *                 "title": "file link"
-         *               },
-         *               "storage": {
-         *                 "href": "/api/v3/storage/42",
-         *                 "title": "storage"
-         *               },
-         *               "container": {
-         *                 "href": "/api/v3/work_package/17",
-         *                 "title": "work package"
-         *               },
-         *               "creator": {
-         *                 "href": "/api/v3/users/33",
-         *                 "title": "Obi-Wan Kenobi"
-         *               },
-         *               "delete": {
-         *                 "href": "/api/v3/work_package/17/file_links/1337",
-         *                 "method": "delete"
-         *               },
-         *               "originOpen": {
-         *                 "href": "https://nextcloud.deathstar.rocks/index.php/f?fileid=5503"
-         *               },
-         *               "staticOriginOpen": {
-         *                 "href": "/api/v3/work_package/17/file_links/1337/open"
-         *               }
-         *             }
-         *           },
-         *           {
-         *             "_hint": "File Link resource shortened for brevity",
-         *             "id": 1338
-         *           }
-         *         ]
-         *       }
-         *     }
-         */
-        file_link_collection_read_model: components["schemas"]["paginated_collection_model"] & {
-            _links?: {
-                self?: components["schemas"]["link"] & unknown;
-            };
-            _embedded?: {
-                elements?: components["schemas"]["file_link_read_model"][];
-            };
-        };
-        /**
-         * @example {
-         *       "originData": {
-         *         "id": "5503",
-         *         "name": "logo.png",
-         *         "mimeType": "image/png",
-         *         "size": 16042,
-         *         "createdAt": "2021-12-19T09:42:10.170Z",
-         *         "lastModifiedAt": "2021-12-20T14:00:13.987Z",
-         *         "createdByName": "Luke Skywalker",
-         *         "lastModifiedByName": "Anakin Skywalker"
-         *       },
-         *       "_links": {
-         *         "storageUrl": {
-         *           "href": "https://nextcloud.my-deathstar.org"
-         *         }
-         *       }
-         *     }
-         */
-        file_link_write_model: {
-            originData: components["schemas"]["file_link_origin_data_model"];
-            _links: {
-                storage: components["schemas"]["link"] & unknown;
-            } | {
-                storageUrl: components["schemas"]["link"] & unknown;
-            };
-        };
-        /**
-         * @example {
-         *       "_embedded": {
-         *         "elements": [
-         *           {
-         *             "originData": {
-         *               "id": "5503",
-         *               "name": "logo.png",
-         *               "mimeType": "image/png",
-         *               "size": 16042,
-         *               "createdAt": "2021-12-19T09:42:10.170Z",
-         *               "lastModifiedAt": "2021-12-20T14:00:13.987Z",
-         *               "createdByName": "Luke Skywalker",
-         *               "lastModifiedByName": "Anakin Skywalker"
-         *             },
-         *             "_links": {
-         *               "storage": {
-         *                 "href": "/api/v3/storage/42"
-         *               }
-         *             }
-         *           }
-         *         ]
-         *       }
-         *     }
-         */
-        file_link_collection_write_model: {
-            _embedded: {
-                elements: components["schemas"]["file_link_write_model"][];
-            };
-        };
-        /**
-         * @example {
-         *       "_links": {
-         *         "self": {
-         *           "href": "/api/v3/work_packages/42/revisions"
-         *         }
-         *       },
-         *       "total": 2,
-         *       "count": 2,
-         *       "_type": "Collection",
-         *       "_embedded": {
-         *         "elements": [
-         *           {
-         *             "_type": "Revision",
-         *             "_links": {
-         *               "self": {
-         *                 "href": "/api/v3/revisions/13"
-         *               },
-         *               "project": {
-         *                 "href": "/api/v3/projects/1",
-         *                 "title": "A Test Project"
-         *               },
-         *               "author": {
-         *                 "href": "/api/v3/users/1",
-         *                 "title": "John Sheppard - j.sheppard"
-         *               },
-         *               "showRevision": {
-         *                 "href": "/projects/identifier/repository/revision/11f4b07"
-         *               }
-         *             },
-         *             "id": 13,
-         *             "identifier": "11f4b07dff4f4ce9548a52b7d002daca7cd63ec6",
-         *             "formattedIdentifier": "11f4b07",
-         *             "authorName": "John Sheppard",
-         *             "message": {
-         *               "format": "plain",
-         *               "raw": "This revision provides new features\n\nAn elaborate description",
-         *               "html": "<p>This revision provides new features<br/><br/>An elaborate description</p>"
-         *             },
-         *             "createdAt": "2015-07-21T13:36:59.201Z"
-         *           },
-         *           {
-         *             "_type": "Revision",
-         *             "_links": {
-         *               "self": {
-         *                 "href": "/api/v3/revisions/14"
-         *               },
-         *               "project": {
-         *                 "href": "/api/v3/projects/1",
-         *                 "title": "A Test Project"
-         *               },
-         *               "author": {
-         *                 "href": "/api/v3/users/2",
-         *                 "title": "Jim Sheppard - j.sheppard"
-         *               },
-         *               "showRevision": {
-         *                 "href": "/projects/identifier/repository/revision/029ed72a"
-         *               }
-         *             },
-         *             "id": 13,
-         *             "identifier": "029ed72a3b7b7c4ab332b1f6eaa6576e7c946059",
-         *             "formattedIdentifier": "029ed72a",
-         *             "authorName": "j1msheppard",
-         *             "message": {
-         *               "format": "plain",
-         *               "raw": "This revision fixes some stuff\n\nMore information here",
-         *               "html": "<p>This revision fixes some stuff<br/><br/>More information here</p>"
-         *             },
-         *             "createdAt": "2015-06-30T08:47:00.548Z"
-         *           }
-         *         ]
-         *       }
-         *     }
-         */
-        revisions_model: Record<string, never>;
+        View_user_schemaModel: Record<string, never>;
         /**
          * @example {
          *       "_links": {
@@ -14338,126 +12899,1145 @@ export interface components {
          *       }
          *     }
          */
-        watchers_model: components["schemas"]["collection_model"] & {
+        WatchersModel: components["schemas"]["CollectionModel"] & {
             _links: {
-                self: components["schemas"]["link"] & unknown;
+                self: components["schemas"]["Link"] & unknown;
             };
             _embedded: {
-                readonly elements?: (components["schemas"]["user_model"] & unknown)[];
-            };
-        };
-        workspace_collection_model: components["schemas"]["offset_paginated_collection_model"] & {
-            _links: components["schemas"]["offset_paginated_collection_links"] & {
-                representations?: (components["schemas"]["link"] & unknown)[];
-            };
-            _embedded: {
-                elements: (components["schemas"]["portfolio_model"] | components["schemas"]["program_model"] | components["schemas"]["project_model"])[];
+                readonly elements?: (components["schemas"]["UserModel"] & unknown)[];
             };
         };
         /**
          * @example {
          *       "_type": "Collection",
-         *       "total": 2,
-         *       "count": 2,
+         *       "total": 7,
+         *       "count": 7,
          *       "_links": {
          *         "self": {
-         *           "href": "/api/v3/placeholder_users"
+         *           "href": "/api/v3/days/week"
          *         }
          *       },
          *       "_embedded": {
          *         "elements": [
          *           {
-         *             "_abbreviated": "PlaceholderUser resource shortened for brevity",
-         *             "_type": "PlaceholderUser",
-         *             "id": 1337
+         *             "_type": "WeekDay",
+         *             "day": 1,
+         *             "name": "Monday",
+         *             "working": true,
+         *             "_links": {
+         *               "self": {
+         *                 "href": "/api/v3/days/week/1",
+         *                 "title": "Monday"
+         *               }
+         *             }
          *           },
          *           {
-         *             "_abbreviated": "PlaceholderUser resource shortened for brevity",
-         *             "_type": "PlaceholderUser",
-         *             "id": 1338
+         *             "_type": "WeekDay",
+         *             "day": 2,
+         *             "name": "Tuesday",
+         *             "working": true,
+         *             "_links": {
+         *               "self": {
+         *                 "href": "/api/v3/days/week/2",
+         *                 "title": "Tuesday"
+         *               }
+         *             }
+         *           },
+         *           {
+         *             "_type": "WeekDay",
+         *             "day": 3,
+         *             "name": "Wednesday",
+         *             "working": true,
+         *             "_links": {
+         *               "self": {
+         *                 "href": "/api/v3/days/week/3",
+         *                 "title": "Wednesday"
+         *               }
+         *             }
+         *           },
+         *           {
+         *             "_type": "WeekDay",
+         *             "day": 4,
+         *             "name": "Thursday",
+         *             "working": true,
+         *             "_links": {
+         *               "self": {
+         *                 "href": "/api/v3/days/week/4",
+         *                 "title": "Thursday"
+         *               }
+         *             }
+         *           },
+         *           {
+         *             "_type": "WeekDay",
+         *             "day": 5,
+         *             "name": "Friday",
+         *             "working": true,
+         *             "_links": {
+         *               "self": {
+         *                 "href": "/api/v3/days/week/5",
+         *                 "title": "Friday"
+         *               }
+         *             }
+         *           },
+         *           {
+         *             "_type": "WeekDay",
+         *             "day": 6,
+         *             "name": "Saturday",
+         *             "working": false,
+         *             "_links": {
+         *               "self": {
+         *                 "href": "/api/v3/days/week/6",
+         *                 "title": "Saturday"
+         *               }
+         *             }
+         *           },
+         *           {
+         *             "_type": "WeekDay",
+         *             "day": 7,
+         *             "name": "Sunday",
+         *             "working": false,
+         *             "_links": {
+         *               "self": {
+         *                 "href": "/api/v3/days/week/7",
+         *                 "title": "Sunday"
+         *               }
+         *             }
          *           }
          *         ]
          *       }
          *     }
          */
-        placeholder_user_collection_model: components["schemas"]["collection_model"] & {
+        WeekDayCollectionModel: components["schemas"]["CollectionModel"] & {
             _links: {
-                self: components["schemas"]["link"] & unknown;
+                self: components["schemas"]["Link"] & unknown;
             };
             _embedded: {
-                elements: components["schemas"]["placeholder_user_model"][];
+                /** @description The array of week days. */
+                elements: components["schemas"]["WeekDayModel"][];
             };
+        };
+        /**
+         * @example {
+         *       "_type": "Collection",
+         *       "_embedded": {
+         *         "elements": [
+         *           {
+         *             "_type": "WeekDay",
+         *             "working": true,
+         *             "_links": {
+         *               "self": {
+         *                 "href": "/api/v3/days/week/1"
+         *               }
+         *             }
+         *           },
+         *           {
+         *             "_type": "WeekDay",
+         *             "working": true,
+         *             "_links": {
+         *               "self": {
+         *                 "href": "/api/v3/days/week/2"
+         *               }
+         *             }
+         *           },
+         *           {
+         *             "_type": "WeekDay",
+         *             "working": true,
+         *             "_links": {
+         *               "self": {
+         *                 "href": "/api/v3/days/week/4"
+         *               }
+         *             }
+         *           },
+         *           {
+         *             "_type": "WeekDay",
+         *             "working": false,
+         *             "_links": {
+         *               "self": {
+         *                 "href": "/api/v3/days/week/6"
+         *               }
+         *             }
+         *           },
+         *           {
+         *             "_type": "WeekDay",
+         *             "working": false,
+         *             "_links": {
+         *               "self": {
+         *                 "href": "/api/v3/days/week/7"
+         *               }
+         *             }
+         *           }
+         *         ]
+         *       }
+         *     }
+         */
+        WeekDayCollectionWriteModel: {
+            /** @enum {string} */
+            _type: "Collection";
+            _embedded: {
+                /** @description The array of week days. */
+                elements: (components["schemas"]["WeekDayWriteModel"] & {
+                    _links: components["schemas"]["WeekDaySelfLinkModel"];
+                })[];
+            };
+        };
+        /**
+         * @example {
+         *       "_type": "WeekDay",
+         *       "day": 5,
+         *       "name": "Friday",
+         *       "working": false,
+         *       "_links": {
+         *         "self": {
+         *           "href": "/api/v3/day/week/5",
+         *           "title": "Friday"
+         *         }
+         *       }
+         *     }
+         */
+        WeekDayModel: {
+            /** @enum {string} */
+            _type: "WeekDay";
+            /** @description The week day from 1 to 7. 1 is Monday. 7 is Sunday. */
+            readonly day: number;
+            /** @description The week day name. */
+            name: string;
+            /** @description `true` for a working week day, `false` otherwise. */
+            working: boolean;
+            _links?: components["schemas"]["WeekDaySelfLinkModel"];
+        };
+        /**
+         * @description Identify a particular week day by its href.
+         * @example {
+         *       "self": {
+         *         "href": "/api/v3/days/week/3",
+         *         "title": "Wednesday"
+         *       }
+         *     }
+         */
+        WeekDaySelfLinkModel: {
+            self?: components["schemas"]["Link"] & unknown;
+        };
+        /**
+         * @description Describes a week day as a working day or a non-working day (weekend).
+         * @example {
+         *       "_type": "WeekDay",
+         *       "working": false
+         *     }
+         */
+        WeekDayWriteModel: {
+            /** @enum {string} */
+            _type: "WeekDay";
+            /** @description `true` for a working day. `false` for a weekend day. */
+            working: boolean;
+        };
+        /**
+         * @example {
+         *       "_type": "WikiPage",
+         *       "id": 72,
+         *       "title": "A wiki page with a name",
+         *       "_embedded": {
+         *         "project": {
+         *           "_type": "Project...",
+         *           "id": 12
+         *         }
+         *       },
+         *       "_links": {
+         *         "self": {
+         *           "href": "/api/v3/wiki_pages/72"
+         *         },
+         *         "attachments": {
+         *           "href": "/api/v3/wiki_pages/72/attachments"
+         *         },
+         *         "addAttachment": {
+         *           "href": "/api/v3/wiki_pages/72/attachments",
+         *           "method": "post"
+         *         },
+         *         "project": {
+         *           "href": "/api/v3/projects/12",
+         *           "title": "some project"
+         *         }
+         *       }
+         *     }
+         */
+        Wiki_PageModel: {
+            /** @description Identifier of this wiki page */
+            readonly id?: number;
+            /** @description The wiki page's title */
+            title: string;
+            _links?: {
+                addAttachment?: components["schemas"]["Link"] & unknown;
+            };
+        };
+        /**
+         * @example {
+         *       "_type": "WorkPackage",
+         *       "_links": {
+         *         "self": {
+         *           "href": "/api/v3/work_packages/1528",
+         *           "title": "Develop API"
+         *         },
+         *         "schema": {
+         *           "href": "/api/v3/work_packages/schemas/11-2"
+         *         },
+         *         "update": {
+         *           "href": "/api/v3/work_packages/1528",
+         *           "method": "patch",
+         *           "title": "Update Develop API"
+         *         },
+         *         "delete": {
+         *           "href": "/work_packages/bulk?ids=1528",
+         *           "method": "delete",
+         *           "title": "Delete Develop API"
+         *         },
+         *         "logTime": {
+         *           "href": "/work_packages/1528/time_entries/new",
+         *           "type": "text/html",
+         *           "title": "Log time on Develop API"
+         *         },
+         *         "move": {
+         *           "href": "/work_packages/1528/move/new",
+         *           "type": "text/html",
+         *           "title": "Move Develop API"
+         *         },
+         *         "attachments": {
+         *           "href": "/api/v3/work_packages/1528/attachments"
+         *         },
+         *         "addAttachment": {
+         *           "href": "/api/v3/work_packages/1528/attachments",
+         *           "method": "post"
+         *         },
+         *         "author": {
+         *           "href": "/api/v3/users/1",
+         *           "title": "OpenProject Admin - admin"
+         *         },
+         *         "customActions": [
+         *           {
+         *             "href": "/api/v3/work_packages/1528/custom_actions/153/execute",
+         *             "method": "post",
+         *             "title": "Reset"
+         *           },
+         *           {
+         *             "href": "/api/v3/work_packages/1528/custom_actions/94/execute",
+         *             "method": "post",
+         *             "title": "Forward to accounting"
+         *           }
+         *         ],
+         *         "responsible": {
+         *           "href": "/api/v3/users/23",
+         *           "title": "Laron Leuschke - Alaina5788"
+         *         },
+         *         "relations": {
+         *           "href": "/api/v3/work_packages/1528/relations",
+         *           "title": "Show relations"
+         *         },
+         *         "revisions": {
+         *           "href": "/api/v3/work_packages/1528/revisions"
+         *         },
+         *         "assignee": {
+         *           "href": "/api/v3/users/11",
+         *           "title": "Emmie Okuneva - Adele5450"
+         *         },
+         *         "priority": {
+         *           "href": "/api/v3/priorities/2",
+         *           "title": "Normal"
+         *         },
+         *         "project": {
+         *           "href": "/api/v3/portfolio/1",
+         *           "title": "A Test Portfolio"
+         *         },
+         *         "status": {
+         *           "href": "/api/v3/statuses/1",
+         *           "title": "New"
+         *         },
+         *         "type": {
+         *           "href": "/api/v3/types/1",
+         *           "title": "A Type"
+         *         },
+         *         "version": {
+         *           "href": "/api/v3/versions/1",
+         *           "title": "Version 1"
+         *         },
+         *         "availableWatchers": {
+         *           "href": "/api/v3/work_packages/1528/available_watchers"
+         *         },
+         *         "watch": {
+         *           "href": "/api/v3/work_packages/1528/watchers",
+         *           "method": "post",
+         *           "payload": {
+         *             "user": {
+         *               "href": "/api/v3/users/1"
+         *             }
+         *           }
+         *         },
+         *         "addWatcher": {
+         *           "href": "/api/v3/work_packages/1528/watchers",
+         *           "method": "post",
+         *           "payload": {
+         *             "user": {
+         *               "href": "/api/v3/users/{user_id}"
+         *             }
+         *           },
+         *           "templated": true
+         *         },
+         *         "removeWatcher": {
+         *           "href": "/api/v3/work_packages/1528/watchers/{user_id}",
+         *           "method": "delete",
+         *           "templated": true
+         *         },
+         *         "addRelation": {
+         *           "href": "/api/v3/relations",
+         *           "method": "post",
+         *           "title": "Add relation"
+         *         },
+         *         "changeParent": {
+         *           "href": "/api/v3/work_packages/694",
+         *           "method": "patch",
+         *           "title": "Change parent of Bug in OpenProject"
+         *         },
+         *         "addComment": {
+         *           "href": "/api/v3/work_packages/1528/activities",
+         *           "method": "post",
+         *           "title": "Add comment"
+         *         },
+         *         "parent": {
+         *           "href": "/api/v3/work_packages/1298",
+         *           "title": "nisi eligendi officiis eos delectus quis voluptas dolores"
+         *         },
+         *         "category": {
+         *           "href": "/api/v3/categories/1298",
+         *           "title": "eligend isi"
+         *         },
+         *         "children": [
+         *           {
+         *             "href": "/api/v3/work_packages/1529",
+         *             "title": "Write API documentation"
+         *           }
+         *         ],
+         *         "ancestors": [
+         *           {
+         *             "href": "/api/v3/work_packages/1290",
+         *             "title": "Root node of hierarchy"
+         *           },
+         *           {
+         *             "href": "/api/v3/work_packages/1291",
+         *             "title": "Intermediate node of hierarchy"
+         *           },
+         *           {
+         *             "href": "/api/v3/work_packages/1298",
+         *             "title": "nisi eligendi officiis eos delectus quis voluptas dolores"
+         *           }
+         *         ],
+         *         "timeEntries": {
+         *           "href": "/work_packages/1528/time_entries",
+         *           "type": "text/html",
+         *           "title": "Time entries"
+         *         },
+         *         "watchers": {
+         *           "href": "/api/v3/work_packages/1528/watchers"
+         *         },
+         *         "customField3": {
+         *           "href": "api/v3/users/14"
+         *         }
+         *       },
+         *       "id": 1528,
+         *       "subject": "Develop API",
+         *       "description": {
+         *         "format": "markdown",
+         *         "raw": "Develop super cool OpenProject API.",
+         *         "html": "<p>Develop super cool OpenProject API.</p>"
+         *       },
+         *       "scheduleManually": false,
+         *       "readonly": false,
+         *       "startDate": null,
+         *       "dueDate": null,
+         *       "derivedStartDate": null,
+         *       "derivedDueDate": null,
+         *       "estimatedTime": "PT2H",
+         *       "derivedEstimatedTime": "PT10H",
+         *       "percentageDone": 0,
+         *       "customField1": "Foo",
+         *       "customField2": 42,
+         *       "createdAt": "2014-08-29T12:40:53.373Z",
+         *       "updatedAt": "2014-08-29T12:44:41.981Z"
+         *     }
+         */
+        WorkPackageModel: components["schemas"]["CustomFieldProperties"] & {
+            /** @description Work package id */
+            readonly id?: number;
+            /**
+             * @description The user-facing identifier for the work package.
+             *     Its format depends on the `work_packages_identifier` setting.
+             *     When set to `semantic`: the project-based identifier (e.g. "PROJ-42").
+             *     When set to `classic`: the numeric ID as a string (e.g. "123").
+             */
+            readonly displayId?: string;
+            /** @description The version of the item as used for optimistic locking */
+            readonly lockVersion?: number;
+            /** @description Work package subject */
+            subject: string;
+            /** @enum {string} */
+            readonly _type?: "WorkPackage";
+            description?: components["schemas"]["Formattable"] & unknown;
+            /**
+             * @description Uses manual scheduling mode when true (default). Uses automatic scheduling
+             *     mode when false. Can be automatic only when predecessors or children are
+             *     present.
+             */
+            scheduleManually?: boolean;
+            /** @description If true, the work package is in a readonly status so with the exception of the status, no other property can be altered. */
+            readonly?: boolean;
+            /**
+             * Format: date
+             * @description Scheduled beginning of a work package
+             */
+            startDate?: string | null;
+            /**
+             * Format: date
+             * @description Scheduled end of a work package
+             */
+            dueDate?: string | null;
+            /**
+             * Format: date
+             * @description Date on which a milestone is achieved
+             */
+            date?: string | null;
+            /**
+             * Format: date
+             * @description Similar to start date but is not set by a client but rather deduced by the work packages' descendants. If manual scheduleManually is active, the two dates can deviate.
+             */
+            readonly derivedStartDate?: string | null;
+            /**
+             * Format: date
+             * @description Similar to due date but is not set by a client but rather deduced by the work packages' descendants. If manual scheduleManually is active, the two dates can deviate.
+             */
+            readonly derivedDueDate?: string | null;
+            /**
+             * Format: duration
+             * @description **(NOT IMPLEMENTED)** The amount of time in hours the work package needs to be completed.
+             *     Not available for milestone type of work packages.
+             */
+            readonly duration?: string | null;
+            /**
+             * Format: duration
+             * @description Time a work package likely needs to be completed excluding its descendants
+             */
+            estimatedTime?: string | null;
+            /**
+             * Format: duration
+             * @description Time a work package likely needs to be completed including its descendants
+             */
+            readonly derivedEstimatedTime?: string | null;
+            /**
+             * @description **(NOT IMPLEMENTED)** When scheduling, whether or not to ignore the non working days being defined.
+             *     A work package with the flag set to true will be allowed to be scheduled to a non working day.
+             */
+            readonly ignoreNonWorkingDays?: boolean;
+            /**
+             * @description The position this work package has in a version configured to be backlog (sprint or product).
+             *
+             *     # Conditions
+             *
+             *     **Permission** Backlogs needs to be enabled in the work package's project and the work package's type is configured to be a backlog type.
+             */
+            readonly position?: number | null;
+            /**
+             * Format: duration
+             * @description The time booked for this work package by users working on it
+             *
+             *     # Conditions
+             *
+             *     **Permission** view time entries
+             */
+            readonly spentTime?: string;
+            /**
+             * @description The estimation in story points on how long this work package will take to complete
+             *
+             *     # Conditions
+             *
+             *     **Permission** Backlogs needs to be enabled in the work package's project and the work package's type is configured to be a backlog type.
+             */
+            storyPoints?: number | null;
+            /** @description Amount of total completion for a work package */
+            percentageDone?: number | null;
+            /** @description Amount of total completion for a work package derived from itself and its descendant work packages */
+            readonly derivedPercentageDone?: number | null;
+            /**
+             * Format: date-time
+             * @description Time of creation. Can be writable by admins with the `apiv3_write_readonly_attributes` setting enabled.
+             */
+            readonly createdAt?: string;
+            /**
+             * Format: date-time
+             * @description Time of the most recent change to the work package.
+             */
+            readonly updatedAt?: string;
+            _links: {
+                addComment?: components["schemas"]["Link"] & unknown;
+                addRelation?: components["schemas"]["Link"] & unknown;
+                addWatcher?: components["schemas"]["Link"] & unknown;
+                readonly customActions?: (components["schemas"]["Link"] & unknown)[];
+                previewMarkup?: components["schemas"]["Link"] & unknown;
+                removeWatcher?: components["schemas"]["Link"] & unknown;
+                delete?: components["schemas"]["Link"] & unknown;
+                logTime?: components["schemas"]["Link"] & unknown;
+                move?: components["schemas"]["Link"] & unknown;
+                copy?: components["schemas"]["Link"] & unknown;
+                unwatch?: components["schemas"]["Link"] & unknown;
+                update?: components["schemas"]["Link"] & unknown;
+                updateImmediately?: components["schemas"]["Link"] & unknown;
+                watch?: components["schemas"]["Link"] & unknown;
+                self: components["schemas"]["Link"] & unknown;
+                schema: components["schemas"]["Link"] & unknown;
+                readonly ancestors: (components["schemas"]["Link"] & unknown)[];
+                attachments?: components["schemas"]["Link"] & unknown;
+                addAttachment?: components["schemas"]["Link"] & unknown;
+                prepareAttachment?: components["schemas"]["Link"] & unknown;
+                author: components["schemas"]["Link"] & unknown;
+                assignee?: components["schemas"]["Link"] & unknown;
+                availableWatchers?: components["schemas"]["Link"] & unknown;
+                budget?: components["schemas"]["Link"] & unknown;
+                category?: components["schemas"]["Link"] & unknown;
+                readonly children?: (components["schemas"]["Link"] & unknown)[];
+                addFileLink?: components["schemas"]["Link"] & unknown;
+                fileLinks?: components["schemas"]["Link"] & unknown;
+                parent?: components["schemas"]["Link"] & unknown;
+                priority: components["schemas"]["Link"] & unknown;
+                project: components["schemas"]["Link"] & unknown;
+                projectPhase?: components["schemas"]["Link"] & unknown;
+                projectPhaseDefinition?: components["schemas"]["Link"] & unknown;
+                responsible?: components["schemas"]["Link"] & unknown;
+                relations?: components["schemas"]["Link"] & unknown;
+                revisions?: components["schemas"]["Link"] & unknown;
+                status: components["schemas"]["Link"] & unknown;
+                sprint?: components["schemas"]["Link"] & unknown;
+                timeEntries?: components["schemas"]["Link"] & unknown;
+                type: components["schemas"]["Link"] & unknown;
+                version?: components["schemas"]["Link"] & unknown;
+                watchers?: components["schemas"]["Link"] & unknown;
+            };
+        };
+        /**
+         * @description The work package creation form. This object is returned, whenever a work package form endpoint is called. It contains
+         *     an allowed payload definition, the full schema and any validation errors on the current request body.
+         */
+        WorkPackageFormModel: {
+            /** @enum {string} */
+            _type?: "Form";
+            _embedded?: {
+                payload?: components["schemas"]["WorkPackageWriteModel"];
+                schema?: components["schemas"]["WorkPackageSchemaModel"];
+                /**
+                 * @description All validation errors, where the key is the faulty property. The object is empty, if the request body is
+                 *     valid.
+                 */
+                validationErrors?: Record<string, never>;
+            };
+            _links?: {
+                self?: components["schemas"]["Link"] & unknown;
+                validate?: components["schemas"]["Link"] & unknown;
+                previewMarkup?: components["schemas"]["Link"] & unknown;
+                customFields?: components["schemas"]["Link"] & unknown;
+                configureForm?: components["schemas"]["Link"] & unknown;
+            };
+        };
+        WorkPackagePatchModel: components["schemas"]["WorkPackageWriteModel"] & {
+            /** @description The version of the item as used for optimistic locking */
+            lockVersion: number;
+        };
+        /**
+         * @description A schema for a work package. This schema defines the attributes of a work package.
+         *
+         *     TODO: Incomplete, needs to be updated with the real behaviour of schemas (when does which attribute appear?).
+         */
+        WorkPackageSchemaModel: {
+            /** @enum {string} */
+            _type?: "Schema";
+            /** @description TBD */
+            _dependencies?: string[];
+            /** @description TBD (WorkPackageFormAttributeGroup) */
+            _attributeGroups?: Record<string, never>[];
+            lockVersion?: components["schemas"]["SchemaPropertyModel"];
+            id?: components["schemas"]["SchemaPropertyModel"];
+            subject?: components["schemas"]["SchemaPropertyModel"];
+            description?: components["schemas"]["SchemaPropertyModel"];
+            duration?: components["schemas"]["SchemaPropertyModel"];
+            scheduleManually?: components["schemas"]["SchemaPropertyModel"];
+            ignoreNonWorkingDays?: components["schemas"]["SchemaPropertyModel"];
+            startDate?: components["schemas"]["SchemaPropertyModel"];
+            dueDate?: components["schemas"]["SchemaPropertyModel"];
+            derivedStartDate?: components["schemas"]["SchemaPropertyModel"];
+            derivedDueDate?: components["schemas"]["SchemaPropertyModel"];
+            estimatedTime?: components["schemas"]["SchemaPropertyModel"];
+            derivedEstimatedTime?: components["schemas"]["SchemaPropertyModel"];
+            remainingTime?: components["schemas"]["SchemaPropertyModel"];
+            derivedRemainingTime?: components["schemas"]["SchemaPropertyModel"];
+            percentageDone?: components["schemas"]["SchemaPropertyModel"];
+            derivedPercentageDone?: components["schemas"]["SchemaPropertyModel"];
+            readonly?: components["schemas"]["SchemaPropertyModel"];
+            createdAt?: components["schemas"]["SchemaPropertyModel"];
+            updatedAt?: components["schemas"]["SchemaPropertyModel"];
+            author?: components["schemas"]["SchemaPropertyModel"];
+            position?: components["schemas"]["SchemaPropertyModel"];
+            project?: components["schemas"]["SchemaPropertyModel"];
+            projectPhase?: components["schemas"]["SchemaPropertyModel"];
+            projectPhaseDefinition?: components["schemas"]["SchemaPropertyModel"];
+            parent?: components["schemas"]["SchemaPropertyModel"];
+            sprint?: components["schemas"]["SchemaPropertyModel"];
+            storyPoints?: components["schemas"]["SchemaPropertyModel"];
+            assignee?: components["schemas"]["SchemaPropertyModel"];
+            responsible?: components["schemas"]["SchemaPropertyModel"];
+            type?: components["schemas"]["SchemaPropertyModel"];
+            status?: components["schemas"]["SchemaPropertyModel"];
+            category?: components["schemas"]["SchemaPropertyModel"];
+            version?: components["schemas"]["SchemaPropertyModel"];
+            priority?: components["schemas"]["SchemaPropertyModel"];
+            _links?: {
+                self?: components["schemas"]["Link"] & unknown;
+            };
+        };
+        /**
+         * @description This model is used for creating and updating work packages. It can also be used for validation against the work
+         *     package form endpoints.
+         */
+        WorkPackageWriteModel: {
+            /** @description Work package subject */
+            subject?: string;
+            description?: components["schemas"]["Formattable"] & unknown;
+            /**
+             * @description Uses manual scheduling mode when true (default). Uses automatic scheduling
+             *     mode when false. Can be automatic only when predecessors or children are
+             *     present.
+             */
+            scheduleManually?: boolean;
+            /**
+             * Format: date
+             * @description Scheduled beginning of a work package
+             */
+            startDate?: string | null;
+            /**
+             * Format: date
+             * @description Scheduled end of a work package
+             */
+            dueDate?: string | null;
+            /**
+             * Format: duration
+             * @description Time a work package likely needs to be completed excluding its descendants
+             */
+            estimatedTime?: string | null;
+            /**
+             * Format: duration
+             * @description The amount of time in hours the work package needs to be completed. This value must be bigger or equal to `P1D`,
+             *     and any the value will get floored to the nearest day.
+             *
+             *     The duration has no effect, unless either a start date or a due date is set.
+             *
+             *     Not available for milestone type of work packages.
+             */
+            duration?: string | null;
+            /**
+             * @description When scheduling, whether or not to ignore the non working days being defined.
+             *     A work package with the flag set to true will be allowed to be scheduled to a non working day.
+             */
+            ignoreNonWorkingDays?: boolean;
+            _links?: {
+                category?: components["schemas"]["Link"] & unknown;
+                type?: components["schemas"]["Link"] & unknown;
+                priority?: components["schemas"]["Link"] & unknown;
+                project?: components["schemas"]["Link"] & unknown;
+                status?: components["schemas"]["Link"] & unknown;
+                responsible?: components["schemas"]["Link"] & unknown;
+                assignee?: components["schemas"]["Link"] & unknown;
+                version?: components["schemas"]["Link"] & unknown;
+                parent?: components["schemas"]["Link"] & unknown;
+            };
+            /** @description Meta information for the work package request */
+            _meta?: {
+                /**
+                 * @description When set to true, explicitly validates all required custom fields on the work package, regardless of whether
+                 *     they are provided in the request body. This overrides the default behavior where only custom fields included
+                 *     in the request are validated. Use this parameter when you need to ensure all required custom fields have
+                 *     valid values before allowing the update to proceed.
+                 * @default false
+                 */
+                validateCustomFields: boolean;
+            };
+        };
+        /**
+         * @example {
+         *       "_links": {
+         *         "self": {
+         *           "href": "/api/v3/work_packages/1/revisions"
+         *         }
+         *       },
+         *       "total": 2,
+         *       "count": 2,
+         *       "_type": "Collection",
+         *       "_embedded": {
+         *         "elements": [
+         *           {
+         *             "_type": "Activity",
+         *             "_links": {
+         *               "self": {
+         *                 "href": "/api/v3/activity/1"
+         *               },
+         *               "workPackage": {
+         *                 "href": "/api/v3/work_packages/1"
+         *               },
+         *               "user": {
+         *                 "href": "/api/v3/users/1"
+         *               }
+         *             },
+         *             "id": 1,
+         *             "details": [],
+         *             "comment": {
+         *               "format": "markdown",
+         *               "raw": "Lorem ipsum dolor sit amet.",
+         *               "html": "<p>Lorem ipsum dolor sit amet.</p>"
+         *             },
+         *             "createdAt": "2014-05-21T08:51:20.396Z",
+         *             "updatedAt": "2014-05-21T09:14:02.324Z",
+         *             "version": 1
+         *           },
+         *           {
+         *             "_type": "Activity",
+         *             "_links": {
+         *               "self": {
+         *                 "href": "/api/v3/activity/2"
+         *               },
+         *               "workPackage": {
+         *                 "href": "/api/v3/work_packages/1"
+         *               },
+         *               "user": {
+         *                 "href": "/api/v3/users/1"
+         *               }
+         *             },
+         *             "id": 2,
+         *             "details": [],
+         *             "comment": {
+         *               "format": "markdown",
+         *               "raw": "Lorem ipsum dolor sit amet.",
+         *               "html": "<p>Lorem ipsum dolor sit amet.</p>"
+         *             },
+         *             "createdAt": "2014-05-21T09:51:22.769Z",
+         *             "updatedAt": "2014-05-21T10:14:02.927Z",
+         *             "version": 2
+         *           }
+         *         ]
+         *       }
+         *     }
+         */
+        Work_Package_activitiesModel: Record<string, never>;
+        /**
+         * @example {
+         *       "_links": {
+         *         "self": {
+         *           "href": "/api/v3/work_packages"
+         *         }
+         *       },
+         *       "total": 2,
+         *       "count": 2,
+         *       "_type": "Collection",
+         *       "_embedded": {
+         *         "elements": [
+         *           {
+         *             "_abbreviated": "Work package resource shortened for brevity",
+         *             "_type": "WorkPackage",
+         *             "_links": {
+         *               "self": {
+         *                 "href": "/api/v3/work_packages/1"
+         *               }
+         *             },
+         *             "id": 1
+         *           },
+         *           {
+         *             "_abbreviated": "Work package resource shortened for brevity",
+         *             "_type": "WorkPackage",
+         *             "_links": {
+         *               "self": {
+         *                 "href": "/api/v3/work_packages/2"
+         *               }
+         *             },
+         *             "id": 2
+         *           }
+         *         ]
+         *       }
+         *     }
+         */
+        Work_PackagesModel: components["schemas"]["CollectionModel"] & {
+            _links: {
+                self: components["schemas"]["Link"] & unknown;
+            };
+            _embedded: {
+                elements: components["schemas"]["WorkPackageModel"][];
+            };
+        };
+        WorkspaceCollectionModel: components["schemas"]["OffsetPaginatedCollectionModel"] & {
+            _links: components["schemas"]["OffsetPaginatedCollectionLinks"] & {
+                representations?: (components["schemas"]["Link"] & unknown)[];
+            };
+            _embedded: {
+                elements: (components["schemas"]["PortfolioModel"] | components["schemas"]["ProgramModel"] | components["schemas"]["ProjectModel"])[];
+            };
+        };
+        /**
+         * @description A schema for a workspace. This schema defines the attributes of a workspace.
+         * @example {
+         *       "_type": "Schema",
+         *       "_dependencies": [],
+         *       "_attributeGroups": [
+         *         {
+         *           "_type": "ProjectFormCustomFieldSection",
+         *           "name": "Project Details",
+         *           "attributes": [
+         *             "customField30",
+         *             "customField34"
+         *           ]
+         *         },
+         *         {
+         *           "_type": "ProjectFormCustomFieldSection",
+         *           "name": "Budget Information",
+         *           "attributes": [
+         *             "customField31",
+         *             "customField32",
+         *             "customField35"
+         *           ]
+         *         }
+         *       ],
+         *       "id": {
+         *         "type": "Integer",
+         *         "name": "ID",
+         *         "required": true,
+         *         "hasDefault": false,
+         *         "writable": false
+         *       },
+         *       "name": {
+         *         "type": "String",
+         *         "name": "Name",
+         *         "required": true,
+         *         "hasDefault": false,
+         *         "writable": true,
+         *         "minLength": 1,
+         *         "maxLength": 255
+         *       },
+         *       "identifier": {
+         *         "type": "String",
+         *         "name": "Identifier",
+         *         "required": true,
+         *         "hasDefault": false,
+         *         "writable": true,
+         *         "minLength": 1,
+         *         "maxLength": 100
+         *       },
+         *       "description": {
+         *         "type": "Formattable",
+         *         "name": "Description",
+         *         "required": false,
+         *         "hasDefault": false,
+         *         "writable": true
+         *       },
+         *       "public": {
+         *         "type": "Boolean",
+         *         "name": "Public",
+         *         "required": true,
+         *         "hasDefault": false,
+         *         "writable": true
+         *       },
+         *       "active": {
+         *         "type": "Boolean",
+         *         "name": "Active",
+         *         "required": true,
+         *         "hasDefault": true,
+         *         "writable": true
+         *       },
+         *       "status": {
+         *         "type": "ProjectStatus",
+         *         "name": "Status",
+         *         "required": false,
+         *         "hasDefault": true,
+         *         "writable": true,
+         *         "_links": {
+         *           "allowedValues": [
+         *             {
+         *               "href": "/api/v3/project_statuses/on_track",
+         *               "title": "On track"
+         *             },
+         *             {
+         *               "href": "/api/v3/project_statuses/at_risk",
+         *               "title": "At risk"
+         *             },
+         *             {
+         *               "href": "/api/v3/project_statuses/off_track",
+         *               "title": "Off track"
+         *             }
+         *           ]
+         *         }
+         *       },
+         *       "statusExplanation": {
+         *         "type": "Formattable",
+         *         "name": "Status explanation",
+         *         "required": false,
+         *         "hasDefault": false,
+         *         "writable": true
+         *       },
+         *       "parent": {
+         *         "type": "Workspace",
+         *         "name": "Subproject of",
+         *         "required": false,
+         *         "hasDefault": false,
+         *         "writable": true,
+         *         "location": "_links",
+         *         "visibility": "default",
+         *         "_links": {}
+         *       },
+         *       "createdAt": {
+         *         "type": "DateTime",
+         *         "name": "Created on",
+         *         "required": true,
+         *         "hasDefault": false,
+         *         "writable": false
+         *       },
+         *       "updatedAt": {
+         *         "type": "DateTime",
+         *         "name": "Updated on",
+         *         "required": true,
+         *         "hasDefault": false,
+         *         "writable": false
+         *       },
+         *       "customField30": {
+         *         "type": "Integer",
+         *         "name": "Integer project custom field",
+         *         "required": false,
+         *         "hasDefault": false,
+         *         "writable": true,
+         *         "visibility": "default"
+         *       },
+         *       "customField31": {
+         *         "type": "CustomOption",
+         *         "name": "List project custom field",
+         *         "required": false,
+         *         "hasDefault": false,
+         *         "writable": true,
+         *         "location": "_links",
+         *         "visibility": "default",
+         *         "_links": {}
+         *       },
+         *       "customField32": {
+         *         "type": "Version",
+         *         "name": "Version project custom field",
+         *         "required": false,
+         *         "hasDefault": false,
+         *         "writable": true,
+         *         "location": "_links",
+         *         "visibility": "default",
+         *         "_links": {}
+         *       },
+         *       "customField34": {
+         *         "type": "Boolean",
+         *         "name": "Boolean project custom field",
+         *         "required": false,
+         *         "hasDefault": false,
+         *         "writable": true,
+         *         "visibility": "default"
+         *       },
+         *       "customField35": {
+         *         "type": "String",
+         *         "name": "Text project custom field",
+         *         "required": true,
+         *         "hasDefault": false,
+         *         "writable": true,
+         *         "visibility": "default"
+         *       },
+         *       "customComment35": {
+         *         "type": "String",
+         *         "name": "Text project custom field comment",
+         *         "required": false,
+         *         "hasDefault": false,
+         *         "writable": true
+         *       },
+         *       "_links": {
+         *         "self": {
+         *           "href": "/api/v3/workspaces/schema"
+         *         }
+         *       }
+         *     }
+         */
+        Workspaces_schemaModel: {
+            /**
+             * @description The type identifier for this resource
+             * @enum {string}
+             */
+            _type?: "Schema";
+            /** @description Schema dependencies (currently empty for workspaces) */
+            _dependencies?: unknown[];
+            /**
+             * @description Defines the organizational structure of project custom fields into sections for UI rendering.
+             *
+             *     Each attribute group represents a project attribute section containing related project attributes.
+             *     The sections determine how project attributes are visually organized and grouped in forms.
+             *
+             *     **Key behaviors:**
+             *     - Admin-only project attributes appear only for users with admin privileges
+             *     - Empty sections (with no accessible project attributes) are omitted from the response
+             *     - The order reflects the configured section positioning in admin settings
+             *     - Each section contains only project attributes assigned to that specific section
+             *
+             *     **Example structure:**
+             *     ```json
+             *     [
+             *       {
+             *         "_type": "ProjectFormCustomFieldSection",
+             *         "name": "Project Details",
+             *         "attributes": ["customField1", "customField3"]
+             *       },
+             *       {
+             *         "_type": "ProjectFormCustomFieldSection",
+             *         "name": "Budget Information",
+             *         "attributes": ["customField2", "customField4"]
+             *       }
+             *     ]
+             *     ```
+             */
+            _attributeGroups?: {
+                /**
+                 * @description The type identifier for this resource
+                 * @enum {string}
+                 */
+                _type?: "ProjectFormCustomFieldSection";
+                /** @description The unique identifier of the custom field section */
+                id?: number;
+                /** @description The human-readable name of the custom field section */
+                name?: string;
+                /**
+                 * @description Array of camelCase custom field attribute names belonging to this section.
+                 *     Only includes custom fields visible to the current user.
+                 */
+                attributes?: string[];
+            }[];
+            id?: components["schemas"]["SchemaPropertyModel"];
+            name?: components["schemas"]["SchemaPropertyModel"];
+            identifier?: components["schemas"]["SchemaPropertyModel"];
+            description?: components["schemas"]["SchemaPropertyModel"];
+            public?: components["schemas"]["SchemaPropertyModel"];
+            active?: components["schemas"]["SchemaPropertyModel"];
+            status?: components["schemas"]["SchemaPropertyModel"];
+            statusExplanation?: components["schemas"]["SchemaPropertyModel"];
+            parent?: components["schemas"]["SchemaPropertyModel"];
+            createdAt?: components["schemas"]["SchemaPropertyModel"];
+            updatedAt?: components["schemas"]["SchemaPropertyModel"];
+            /** @description Links related to this resource */
+            _links?: {
+                self?: {
+                    /** @example /api/v3/workspaces/schema */
+                    href?: string;
+                };
+            };
+        } & {
+            [key: string]: components["schemas"]["SchemaPropertyModel"] | components["schemas"]["SchemaPropertyModel"];
         };
     };
     responses: {
-        InvalidQuery: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content?: never;
-        };
-        InvalidRequestBody: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content?: never;
-        };
-        MissingContentType: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content?: never;
-        };
-        UnsupportedMediaType: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content?: never;
-        };
-        /** @description Occurs when the client did not send a valid JSON object in the request body. */
-        invalid_request_body: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                /**
-                 * @example {
-                 *       "_type": "Error",
-                 *       "errorIdentifier": "urn:openproject-org:api:v3:errors:InvalidRequestBody",
-                 *       "message": "The request body was not a single JSON object."
-                 *     }
-                 */
-                "application/hal+json": components["schemas"]["error_response"];
-            };
-        };
-        /** @description Occurs when the client did not send a Content-Type header */
-        missing_content_type: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                /** @example Missing content-type header */
-                "text/plain": string;
-            };
-        };
-        /** @description Occurs when the client sends an unsupported Content-Type header. */
-        unsupported_media_type: {
-            headers: {
-                [name: string]: unknown;
-            };
-            content: {
-                /**
-                 * @example {
-                 *       "_type": "Error",
-                 *       "errorIdentifier": "urn:openproject-org:api:v3:errors:TypeNotSupported",
-                 *       "message": "Expected CONTENT-TYPE to be (expected value) but got (actual value)."
-                 *     }
-                 */
-                "application/hal+json": components["schemas"]["error_response"];
-            };
-        };
         /** @description Returned if the client sends invalid request parameters e.g. filters */
-        invalid_query: {
+        InvalidQuery: {
             headers: {
                 [name: string]: unknown;
             };
@@ -14469,7 +14049,49 @@ export interface components {
                  *       "message": "Filters Invalid filter does not exist."
                  *     }
                  */
-                "application/hal+json": components["schemas"]["error_response"];
+                "application/hal+json": components["schemas"]["ErrorResponse"];
+            };
+        };
+        /** @description Occurs when the client did not send a valid JSON object in the request body. */
+        InvalidRequestBody: {
+            headers: {
+                [name: string]: unknown;
+            };
+            content: {
+                /**
+                 * @example {
+                 *       "_type": "Error",
+                 *       "errorIdentifier": "urn:openproject-org:api:v3:errors:InvalidRequestBody",
+                 *       "message": "The request body was not a single JSON object."
+                 *     }
+                 */
+                "application/hal+json": components["schemas"]["ErrorResponse"];
+            };
+        };
+        /** @description Occurs when the client did not send a Content-Type header */
+        MissingContentType: {
+            headers: {
+                [name: string]: unknown;
+            };
+            content: {
+                /** @example Missing content-type header */
+                "text/plain": string;
+            };
+        };
+        /** @description Occurs when the client sends an unsupported Content-Type header. */
+        UnsupportedMediaType: {
+            headers: {
+                [name: string]: unknown;
+            };
+            content: {
+                /**
+                 * @example {
+                 *       "_type": "Error",
+                 *       "errorIdentifier": "urn:openproject-org:api:v3:errors:TypeNotSupported",
+                 *       "message": "Expected CONTENT-TYPE to be (expected value) but got (actual value)."
+                 *     }
+                 */
+                "application/hal+json": components["schemas"]["ErrorResponse"];
             };
         };
     };
@@ -14495,7 +14117,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["root_model"];
+                    "application/hal+json": components["schemas"]["RootModel"];
                 };
             };
         };
@@ -14533,7 +14155,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["list_actions_model"];
+                    "application/hal+json": components["schemas"]["List_actionsModel"];
                 };
             };
         };
@@ -14559,7 +14181,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["view_action_model"];
+                    "application/hal+json": components["schemas"]["View_actionModel"];
                 };
             };
             /** @description Returned if the action does not exist. */
@@ -14568,7 +14190,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -14594,7 +14216,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["activity_model"];
+                    "application/hal+json": components["schemas"]["ActivityModel"];
                 };
             };
         };
@@ -14614,7 +14236,7 @@ export interface operations {
         };
         requestBody?: {
             content: {
-                "application/json": components["schemas"]["activity_comment_write_model"];
+                "application/json": components["schemas"]["ActivityCommentWriteModel"];
             };
         };
         responses: {
@@ -14624,10 +14246,10 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["activity_model"];
+                    "application/hal+json": components["schemas"]["ActivityModel"];
                 };
             };
-            400: components["responses"]["invalid_request_body"];
+            400: components["responses"]["InvalidRequestBody"];
             /**
              * @description Returned if the client does not have sufficient permissions.
              *
@@ -14638,18 +14260,18 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
             /** @description Returned if the client tries to modify a read-only property. */
             422: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -14675,7 +14297,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["attachments_model"];
+                    "application/hal+json": components["schemas"]["Attachments_Model"];
                 };
             };
             /**
@@ -14694,7 +14316,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -14714,7 +14336,7 @@ export interface operations {
         };
         requestBody?: {
             content: {
-                "multipart/form-data": components["schemas"]["file_upload_form"];
+                "multipart/form-data": components["schemas"]["FileUploadForm"];
             };
         };
         responses: {
@@ -14724,7 +14346,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["attachment_model"];
+                    "application/hal+json": components["schemas"]["AttachmentModel"];
                 };
             };
             /**
@@ -14739,7 +14361,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -14754,7 +14376,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -14771,11 +14393,11 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
             /**
              * @description Returned if the client tries to send an invalid attachment.
              *     Reasons are:
@@ -14789,7 +14411,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -14815,7 +14437,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["emoji_reactions_model"];
+                    "application/hal+json": components["schemas"]["EmojiReactions_Model"];
                 };
             };
             /**
@@ -14834,7 +14456,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -14871,7 +14493,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["emoji_reaction_model"];
+                    "application/hal+json": components["schemas"]["EmojiReactionModel"];
                 };
             };
             /** @description Returned if the request is invalid. For example, if the reaction is not valid. */
@@ -14880,7 +14502,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /** @description Returned if the client does not have sufficient permissions to toggle the emoji reaction for the activity. */
@@ -14889,7 +14511,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -14901,7 +14523,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -14921,7 +14543,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["attachment_model"];
+                    "application/hal+json": components["schemas"]["AttachmentModel"];
                 };
             };
             /**
@@ -14943,7 +14565,7 @@ export interface operations {
                      *       "message": "The request could not be parsed as JSON."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -14963,11 +14585,11 @@ export interface operations {
                      *       "message": "You are not allowed to delete this attachment."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
             /**
              * @description Returned if the client tries to send an invalid attachment.
              *     Reasons are:
@@ -14988,7 +14610,7 @@ export interface operations {
                      *       "message": "File is too large (maximum size is 5242880 Bytes)."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -15014,7 +14636,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["attachment_model"];
+                    "application/hal+json": components["schemas"]["AttachmentModel"];
                 };
             };
             /**
@@ -15038,7 +14660,7 @@ export interface operations {
                      *       "message": "The specified attachment does not exist."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -15089,7 +14711,7 @@ export interface operations {
                      *       "message": "You are not allowed to delete this attachment."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -15113,11 +14735,11 @@ export interface operations {
                      *       "message": "The specified attachment does not exist."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
         };
     };
     view_Budget: {
@@ -15141,7 +14763,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["budget_model"];
+                    "application/hal+json": components["schemas"]["BudgetModel"];
                 };
             };
             /**
@@ -15154,7 +14776,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -15199,7 +14821,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["list_capabilities_model"];
+                    "application/hal+json": components["schemas"]["List_capabilitiesModel"];
                 };
             };
         };
@@ -15219,7 +14841,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["view_global_context_model"];
+                    "application/hal+json": components["schemas"]["View_global_contextModel"];
                 };
             };
             /** @description Returned if the action does not exist. */
@@ -15228,7 +14850,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -15254,7 +14876,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["view_capabilities_model"];
+                    "application/hal+json": components["schemas"]["View_capabilitiesModel"];
                 };
             };
             /** @description Returned if the capability does not exist. */
@@ -15263,7 +14885,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -15289,7 +14911,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["category_model"];
+                    "application/hal+json": components["schemas"]["CategoryModel"];
                 };
             };
             /**
@@ -15306,7 +14928,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -15326,7 +14948,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["configuration_model"];
+                    "application/hal+json": components["schemas"]["ConfigurationModel"];
                 };
             };
         };
@@ -15352,7 +14974,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["custom_action_model"];
+                    "application/hal+json": components["schemas"]["CustomActionModel"];
                 };
             };
             /**
@@ -15372,7 +14994,7 @@ export interface operations {
                      *       "message": "You are not authorized to access this resource."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /** @description Returned if the custom action does not exist. */
@@ -15388,7 +15010,7 @@ export interface operations {
                      *       "message": "The requested resource could not be found."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -15426,7 +15048,7 @@ export interface operations {
                 };
                 content?: never;
             };
-            400: components["responses"]["invalid_request_body"];
+            400: components["responses"]["InvalidRequestBody"];
             /**
              * @description Returned if the client does not have sufficient permissions.
              *
@@ -15437,7 +15059,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /** @description Returned if the custom action does not exist. */
@@ -15446,27 +15068,27 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
+            406: components["responses"]["MissingContentType"];
             /** @description Returned if the client provided an outdated lockVersion or no lockVersion at all. */
             409: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            415: components["responses"]["unsupported_media_type"];
+            415: components["responses"]["UnsupportedMediaType"];
             /** @description Returned if the custom action was not executed successfully e.g. when a constraint on a work package property was violated. */
             422: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -15503,7 +15125,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["hierarchy_item_collection_model"];
+                    "application/hal+json": components["schemas"]["HierarchyItemCollectionModel"];
                 };
             };
             /** @description Returned if the user is not logged in. */
@@ -15512,7 +15134,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /** @description Returned if the custom field does not exist or the user lacks the permission to view it. */
@@ -15521,7 +15143,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /** @description Returned if the custom field is not of type hierarchy. */
@@ -15530,7 +15152,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -15556,7 +15178,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["hierarchy_item_read_model"];
+                    "application/hal+json": components["schemas"]["HierarchyItemReadModel"];
                 };
             };
             /** @description Returned if the user is not logged in. */
@@ -15565,7 +15187,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -15578,7 +15200,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -15604,7 +15226,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["hierarchy_item_collection_model"];
+                    "application/hal+json": components["schemas"]["HierarchyItemCollectionModel"];
                 };
             };
             /** @description Returned if the user is not logged in. */
@@ -15613,7 +15235,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /** @description Returned if the custom field does not exist or the user lacks permission to view it. */
@@ -15622,7 +15244,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /** @description Returned if the custom field is not of type hierarchy. */
@@ -15631,7 +15253,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -15657,7 +15279,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["custom_option_model"];
+                    "application/hal+json": components["schemas"]["CustomOptionModel"];
                 };
             };
             /**
@@ -15670,7 +15292,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -15705,12 +15327,12 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["non_working_day_collection_model"];
+                    "application/hal+json": components["schemas"]["NonWorkingDayCollectionModel"];
                 };
             };
-            400: components["responses"]["invalid_request_body"];
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            400: components["responses"]["InvalidRequestBody"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
         };
     };
     create_non_working_day: {
@@ -15729,7 +15351,7 @@ export interface operations {
                  *       "name": "Christmas"
                  *     }
                  */
-                "application/json": components["schemas"]["non_working_day_model"];
+                "application/json": components["schemas"]["NonWorkingDayModel"];
             };
         };
         responses: {
@@ -15739,10 +15361,10 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["non_working_day_model"];
+                    "application/hal+json": components["schemas"]["NonWorkingDayModel"];
                 };
             };
-            400: components["responses"]["invalid_request_body"];
+            400: components["responses"]["InvalidRequestBody"];
             /** @description Returned if the client does not have sufficient permissions. */
             403: {
                 headers: {
@@ -15756,11 +15378,11 @@ export interface operations {
                      *       "message": "You are not authorized to access this resource."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
         };
     };
     view_non_working_day: {
@@ -15784,10 +15406,10 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["non_working_day_model"];
+                    "application/hal+json": components["schemas"]["NonWorkingDayModel"];
                 };
             };
-            400: components["responses"]["invalid_request_body"];
+            400: components["responses"]["InvalidRequestBody"];
             /** @description Returned if the given date is not a non-working day. */
             404: {
                 headers: {
@@ -15801,7 +15423,7 @@ export interface operations {
                      *       "message": "The requested resource could not be found."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -15832,7 +15454,7 @@ export interface operations {
                 };
                 content?: never;
             };
-            400: components["responses"]["invalid_request_body"];
+            400: components["responses"]["InvalidRequestBody"];
             /** @description Returned if the given date is not a non-working day. */
             404: {
                 headers: {
@@ -15846,11 +15468,11 @@ export interface operations {
                      *       "message": "The requested resource could not be found."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
         };
     };
     update_non_working_day: {
@@ -15875,7 +15497,7 @@ export interface operations {
                  *       "name": "Labour day"
                  *     }
                  */
-                "application/json": components["schemas"]["non_working_day_model"];
+                "application/json": components["schemas"]["NonWorkingDayModel"];
             };
         };
         responses: {
@@ -15885,10 +15507,10 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["non_working_day_model"];
+                    "application/hal+json": components["schemas"]["NonWorkingDayModel"];
                 };
             };
-            400: components["responses"]["invalid_request_body"];
+            400: components["responses"]["InvalidRequestBody"];
             /** @description Returned if the given date is not a non-working day. */
             404: {
                 headers: {
@@ -15902,11 +15524,11 @@ export interface operations {
                      *       "message": "The requested resource could not be found."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
         };
     };
     list_week_days: {
@@ -15924,10 +15546,10 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["week_day_collection_model"];
+                    "application/hal+json": components["schemas"]["WeekDayCollectionModel"];
                 };
             };
-            400: components["responses"]["invalid_request_body"];
+            400: components["responses"]["InvalidRequestBody"];
         };
     };
     update_week_days: {
@@ -15939,7 +15561,7 @@ export interface operations {
         };
         requestBody?: {
             content: {
-                "application/json": components["schemas"]["week_day_collection_write_model"];
+                "application/json": components["schemas"]["WeekDayCollectionWriteModel"];
             };
         };
         responses: {
@@ -15949,10 +15571,10 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["week_day_collection_model"];
+                    "application/hal+json": components["schemas"]["WeekDayCollectionModel"];
                 };
             };
-            400: components["responses"]["invalid_request_body"];
+            400: components["responses"]["InvalidRequestBody"];
             /** @description Returned if a week day resource can not be found. */
             404: {
                 headers: {
@@ -15966,11 +15588,11 @@ export interface operations {
                      *       "message": "The requested resource could not be found."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
         };
     };
     view_week_day: {
@@ -15991,10 +15613,10 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["week_day_model"];
+                    "application/hal+json": components["schemas"]["WeekDayModel"];
                 };
             };
-            400: components["responses"]["invalid_request_body"];
+            400: components["responses"]["InvalidRequestBody"];
             /** @description Returned if the day is out of the 1-7 range. */
             404: {
                 headers: {
@@ -16008,7 +15630,7 @@ export interface operations {
                      *       "message": "The requested resource could not be found."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -16031,7 +15653,7 @@ export interface operations {
                  *       "working": false
                  *     }
                  */
-                "application/json": components["schemas"]["week_day_write_model"];
+                "application/json": components["schemas"]["WeekDayWriteModel"];
             };
         };
         responses: {
@@ -16045,10 +15667,10 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["week_day_model"];
+                    "application/hal+json": components["schemas"]["WeekDayModel"];
                 };
             };
-            400: components["responses"]["invalid_request_body"];
+            400: components["responses"]["InvalidRequestBody"];
             /** @description Returned if the client does not have sufficient permissions. */
             403: {
                 headers: {
@@ -16062,7 +15684,7 @@ export interface operations {
                      *       "message": "You are not authorized to access this resource."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /** @description Returned if the day is out of the 1-7 range. */
@@ -16078,11 +15700,11 @@ export interface operations {
                      *       "message": "The requested resource could not be found."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
         };
     };
     list_days: {
@@ -16123,12 +15745,12 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["day_collection_model"];
+                    "application/hal+json": components["schemas"]["DayCollectionModel"];
                 };
             };
-            400: components["responses"]["invalid_request_body"];
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            400: components["responses"]["InvalidRequestBody"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
         };
     };
     view_day: {
@@ -16152,10 +15774,10 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["day_model"];
+                    "application/hal+json": components["schemas"]["DayModel"];
                 };
             };
-            400: components["responses"]["invalid_request_body"];
+            400: components["responses"]["InvalidRequestBody"];
         };
     };
     List_Documents: {
@@ -16194,7 +15816,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["documents_model"];
+                    "application/hal+json": components["schemas"]["DocumentsModel"];
                 };
             };
             /** @description Returned if the client sends invalid request parameters e.g. filters */
@@ -16203,7 +15825,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /** @description Returned if the client is not logged in and login is required. */
@@ -16212,7 +15834,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -16238,7 +15860,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["document_model"];
+                    "application/hal+json": components["schemas"]["DocumentModel"];
                 };
             };
             /**
@@ -16251,7 +15873,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -16288,7 +15910,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["document_model"];
+                    "application/hal+json": components["schemas"]["DocumentModel"];
                 };
             };
             /** @description Returned if the request body is invalid. */
@@ -16297,7 +15919,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -16310,7 +15932,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -16323,7 +15945,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /** @description Returned if the request body contains validation errors. */
@@ -16332,7 +15954,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -16360,7 +15982,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["example_form_model"];
+                    "application/hal+json": components["schemas"]["Example_FormModel"];
                 };
             };
             /**
@@ -16375,7 +15997,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /** @description Returned if the client does not have sufficient permissions to modify the associated resource. */
@@ -16384,20 +16006,20 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
+            406: components["responses"]["MissingContentType"];
             /** @description Returned if underlying resource was changed since the client requested the form. This is determined using the `lockVersion` property. */
             409: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            415: components["responses"]["unsupported_media_type"];
+            415: components["responses"]["UnsupportedMediaType"];
         };
     };
     view_the_schema: {
@@ -16415,7 +16037,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["example_schema_model"];
+                    "application/hal+json": components["schemas"]["Example_SchemaModel"];
                 };
             };
         };
@@ -16469,7 +16091,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["file_link_read_model"];
+                    "application/hal+json": components["schemas"]["FileLinkReadModel"];
                 };
             };
             /**
@@ -16489,7 +16111,7 @@ export interface operations {
                      *       "message": "The requested resource could not be found."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -16535,7 +16157,7 @@ export interface operations {
                      *       "message": "You are not authorized to access this resource."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -16556,7 +16178,7 @@ export interface operations {
                      *       "message": "The requested resource could not be found."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -16610,7 +16232,7 @@ export interface operations {
                      *       "message": "The requested resource could not be found."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -16658,7 +16280,7 @@ export interface operations {
                      *       "message": "The requested resource could not be found."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -16698,10 +16320,10 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["grid_collection_model"];
+                    "application/hal+json": components["schemas"]["GridCollectionModel"];
                 };
             };
-            400: components["responses"]["invalid_query"];
+            400: components["responses"]["InvalidQuery"];
             /** @description Returned if the client is not logged in and login is required. */
             403: {
                 headers: {
@@ -16715,7 +16337,7 @@ export interface operations {
                      *       "message": "You are not authorized to view this resource."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -16729,7 +16351,7 @@ export interface operations {
         };
         requestBody?: {
             content: {
-                "application/json": components["schemas"]["grid_write_model"];
+                "application/json": components["schemas"]["GridWriteModel"];
             };
         };
         responses: {
@@ -16739,10 +16361,10 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["grid_read_model"];
+                    "application/hal+json": components["schemas"]["GridReadModel"];
                 };
             };
-            400: components["responses"]["invalid_request_body"];
+            400: components["responses"]["InvalidRequestBody"];
             /**
              * @description Returned if the client does not have sufficient permissions.
              *
@@ -16760,11 +16382,11 @@ export interface operations {
                      *       "message": "You are not authorized to access this resource."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
             /**
              * @description Returned if:
              *
@@ -16817,7 +16439,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["grid_read_model"];
+                    "application/hal+json": components["schemas"]["GridReadModel"];
                 };
             };
             /**
@@ -16837,7 +16459,7 @@ export interface operations {
                      *       "message": "The requested resource could not be found."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -16857,7 +16479,7 @@ export interface operations {
         };
         requestBody?: {
             content: {
-                "application/json": components["schemas"]["grid_write_model"];
+                "application/json": components["schemas"]["GridWriteModel"];
             };
         };
         responses: {
@@ -16867,10 +16489,10 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["grid_read_model"];
+                    "application/hal+json": components["schemas"]["GridReadModel"];
                 };
             };
-            400: components["responses"]["invalid_request_body"];
+            400: components["responses"]["InvalidRequestBody"];
             /**
              * @description Returned if the client does not have sufficient permissions.
              *
@@ -16888,11 +16510,11 @@ export interface operations {
                      *       "message": "You are not authorized to access this resource."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
             /**
              * @description Returned if:
              *
@@ -16942,7 +16564,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -16955,11 +16577,11 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
         };
     };
     list_groups: {
@@ -16995,7 +16617,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["group_collection_model"];
+                    "application/hal+json": components["schemas"]["GroupCollectionModel"];
                 };
             };
             /**
@@ -17015,7 +16637,7 @@ export interface operations {
                      *       "message": "You are not authorized to access this resource."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -17029,7 +16651,7 @@ export interface operations {
         };
         requestBody?: {
             content: {
-                "application/json": components["schemas"]["group_write_model"];
+                "application/json": components["schemas"]["GroupWriteModel"];
             };
         };
         responses: {
@@ -17039,10 +16661,10 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["group_model"];
+                    "application/hal+json": components["schemas"]["GroupModel"];
                 };
             };
-            400: components["responses"]["invalid_request_body"];
+            400: components["responses"]["InvalidRequestBody"];
             /**
              * @description Returned if the client does not have sufficient permissions.
              *
@@ -17060,11 +16682,11 @@ export interface operations {
                      *       "message": "You are not authorized to access this resource."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
             /**
              * @description Returned if:
              *
@@ -17087,7 +16709,7 @@ export interface operations {
                      *       "message": "Name can't be blank."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -17113,7 +16735,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["group_model"];
+                    "application/hal+json": components["schemas"]["GroupModel"];
                 };
             };
             /**
@@ -17134,7 +16756,7 @@ export interface operations {
                      *       "message": "The requested resource could not be found."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -17183,7 +16805,7 @@ export interface operations {
                      *       "message": "You are not authorized to access this resource."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -17200,11 +16822,11 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
         };
     };
     update_group: {
@@ -17222,7 +16844,7 @@ export interface operations {
         };
         requestBody?: {
             content: {
-                "application/json": components["schemas"]["group_write_model"];
+                "application/json": components["schemas"]["GroupWriteModel"];
             };
         };
         responses: {
@@ -17232,10 +16854,10 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["group_model"];
+                    "application/hal+json": components["schemas"]["GroupModel"];
                 };
             };
-            400: components["responses"]["invalid_request_body"];
+            400: components["responses"]["InvalidRequestBody"];
             /**
              * @description Returned if the client does not have sufficient permissions.
              *
@@ -17253,7 +16875,7 @@ export interface operations {
                      *       "message": "You are not authorized to access this resource."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -17278,11 +16900,11 @@ export interface operations {
                      *       "message": "The requested resource could not be found."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
             /**
              * @description Returned if:
              *
@@ -17305,7 +16927,7 @@ export interface operations {
                      *       "message": "Member is already taken."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -17325,7 +16947,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["help_text_collection_model"];
+                    "application/hal+json": components["schemas"]["HelpTextCollectionModel"];
                 };
             };
         };
@@ -17351,7 +16973,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["help_text_model"];
+                    "application/hal+json": components["schemas"]["HelpTextModel"];
                 };
             };
             /** @description Returned if the help text does not exist. */
@@ -17367,7 +16989,7 @@ export interface operations {
                      *       "message": "The requested resource could not be found."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -17387,7 +17009,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["meeting_collection_model"];
+                    "application/hal+json": components["schemas"]["MeetingCollectionModel"];
                 };
             };
         };
@@ -17401,7 +17023,7 @@ export interface operations {
         };
         requestBody?: {
             content: {
-                "application/json": components["schemas"]["meeting_write_model"];
+                "application/json": components["schemas"]["MeetingWriteModel"];
             };
         };
         responses: {
@@ -17411,10 +17033,10 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["meeting_model"];
+                    "application/hal+json": components["schemas"]["MeetingModel"];
                 };
             };
-            400: components["responses"]["invalid_request_body"];
+            400: components["responses"]["InvalidRequestBody"];
             /**
              * @description Returned if the client does not have sufficient permissions.
              *
@@ -17425,11 +17047,11 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
             /**
              * @description Returned if:
              *
@@ -17464,7 +17086,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["meeting_model"];
+                    "application/hal+json": components["schemas"]["MeetingModel"];
                 };
             };
             /**
@@ -17477,7 +17099,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -17514,7 +17136,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -17527,11 +17149,11 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
         };
     };
     update_meeting: {
@@ -17549,7 +17171,7 @@ export interface operations {
         };
         requestBody?: {
             content: {
-                "application/json": components["schemas"]["meeting_write_model"];
+                "application/json": components["schemas"]["MeetingWriteModel"];
             };
         };
         responses: {
@@ -17559,10 +17181,10 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["meeting_model"];
+                    "application/hal+json": components["schemas"]["MeetingModel"];
                 };
             };
-            400: components["responses"]["invalid_request_body"];
+            400: components["responses"]["InvalidRequestBody"];
             /**
              * @description Returned if the client does not have sufficient permissions.
              *
@@ -17573,7 +17195,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -17586,11 +17208,11 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
             /**
              * @description Returned if:
              *
@@ -17625,7 +17247,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["meeting_agenda_item_collection_model"];
+                    "application/hal+json": components["schemas"]["MeetingAgendaItemCollectionModel"];
                 };
             };
             /**
@@ -17638,7 +17260,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -17658,7 +17280,7 @@ export interface operations {
         };
         requestBody?: {
             content: {
-                "application/json": components["schemas"]["meeting_agenda_item_write_model"];
+                "application/json": components["schemas"]["MeetingAgendaItemWriteModel"];
             };
         };
         responses: {
@@ -17668,10 +17290,10 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["meeting_agenda_item_model"];
+                    "application/hal+json": components["schemas"]["MeetingAgendaItemModel"];
                 };
             };
-            400: components["responses"]["invalid_request_body"];
+            400: components["responses"]["InvalidRequestBody"];
             /**
              * @description Returned if the client does not have sufficient permissions.
              *
@@ -17682,7 +17304,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /** @description Returned if the meeting does not exist or the client does not have sufficient permissions to see it. */
@@ -17691,11 +17313,11 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
             /**
              * @description Returned if:
              *
@@ -17735,7 +17357,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["meeting_agenda_item_model"];
+                    "application/hal+json": components["schemas"]["MeetingAgendaItemModel"];
                 };
             };
             /** @description Returned if the agenda item or meeting does not exist or the client does not have sufficient permissions. */
@@ -17744,7 +17366,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -17786,7 +17408,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /** @description Returned if the agenda item or meeting does not exist. */
@@ -17795,7 +17417,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -17820,7 +17442,7 @@ export interface operations {
         };
         requestBody?: {
             content: {
-                "application/json": components["schemas"]["meeting_agenda_item_write_model"];
+                "application/json": components["schemas"]["MeetingAgendaItemWriteModel"];
             };
         };
         responses: {
@@ -17830,10 +17452,10 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["meeting_agenda_item_model"];
+                    "application/hal+json": components["schemas"]["MeetingAgendaItemModel"];
                 };
             };
-            400: components["responses"]["invalid_request_body"];
+            400: components["responses"]["InvalidRequestBody"];
             /**
              * @description Returned if the client does not have sufficient permissions.
              *
@@ -17844,7 +17466,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /** @description Returned if the agenda item or meeting does not exist. */
@@ -17853,303 +17475,11 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
-            /**
-             * @description Returned if:
-             *
-             *     * a constraint for a property was violated (`PropertyConstraintViolation`)
-             */
-            422: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    list_meeting_outcomes: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description Meeting identifier
-                 * @example 1
-                 */
-                meeting_id: number;
-                /**
-                 * @description Agenda item identifier
-                 * @example 1
-                 */
-                agenda_item_id: number;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description OK */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/hal+json": components["schemas"]["meeting_outcome_collection_model"];
-                };
-            };
-            /**
-             * @description Returned if the agenda item or meeting does not exist or the client does not have sufficient permissions to see it.
-             *
-             *     **Required permission:** view meetings
-             */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/hal+json": components["schemas"]["error_response"];
-                };
-            };
-        };
-    };
-    create_meeting_outcome: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description Meeting identifier
-                 * @example 1
-                 */
-                meeting_id: number;
-                /**
-                 * @description Agenda item identifier
-                 * @example 1
-                 */
-                agenda_item_id: number;
-            };
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["meeting_outcome_write_model"];
-            };
-        };
-        responses: {
-            /** @description Created */
-            201: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/hal+json": components["schemas"]["meeting_outcome_model"];
-                };
-            };
-            400: components["responses"]["invalid_request_body"];
-            /**
-             * @description Returned if the client does not have sufficient permissions.
-             *
-             *     **Required permission:** manage outcomes
-             */
-            403: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/hal+json": components["schemas"]["error_response"];
-                };
-            };
-            /** @description Returned if the agenda item or meeting does not exist or the client does not have sufficient permissions to see it. */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/hal+json": components["schemas"]["error_response"];
-                };
-            };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
-            /**
-             * @description Returned if:
-             *
-             *     * a constraint for a property was violated (`PropertyConstraintViolation`)
-             */
-            422: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    get_meeting_outcome: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description Meeting identifier
-                 * @example 1
-                 */
-                meeting_id: number;
-                /**
-                 * @description Agenda item identifier
-                 * @example 1
-                 */
-                agenda_item_id: number;
-                /**
-                 * @description Outcome identifier
-                 * @example 1
-                 */
-                id: number;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description OK */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/hal+json": components["schemas"]["meeting_outcome_model"];
-                };
-            };
-            /** @description Returned if the outcome, agenda item, or meeting does not exist or the client does not have sufficient permissions. */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/hal+json": components["schemas"]["error_response"];
-                };
-            };
-        };
-    };
-    delete_meeting_outcome: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description Meeting identifier
-                 * @example 1
-                 */
-                meeting_id: number;
-                /**
-                 * @description Agenda item identifier
-                 * @example 1
-                 */
-                agenda_item_id: number;
-                /**
-                 * @description Outcome identifier
-                 * @example 1
-                 */
-                id: number;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description Returned if the outcome was successfully deleted */
-            204: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-            /**
-             * @description Returned if the client does not have sufficient permissions.
-             *
-             *     **Required permission:** manage outcomes
-             */
-            403: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/hal+json": components["schemas"]["error_response"];
-                };
-            };
-            /** @description Returned if the outcome, agenda item, or meeting does not exist. */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/hal+json": components["schemas"]["error_response"];
-                };
-            };
-        };
-    };
-    update_meeting_outcome: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /**
-                 * @description Meeting identifier
-                 * @example 1
-                 */
-                meeting_id: number;
-                /**
-                 * @description Agenda item identifier
-                 * @example 1
-                 */
-                agenda_item_id: number;
-                /**
-                 * @description Outcome identifier
-                 * @example 1
-                 */
-                id: number;
-            };
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["meeting_outcome_write_model"];
-            };
-        };
-        responses: {
-            /** @description OK */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/hal+json": components["schemas"]["meeting_outcome_model"];
-                };
-            };
-            400: components["responses"]["invalid_request_body"];
-            /**
-             * @description Returned if the client does not have sufficient permissions.
-             *
-             *     **Required permission:** manage outcomes
-             */
-            403: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/hal+json": components["schemas"]["error_response"];
-                };
-            };
-            /** @description Returned if the outcome, agenda item, or meeting does not exist. */
-            404: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/hal+json": components["schemas"]["error_response"];
-                };
-            };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
             /**
              * @description Returned if:
              *
@@ -18184,7 +17514,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["attachments_model"];
+                    "application/hal+json": components["schemas"]["Attachments_Model"];
                 };
             };
             /**
@@ -18201,7 +17531,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -18242,7 +17572,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -18257,7 +17587,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -18274,11 +17604,11 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
             /**
              * @description Returned if the client tries to send an invalid attachment.
              *     Reasons are:
@@ -18292,7 +17622,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -18319,7 +17649,7 @@ export interface operations {
                 };
                 content?: never;
             };
-            400: components["responses"]["invalid_request_body"];
+            400: components["responses"]["InvalidRequestBody"];
             /**
              * @description Returned if the client does not have sufficient permissions.
              *
@@ -18330,11 +17660,11 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
         };
     };
     list_meeting_sections: {
@@ -18358,7 +17688,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["meeting_section_collection_model"];
+                    "application/hal+json": components["schemas"]["MeetingSectionCollectionModel"];
                 };
             };
             /**
@@ -18371,7 +17701,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -18391,7 +17721,7 @@ export interface operations {
         };
         requestBody?: {
             content: {
-                "application/json": components["schemas"]["meeting_section_write_model"];
+                "application/json": components["schemas"]["MeetingSectionWriteModel"];
             };
         };
         responses: {
@@ -18401,10 +17731,10 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["meeting_section_model"];
+                    "application/hal+json": components["schemas"]["MeetingSectionModel"];
                 };
             };
-            400: components["responses"]["invalid_request_body"];
+            400: components["responses"]["InvalidRequestBody"];
             /**
              * @description Returned if the client does not have sufficient permissions.
              *
@@ -18415,7 +17745,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /** @description Returned if the meeting does not exist or the client does not have sufficient permissions to see it. */
@@ -18424,11 +17754,11 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
             /**
              * @description Returned if:
              *
@@ -18468,7 +17798,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["meeting_section_model"];
+                    "application/hal+json": components["schemas"]["MeetingSectionModel"];
                 };
             };
             /** @description Returned if the section or meeting does not exist or the client does not have sufficient permissions. */
@@ -18477,7 +17807,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -18519,7 +17849,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /** @description Returned if the section or meeting does not exist. */
@@ -18528,7 +17858,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -18553,7 +17883,7 @@ export interface operations {
         };
         requestBody?: {
             content: {
-                "application/json": components["schemas"]["meeting_section_write_model"];
+                "application/json": components["schemas"]["MeetingSectionWriteModel"];
             };
         };
         responses: {
@@ -18563,10 +17893,10 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["meeting_section_model"];
+                    "application/hal+json": components["schemas"]["MeetingSectionModel"];
                 };
             };
-            400: components["responses"]["invalid_request_body"];
+            400: components["responses"]["InvalidRequestBody"];
             /**
              * @description Returned if the client does not have sufficient permissions.
              *
@@ -18577,7 +17907,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /** @description Returned if the section or meeting does not exist. */
@@ -18586,11 +17916,11 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
             /**
              * @description Returned if:
              *
@@ -18620,7 +17950,7 @@ export interface operations {
                 };
                 content?: never;
             };
-            400: components["responses"]["invalid_request_body"];
+            400: components["responses"]["InvalidRequestBody"];
             /**
              * @description Returned if the client does not have sufficient permissions.
              *
@@ -18631,11 +17961,11 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
         };
     };
     get_meeting_schema: {
@@ -18664,7 +17994,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -18723,10 +18053,10 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["membership_collection_model"];
+                    "application/hal+json": components["schemas"]["MembershipCollectionModel"];
                 };
             };
-            400: components["responses"]["invalid_query"];
+            400: components["responses"]["InvalidQuery"];
             /** @description Returned if the client is not logged in and login is required. */
             403: {
                 headers: {
@@ -18740,7 +18070,7 @@ export interface operations {
                      *       "message": "You are not authorized to view this resource."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -18754,7 +18084,7 @@ export interface operations {
         };
         requestBody?: {
             content: {
-                "application/json": components["schemas"]["membership_write_model"];
+                "application/json": components["schemas"]["MembershipWriteModel"];
             };
         };
         responses: {
@@ -18764,10 +18094,10 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["membership_read_model"];
+                    "application/hal+json": components["schemas"]["MembershipReadModel"];
                 };
             };
-            400: components["responses"]["invalid_request_body"];
+            400: components["responses"]["InvalidRequestBody"];
             /**
              * @description Returned if the client does not have sufficient permissions.
              *
@@ -18778,11 +18108,11 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
             /**
              * @description Returned if:
              *
@@ -18805,7 +18135,7 @@ export interface operations {
                      *       "message": "Project can't be blank."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -18825,7 +18155,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["project_collection_model"];
+                    "application/hal+json": components["schemas"]["ProjectCollectionModel"];
                 };
             };
             /**
@@ -18845,7 +18175,7 @@ export interface operations {
                      *       "message": "You are not authorized to access this resource."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -18859,7 +18189,7 @@ export interface operations {
         };
         requestBody?: {
             content: {
-                "application/json": components["schemas"]["membership_write_model"];
+                "application/json": components["schemas"]["MembershipWriteModel"];
             };
         };
         responses: {
@@ -18869,10 +18199,10 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["membership_form_model"];
+                    "application/hal+json": components["schemas"]["MembershipFormModel"];
                 };
             };
-            400: components["responses"]["invalid_request_body"];
+            400: components["responses"]["InvalidRequestBody"];
             /**
              * @description Returned if the client does not have sufficient permissions.
              *
@@ -18890,11 +18220,11 @@ export interface operations {
                      *       "message": "You are not authorized to access this resource."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
         };
     };
     get_membership_schema: {
@@ -18912,7 +18242,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["membership_schema_model"];
+                    "application/hal+json": components["schemas"]["MembershipSchemaModel"];
                 };
             };
             /**
@@ -18925,7 +18255,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -18951,7 +18281,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["membership_read_model"];
+                    "application/hal+json": components["schemas"]["MembershipReadModel"];
                 };
             };
             /**
@@ -18975,7 +18305,7 @@ export interface operations {
                      *       "message": "The requested resource could not be found."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -19019,7 +18349,7 @@ export interface operations {
                      *       "message": "You are not authorized to access this resource."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -19043,11 +18373,11 @@ export interface operations {
                      *       "message": "The requested resource could not be found."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
         };
     };
     update_membership: {
@@ -19065,7 +18395,7 @@ export interface operations {
         };
         requestBody?: {
             content: {
-                "application/json": components["schemas"]["membership_write_model"];
+                "application/json": components["schemas"]["MembershipWriteModel"];
             };
         };
         responses: {
@@ -19075,10 +18405,10 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["membership_read_model"];
+                    "application/hal+json": components["schemas"]["MembershipReadModel"];
                 };
             };
-            400: components["responses"]["invalid_request_body"];
+            400: components["responses"]["InvalidRequestBody"];
             /**
              * @description Returned if the client does not have sufficient permissions.
              *
@@ -19096,7 +18426,7 @@ export interface operations {
                      *       "message": "You are not authorized to access this resource."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -19120,11 +18450,11 @@ export interface operations {
                      *       "message": "The requested resource could not be found."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
             /**
              * @description Returned if:
              *
@@ -19147,7 +18477,7 @@ export interface operations {
                      *       "message": "Roles has an unassignable role."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -19167,7 +18497,7 @@ export interface operations {
         };
         requestBody?: {
             content: {
-                "application/json": components["schemas"]["membership_write_model"];
+                "application/json": components["schemas"]["MembershipWriteModel"];
             };
         };
         responses: {
@@ -19177,10 +18507,10 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["membership_read_model"];
+                    "application/hal+json": components["schemas"]["MembershipReadModel"];
                 };
             };
-            400: components["responses"]["invalid_request_body"];
+            400: components["responses"]["InvalidRequestBody"];
             /**
              * @description Returned if the client does not have sufficient permissions.
              *
@@ -19198,11 +18528,11 @@ export interface operations {
                      *       "message": "You are not authorized to access this resource."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
         };
     };
     Show_my_preferences: {
@@ -19220,7 +18550,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["user_preferences_model"];
+                    "application/hal+json": components["schemas"]["UserPreferencesModel"];
                 };
             };
             /** @description Returned if no user is currently authenticated */
@@ -19229,7 +18559,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -19256,21 +18586,21 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["user_preferences_model"];
+                    "application/hal+json": components["schemas"]["UserPreferencesModel"];
                 };
             };
-            400: components["responses"]["invalid_request_body"];
+            400: components["responses"]["InvalidRequestBody"];
             /** @description Returned if no user is currently authenticated */
             401: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
             /**
              * @description Returned if the update contains invalid properties.
              *     Reasons are:
@@ -19284,7 +18614,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -19333,17 +18663,17 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["list_of_news_model"];
+                    "application/hal+json": components["schemas"]["List_of_NewsModel"];
                 };
             };
-            400: components["responses"]["invalid_request_body"];
+            400: components["responses"]["InvalidRequestBody"];
             /** @description Returned if the client is not logged in and login is required. */
             403: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -19357,7 +18687,7 @@ export interface operations {
         };
         requestBody?: {
             content: {
-                "application/json": components["schemas"]["news_create_model"];
+                "application/json": components["schemas"]["NewsCreateModel"];
             };
         };
         responses: {
@@ -19367,10 +18697,10 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["news_model"];
+                    "application/hal+json": components["schemas"]["NewsModel"];
                 };
             };
-            400: components["responses"]["invalid_request_body"];
+            400: components["responses"]["InvalidRequestBody"];
             /**
              * @description Returned if the client does not have sufficient permissions.
              *
@@ -19388,11 +18718,11 @@ export interface operations {
                      *       "message": "You are not allowed to create new news."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
             /**
              * @description Returned if:
              *
@@ -19417,7 +18747,7 @@ export interface operations {
                      *       "message": "Title can't be blank."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -19443,7 +18773,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["news_model"];
+                    "application/hal+json": components["schemas"]["NewsModel"];
                 };
             };
             /**
@@ -19456,7 +18786,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -19505,7 +18835,7 @@ export interface operations {
                      *       "message": "You are not allowed to delete this news entry"
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /** @description Returned if the news does not exist. */
@@ -19521,7 +18851,7 @@ export interface operations {
                      *       "message": "The specified news does not exist."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -19541,7 +18871,7 @@ export interface operations {
         };
         requestBody?: {
             content: {
-                "application/json": components["schemas"]["news_create_model"];
+                "application/json": components["schemas"]["NewsCreateModel"];
             };
         };
         responses: {
@@ -19551,10 +18881,10 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["news_model"];
+                    "application/hal+json": components["schemas"]["NewsModel"];
                 };
             };
-            400: components["responses"]["invalid_request_body"];
+            400: components["responses"]["InvalidRequestBody"];
             /**
              * @description Returned if the client does not have sufficient permissions.
              *
@@ -19572,7 +18902,7 @@ export interface operations {
                      *       "message": "You are not allowed to update this news."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -19592,11 +18922,11 @@ export interface operations {
                      *       "message": "The specified news does not exist or you do not have permission to view it."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
             /**
              * @description Returned if:
              *
@@ -19621,7 +18951,7 @@ export interface operations {
                      *       "message": "Title can't be blank."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -19691,7 +19021,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["notification_collection_model"];
+                    "application/hal+json": components["schemas"]["NotificationCollectionModel"];
                 };
             };
             /** @description Returned if the client is not logged in and login is required. */
@@ -19707,7 +19037,7 @@ export interface operations {
                      *       "message": "You are not authorized to view this resource."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /** @description Returned if the client sends invalid request parameters e.g. filters */
@@ -19723,7 +19053,7 @@ export interface operations {
                      *       "message": "Filters Invalid filter does not exist."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -19779,11 +19109,11 @@ export interface operations {
                      *       ]
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
         };
     };
     unread_notifications: {
@@ -19822,9 +19152,9 @@ export interface operations {
                 };
                 content?: never;
             };
-            400: components["responses"]["invalid_request_body"];
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            400: components["responses"]["InvalidRequestBody"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
         };
     };
     view_notification: {
@@ -19848,7 +19178,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["notification_model"];
+                    "application/hal+json": components["schemas"]["NotificationModel"];
                 };
             };
             /**
@@ -19868,7 +19198,7 @@ export interface operations {
                      *       "message": "The requested resource could not be found."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -19899,7 +19229,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["values_property_model"];
+                    "application/hal+json": components["schemas"]["ValuesPropertyModel"];
                 };
             };
             /**
@@ -19919,7 +19249,7 @@ export interface operations {
                      *       "message": "The requested resource could not be found."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -19963,7 +19293,7 @@ export interface operations {
                      *       "message": "The requested resource could not be found."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -20007,7 +19337,7 @@ export interface operations {
                      *       "message": "The requested resource could not be found."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -20033,7 +19363,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["oauth_application_read_model"];
+                    "application/hal+json": components["schemas"]["OAuthApplicationReadModel"];
                 };
             };
             /**
@@ -20046,7 +19376,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /** @description Returned if the application does not exist. */
@@ -20062,7 +19392,7 @@ export interface operations {
                      *       "message": "The requested resource could not be found."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -20088,7 +19418,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["oauth_client_credentials_read_model"];
+                    "application/hal+json": components["schemas"]["OAuthClientCredentialsReadModel"];
                 };
             };
             /**
@@ -20101,7 +19431,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /** @description Returned if the object does not exist. */
@@ -20117,7 +19447,7 @@ export interface operations {
                      *       "message": "The requested resource could not be found."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -20154,7 +19484,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["principal_collection_model"];
+                    "application/hal+json": components["schemas"]["PrincipalCollectionModel"];
                 };
             };
             /** @description Returned if the client sends invalid request parameters e.g. filters */
@@ -20170,7 +19500,7 @@ export interface operations {
                      *       "message": "Filters Invalid filter does not exist."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -20184,7 +19514,7 @@ export interface operations {
         };
         requestBody?: {
             content: {
-                "application/json": components["schemas"]["placeholder_user_create_model"];
+                "application/json": components["schemas"]["PlaceholderUserCreateModel"];
             };
         };
         responses: {
@@ -20194,10 +19524,10 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["placeholder_user_model"];
+                    "application/hal+json": components["schemas"]["PlaceholderUserModel"];
                 };
             };
-            400: components["responses"]["invalid_request_body"];
+            400: components["responses"]["InvalidRequestBody"];
             /**
              * @description Returned if the client does not have sufficient permissions.
              *
@@ -20215,11 +19545,11 @@ export interface operations {
                      *       "message": "You are not allowed to create new placeholder users."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
             /**
              * @description Returned if:
              *
@@ -20242,7 +19572,7 @@ export interface operations {
                      *       "message": "Name has already been taken."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -20268,7 +19598,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["placeholder_user_model"];
+                    "application/hal+json": components["schemas"]["PlaceholderUserModel"];
                 };
             };
             /**
@@ -20288,7 +19618,7 @@ export interface operations {
                      *       "message": "The specified placeholder user does not exist or you do not have permission to view them."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -20337,7 +19667,7 @@ export interface operations {
                      *       "message": "You are not allowed to delete the account of this user."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /** @description Returned if the placeholder user does not exist. */
@@ -20353,7 +19683,7 @@ export interface operations {
                      *       "message": "The specified placeholder user does not exist."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -20373,7 +19703,7 @@ export interface operations {
         };
         requestBody?: {
             content: {
-                "application/json": components["schemas"]["placeholder_user_create_model"];
+                "application/json": components["schemas"]["PlaceholderUserCreateModel"];
             };
         };
         responses: {
@@ -20383,10 +19713,10 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["placeholder_user_model"];
+                    "application/hal+json": components["schemas"]["PlaceholderUserModel"];
                 };
             };
-            400: components["responses"]["invalid_request_body"];
+            400: components["responses"]["InvalidRequestBody"];
             /**
              * @description Returned if the client does not have sufficient permissions.
              *
@@ -20404,7 +19734,7 @@ export interface operations {
                      *       "message": "You are not allowed to update the account of this user."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /** @description Returned if the placeholder user does not exist. */
@@ -20420,11 +19750,11 @@ export interface operations {
                      *       "message": "The specified placeholder user does not exist."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
             /**
              * @description Returned if:
              *
@@ -20448,7 +19778,7 @@ export interface operations {
                      *       "message": "Name has already been taken."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -20523,7 +19853,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["portfolio_collection_model"];
+                    "application/hal+json": components["schemas"]["PortfolioCollectionModel"];
                 };
             };
             /** @description Returned if the client sends invalid request parameters e.g. filters */
@@ -20539,7 +19869,7 @@ export interface operations {
                      *       "message": "Filters Invalid filter does not exist."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -20565,7 +19895,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["portfolio_model"];
+                    "application/hal+json": components["schemas"]["PortfolioModel"];
                 };
             };
             /**
@@ -20582,7 +19912,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -20622,7 +19952,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -20639,11 +19969,11 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
             /**
              * @description Returned if the portfolio cannot be deleted. This can happen when there are still references to the portfolio in other workspaces
              *     that need to be severed at first.
@@ -20653,7 +19983,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -20673,7 +20003,7 @@ export interface operations {
         };
         requestBody?: {
             content: {
-                "application/json": components["schemas"]["portfolio_model"];
+                "application/json": components["schemas"]["PortfolioModel"];
             };
         };
         responses: {
@@ -20683,10 +20013,10 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["portfolio_model"];
+                    "application/hal+json": components["schemas"]["PortfolioModel"];
                 };
             };
-            400: components["responses"]["invalid_request_body"];
+            400: components["responses"]["InvalidRequestBody"];
             /**
              * @description Returned if the client does not have sufficient permissions.
              *
@@ -20697,7 +20027,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -20714,11 +20044,11 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
             /**
              * @description Returned if:
              *
@@ -20729,7 +20059,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -20760,7 +20090,7 @@ export interface operations {
                 };
                 content?: never;
             };
-            400: components["responses"]["invalid_request_body"];
+            400: components["responses"]["InvalidRequestBody"];
             /**
              * @description Returned if the client does not have sufficient permissions.
              *
@@ -20771,11 +20101,11 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
         };
     };
     View_Post: {
@@ -20799,7 +20129,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["post_model"];
+                    "application/hal+json": components["schemas"]["PostModel"];
                 };
             };
             /**
@@ -20812,7 +20142,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -20838,7 +20168,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["attachments_model"];
+                    "application/hal+json": components["schemas"]["Attachments_Model"];
                 };
             };
             /**
@@ -20855,7 +20185,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -20896,7 +20226,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -20911,7 +20241,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -20928,11 +20258,11 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
             /**
              * @description Returned if the client tries to send an invalid attachment.
              *     Reasons are:
@@ -20946,7 +20276,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -20985,7 +20315,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["principal_collection_model"];
+                    "application/hal+json": components["schemas"]["PrincipalCollectionModel"];
                 };
             };
             /** @description Returned if the client sends invalid request parameters e.g. filters */
@@ -21001,7 +20331,7 @@ export interface operations {
                      *       "message": "Filters Invalid filter does not exist."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -21021,7 +20351,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["priority_collection_model"];
+                    "application/hal+json": components["schemas"]["PriorityCollectionModel"];
                 };
             };
             /**
@@ -21034,7 +20364,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -21060,7 +20390,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["priority_model"];
+                    "application/hal+json": components["schemas"]["PriorityModel"];
                 };
             };
             /**
@@ -21073,7 +20403,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -21148,7 +20478,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["program_collection_model"];
+                    "application/hal+json": components["schemas"]["ProgramCollectionModel"];
                 };
             };
             /** @description Returned if the client sends invalid request parameters e.g. filters */
@@ -21164,7 +20494,7 @@ export interface operations {
                      *       "message": "Filters Invalid filter does not exist."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -21190,7 +20520,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["program_model"];
+                    "application/hal+json": components["schemas"]["ProgramModel"];
                 };
             };
             /**
@@ -21207,7 +20537,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -21247,7 +20577,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -21264,11 +20594,11 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
             /**
              * @description Returned if the program cannot be deleted. This can happen when there are still references to the program in other workspaces
              *     that need to be severed at first.
@@ -21278,7 +20608,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -21298,7 +20628,7 @@ export interface operations {
         };
         requestBody?: {
             content: {
-                "application/json": components["schemas"]["program_model"];
+                "application/json": components["schemas"]["ProgramModel"];
             };
         };
         responses: {
@@ -21308,10 +20638,10 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["program_model"];
+                    "application/hal+json": components["schemas"]["ProgramModel"];
                 };
             };
-            400: components["responses"]["invalid_request_body"];
+            400: components["responses"]["InvalidRequestBody"];
             /**
              * @description Returned if the client does not have sufficient permissions.
              *
@@ -21322,7 +20652,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -21339,11 +20669,11 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
             /**
              * @description Returned if:
              *
@@ -21354,7 +20684,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -21385,7 +20715,7 @@ export interface operations {
                 };
                 content?: never;
             };
-            400: components["responses"]["invalid_request_body"];
+            400: components["responses"]["InvalidRequestBody"];
             /**
              * @description Returned if the client does not have sufficient permissions.
              *
@@ -21396,11 +20726,11 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
         };
     };
     get_project_phase: {
@@ -21424,7 +20754,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["project_phase_model"];
+                    "application/hal+json": components["schemas"]["ProjectPhaseModel"];
                 };
             };
             /**
@@ -21444,7 +20774,7 @@ export interface operations {
                      *       "message": "The requested resource could not be found."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -21464,7 +20794,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["project_phase_definition_collection_model"];
+                    "application/hal+json": components["schemas"]["ProjectPhaseDefinitionCollectionModel"];
                 };
             };
             /** @description Returned if the client sends invalid request parameters e.g. filters */
@@ -21480,7 +20810,7 @@ export interface operations {
                      *       "message": "Filters Invalid filter does not exist."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -21506,7 +20836,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["project_phase_definition_model"];
+                    "application/hal+json": components["schemas"]["ProjectPhaseDefinitionModel"];
                 };
             };
             /**
@@ -21526,7 +20856,7 @@ export interface operations {
                      *       "message": "You are not authorized to access this resource."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -21558,7 +20888,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["project_storage_collection_model"];
+                    "application/hal+json": components["schemas"]["ProjectStorageCollectionModel"];
                 };
             };
             /** @description Returned if any given filter is invalid. */
@@ -21574,7 +20904,7 @@ export interface operations {
                      *       "message": "The query parameter 'filters' is missing or malformed."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -21600,7 +20930,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["project_storage_model"];
+                    "application/hal+json": components["schemas"]["ProjectStorageModel"];
                 };
             };
             /**
@@ -21620,7 +20950,7 @@ export interface operations {
                      *       "message": "The requested resource could not be found."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -21661,7 +20991,7 @@ export interface operations {
                      *       "message": "You are not authorized to access this resource."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -21681,7 +21011,7 @@ export interface operations {
                      *       "message": "The requested resource could not be found."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -21756,7 +21086,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["project_collection_model"];
+                    "application/hal+json": components["schemas"]["ProjectCollectionModel"];
                 };
             };
             /** @description Returned if the client sends invalid request parameters e.g. filters */
@@ -21772,7 +21102,7 @@ export interface operations {
                      *       "message": "Filters Invalid filter does not exist."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -21786,7 +21116,7 @@ export interface operations {
         };
         requestBody?: {
             content: {
-                "application/json": components["schemas"]["project_model"];
+                "application/json": components["schemas"]["ProjectModel"];
             };
         };
         responses: {
@@ -21796,10 +21126,10 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["project_model"];
+                    "application/hal+json": components["schemas"]["ProjectModel"];
                 };
             };
-            400: components["responses"]["invalid_request_body"];
+            400: components["responses"]["InvalidRequestBody"];
             /**
              * @description Returned if the client does not have sufficient permissions.
              *
@@ -21810,11 +21140,11 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
             /**
              * @description Returned if:
              *
@@ -21837,7 +21167,7 @@ export interface operations {
                      *       "message": "Name can't be blank."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -21864,7 +21194,7 @@ export interface operations {
                     "application/hal+json": Record<string, never>;
                 };
             };
-            400: components["responses"]["invalid_request_body"];
+            400: components["responses"]["InvalidRequestBody"];
             /**
              * @description Returned if the client does not have sufficient permissions.
              *
@@ -21875,11 +21205,11 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
         };
     };
     View_project_schema: {
@@ -21897,7 +21227,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["workspaces_schema_model"];
+                    "application/hal+json": components["schemas"]["Workspaces_schemaModel"];
                 };
             };
         };
@@ -21923,7 +21253,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["project_model"];
+                    "application/hal+json": components["schemas"]["ProjectModel"];
                 };
             };
             /**
@@ -21940,7 +21270,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -21980,7 +21310,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -21997,11 +21327,11 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
             /**
              * @description Returned if the project cannot be deleted. This can happen when there are still references to the project in other workspaces
              *     that need to be severed at first.
@@ -22011,7 +21341,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -22031,7 +21361,7 @@ export interface operations {
         };
         requestBody?: {
             content: {
-                "application/json": components["schemas"]["project_model"];
+                "application/json": components["schemas"]["ProjectModel"];
             };
         };
         responses: {
@@ -22041,10 +21371,10 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["project_model"];
+                    "application/hal+json": components["schemas"]["ProjectModel"];
                 };
             };
-            400: components["responses"]["invalid_request_body"];
+            400: components["responses"]["InvalidRequestBody"];
             /**
              * @description Returned if the client does not have sufficient permissions.
              *
@@ -22055,7 +21385,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -22072,11 +21402,11 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
             /**
              * @description Returned if:
              *
@@ -22087,7 +21417,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -22118,7 +21448,7 @@ export interface operations {
                 };
                 content?: never;
             };
-            400: components["responses"]["invalid_request_body"];
+            400: components["responses"]["InvalidRequestBody"];
             /**
              * @description Returned if the client does not have sufficient permissions.
              *
@@ -22129,11 +21459,11 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
         };
     };
     Create_project_copy: {
@@ -22158,7 +21488,7 @@ export interface operations {
                 };
                 content?: never;
             };
-            400: components["responses"]["invalid_request_body"];
+            400: components["responses"]["InvalidRequestBody"];
             /**
              * @description Returned if the client does not have sufficient permissions.
              *
@@ -22169,11 +21499,11 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
             /**
              * @description Returned if:
              *
@@ -22184,7 +21514,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -22211,7 +21541,7 @@ export interface operations {
                 };
                 content?: never;
             };
-            400: components["responses"]["invalid_request_body"];
+            400: components["responses"]["InvalidRequestBody"];
             /**
              * @description Returned if the client does not have sufficient permissions.
              *
@@ -22222,11 +21552,11 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
         };
     };
     View_project_status: {
@@ -22250,7 +21580,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["view_project_status_model"];
+                    "application/hal+json": components["schemas"]["View_project_statusModel"];
                 };
             };
             /** @description Returned if the project status does not exist. */
@@ -22259,7 +21589,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -22302,7 +21632,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["list_available_parent_project_candidates_model"];
+                    "application/hal+json": components["schemas"]["List_available_parent_project_candidatesModel"];
                 };
             };
             /**
@@ -22315,7 +21645,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -22341,7 +21671,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["budgets_by_project_model"];
+                    "application/hal+json": components["schemas"]["Budgets_by_ProjectModel"];
                 };
             };
             /**
@@ -22357,7 +21687,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -22379,7 +21709,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -22453,7 +21783,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["default_query_for_workspace_model"];
+                    "application/hal+json": components["schemas"]["Default_Query_for_WorkspaceModel"];
                 };
             };
             /**
@@ -22466,7 +21796,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -22479,7 +21809,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -22505,7 +21835,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["query_filter_instance_schemas_for_workspace_model"];
+                    "application/hal+json": components["schemas"]["Query_Filter_Instance_Schemas_For_WorkspaceModel"];
                 };
             };
             /**
@@ -22518,7 +21848,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -22544,7 +21874,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["schema_for_workspace_queries_model"];
+                    "application/hal+json": components["schemas"]["Schema_For_Workspace_QueriesModel"];
                 };
             };
             /** @description **Required permission:** view work package in the project */
@@ -22553,7 +21883,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -22617,10 +21947,10 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["work_packages_model"];
+                    "application/hal+json": components["schemas"]["Work_PackagesModel"];
                 };
             };
-            400: components["responses"]["invalid_request_body"];
+            400: components["responses"]["InvalidRequestBody"];
             /**
              * @description Returned if the client does not have sufficient permissions.
              *
@@ -22640,7 +21970,7 @@ export interface operations {
                      *       "message": "You are not allowed to see the work packages of this project."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -22660,7 +21990,7 @@ export interface operations {
                      *       "message": "The specified project does not exist."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -22688,7 +22018,7 @@ export interface operations {
         };
         requestBody?: {
             content: {
-                "application/json": components["schemas"]["work_package_model"];
+                "application/json": components["schemas"]["WorkPackageModel"];
             };
         };
         responses: {
@@ -22698,10 +22028,10 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["work_package_model"];
+                    "application/hal+json": components["schemas"]["WorkPackageModel"];
                 };
             };
-            400: components["responses"]["invalid_request_body"];
+            400: components["responses"]["InvalidRequestBody"];
             /**
              * @description Returned if the client does not have sufficient permissions.
              *
@@ -22721,7 +22051,7 @@ export interface operations {
                      *       "message": "You are not allowed to add work packages to this project."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -22745,11 +22075,11 @@ export interface operations {
                      *       "message": "The specified project does not exist."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
             /**
              * @description Returned if:
              *
@@ -22776,7 +22106,7 @@ export interface operations {
                      *       "message": "The subject might not be blank."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -22796,7 +22126,7 @@ export interface operations {
         };
         requestBody?: {
             content: {
-                "application/json": components["schemas"]["work_package_write_model"];
+                "application/json": components["schemas"]["WorkPackageWriteModel"];
             };
         };
         responses: {
@@ -22806,10 +22136,10 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["work_package_form_model"];
+                    "application/json": components["schemas"]["WorkPackageFormModel"];
                 };
             };
-            415: components["responses"]["unsupported_media_type"];
+            415: components["responses"]["UnsupportedMediaType"];
         };
     };
     Project_Available_assignees: {
@@ -22833,7 +22163,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["available_assignees_model"];
+                    "application/hal+json": components["schemas"]["Available_AssigneesModel"];
                 };
             };
             /**
@@ -22848,7 +22178,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -22861,7 +22191,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -22887,7 +22217,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["categories_by_workspace_model"];
+                    "application/hal+json": components["schemas"]["Categories_by_WorkspaceModel"];
                 };
             };
             /**
@@ -22904,7 +22234,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -22948,7 +22278,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["sprint_collection_model"];
+                    "application/hal+json": components["schemas"]["SprintCollectionModel"];
                 };
             };
             /**
@@ -22961,7 +22291,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["sprint_collection_model"];
+                    "application/hal+json": components["schemas"]["SprintCollectionModel"];
                 };
             };
             /**
@@ -22974,7 +22304,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -23000,7 +22330,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["types_by_workspace_model"];
+                    "application/hal+json": components["schemas"]["Types_by_WorkspaceModel"];
                 };
             };
             /**
@@ -23017,7 +22347,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -23043,7 +22373,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["versions_by_workspace_model"];
+                    "application/hal+json": components["schemas"]["Versions_by_WorkspaceModel"];
                 };
             };
             /**
@@ -23060,7 +22390,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -23097,7 +22427,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -23111,7 +22441,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -23148,7 +22478,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -23162,7 +22492,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -23188,7 +22518,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["project_configuration_model"];
+                    "application/hal+json": components["schemas"]["ProjectConfigurationModel"];
                 };
             };
             /** @description Returned if the project does not exist or the user cannot view it. */
@@ -23197,7 +22527,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -23230,7 +22560,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["queries_model"];
+                    "application/hal+json": components["schemas"]["QueriesModel"];
                 };
             };
             /**
@@ -23243,7 +22573,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -23257,7 +22587,7 @@ export interface operations {
         };
         requestBody?: {
             content: {
-                "application/json": components["schemas"]["query_create_form"];
+                "application/json": components["schemas"]["Query_Create_Form"];
             };
         };
         responses: {
@@ -23267,12 +22597,12 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["query_model"];
+                    "application/hal+json": components["schemas"]["QueryModel"];
                 };
             };
-            400: components["responses"]["invalid_request_body"];
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            400: components["responses"]["InvalidRequestBody"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
             /**
              * @description Returned if:
              *
@@ -23288,7 +22618,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -23308,7 +22638,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["available_projects_for_query_model"];
+                    "application/hal+json": components["schemas"]["Available_projects_for_queryModel"];
                 };
             };
             /**
@@ -23321,7 +22651,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -23347,7 +22677,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["query_column_model"];
+                    "application/hal+json": components["schemas"]["Query_ColumnModel"];
                 };
             };
             /**
@@ -23360,7 +22690,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /** @description Returned if the QueryColumn does not exist. */
@@ -23369,7 +22699,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -23442,7 +22772,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["default_query_model"];
+                    "application/hal+json": components["schemas"]["Default_QueryModel"];
                 };
             };
             /**
@@ -23455,7 +22785,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -23475,7 +22805,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["query_filter_instance_schemas_model"];
+                    "application/hal+json": components["schemas"]["Query_Filter_Instance_SchemasModel"];
                 };
             };
             /**
@@ -23488,7 +22818,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -23514,7 +22844,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["query_filter_instance_schema_model"];
+                    "application/hal+json": components["schemas"]["Query_Filter_Instance_SchemaModel"];
                 };
             };
             /**
@@ -23527,7 +22857,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /** @description Returned if the QueryFilterInstanceSchema does not exist. */
@@ -23536,7 +22866,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -23562,7 +22892,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["query_filter_model"];
+                    "application/hal+json": components["schemas"]["Query_FilterModel"];
                 };
             };
             /**
@@ -23575,7 +22905,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /** @description Returned if the QueryFilter does not exist. */
@@ -23584,7 +22914,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -23598,7 +22928,7 @@ export interface operations {
         };
         requestBody?: {
             content: {
-                "application/json": components["schemas"]["query_create_form"];
+                "application/json": components["schemas"]["Query_Create_Form"];
             };
         };
         responses: {
@@ -23632,7 +22962,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["query_operator_model"];
+                    "application/hal+json": components["schemas"]["Query_OperatorModel"];
                 };
             };
             /**
@@ -23645,7 +22975,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /** @description Returned if the QueryOperator does not exist. */
@@ -23654,7 +22984,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -23674,7 +23004,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["schema_for_global_queries_model"];
+                    "application/hal+json": components["schemas"]["Schema_For_Global_QueriesModel"];
                 };
             };
             /** @description **Required permission:** view work package in any project */
@@ -23683,7 +23013,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -23709,7 +23039,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["query_sort_by_model"];
+                    "application/hal+json": components["schemas"]["Query_Sort_ByModel"];
                 };
             };
             /**
@@ -23722,7 +23052,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /** @description Returned if the QuerySortBy does not exist. */
@@ -23731,7 +23061,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -23825,7 +23155,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["query_model"];
+                    "application/hal+json": components["schemas"]["QueryModel"];
                 };
             };
             /**
@@ -23840,7 +23170,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -23879,7 +23209,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -23894,7 +23224,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -23914,7 +23244,7 @@ export interface operations {
         };
         requestBody?: {
             content: {
-                "application/json": components["schemas"]["query_update_form"];
+                "application/json": components["schemas"]["Query_Update_Form"];
             };
         };
         responses: {
@@ -23924,10 +23254,10 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["query_model"];
+                    "application/hal+json": components["schemas"]["QueryModel"];
                 };
             };
-            400: components["responses"]["invalid_request_body"];
+            400: components["responses"]["InvalidRequestBody"];
             /**
              * @description Returned if the client does not have sufficient permissions.
              *
@@ -23938,7 +23268,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -23951,11 +23281,11 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
             /**
              * @description Returned if:
              *
@@ -23970,7 +23300,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -23990,7 +23320,7 @@ export interface operations {
         };
         requestBody?: {
             content: {
-                "application/json": components["schemas"]["query_update_form"];
+                "application/json": components["schemas"]["Query_Update_Form"];
             };
         };
         responses: {
@@ -24024,10 +23354,10 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["star_query_model"];
+                    "application/hal+json": components["schemas"]["Star_QueryModel"];
                 };
             };
-            400: components["responses"]["invalid_request_body"];
+            400: components["responses"]["InvalidRequestBody"];
             /**
              * @description Returned if the client does not have sufficient permissions.
              *
@@ -24040,7 +23370,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -24055,7 +23385,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -24081,10 +23411,10 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["unstar_query_model"];
+                    "application/hal+json": components["schemas"]["Unstar_QueryModel"];
                 };
             };
-            400: components["responses"]["invalid_request_body"];
+            400: components["responses"]["InvalidRequestBody"];
             /**
              * @description Returned if the client does not have sufficient permissions.
              *
@@ -24097,7 +23427,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -24112,11 +23442,11 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
         };
     };
     list_recurring_meetings: {
@@ -24134,7 +23464,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["recurring_meeting_collection_model"];
+                    "application/hal+json": components["schemas"]["RecurringMeetingCollectionModel"];
                 };
             };
         };
@@ -24148,7 +23478,7 @@ export interface operations {
         };
         requestBody?: {
             content: {
-                "application/json": components["schemas"]["recurring_meeting_write_model"];
+                "application/json": components["schemas"]["RecurringMeetingWriteModel"];
             };
         };
         responses: {
@@ -24158,10 +23488,10 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["recurring_meeting_model"];
+                    "application/hal+json": components["schemas"]["RecurringMeetingModel"];
                 };
             };
-            400: components["responses"]["invalid_request_body"];
+            400: components["responses"]["InvalidRequestBody"];
             /**
              * @description Returned if the client does not have sufficient permissions.
              *
@@ -24172,11 +23502,11 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
             /**
              * @description Returned if:
              *
@@ -24211,7 +23541,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["recurring_meeting_model"];
+                    "application/hal+json": components["schemas"]["RecurringMeetingModel"];
                 };
             };
             /**
@@ -24224,7 +23554,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -24261,7 +23591,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -24274,11 +23604,11 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
         };
     };
     update_recurring_meeting: {
@@ -24296,7 +23626,7 @@ export interface operations {
         };
         requestBody?: {
             content: {
-                "application/json": components["schemas"]["recurring_meeting_write_model"];
+                "application/json": components["schemas"]["RecurringMeetingWriteModel"];
             };
         };
         responses: {
@@ -24306,10 +23636,10 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["recurring_meeting_model"];
+                    "application/hal+json": components["schemas"]["RecurringMeetingModel"];
                 };
             };
-            400: components["responses"]["invalid_request_body"];
+            400: components["responses"]["InvalidRequestBody"];
             /**
              * @description Returned if the client does not have sufficient permissions.
              *
@@ -24320,7 +23650,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -24333,11 +23663,11 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
             /**
              * @description Returned if:
              *
@@ -24378,7 +23708,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["recurring_meeting_occurrence_collection_model"];
+                    "application/hal+json": components["schemas"]["RecurringMeetingOccurrenceCollectionModel"];
                 };
             };
             /**
@@ -24391,7 +23721,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -24417,7 +23747,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["recurring_meeting_occurrence_collection_model"];
+                    "application/hal+json": components["schemas"]["RecurringMeetingOccurrenceCollectionModel"];
                 };
             };
             /**
@@ -24430,7 +23760,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -24456,7 +23786,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["recurring_meeting_occurrence_collection_model"];
+                    "application/hal+json": components["schemas"]["RecurringMeetingOccurrenceCollectionModel"];
                 };
             };
             /**
@@ -24469,7 +23799,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -24495,7 +23825,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["recurring_meeting_occurrence_collection_model"];
+                    "application/hal+json": components["schemas"]["RecurringMeetingOccurrenceCollectionModel"];
                 };
             };
             /**
@@ -24508,7 +23838,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -24550,7 +23880,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -24563,7 +23893,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -24575,7 +23905,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -24606,7 +23936,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["meeting_model"];
+                    "application/hal+json": components["schemas"]["MeetingModel"];
                 };
             };
             /**
@@ -24619,7 +23949,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -24632,7 +23962,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -24682,7 +24012,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["relation_collection_model"];
+                    "application/hal+json": components["schemas"]["RelationCollectionModel"];
                 };
             };
             /** @description Returned if the client provides invalid filter parameters. */
@@ -24691,7 +24021,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -24717,7 +24047,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["relation_read_model"];
+                    "application/hal+json": components["schemas"]["RelationReadModel"];
                 };
             };
             /**
@@ -24730,7 +24060,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -24767,7 +24097,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -24780,11 +24110,11 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
         };
     };
     update_relation: {
@@ -24802,7 +24132,7 @@ export interface operations {
         };
         requestBody?: {
             content: {
-                "application/json": components["schemas"]["relation_write_model"];
+                "application/json": components["schemas"]["RelationWriteModel"];
             };
         };
         responses: {
@@ -24812,10 +24142,10 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["relation_read_model"];
+                    "application/hal+json": components["schemas"]["RelationReadModel"];
                 };
             };
-            400: components["responses"]["invalid_request_body"];
+            400: components["responses"]["InvalidRequestBody"];
             /**
              * @description Returned if the relation does not exist or the client does not have sufficient permissions to see it.
              *
@@ -24826,11 +24156,11 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
             /**
              * @description Returned if:
              *
@@ -24845,7 +24175,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -24879,7 +24209,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "text/html": components["schemas"]["markdown_model"];
+                    "text/html": components["schemas"]["MarkdownModel"];
                 };
             };
             /**
@@ -24893,7 +24223,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /** @description Returned if the Content-Type indicated in the request is not `text/plain`. */
@@ -24902,7 +24232,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -24922,7 +24252,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "text/html": components["schemas"]["plain_text_model"];
+                    "text/html": components["schemas"]["Plain_TextModel"];
                 };
             };
             /** @description Returned if the Content-Type indicated in the request is not `text/plain`. */
@@ -24931,7 +24261,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -24957,7 +24287,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["revision_model"];
+                    "application/hal+json": components["schemas"]["RevisionModel"];
                 };
             };
             /**
@@ -24974,7 +24304,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -25002,7 +24332,7 @@ export interface operations {
                         /** @description Actual amount of elements in this response. */
                         count: number;
                         _embedded: {
-                            elements: components["schemas"]["reminder_model"][];
+                            elements: components["schemas"]["ReminderModel"][];
                         };
                     };
                 };
@@ -25037,7 +24367,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -25075,7 +24405,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["reminder_model"];
+                    "application/hal+json": components["schemas"]["ReminderModel"];
                 };
             };
             /** @description Returned if the reminder does not exist or the client does not have sufficient permissions to see it. */
@@ -25084,7 +24414,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -25116,7 +24446,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["roles_model"];
+                    "application/hal+json": components["schemas"]["RolesModel"];
                 };
             };
         };
@@ -25142,7 +24472,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["role_model"];
+                    "application/hal+json": components["schemas"]["RoleModel"];
                 };
             };
             /**
@@ -25155,7 +24485,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /** @description Returned if the role does not exist. */
@@ -25164,7 +24494,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -25204,7 +24534,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["sprint_collection_model"];
+                    "application/hal+json": components["schemas"]["SprintCollectionModel"];
                 };
             };
         };
@@ -25230,7 +24560,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["sprint_model"];
+                    "application/hal+json": components["schemas"]["SprintModel"];
                 };
             };
             /**
@@ -25244,7 +24574,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -25264,7 +24594,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["status_collection_model"];
+                    "application/hal+json": components["schemas"]["StatusCollectionModel"];
                 };
             };
             /**
@@ -25277,7 +24607,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -25303,7 +24633,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["status_model"];
+                    "application/hal+json": components["schemas"]["StatusModel"];
                 };
             };
             /**
@@ -25316,7 +24646,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /** @description Returned if the status does not exist. */
@@ -25325,7 +24655,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -25345,7 +24675,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["storage_collection_model"];
+                    "application/hal+json": components["schemas"]["StorageCollectionModel"];
                 };
             };
             /** @description Returned if the client sends invalid request parameters e.g. filters */
@@ -25361,7 +24691,7 @@ export interface operations {
                      *       "message": "Filters Invalid filter does not exist."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -25375,7 +24705,7 @@ export interface operations {
         };
         requestBody?: {
             content: {
-                "application/json": components["schemas"]["storage_write_model"];
+                "application/json": components["schemas"]["StorageWriteModel"];
             };
         };
         responses: {
@@ -25385,10 +24715,10 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["storage_read_model"];
+                    "application/hal+json": components["schemas"]["StorageReadModel"];
                 };
             };
-            400: components["responses"]["invalid_request_body"];
+            400: components["responses"]["InvalidRequestBody"];
             /**
              * @description Returned if the client does not have sufficient permissions.
              *
@@ -25406,11 +24736,11 @@ export interface operations {
                      *       "message": "You are not authorized to access this resource."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
             /**
              * @description Returned if:
              *
@@ -25445,7 +24775,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["storage_read_model"];
+                    "application/hal+json": components["schemas"]["StorageReadModel"];
                 };
             };
             /**
@@ -25465,7 +24795,7 @@ export interface operations {
                      *       "message": "The requested resource could not be found."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -25509,7 +24839,7 @@ export interface operations {
                      *       "message": "You are not authorized to access this resource."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -25529,7 +24859,7 @@ export interface operations {
                      *       "message": "The requested resource could not be found."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -25549,7 +24879,7 @@ export interface operations {
         };
         requestBody?: {
             content: {
-                "application/json": components["schemas"]["storage_write_model"];
+                "application/json": components["schemas"]["StorageWriteModel"];
             };
         };
         responses: {
@@ -25559,7 +24889,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["storage_read_model"];
+                    "application/hal+json": components["schemas"]["StorageReadModel"];
                 };
             };
             /**
@@ -25579,7 +24909,7 @@ export interface operations {
                      *       "message": "You are not authorized to access this resource."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -25599,7 +24929,7 @@ export interface operations {
                      *       "message": "The requested resource could not be found."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -25631,7 +24961,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["storage_files_model"];
+                    "application/hal+json": components["schemas"]["StorageFilesModel"];
                 };
             };
             /** @description Returned if the given parent parameter value does not refer to a directory. */
@@ -25647,7 +24977,7 @@ export interface operations {
                      *       "message": "The given parent is not a directory."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -25669,7 +24999,7 @@ export interface operations {
                      *       "message": "The requested resource could not be found."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -25689,7 +25019,7 @@ export interface operations {
         };
         requestBody?: {
             content: {
-                "application/json": components["schemas"]["storage_file_upload_preparation_model"];
+                "application/json": components["schemas"]["StorageFileUploadPreparationModel"];
             };
         };
         responses: {
@@ -25699,7 +25029,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["storage_file_upload_link_model"];
+                    "application/hal+json": components["schemas"]["StorageFileUploadLinkModel"];
                 };
             };
             /** @description Returned if the given parent parameter value does not refer to a directory. */
@@ -25715,7 +25045,7 @@ export interface operations {
                      *       "message": "The given parent is not a directory."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -25735,7 +25065,7 @@ export interface operations {
                      *       "message": "You are not authorized to access this resource."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -25755,7 +25085,7 @@ export interface operations {
                      *       "message": "The requested resource could not be found."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /** @description Returned if the outbound request to the storage has failed with any reason. */
@@ -25764,7 +25094,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -25784,7 +25114,7 @@ export interface operations {
         };
         requestBody?: {
             content: {
-                "application/json": components["schemas"]["storage_folder_write_model"];
+                "application/json": components["schemas"]["StorageFolderWriteModel"];
             };
         };
         responses: {
@@ -25794,7 +25124,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["storage_file_model"];
+                    "application/hal+json": components["schemas"]["StorageFileModel"];
                 };
             };
             /** @description Returned if the request is missing a required parameter. */
@@ -25810,7 +25140,7 @@ export interface operations {
                      *       "message": "The given parent is not a directory."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -25830,7 +25160,7 @@ export interface operations {
                      *       "message": "You are not authorized to access this resource."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -25850,7 +25180,7 @@ export interface operations {
                      *       "message": "The requested resource could not be found."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -25870,7 +25200,7 @@ export interface operations {
         };
         requestBody?: {
             content: {
-                "application/json": components["schemas"]["oauth_client_credentials_write_model"];
+                "application/json": components["schemas"]["OAuthClientCredentialsWriteModel"];
             };
         };
         responses: {
@@ -25880,7 +25210,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["storage_read_model"];
+                    "application/hal+json": components["schemas"]["StorageReadModel"];
                 };
             };
             /**
@@ -25893,7 +25223,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -25913,7 +25243,7 @@ export interface operations {
                      *       "message": "The requested resource could not be found."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -25958,7 +25288,7 @@ export interface operations {
                      *       "message": "The requested resource could not be found."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -26029,10 +25359,10 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["time_entry_collection_model"];
+                    "application/hal+json": components["schemas"]["TimeEntryCollectionModel"];
                 };
             };
-            400: components["responses"]["invalid_request_body"];
+            400: components["responses"]["InvalidRequestBody"];
             /** @description Returned if the client is not logged in and login is required. */
             403: {
                 headers: {
@@ -26046,7 +25376,7 @@ export interface operations {
                      *       "message": "You are not authorized to view this resource."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -26060,7 +25390,7 @@ export interface operations {
         };
         requestBody?: {
             content: {
-                "application/json": components["schemas"]["time_entry_model"];
+                "application/json": components["schemas"]["TimeEntryModel"];
             };
         };
         responses: {
@@ -26070,10 +25400,10 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["time_entry_model"];
+                    "application/hal+json": components["schemas"]["TimeEntryModel"];
                 };
             };
-            400: components["responses"]["invalid_request_body"];
+            400: components["responses"]["InvalidRequestBody"];
             /**
              * @description Returned if the client does not have sufficient permissions.
              *
@@ -26084,11 +25414,11 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
             /**
              * @description Returned if:
              *
@@ -26099,7 +25429,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -26131,7 +25461,7 @@ export interface operations {
                 };
                 content?: never;
             };
-            400: components["responses"]["invalid_request_body"];
+            400: components["responses"]["InvalidRequestBody"];
             /**
              * @description Returned if the client does not have sufficient permissions to edit the time entry.
              *
@@ -26142,7 +25472,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -26155,11 +25485,11 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
         };
     };
     get_time_entries_activity: {
@@ -26183,7 +25513,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["time_entry_activity_model"];
+                    "application/hal+json": components["schemas"]["TimeEntryActivityModel"];
                 };
             };
             /**
@@ -26197,7 +25527,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -26217,7 +25547,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["available_projects_for_time_entries_model"];
+                    "application/hal+json": components["schemas"]["Available_projects_for_time_entriesModel"];
                 };
             };
             /**
@@ -26230,7 +25560,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -26251,7 +25581,7 @@ export interface operations {
                 };
                 content?: never;
             };
-            400: components["responses"]["invalid_request_body"];
+            400: components["responses"]["InvalidRequestBody"];
             /**
              * @description Returned if the client does not have sufficient permissions.
              *
@@ -26262,11 +25592,11 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
         };
     };
     View_time_entry_schema: {
@@ -26284,7 +25614,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["view_time_entry_schema_model"];
+                    "application/hal+json": components["schemas"]["View_time_entry_schemaModel"];
                 };
             };
             /**
@@ -26297,7 +25627,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -26323,7 +25653,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["time_entry_model"];
+                    "application/hal+json": components["schemas"]["TimeEntryModel"];
                 };
             };
             /**
@@ -26345,7 +25675,7 @@ export interface operations {
                      *       "message": "The requested resource could not be found."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -26385,7 +25715,7 @@ export interface operations {
                      *       "message": "You are not authorized to access this resource."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -26405,11 +25735,11 @@ export interface operations {
                      *       "message": "The requested resource could not be found."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
         };
     };
     update_time_entry: {
@@ -26433,10 +25763,10 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["time_entry_model"];
+                    "application/hal+json": components["schemas"]["TimeEntryModel"];
                 };
             };
-            400: components["responses"]["invalid_request_body"];
+            400: components["responses"]["InvalidRequestBody"];
             /**
              * @description Returned if the client does not have sufficient permissions.
              *
@@ -26454,11 +25784,11 @@ export interface operations {
                      *       "message": "You are not authorized to access this resource."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
             /**
              * @description Returned if:
              *
@@ -26481,7 +25811,7 @@ export interface operations {
                      *       "message": "Work package is invalid."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -26501,7 +25831,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["types_model"];
+                    "application/hal+json": components["schemas"]["TypesModel"];
                 };
             };
             /**
@@ -26514,7 +25844,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -26540,7 +25870,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["type_model"];
+                    "application/hal+json": components["schemas"]["TypeModel"];
                 };
             };
             /**
@@ -26553,7 +25883,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -26610,10 +25940,10 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["user_collection_model"];
+                    "application/hal+json": components["schemas"]["UserCollectionModel"];
                 };
             };
-            400: components["responses"]["invalid_request_body"];
+            400: components["responses"]["InvalidRequestBody"];
             /**
              * @description Returned if the client does not have sufficient permissions.
              *
@@ -26631,7 +25961,7 @@ export interface operations {
                      *       "message": "You are not allowed to list users."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -26645,7 +25975,7 @@ export interface operations {
         };
         requestBody?: {
             content: {
-                "application/json": components["schemas"]["user_create_model"];
+                "application/json": components["schemas"]["UserCreateModel"];
             };
         };
         responses: {
@@ -26655,10 +25985,10 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["user_model"];
+                    "application/hal+json": components["schemas"]["UserModel"];
                 };
             };
-            400: components["responses"]["invalid_request_body"];
+            400: components["responses"]["InvalidRequestBody"];
             /**
              * @description Returned if the client does not have sufficient permissions.
              *
@@ -26676,11 +26006,11 @@ export interface operations {
                      *       "message": "You are not allowed to create new users."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
             /**
              * @description Returned if:
              *
@@ -26703,7 +26033,7 @@ export interface operations {
                      *       "message": "The email address is already taken."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -26723,7 +26053,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["view_user_schema_model"];
+                    "application/hal+json": components["schemas"]["View_user_schemaModel"];
                 };
             };
         };
@@ -26749,7 +26079,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["user_model"];
+                    "application/hal+json": components["schemas"]["UserModel"];
                 };
             };
             /**
@@ -26769,7 +26099,7 @@ export interface operations {
                      *       "message": "The specified user does not exist or you do not have permission to view them."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -26818,7 +26148,7 @@ export interface operations {
                      *       "message": "You are not allowed to delete the account of this user."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /** @description Returned if the user does not exist. */
@@ -26834,7 +26164,7 @@ export interface operations {
                      *       "message": "The specified user does not exist."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -26854,7 +26184,7 @@ export interface operations {
         };
         requestBody?: {
             content: {
-                "application/json": components["schemas"]["user_create_model"];
+                "application/json": components["schemas"]["UserCreateModel"];
             };
         };
         responses: {
@@ -26864,10 +26194,10 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["user_model"];
+                    "application/hal+json": components["schemas"]["UserModel"];
                 };
             };
-            400: components["responses"]["invalid_request_body"];
+            400: components["responses"]["InvalidRequestBody"];
             /**
              * @description Returned if the client does not have sufficient permissions.
              *
@@ -26885,7 +26215,7 @@ export interface operations {
                      *       "message": "You are not allowed to update the account of this user."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -26905,11 +26235,11 @@ export interface operations {
                      *       "message": "The specified user does not exist or you do not have permission to view them."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
             /**
              * @description Returned if:
              *
@@ -26922,7 +26252,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -26949,7 +26279,7 @@ export interface operations {
                 };
                 content?: never;
             };
-            400: components["responses"]["invalid_request_body"];
+            400: components["responses"]["InvalidRequestBody"];
             /**
              * @description Returned if the client does not have sufficient permissions.
              *
@@ -26960,7 +26290,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -26974,11 +26304,11 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
         };
     };
     lock_user: {
@@ -27002,7 +26332,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["user_model"];
+                    "application/hal+json": components["schemas"]["UserModel"];
                 };
             };
             /**
@@ -27022,7 +26352,7 @@ export interface operations {
                      *       "message": "The current user account status does not allow this operation."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -27042,7 +26372,7 @@ export interface operations {
                      *       "message": "You are not allowed to lock the account of this user."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /** @description Returned if the user does not exist. */
@@ -27058,11 +26388,11 @@ export interface operations {
                      *       "message": "The specified user does not exist."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
         };
     };
     unlock_user: {
@@ -27086,7 +26416,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["user_model"];
+                    "application/hal+json": components["schemas"]["UserModel"];
                 };
             };
             /**
@@ -27106,7 +26436,7 @@ export interface operations {
                      *       "message": "The current user account status does not allow this operation."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -27126,7 +26456,7 @@ export interface operations {
                      *       "message": "You are not allowed to unlock the account of this user."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /** @description Returned if the user does not exist. */
@@ -27142,11 +26472,11 @@ export interface operations {
                      *       "message": "The specified user does not exist."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
         };
     };
     list_user_non_working_times: {
@@ -27176,7 +26506,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["user_non_working_time_collection_model"];
+                    "application/hal+json": components["schemas"]["UserNonWorkingTimeCollectionModel"];
                 };
             };
             /** @description Returned if the client is not authenticated. */
@@ -27192,7 +26522,7 @@ export interface operations {
                      *       "message": "You need to be authenticated to access this resource."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /** @description Returned if the user does not exist or is not visible to the requesting user. */
@@ -27208,7 +26538,7 @@ export interface operations {
                      *       "message": "The specified user does not exist or you do not have permission to view them."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -27234,7 +26564,7 @@ export interface operations {
                  *       "endDate": "2025-06-20"
                  *     }
                  */
-                "application/json": components["schemas"]["user_non_working_time_model"];
+                "application/json": components["schemas"]["UserNonWorkingTimeModel"];
             };
         };
         responses: {
@@ -27244,10 +26574,10 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["user_non_working_time_model"];
+                    "application/hal+json": components["schemas"]["UserNonWorkingTimeModel"];
                 };
             };
-            400: components["responses"]["invalid_request_body"];
+            400: components["responses"]["InvalidRequestBody"];
             /** @description Returned if the client is not authenticated. */
             401: {
                 headers: {
@@ -27261,7 +26591,7 @@ export interface operations {
                      *       "message": "You need to be authenticated to access this resource."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -27282,7 +26612,7 @@ export interface operations {
                      *       "message": "You are not authorized to access this resource."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /** @description Returned if the user does not exist or is not visible to the requesting user. */
@@ -27298,11 +26628,11 @@ export interface operations {
                      *       "message": "The specified user does not exist or you do not have permission to view them."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
             /**
              * @description Returned if the request body contains invalid parameters, or if the date range
              *     overlaps with an existing non-working time record for the user.
@@ -27319,7 +26649,7 @@ export interface operations {
                      *       "message": "Validation failed."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -27350,7 +26680,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["user_non_working_time_model"];
+                    "application/hal+json": components["schemas"]["UserNonWorkingTimeModel"];
                 };
             };
             /** @description Returned if the client is not authenticated. */
@@ -27366,7 +26696,7 @@ export interface operations {
                      *       "message": "You need to be authenticated to access this resource."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -27385,7 +26715,7 @@ export interface operations {
                      *       "message": "The requested resource could not be found."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -27433,7 +26763,7 @@ export interface operations {
                      *       "message": "You need to be authenticated to access this resource."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -27454,7 +26784,7 @@ export interface operations {
                      *       "message": "You are not authorized to access this resource."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -27473,7 +26803,7 @@ export interface operations {
                      *       "message": "The requested resource could not be found."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -27504,7 +26834,7 @@ export interface operations {
                  *       "endDate": "2025-06-27"
                  *     }
                  */
-                "application/json": components["schemas"]["user_non_working_time_model"];
+                "application/json": components["schemas"]["UserNonWorkingTimeModel"];
             };
         };
         responses: {
@@ -27514,10 +26844,10 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["user_non_working_time_model"];
+                    "application/hal+json": components["schemas"]["UserNonWorkingTimeModel"];
                 };
             };
-            400: components["responses"]["invalid_request_body"];
+            400: components["responses"]["InvalidRequestBody"];
             /** @description Returned if the client is not authenticated. */
             401: {
                 headers: {
@@ -27531,7 +26861,7 @@ export interface operations {
                      *       "message": "You need to be authenticated to access this resource."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -27552,7 +26882,7 @@ export interface operations {
                      *       "message": "You are not authorized to access this resource."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -27571,11 +26901,11 @@ export interface operations {
                      *       "message": "The requested resource could not be found."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
             /**
              * @description Returned if the request body contains invalid parameters, or if the date range
              *     overlaps with an existing non-working time record for the user.
@@ -27592,7 +26922,7 @@ export interface operations {
                      *       "message": "Validation failed."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -27618,7 +26948,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["user_working_hours_collection_model"];
+                    "application/hal+json": components["schemas"]["UserWorkingHoursCollectionModel"];
                 };
             };
             /** @description Returned if the client is not authenticated. */
@@ -27634,7 +26964,7 @@ export interface operations {
                      *       "message": "You need to be authenticated to access this resource."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /** @description Returned if the user does not exist or is not visible to the requesting user. */
@@ -27650,7 +26980,7 @@ export interface operations {
                      *       "message": "The specified user does not exist or you do not have permission to view them."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -27683,7 +27013,7 @@ export interface operations {
                  *       "availabilityFactor": 100
                  *     }
                  */
-                "application/json": components["schemas"]["user_working_hours_model"];
+                "application/json": components["schemas"]["UserWorkingHoursModel"];
             };
         };
         responses: {
@@ -27693,10 +27023,10 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["user_working_hours_model"];
+                    "application/hal+json": components["schemas"]["UserWorkingHoursModel"];
                 };
             };
-            400: components["responses"]["invalid_request_body"];
+            400: components["responses"]["InvalidRequestBody"];
             /** @description Returned if the client is not authenticated. */
             401: {
                 headers: {
@@ -27710,7 +27040,7 @@ export interface operations {
                      *       "message": "You need to be authenticated to access this resource."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -27731,7 +27061,7 @@ export interface operations {
                      *       "message": "You are not authorized to access this resource."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /** @description Returned if the user does not exist or is not visible to the requesting user. */
@@ -27747,11 +27077,11 @@ export interface operations {
                      *       "message": "The specified user does not exist or you do not have permission to view them."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
             /** @description Returned if the request body contains invalid parameters. */
             422: {
                 headers: {
@@ -27765,7 +27095,7 @@ export interface operations {
                      *       "message": "Validation failed."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -27796,7 +27126,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["user_working_hours_model"];
+                    "application/hal+json": components["schemas"]["UserWorkingHoursModel"];
                 };
             };
             /** @description Returned if the client is not authenticated. */
@@ -27812,7 +27142,7 @@ export interface operations {
                      *       "message": "You need to be authenticated to access this resource."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -27831,7 +27161,7 @@ export interface operations {
                      *       "message": "The requested resource could not be found."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -27879,7 +27209,7 @@ export interface operations {
                      *       "message": "You need to be authenticated to access this resource."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -27900,7 +27230,7 @@ export interface operations {
                      *       "message": "You are not authorized to access this resource."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -27919,7 +27249,7 @@ export interface operations {
                      *       "message": "The requested resource could not be found."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -27956,7 +27286,7 @@ export interface operations {
                  *       "availabilityFactor": 80
                  *     }
                  */
-                "application/json": components["schemas"]["user_working_hours_model"];
+                "application/json": components["schemas"]["UserWorkingHoursModel"];
             };
         };
         responses: {
@@ -27966,10 +27296,10 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["user_working_hours_model"];
+                    "application/hal+json": components["schemas"]["UserWorkingHoursModel"];
                 };
             };
-            400: components["responses"]["invalid_request_body"];
+            400: components["responses"]["InvalidRequestBody"];
             /** @description Returned if the client is not authenticated. */
             401: {
                 headers: {
@@ -27983,7 +27313,7 @@ export interface operations {
                      *       "message": "You need to be authenticated to access this resource."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -28004,7 +27334,7 @@ export interface operations {
                      *       "message": "You are not authorized to access this resource."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -28023,11 +27353,11 @@ export interface operations {
                      *       "message": "The requested resource could not be found."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
             /**
              * @description Returned if the request body contains invalid parameters, or if the record has
              *     already taken effect and cannot be modified.
@@ -28044,7 +27374,7 @@ export interface operations {
                      *       "message": "Validation failed."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -28071,7 +27401,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["schema_model"];
+                    "application/hal+json": components["schemas"]["SchemaModel"];
                 };
             };
             /** @description Returned if the requested property id is not in a lower camel case format. */
@@ -28087,7 +27417,7 @@ export interface operations {
                      *       "message": "Bad request: property is invalid"
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /** @description Returned if the schema does not exist. */
@@ -28103,7 +27433,7 @@ export interface operations {
                      *       "message": "The requested resource could not be found."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -28144,7 +27474,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["version_collection_model"];
+                    "application/hal+json": components["schemas"]["VersionCollectionModel"];
                 };
             };
         };
@@ -28158,7 +27488,7 @@ export interface operations {
         };
         requestBody?: {
             content: {
-                "application/json": components["schemas"]["version_write_model"];
+                "application/json": components["schemas"]["VersionWriteModel"];
             };
         };
         responses: {
@@ -28168,10 +27498,10 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["version_read_model"];
+                    "application/hal+json": components["schemas"]["VersionReadModel"];
                 };
             };
-            400: components["responses"]["invalid_request_body"];
+            400: components["responses"]["InvalidRequestBody"];
             /**
              * @description Returned if the client does not have sufficient permissions.
              *
@@ -28182,11 +27512,11 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
             /**
              * @description Returned if:
              *
@@ -28215,7 +27545,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["available_projects_for_versions_model"];
+                    "application/hal+json": components["schemas"]["Available_projects_for_versionsModel"];
                 };
             };
             /**
@@ -28228,7 +27558,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -28249,7 +27579,7 @@ export interface operations {
                 };
                 content?: never;
             };
-            400: components["responses"]["invalid_request_body"];
+            400: components["responses"]["InvalidRequestBody"];
             /**
              * @description Returned if the client does not have sufficient permissions.
              *
@@ -28260,11 +27590,11 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
         };
     };
     View_version_schema: {
@@ -28282,7 +27612,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["version_schema_model"];
+                    "application/hal+json": components["schemas"]["Version_schemaModel"];
                 };
             };
             /**
@@ -28295,7 +27625,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -28321,7 +27651,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["version_read_model"];
+                    "application/hal+json": components["schemas"]["VersionReadModel"];
                 };
             };
             /**
@@ -28338,7 +27668,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -28375,7 +27705,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -28392,11 +27722,11 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
         };
     };
     update_Version: {
@@ -28414,7 +27744,7 @@ export interface operations {
         };
         requestBody?: {
             content: {
-                "application/json": components["schemas"]["version_write_model"];
+                "application/json": components["schemas"]["VersionWriteModel"];
             };
         };
         responses: {
@@ -28424,10 +27754,10 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["version_read_model"];
+                    "application/hal+json": components["schemas"]["VersionReadModel"];
                 };
             };
-            400: components["responses"]["invalid_request_body"];
+            400: components["responses"]["InvalidRequestBody"];
             /**
              * @description Returned if the client does not have sufficient permissions.
              *
@@ -28438,7 +27768,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -28455,11 +27785,11 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
             /**
              * @description Returned if:
              *
@@ -28495,7 +27825,7 @@ export interface operations {
                 };
                 content?: never;
             };
-            400: components["responses"]["invalid_request_body"];
+            400: components["responses"]["InvalidRequestBody"];
             /**
              * @description Returned if the client does not have sufficient permissions.
              *
@@ -28506,11 +27836,11 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
         };
     };
     List_projects_with_version: {
@@ -28534,7 +27864,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["list_workspaces_by_version_model"];
+                    "application/hal+json": components["schemas"]["List_workspaces_by_versionModel"];
                 };
             };
             /**
@@ -28575,7 +27905,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["list_workspaces_by_version_model"];
+                    "application/hal+json": components["schemas"]["List_workspaces_by_versionModel"];
                 };
             };
             /**
@@ -28652,7 +27982,7 @@ export interface operations {
                     "application/hal+json": unknown;
                 };
             };
-            400: components["responses"]["invalid_request_body"];
+            400: components["responses"]["InvalidRequestBody"];
             /**
              * @description Returned if the client does not have sufficient permissions.
              *
@@ -28663,7 +27993,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -28677,7 +28007,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -28717,9 +28047,9 @@ export interface operations {
                     "application/hal+json": Record<string, never>;
                 };
             };
-            400: components["responses"]["invalid_request_body"];
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            400: components["responses"]["InvalidRequestBody"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
             /**
              * @description Returned if:
              *
@@ -28735,7 +28065,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -28761,7 +28091,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["wiki_page_model"];
+                    "application/hal+json": components["schemas"]["Wiki_PageModel"];
                 };
             };
             /**
@@ -28774,7 +28104,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -28800,7 +28130,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["attachments_model"];
+                    "application/hal+json": components["schemas"]["Attachments_Model"];
                 };
             };
             /**
@@ -28817,7 +28147,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -28858,7 +28188,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -28873,7 +28203,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -28890,11 +28220,11 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
             /**
              * @description Returned if the client tries to send an invalid attachment.
              *     Reasons are:
@@ -28908,7 +28238,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -29039,10 +28369,10 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["work_packages_model"];
+                    "application/hal+json": components["schemas"]["Work_PackagesModel"];
                 };
             };
-            400: components["responses"]["invalid_request_body"];
+            400: components["responses"]["InvalidRequestBody"];
             /**
              * @description Returned if the client does not have sufficient permissions.
              *
@@ -29060,7 +28390,7 @@ export interface operations {
                      *       "message": "You are not allowed to see work packages."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -29082,7 +28412,7 @@ export interface operations {
         };
         requestBody?: {
             content: {
-                "application/json": components["schemas"]["work_package_model"];
+                "application/json": components["schemas"]["WorkPackageModel"];
             };
         };
         responses: {
@@ -29092,10 +28422,10 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["work_package_model"];
+                    "application/hal+json": components["schemas"]["WorkPackageModel"];
                 };
             };
-            400: components["responses"]["invalid_request_body"];
+            400: components["responses"]["InvalidRequestBody"];
             /**
              * @description Returned if the client does not have sufficient permissions.
              *
@@ -29108,7 +28438,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -29132,11 +28462,11 @@ export interface operations {
                      *       "message": "The specified project does not exist."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
             /**
              * @description Returned if:
              *
@@ -29163,7 +28493,7 @@ export interface operations {
                      *       }
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -29177,7 +28507,7 @@ export interface operations {
         };
         requestBody?: {
             content: {
-                "application/json": components["schemas"]["work_package_write_model"];
+                "application/json": components["schemas"]["WorkPackageWriteModel"];
             };
         };
         responses: {
@@ -29187,10 +28517,10 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["work_package_form_model"];
+                    "application/json": components["schemas"]["WorkPackageFormModel"];
                 };
             };
-            415: components["responses"]["unsupported_media_type"];
+            415: components["responses"]["UnsupportedMediaType"];
         };
     };
     list_work_package_schemas: {
@@ -29223,7 +28553,7 @@ export interface operations {
                     "application/hal+json": unknown;
                 };
             };
-            400: components["responses"]["invalid_request_body"];
+            400: components["responses"]["InvalidRequestBody"];
             /**
              * @description Returned if the client does not have sufficient permissions.
              *
@@ -29234,7 +28564,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -29275,7 +28605,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -29316,7 +28646,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["work_package_model"];
+                    "application/hal+json": components["schemas"]["WorkPackageModel"];
                 };
             };
             /**
@@ -29336,7 +28666,7 @@ export interface operations {
                      *       "message": "The specified work package does not exist."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -29385,7 +28715,7 @@ export interface operations {
                      *       "message": "You are not allowed to delete this work package."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -29405,11 +28735,11 @@ export interface operations {
                      *       "message": "The specified work package does not exist."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
         };
     };
     update_work_package: {
@@ -29434,7 +28764,7 @@ export interface operations {
         };
         requestBody?: {
             content: {
-                "application/json": components["schemas"]["work_package_patch_model"];
+                "application/json": components["schemas"]["WorkPackagePatchModel"];
             };
         };
         responses: {
@@ -29444,10 +28774,10 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["work_package_model"];
+                    "application/hal+json": components["schemas"]["WorkPackageModel"];
                 };
             };
-            400: components["responses"]["invalid_request_body"];
+            400: components["responses"]["InvalidRequestBody"];
             /**
              * @description Returned if the client does not have sufficient permissions.
              *
@@ -29465,7 +28795,7 @@ export interface operations {
                      *       "message": "You are not allowed to edit the content of the work package."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -29485,10 +28815,10 @@ export interface operations {
                      *       "message": "The specified work package does not exist."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
+            406: components["responses"]["MissingContentType"];
             /** @description Returned if the resource was changed since the client requested it. This is determined using the `lockVersion` property. */
             409: {
                 headers: {
@@ -29502,10 +28832,10 @@ export interface operations {
                      *       "message": "Your changes could not be saved, because the work package was changed since you've seen it the last time."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            415: components["responses"]["unsupported_media_type"];
+            415: components["responses"]["UnsupportedMediaType"];
             /**
              * @description Returned if:
              *
@@ -29530,7 +28860,7 @@ export interface operations {
                      *       "message": "The subject might not be blank."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -29556,7 +28886,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["work_package_activities_model"];
+                    "application/hal+json": components["schemas"]["Work_Package_activitiesModel"];
                 };
             };
             /**
@@ -29569,7 +28899,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -29597,7 +28927,7 @@ export interface operations {
         };
         requestBody?: {
             content: {
-                "application/json": components["schemas"]["activity_comment_write_model"];
+                "application/json": components["schemas"]["ActivityCommentWriteModel"];
             };
         };
         responses: {
@@ -29608,7 +28938,7 @@ export interface operations {
                 };
                 content?: never;
             };
-            400: components["responses"]["invalid_request_body"];
+            400: components["responses"]["InvalidRequestBody"];
             /**
              * @description Returned if the client does not have sufficient permissions.
              *
@@ -29621,7 +28951,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -29634,7 +28964,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -29660,7 +28990,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["emoji_reactions_model"];
+                    "application/hal+json": components["schemas"]["EmojiReactions_Model"];
                 };
             };
             /**
@@ -29679,7 +29009,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -29705,7 +29035,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["attachments_model"];
+                    "application/hal+json": components["schemas"]["Attachments_Model"];
                 };
             };
             /**
@@ -29729,7 +29059,7 @@ export interface operations {
                      *       "message": "The specified work package does not exist."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -29755,7 +29085,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["attachment_model"];
+                    "application/hal+json": components["schemas"]["AttachmentModel"];
                 };
             };
             /**
@@ -29777,7 +29107,7 @@ export interface operations {
                      *       "message": "The request could not be parsed as JSON."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -29799,7 +29129,7 @@ export interface operations {
                      *       "message": "You are not allowed to delete this attachment."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -29823,11 +29153,11 @@ export interface operations {
                      *       "message": "The specified work package does not exist."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
             /**
              * @description Returned if the client tries to send an invalid attachment.
              *     Reasons are:
@@ -29848,7 +29178,7 @@ export interface operations {
                      *       "message": "File is too large (maximum size is 5242880 Bytes)."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -29874,7 +29204,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["available_assignees_model"];
+                    "application/hal+json": components["schemas"]["Available_AssigneesModel"];
                 };
             };
             /**
@@ -29889,7 +29219,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -29902,7 +29232,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -29928,7 +29258,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["available_projects_for_work_package_model"];
+                    "application/hal+json": components["schemas"]["Available_projects_for_work_packageModel"];
                 };
             };
             /**
@@ -29943,7 +29273,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -29956,7 +29286,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -30010,7 +29340,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["available_relation_candidates_model"];
+                    "application/hal+json": components["schemas"]["Available_relation_candidatesModel"];
                 };
             };
             /**
@@ -30030,7 +29360,7 @@ export interface operations {
                      *       "message": "The specified work package does not exist."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -30056,7 +29386,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["available_watchers_model"];
+                    "application/hal+json": components["schemas"]["Available_WatchersModel"];
                 };
             };
             /**
@@ -30071,7 +29401,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -30084,7 +29414,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -30120,7 +29450,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["file_link_collection_read_model"];
+                    "application/hal+json": components["schemas"]["FileLinkCollectionReadModel"];
                 };
             };
             /**
@@ -30142,7 +29472,7 @@ export interface operations {
                      *       "message": "You are not authorized to access this resource."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -30162,7 +29492,7 @@ export interface operations {
                      *       "message": "The requested resource could not be found."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -30208,7 +29538,7 @@ export interface operations {
                  *       }
                  *     }
                  */
-                "application/json": components["schemas"]["file_link_collection_write_model"];
+                "application/json": components["schemas"]["FileLinkCollectionWriteModel"];
             };
         };
         responses: {
@@ -30218,10 +29548,10 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["file_link_collection_read_model"];
+                    "application/hal+json": components["schemas"]["FileLinkCollectionReadModel"];
                 };
             };
-            400: components["responses"]["invalid_request_body"];
+            400: components["responses"]["InvalidRequestBody"];
             /**
              * @description Returned if the client does not have sufficient permissions.
              *
@@ -30241,7 +29571,7 @@ export interface operations {
                      *       "message": "You are not authorized to access this resource."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -30261,11 +29591,11 @@ export interface operations {
                      *       "message": "The requested resource could not be found."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
             /**
              * @description Occurs if the request body was correctly formatted, but some properties lead to errors in the validation
              *     process. This happens e.g. if the provided storage url is not available on the server.
@@ -30282,7 +29612,7 @@ export interface operations {
                      *       "message": "The request was invalid. File Link logo.png - Storage was invalid."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -30302,7 +29632,7 @@ export interface operations {
         };
         requestBody?: {
             content: {
-                "application/json": components["schemas"]["work_package_write_model"];
+                "application/json": components["schemas"]["WorkPackageWriteModel"];
             };
         };
         responses: {
@@ -30312,7 +29642,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["work_package_form_model"];
+                    "application/json": components["schemas"]["WorkPackageFormModel"];
                 };
             };
             /**
@@ -30325,10 +29655,10 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            415: components["responses"]["unsupported_media_type"];
+            415: components["responses"]["UnsupportedMediaType"];
         };
     };
     Revisions: {
@@ -30352,7 +29682,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["revisions_model"];
+                    "application/hal+json": components["schemas"]["RevisionsModel"];
                 };
             };
             /**
@@ -30367,7 +29697,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -30380,7 +29710,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -30400,7 +29730,7 @@ export interface operations {
         };
         requestBody?: {
             content: {
-                "application/json": components["schemas"]["relation_write_model"];
+                "application/json": components["schemas"]["RelationWriteModel"];
             };
         };
         responses: {
@@ -30410,10 +29740,10 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["relation_read_model"];
+                    "application/hal+json": components["schemas"]["RelationReadModel"];
                 };
             };
-            400: components["responses"]["invalid_request_body"];
+            400: components["responses"]["InvalidRequestBody"];
             /**
              * @description Returned if the client does not have sufficient permissions.
              *
@@ -30424,10 +29754,10 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
+            406: components["responses"]["MissingContentType"];
             /**
              * @description Returned if there already exists a relation between the given work packages of **any** type
              *     or if the relation is not allowed.
@@ -30437,10 +29767,10 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            415: components["responses"]["unsupported_media_type"];
+            415: components["responses"]["UnsupportedMediaType"];
             /**
              * @description Returned if:
              *
@@ -30453,7 +29783,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -30487,7 +29817,7 @@ export interface operations {
                         /** @description Actual amount of elements in this response. */
                         count: number;
                         _embedded: {
-                            elements: components["schemas"]["reminder_model"][];
+                            elements: components["schemas"]["ReminderModel"][];
                         };
                     };
                 };
@@ -30502,7 +29832,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -30515,7 +29845,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -30553,7 +29883,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["reminder_model"];
+                    "application/hal+json": components["schemas"]["ReminderModel"];
                 };
             };
             /**
@@ -30566,7 +29896,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -30579,7 +29909,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -30681,7 +30011,7 @@ export interface operations {
                      *       "total": 2
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["watchers_model"];
+                    "application/hal+json": components["schemas"]["WatchersModel"];
                 };
             };
             /**
@@ -30703,7 +30033,7 @@ export interface operations {
                      *       "message": "You are not allowed to see the watchers of this work package."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -30725,7 +30055,7 @@ export interface operations {
                      *       "message": "The specified work package does not exist."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -30790,7 +30120,7 @@ export interface operations {
                      *       "message": "The request body was not a single JSON object."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -30816,7 +30146,7 @@ export interface operations {
                      *       "message": "You are not allowed to add watchers to this work package."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -30838,11 +30168,11 @@ export interface operations {
                      *       "message": "The specified work package does not exist."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
             /**
              * @description Returned if:
              *
@@ -30899,7 +30229,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -30918,11 +30248,11 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
         };
     };
     list_workspace: {
@@ -30995,7 +30325,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["workspace_collection_model"];
+                    "application/hal+json": components["schemas"]["WorkspaceCollectionModel"];
                 };
             };
             /** @description Returned if the client sends invalid request parameters e.g. filters */
@@ -31011,7 +30341,7 @@ export interface operations {
                      *       "message": "Filters Invalid filter does not exist."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -31037,7 +30367,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["available_assignees_model"];
+                    "application/hal+json": components["schemas"]["Available_AssigneesModel"];
                 };
             };
             /**
@@ -31052,7 +30382,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -31065,7 +30395,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -31091,7 +30421,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["categories_by_workspace_model"];
+                    "application/hal+json": components["schemas"]["Categories_by_WorkspaceModel"];
                 };
             };
             /**
@@ -31108,7 +30438,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -31145,7 +30475,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -31159,7 +30489,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -31196,7 +30526,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -31210,7 +30540,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -31284,7 +30614,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["default_query_for_workspace_model"];
+                    "application/hal+json": components["schemas"]["Default_Query_for_WorkspaceModel"];
                 };
             };
             /**
@@ -31297,7 +30627,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -31310,7 +30640,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -31336,7 +30666,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["query_filter_instance_schemas_for_workspace_model"];
+                    "application/hal+json": components["schemas"]["Query_Filter_Instance_Schemas_For_WorkspaceModel"];
                 };
             };
             /**
@@ -31349,7 +30679,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -31375,7 +30705,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["schema_for_workspace_queries_model"];
+                    "application/hal+json": components["schemas"]["Schema_For_Workspace_QueriesModel"];
                 };
             };
             /** @description **Required permission:** view work package in the workspace */
@@ -31384,7 +30714,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -31410,7 +30740,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["types_by_workspace_model"];
+                    "application/hal+json": components["schemas"]["Types_by_WorkspaceModel"];
                 };
             };
             /**
@@ -31427,7 +30757,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -31491,10 +30821,10 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["work_packages_model"];
+                    "application/hal+json": components["schemas"]["Work_PackagesModel"];
                 };
             };
-            400: components["responses"]["invalid_request_body"];
+            400: components["responses"]["InvalidRequestBody"];
             /**
              * @description Returned if the client does not have sufficient permissions.
              *
@@ -31514,7 +30844,7 @@ export interface operations {
                      *       "message": "You are not allowed to see the work packages of this project."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -31534,7 +30864,7 @@ export interface operations {
                      *       "message": "The specified project does not exist."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -31562,7 +30892,7 @@ export interface operations {
         };
         requestBody?: {
             content: {
-                "application/json": components["schemas"]["work_package_model"];
+                "application/json": components["schemas"]["WorkPackageModel"];
             };
         };
         responses: {
@@ -31572,10 +30902,10 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["work_package_model"];
+                    "application/hal+json": components["schemas"]["WorkPackageModel"];
                 };
             };
-            400: components["responses"]["invalid_request_body"];
+            400: components["responses"]["InvalidRequestBody"];
             /**
              * @description Returned if the client does not have sufficient permissions.
              *
@@ -31595,7 +30925,7 @@ export interface operations {
                      *       "message": "You are not allowed to add work packages to this workspace."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
             /**
@@ -31619,11 +30949,11 @@ export interface operations {
                      *       "message": "The specified project does not exist."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
-            406: components["responses"]["missing_content_type"];
-            415: components["responses"]["unsupported_media_type"];
+            406: components["responses"]["MissingContentType"];
+            415: components["responses"]["UnsupportedMediaType"];
             /**
              * @description Returned if:
              *
@@ -31650,7 +30980,7 @@ export interface operations {
                      *       "message": "The subject might not be blank."
                      *     }
                      */
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -31670,7 +31000,7 @@ export interface operations {
         };
         requestBody?: {
             content: {
-                "application/json": components["schemas"]["work_package_write_model"];
+                "application/json": components["schemas"]["WorkPackageWriteModel"];
             };
         };
         responses: {
@@ -31680,10 +31010,10 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["work_package_form_model"];
+                    "application/json": components["schemas"]["WorkPackageFormModel"];
                 };
             };
-            415: components["responses"]["unsupported_media_type"];
+            415: components["responses"]["UnsupportedMediaType"];
         };
     };
     List_versions_available_in_a_workspace: {
@@ -31707,7 +31037,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["versions_by_workspace_model"];
+                    "application/hal+json": components["schemas"]["Versions_by_WorkspaceModel"];
                 };
             };
             /**
@@ -31724,7 +31054,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["error_response"];
+                    "application/hal+json": components["schemas"]["ErrorResponse"];
                 };
             };
         };
@@ -31744,7 +31074,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/hal+json": components["schemas"]["workspaces_schema_model"];
+                    "application/hal+json": components["schemas"]["Workspaces_schemaModel"];
                 };
             };
         };
