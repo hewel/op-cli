@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { realpathSync } from "node:fs";
+import { fileURLToPath } from "node:url";
 import { Command } from "commander";
 import { redactSecrets } from "./client/auth.js";
 import { EXIT_CODES, toOpctlError } from "./client/errors.js";
@@ -9,13 +11,14 @@ import { registerProjects } from "./commands/projects.js";
 import { registerSpec } from "./commands/spec.js";
 import { registerWorkPackages } from "./commands/workPackages.js";
 import type { CommandContext } from "./commands/context.js";
+import pkg from "../package.json" with { type: "json" };
 
 export function buildProgram(context: CommandContext): Command {
   const program = new Command();
   program
     .name("opctl")
     .description("Conservative local CLI bridge for OpenProject API v3")
-    .version("0.1.0")
+    .version(pkg.version)
     .showHelpAfterError()
     .configureOutput({
       writeOut: (text) => context.stdout.write(text),
@@ -42,7 +45,16 @@ export async function run(argv: readonly string[], context: CommandContext): Pro
   }
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+export function isCliEntrypoint(metaUrl: string, argvPath: string | undefined = process.argv[1]): boolean {
+  if (!argvPath) return false;
+  try {
+    return realpathSync(fileURLToPath(metaUrl)) === realpathSync(argvPath);
+  } catch {
+    return false;
+  }
+}
+
+if (isCliEntrypoint(import.meta.url)) {
   const exitCode = await run(process.argv, { stdout: process.stdout, stderr: process.stderr, env: process.env });
   process.exitCode = exitCode;
 }

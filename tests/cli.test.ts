@@ -1,5 +1,8 @@
+import { mkdirSync, symlinkSync, writeFileSync } from "node:fs";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
 import { describe, expect, it, vi } from "vitest";
-import { run } from "../src/cli.js";
+import { isCliEntrypoint, run } from "../src/cli.js";
 
 function jsonResponse(body: unknown, status = 200): Response {
   return new Response(JSON.stringify(body), { status, headers: { "content-type": "application/hal+json" } });
@@ -53,5 +56,19 @@ describe("CLI", () => {
     });
     expect(code).toBe(2);
     expect(stderr).toContain("OPENPROJECT_URL");
+  });
+
+  it("detects symlinked npm bin entrypoints", () => {
+    const dir = join(tmpdir(), `opctl-${process.pid}`);
+    mkdirSync(dir, { recursive: true });
+    const target = join(dir, "cli.js");
+    const link = join(dir, "opctl");
+    writeFileSync(target, "", "utf8");
+    try {
+      symlinkSync(target, link);
+    } catch {
+      // Symlink can already exist if a prior interrupted run reused the same pid.
+    }
+    expect(isCliEntrypoint(`file://${target}`, link)).toBe(true);
   });
 });

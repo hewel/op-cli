@@ -7,7 +7,7 @@
 Published package:
 
 - npm: <https://www.npmjs.com/package/opctl>
-- current package: `opctl@0.1.0`
+- current package: `opctl@0.1.2`
 - binary: `opctl`
 
 Install globally:
