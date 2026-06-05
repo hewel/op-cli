@@ -1,6 +1,6 @@
 {
   "name": "opctl",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Conservative local CLI bridge for OpenProject API v3",
   "type": "module",
   "repository": {
