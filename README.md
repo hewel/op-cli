@@ -112,10 +112,12 @@ opctl wp check 123 124
 opctl wp check --ids 123,124 --fields id,title,status,assignee,shortDescription,attachmentsCount --table
 ```
 
-Pull the OpenAPI spec from your configured instance:
+Pull the OpenAPI spec (defaults to the public community instance):
 
 ```sh
 opctl spec pull
+opctl spec pull --output openapi/my-spec.json
+opctl spec pull --url https://openproject.example.com
 ```
 
 Write-capable command:
@@ -129,13 +131,24 @@ OPENPROJECT_ALLOW_WRITE=1 opctl wp comment 123 "Investigating"
 
 ## OpenAPI
 
-The repository commits `openapi/openproject.json` and generated types in `src/generated/openproject.ts`. The committed spec is an auditable public OpenProject baseline; users should refresh it against their own instance when local API shape matters.
+The repository commits `openapi/openproject.json` and generated types in `src/generated/openproject.ts`. The committed spec is an auditable public OpenProject baseline.
+
+`npm run openapi:pull` and `opctl spec pull` default to the official public spec at `https://community.openproject.org`. They do **not** read `OPENPROJECT_URL` or `OPENPROJECT_TOKEN`, so running tests or pulling the spec never sends credentials to a private instance.
 
 ```sh
-OPENPROJECT_URL=https://openproject.example.com OPENPROJECT_TOKEN=... npm run openapi:update
+# Refresh from the public community spec (safe, no credentials needed)
+npm run openapi:update
+
+# Pull from a specific private instance (explicit opt-in)
+OPENPROJECT_SPEC_URL=https://openproject.example.com \
+OPENPROJECT_SPEC_TOKEN=... \
+  npm run openapi:pull
+
+# Or via the CLI
+opctl spec pull --url https://openproject.example.com
 ```
 
-`npm run openapi:pull` downloads only `/api/v3/spec.json`, uses a timeout, and prints only host, output path, title, and version. It never prints the token or authorization header.
+Private-instance pulls use dedicated `OPENPROJECT_SPEC_URL` / `OPENPROJECT_SPEC_TOKEN` / `OPENPROJECT_SPEC_AUTH_MODE` variables. Normal `OPENPROJECT_URL` and `OPENPROJECT_TOKEN` are never used for spec pulling.
 
 ## Build and verification
 
@@ -150,6 +163,7 @@ node dist/cli.js wp --help
 ## Safety model
 
 - No token or `Authorization` header is printed by normal errors, JSON output, spec pulling, or tests.
+- Spec pulling defaults to the public community spec and ignores `OPENPROJECT_URL` / `OPENPROJECT_TOKEN`; private-instance pulls require explicit `--url` or `OPENPROJECT_SPEC_URL`.
 - Local `.env` files are loaded for read configuration by default; `--no-env` disables that, and `.env` cannot enable writes.
 - OpenProject writes are blocked unless the real process environment contains `OPENPROJECT_ALLOW_WRITE=1` exactly.
 - Every write-capable command supports `--dry-run` and avoids mutation in dry-run mode.

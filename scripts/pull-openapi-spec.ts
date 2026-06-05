@@ -4,10 +4,13 @@ import { createAuthorizationHeader, redactSecrets } from "../src/client/auth.js"
 import { OpenApiGenerationError } from "../src/client/errors.js";
 import { normalizeBaseUrl, type AuthMode } from "../src/config.js";
 
+export const PUBLIC_SPEC_BASE = "https://community.openproject.org";
+
 export interface PullSpecOptions {
   readonly env?: NodeJS.ProcessEnv;
   readonly fetchImpl?: typeof fetch;
   readonly outputPath?: string;
+  readonly sourceBaseUrl?: string;
   readonly timeoutMs?: number;
   readonly stdout?: Pick<typeof process.stdout, "write">;
 }
@@ -23,13 +26,18 @@ export async function pullOpenApiSpec(options: PullSpecOptions = {}): Promise<Pu
   const env = options.env ?? process.env;
   const outputPath = options.outputPath ?? "openapi/openproject.json";
   const fetchImpl = options.fetchImpl ?? fetch;
-  const rawUrl = env.OPENPROJECT_URL;
-  if (!rawUrl || rawUrl.trim() === "") throw new OpenApiGenerationError("OPENPROJECT_URL is required to pull the OpenProject spec");
+
+  // Source selection: explicit option > OPENPROJECT_SPEC_URL > public default.
+  // OPENPROJECT_URL is intentionally ignored to prevent accidental private-instance leakage.
+  const rawUrl = options.sourceBaseUrl ?? env.OPENPROJECT_SPEC_URL ?? PUBLIC_SPEC_BASE;
   const baseUrl = normalizeBaseUrl(rawUrl);
-  const authMode = parseAuthMode(env.OPENPROJECT_AUTH_MODE);
+
+  // Auth: only use the spec-dedicated token, never OPENPROJECT_TOKEN.
+  const specToken = env.OPENPROJECT_SPEC_TOKEN;
+  const authMode = parseAuthMode(env.OPENPROJECT_SPEC_AUTH_MODE);
   const headers: Record<string, string> = { Accept: "application/json" };
-  if (env.OPENPROJECT_TOKEN && env.OPENPROJECT_TOKEN.trim() !== "") {
-    headers.Authorization = createAuthorizationHeader(authMode, env.OPENPROJECT_TOKEN);
+  if (specToken && specToken.trim() !== "") {
+    headers.Authorization = createAuthorizationHeader(authMode, specToken);
   }
 
   const specUrl = `${baseUrl}/api/v3/spec.json`;
@@ -39,7 +47,7 @@ export async function pullOpenApiSpec(options: PullSpecOptions = {}): Promise<Pu
   try {
     response = await fetchImpl(specUrl, { headers, signal: controller.signal });
   } catch (error) {
-    throw new OpenApiGenerationError(`failed to download OpenProject spec from ${new URL(baseUrl).host}: ${error instanceof Error ? redactSecrets(error.message, env.OPENPROJECT_TOKEN) : "network error"}`);
+    throw new OpenApiGenerationError(`failed to download OpenProject spec from ${new URL(baseUrl).host}: ${error instanceof Error ? redactSecrets(error.message, specToken) : "network error"}`);
   } finally {
     clearTimeout(timeout);
   }
@@ -71,13 +79,13 @@ function parseAuthMode(raw: string | undefined): AuthMode {
   const normalized = raw?.trim().toLowerCase() ?? "";
   if (normalized === "" || normalized === "bearer") return "bearer";
   if (normalized === "basic") return "basic";
-  throw new OpenApiGenerationError("OPENPROJECT_AUTH_MODE must be bearer or basic");
+  throw new OpenApiGenerationError("OPENPROJECT_SPEC_AUTH_MODE must be bearer or basic");
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {
   pullOpenApiSpec({ stdout: process.stdout }).catch((error: unknown) => {
     const message = error instanceof Error ? error.message : "failed to pull OpenProject spec";
-    process.stderr.write(`${redactSecrets(message, process.env.OPENPROJECT_TOKEN)}\n`);
+    process.stderr.write(`${redactSecrets(message, process.env.OPENPROJECT_SPEC_TOKEN)}\n`);
     process.exitCode = 8;
   });
 }
