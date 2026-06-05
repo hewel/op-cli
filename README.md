@@ -6,21 +6,33 @@
 
 Published package:
 
-- npm: <https://www.npmjs.com/package/opctl>
-- current package: `opctl@0.1.2`
+- GitHub Packages: `@hewel/opctl`
+- current package: `@hewel/opctl@0.1.3`
 - binary: `opctl`
+
+GitHub Packages requires authentication, even for installing public packages. Authenticate with a GitHub personal access token (classic) that has `read:packages`:
+
+```sh
+npm login --scope=@hewel --auth-type=legacy --registry=https://npm.pkg.github.com
+```
+
+Or add the token to your user-level `~/.npmrc`:
+
+```sh
+//npm.pkg.github.com/:_authToken=TOKEN
+```
 
 Install globally:
 
 ```sh
-npm install -g opctl
+npm install -g @hewel/opctl
 opctl --help
 ```
 
 Or run without a global install:
 
 ```sh
-npx opctl --help
+npx @hewel/opctl --help
 ```
 
 ## Configuration
