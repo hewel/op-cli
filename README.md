@@ -1,5 +1,7 @@
 # opctl
 
+[![npm version](https://img.shields.io/npm/v/opctl.svg)](https://www.npmjs.com/package/opctl)
+
 `opctl` is a small local Node.js + TypeScript CLI bridge for OpenProject API v3. It uses the current user's personal API token and is read-only by default.
 
 ## Install
