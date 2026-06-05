@@ -9766,14 +9766,39 @@ export interface components {
              *     - *daily*: repeats every day (or every N days depending on interval)
              *     - *working_days*: repeats on working days only
              *     - *weekly*: repeats every week (or every N weeks depending on interval)
+             *     - *monthly_day_of_month*: repeats monthly on a specific day of month (for example, the 16th)
+             *     - *monthly_nth_weekday*: repeats monthly by weekday pattern (for example, first Tuesday, last Friday)
              * @enum {string}
              */
-            frequency: "daily" | "working_days" | "weekly";
+            frequency: "daily" | "working_days" | "weekly" | "monthly_day_of_month" | "monthly_nth_weekday";
             /**
              * @description The interval between occurrences. For example, an interval of 2 with a weekly frequency
              *     means the meeting occurs every 2 weeks. Not applicable for working_days frequency.
              */
             interval: number;
+            /**
+             * @description Day of month for `monthly_day_of_month` frequency.
+             *     Used when frequency is `monthly_day_of_month`.
+             */
+            monthlyDay?: number;
+            /**
+             * @description Ordinal position for `monthly_nth_weekday` frequency.
+             *     Allowed values:
+             *     - `1` (first)
+             *     - `2` (second)
+             *     - `3` (third)
+             *     - `4` (fourth)
+             *     - `-1` (last)
+             *     Used when frequency is `monthly_nth_weekday`.
+             * @enum {integer}
+             */
+            monthlyOrdinal?: 1 | 2 | 3 | 4 | -1;
+            /**
+             * @description Weekday for `monthly_nth_weekday` frequency.
+             *     Used when frequency is `monthly_nth_weekday`.
+             * @enum {string}
+             */
+            monthlyWeekday?: "sunday" | "monday" | "tuesday" | "wednesday" | "thursday" | "friday" | "saturday";
             /**
              * @description How the recurrence ends. Possible values:
              *
@@ -9838,11 +9863,36 @@ export interface components {
              *     - *daily*
              *     - *working_days*
              *     - *weekly*
+             *     - *monthly_day_of_month*
+             *     - *monthly_nth_weekday*
              * @enum {string}
              */
-            frequency?: "daily" | "working_days" | "weekly";
+            frequency?: "daily" | "working_days" | "weekly" | "monthly_day_of_month" | "monthly_nth_weekday";
             /** @description The interval between occurrences. Not applicable for working_days frequency. */
             interval?: number;
+            /**
+             * @description Day of month for `monthly_day_of_month` frequency.
+             *     Required for `monthly_day_of_month` unless inferred from `startTime`.
+             */
+            monthlyDay?: number;
+            /**
+             * @description Ordinal position for `monthly_nth_weekday` frequency.
+             *     Required for `monthly_nth_weekday` unless inferred from `startTime`.
+             *     Allowed values:
+             *     - `1` (first)
+             *     - `2` (second)
+             *     - `3` (third)
+             *     - `4` (fourth)
+             *     - `-1` (last)
+             * @enum {integer}
+             */
+            monthlyOrdinal?: 1 | 2 | 3 | 4 | -1;
+            /**
+             * @description Weekday for `monthly_nth_weekday` frequency.
+             *     Required for `monthly_nth_weekday` unless inferred from `startTime`.
+             * @enum {string}
+             */
+            monthlyWeekday?: "sunday" | "monday" | "tuesday" | "wednesday" | "thursday" | "friday" | "saturday";
             /**
              * @description How the recurrence ends. Possible values:
              *
