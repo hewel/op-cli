@@ -26,7 +26,9 @@ export interface WorkPackageSummary {
   readonly assignee?: string | undefined;
   readonly project?: string | undefined;
   readonly type?: string | undefined;
+  readonly priority?: string | undefined;
   readonly href?: string | undefined;
+  readonly browserUrl?: string | undefined;
   readonly updatedAt?: string | undefined;
   readonly shortDescription?: string | undefined;
   readonly attachmentsCount?: number | undefined;
@@ -53,4 +55,40 @@ export interface CommentResult {
 export interface ErrorPayload {
   readonly error: string;
   readonly exitCode: number;
+}
+
+export interface NamedResourceSummary {
+  readonly id?: number | undefined;
+  readonly name?: string | undefined;
+  readonly href?: string | undefined;
+  readonly position?: number | undefined;
+}
+
+export interface TypeSummary extends NamedResourceSummary {
+  readonly isDefault?: boolean | undefined;
+  readonly isMilestone?: boolean | undefined;
+}
+
+export interface StatusSummary extends NamedResourceSummary {
+  readonly isClosed?: boolean | undefined;
+  readonly isDefault?: boolean | undefined;
+  readonly isReadonly?: boolean | undefined;
+}
+
+export interface PrioritySummary extends NamedResourceSummary {
+  readonly isDefault?: boolean | undefined;
+  readonly isActive?: boolean | undefined;
+}
+
+export interface WorkPackageCreateResult {
+  readonly id?: number | undefined;
+  readonly subject?: string | undefined;
+  readonly status: "dry-run" | "created";
+  readonly href?: string | undefined;
+  readonly browserUrl?: string | undefined;
+  readonly request?: {
+    readonly method: "POST";
+    readonly path: string;
+    readonly payload: unknown;
+  } | undefined;
 }

@@ -1,3 +1,6 @@
+import { mkdirSync, writeFileSync, rmSync } from "node:fs";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
 import { describe, expect, it, vi } from "vitest";
 import { run } from "../src/cli.js";
 
@@ -146,5 +149,156 @@ describe("work package commands", () => {
     });
     expect(code).toBe(0);
     expect(fetchImpl).toHaveBeenCalledOnce();
+  });
+
+  it("wp create --template user-story prints template without config", async () => {
+    let stdout = "";
+    const code = await run(["node", "opctl", "wp", "create", "--template", "user-story"], {
+      stdout: { write: (text: string) => { stdout += text; return true; } },
+      stderr: { write: () => true },
+      env: {},
+    });
+    expect(code).toBe(0);
+    expect(stdout).toContain("# User story");
+    expect(stdout).toContain("As a <user>");
+    expect(stdout).toContain("## Acceptance criteria");
+  });
+
+  it("wp create without OPENPROJECT_ALLOW_WRITE exits 6", async () => {
+    let stderr = "";
+    const fetchImpl = vi.fn<typeof fetch>();
+    const code = await run(["node", "opctl", "wp", "create", "--project", "alspc", "--type", "Feature", "--subject", "S"], {
+      stdout: { write: () => true },
+      stderr: { write: (text: string) => { stderr += text; return true; } },
+      env: { OPENPROJECT_URL: "https://op.example", OPENPROJECT_TOKEN: "secret" },
+      fetchImpl,
+    });
+    expect(code).toBe(6);
+    expect(stderr).toContain("write blocked");
+    expect(fetchImpl).not.toHaveBeenCalled();
+  });
+
+  it("wp create --dry-run --json reads description file and prints JSON", async () => {
+    const tmpDir = join(tmpdir(), "opctl-test-desc-file");
+    mkdirSync(tmpDir, { recursive: true });
+    const filePath = join(tmpDir, "ticket.md");
+    writeFileSync(filePath, "Body from file\n", "utf-8");
+    try {
+      let stdout = "";
+      const fetchImpl = vi.fn<typeof fetch>()
+        .mockResolvedValueOnce(jsonResponse({ _embedded: { elements: [
+          { id: 4, name: "Feature", _links: { self: { href: "/api/v3/types/4" } } },
+        ] } }))
+        .mockResolvedValueOnce(jsonResponse({ _embedded: { validationErrors: {} } }));
+      const code = await run(["node", "opctl", "wp", "create", "--project", "alspc", "--type", "Feature", "--subject", "Improve Ask NAVLIN Explore messaging experience", "--description-file", filePath, "--dry-run", "--json"], {
+        stdout: { write: (text: string) => { stdout += text; return true; } },
+        stderr: { write: () => true },
+        env: { OPENPROJECT_URL: "https://op.example", OPENPROJECT_TOKEN: "secret", OPENPROJECT_ALLOW_WRITE: "1" },
+        fetchImpl,
+        cwd: tmpDir,
+      });
+      expect(code).toBe(0);
+      const parsed = JSON.parse(stdout);
+      expect(parsed.status).toBe("dry-run");
+      expect(parsed.request.method).toBe("POST");
+      expect(parsed.request.path).toBe("/api/v3/work_packages");
+      expect(parsed.request.payload._links.project.href).toBe("/api/v3/projects/alspc");
+      expect(parsed.request.payload._links.type.href).toBe("/api/v3/types/4");
+      expect(parsed.request.payload.description.raw).toBe("Body from file\n");
+    } finally {
+      rmSync(tmpDir, { recursive: true, force: true });
+    }
+  });
+
+  it("wp create real create includes browserUrl in output", async () => {
+    let stdout = "";
+    const fetchImpl = vi.fn<typeof fetch>()
+      .mockResolvedValueOnce(jsonResponse({ _embedded: { elements: [
+        { id: 4, name: "Feature", _links: { self: { href: "/api/v3/types/4" } } },
+      ] } }))
+      .mockResolvedValueOnce(jsonResponse({ _embedded: { validationErrors: {} } }))
+      .mockResolvedValueOnce(jsonResponse({
+        id: 42, subject: "S",
+        _links: { self: { href: "/api/v3/work_packages/42" }, status: { title: "Open" } },
+      }));
+    const code = await run(["node", "opctl", "wp", "create", "--project", "alspc", "--type", "Feature", "--subject", "S", "--json"], {
+      stdout: { write: (text: string) => { stdout += text; return true; } },
+      stderr: { write: () => true },
+      env: { OPENPROJECT_URL: "https://op.example", OPENPROJECT_TOKEN: "secret", OPENPROJECT_ALLOW_WRITE: "1" },
+      fetchImpl,
+    });
+    expect(code).toBe(0);
+    const parsed = JSON.parse(stdout);
+    expect(parsed.status).toBe("created");
+    expect(parsed.browserUrl).toBe("https://op.example/work_packages/42");
+  });
+
+  it("wp create real create includes browserUrl in text output", async () => {
+    let stdout = "";
+    const fetchImpl = vi.fn<typeof fetch>()
+      .mockResolvedValueOnce(jsonResponse({ _embedded: { elements: [
+        { id: 4, name: "Feature", _links: { self: { href: "/api/v3/types/4" } } },
+      ] } }))
+      .mockResolvedValueOnce(jsonResponse({ _embedded: { validationErrors: {} } }))
+      .mockResolvedValueOnce(jsonResponse({
+        id: 42, subject: "Test subject",
+        _links: { self: { href: "/api/v3/work_packages/42" }, status: { title: "Open" } },
+      }));
+    const code = await run(["node", "opctl", "wp", "create", "--project", "alspc", "--type", "Feature", "--subject", "Test subject"], {
+      stdout: { write: (text: string) => { stdout += text; return true; } },
+      stderr: { write: () => true },
+      env: { OPENPROJECT_URL: "https://op.example", OPENPROJECT_TOKEN: "secret", OPENPROJECT_ALLOW_WRITE: "1" },
+      fetchImpl,
+    });
+    expect(code).toBe(0);
+    expect(stdout).toContain("browserUrl: https://op.example/work_packages/42");
+    expect(stdout).toContain("status: created");
+  });
+
+  it("wp create reads stdin for description", async () => {
+    let stdout = "";
+    const stdinContent = "stdin description\n";
+    async function* stdinGen(): AsyncGenerator<string> {
+      yield stdinContent;
+    }
+    const stdin = Object.assign(stdinGen(), { isTTY: false });
+    const fetchImpl = vi.fn<typeof fetch>()
+      .mockResolvedValueOnce(jsonResponse({ _embedded: { elements: [
+        { id: 4, name: "Feature", _links: { self: { href: "/api/v3/types/4" } } },
+      ] } }))
+      .mockResolvedValueOnce(jsonResponse({ _embedded: { validationErrors: {} } }));
+    const code = await run(["node", "opctl", "wp", "create", "--project", "alspc", "--type", "Feature", "--subject", "S", "--dry-run", "--json"], {
+      stdout: { write: (text: string) => { stdout += text; return true; } },
+      stderr: { write: () => true },
+      env: { OPENPROJECT_URL: "https://op.example", OPENPROJECT_TOKEN: "secret", OPENPROJECT_ALLOW_WRITE: "1" },
+      fetchImpl,
+      stdin,
+    });
+    expect(code).toBe(0);
+    const parsed = JSON.parse(stdout);
+    expect(parsed.request.payload.description.raw).toBe("stdin description\n");
+  });
+
+  it("wp create --template combined with --description fails validation", async () => {
+    let stderr = "";
+    const code = await run(["node", "opctl", "wp", "create", "--template", "user-story", "--description", "text", "--project", "p", "--type", "T", "--subject", "S"], {
+      stdout: { write: () => true },
+      stderr: { write: (text: string) => { stderr += text; return true; } },
+      env: { OPENPROJECT_URL: "https://op.example", OPENPROJECT_TOKEN: "secret", OPENPROJECT_ALLOW_WRITE: "1" },
+    });
+    expect(code).toBe(5);
+    expect(stderr).toContain("--template cannot be combined");
+  });
+
+  it("wp create with unknown template fails validation", async () => {
+    let stderr = "";
+    const code = await run(["node", "opctl", "wp", "create", "--template", "epic"], {
+      stdout: { write: () => true },
+      stderr: { write: (text: string) => { stderr += text; return true; } },
+      env: { OPENPROJECT_URL: "https://op.example", OPENPROJECT_TOKEN: "secret" },
+    });
+    expect(code).toBe(5);
+    expect(stderr).toContain("unknown template 'epic'");
+    expect(stderr).toContain("Supported templates: user-story");
   });
 });

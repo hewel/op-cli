@@ -9,6 +9,7 @@ export interface CommandContext {
   readonly env: NodeJS.ProcessEnv;
   readonly fetchImpl?: typeof fetch;
   readonly cwd?: string;
+  readonly stdin?: AsyncIterable<Buffer | string> & { readonly isTTY?: boolean | undefined };
 }
 
 export function globalConfigOptions(command: Command): ConfigResolutionOptions {

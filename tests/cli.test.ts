@@ -49,6 +49,17 @@ describe("CLI", () => {
     expect(harness.output().stderr).not.toContain("secret");
   });
 
+  it("JSON error output includes details when present", async () => {
+    const fetchImpl = vi.fn<typeof fetch>();
+    const harness = context(fetchImpl);
+    const code = await run(["node", "opctl", "wp", "create", "--project", "p", "--type", "T", "--subject", "S", "--dry-run", "--json"], harness.ctx);
+    expect(code).toBe(6);
+    const stderr = harness.output().stderr;
+    expect(stderr).toContain("write blocked");
+    // JSON output should not leak the token
+    expect(stderr).not.toContain("secret");
+  });
+
   it("returns configuration exit code for missing config", async () => {
     let stderr = "";
     const code = await run(["node", "opctl", "--no-env", "me"], {

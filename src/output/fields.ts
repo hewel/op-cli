@@ -1,20 +1,22 @@
 import { OpctlError, EXIT_CODES } from "../client/errors.js";
 
-export type WorkPackageField = "id" | "subject" | "status" | "type" | "assignee" | "project" | "href" | "updatedAt" | "description" | "shortDescription" | "attachmentsCount" | "lockVersion";
+export type WorkPackageField = "id" | "subject" | "status" | "type" | "assignee" | "project" | "href" | "browserUrl" | "updatedAt" | "description" | "shortDescription" | "attachmentsCount" | "lockVersion" | "priority";
 export type OutputMode = "text" | "table" | "compact" | "json" | "jsonl" | "rawJson";
 
 export const DEFAULT_COMPACT_FIELDS: readonly WorkPackageField[] = ["id", "subject", "status", "assignee", "updatedAt"];
 export const DEFAULT_TABLE_FIELDS: readonly WorkPackageField[] = ["id", "subject", "status", "assignee", "project", "updatedAt"];
 export const DEFAULT_CHECK_FIELDS: readonly WorkPackageField[] = ["id", "subject", "status", "assignee", "shortDescription", "attachmentsCount"];
-export const DETAIL_FIELDS: readonly WorkPackageField[] = ["id", "subject", "status", "type", "assignee", "project", "href", "updatedAt", "description", "shortDescription", "attachmentsCount", "lockVersion"];
+export const DETAIL_FIELDS: readonly WorkPackageField[] = ["id", "subject", "status", "type", "assignee", "project", "href", "browserUrl", "updatedAt", "description", "shortDescription", "attachmentsCount", "lockVersion"];
 
 const SUPPORTED_FIELDS: Record<WorkPackageField, true> = {
   assignee: true,
   attachmentsCount: true,
+  browserUrl: true,
   description: true,
   href: true,
   id: true,
   lockVersion: true,
+  priority: true,
   project: true,
   shortDescription: true,
   status: true,

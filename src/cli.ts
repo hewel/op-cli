@@ -6,6 +6,7 @@ import { redactSecrets } from "./client/auth.js";
 import { EXIT_CODES, toOpctlError } from "./client/errors.js";
 import { stableJson } from "./output/json.js";
 import { registerApiRoot } from "./commands/apiRoot.js";
+import { registerLookups } from "./commands/lookups.js";
 import { registerMe } from "./commands/me.js";
 import { registerProjects } from "./commands/projects.js";
 import { registerSpec } from "./commands/spec.js";
@@ -32,6 +33,7 @@ export function buildProgram(context: CommandContext): Command {
   registerApiRoot(program, context);
   registerProjects(program, context);
   registerWorkPackages(program, context);
+  registerLookups(program, context);
   registerProfile(program, context);
   registerSpec(program, context);
   return program;
@@ -44,8 +46,13 @@ export async function run(argv: readonly string[], context: CommandContext): Pro
   } catch (error) {
     const opctlError = toOpctlError(error);
     const wantsJson = argv.includes("--json");
-    if (wantsJson) context.stderr.write(stableJson({ error: opctlError.message, exitCode: opctlError.exitCode }, context.env.OPENPROJECT_TOKEN));
-    else context.stderr.write(`${redactSecrets(opctlError.message, context.env.OPENPROJECT_TOKEN)}\n`);
+    if (wantsJson) {
+      const payload: Record<string, unknown> = { error: opctlError.message, exitCode: opctlError.exitCode };
+      if (opctlError.details !== undefined) payload.details = opctlError.details;
+      context.stderr.write(stableJson(payload, context.env.OPENPROJECT_TOKEN));
+    } else {
+      context.stderr.write(`${redactSecrets(opctlError.message, context.env.OPENPROJECT_TOKEN)}\n`);
+    }
     return opctlError.exitCode;
   }
 }
@@ -60,6 +67,6 @@ export function isCliEntrypoint(metaUrl: string, argvPath: string | undefined = 
 }
 
 if (isCliEntrypoint(import.meta.url)) {
-  const exitCode = await run(process.argv, { stdout: process.stdout, stderr: process.stderr, env: process.env });
+  const exitCode = await run(process.argv, { stdout: process.stdout, stderr: process.stderr, env: process.env, stdin: process.stdin });
   process.exitCode = exitCode;
 }

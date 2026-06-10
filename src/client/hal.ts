@@ -1,4 +1,4 @@
-import type { LinkSummary, ProjectSummary, UserSummary, WorkPackageDetail, WorkPackageSummary } from "../types/domain.js";
+import type { LinkSummary, PrioritySummary, ProjectSummary, StatusSummary, TypeSummary, UserSummary, WorkPackageDetail, WorkPackageSummary } from "../types/domain.js";
 
 type HalObject = Record<string, unknown>;
 
@@ -64,6 +64,7 @@ export function normalizeWorkPackageSummary(resource: unknown): WorkPackageSumma
     assignee: getLink(object, "assignee")?.title,
     project: getLink(object, "project")?.title,
     type: getLink(object, "type")?.title,
+    priority: getLink(object, "priority")?.title,
     href: getLink(object, "self")?.href,
     updatedAt: stringField(object.updatedAt),
     shortDescription: shortDescription(extractDescription(object.description)),
@@ -132,4 +133,45 @@ function stringField(value: unknown): string | undefined {
 
 function numberField(value: unknown): number | undefined {
   return typeof value === "number" ? value : undefined;
+}
+
+export function normalizeType(resource: unknown): TypeSummary {
+  const object = asObject(resource) ?? {};
+  return {
+    id: numberField(object.id),
+    name: stringField(object.name),
+    href: requireLinkHref(resource, "self"),
+    position: numberField(object.position),
+    isDefault: booleanField(object.isDefault),
+    isMilestone: booleanField(object.isMilestone),
+  };
+}
+
+export function normalizeStatus(resource: unknown): StatusSummary {
+  const object = asObject(resource) ?? {};
+  return {
+    id: numberField(object.id),
+    name: stringField(object.name),
+    href: requireLinkHref(resource, "self"),
+    position: numberField(object.position),
+    isClosed: booleanField(object.isClosed),
+    isDefault: booleanField(object.isDefault),
+    isReadonly: booleanField(object.isReadonly),
+  };
+}
+
+export function normalizePriority(resource: unknown): PrioritySummary {
+  const object = asObject(resource) ?? {};
+  return {
+    id: numberField(object.id),
+    name: stringField(object.name),
+    href: requireLinkHref(resource, "self"),
+    position: numberField(object.position),
+    isDefault: booleanField(object.isDefault),
+    isActive: booleanField(object.isActive),
+  };
+}
+
+function booleanField(value: unknown): boolean | undefined {
+  return typeof value === "boolean" ? value : undefined;
 }

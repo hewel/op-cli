@@ -85,7 +85,7 @@ opctl wp get --ids 123,124 --fields id,subject,status,assignee --table
 opctl wp get --ids 123,124 --jsonl
 ```
 
-Field selection supports `id,subject,status,type,assignee,project,href,updatedAt,description,shortDescription,attachmentsCount,lockVersion`; aliases: `title=subject`, `url=href`.
+Field selection supports `id,subject,status,type,assignee,project,href,browserUrl,updatedAt,description,shortDescription,attachmentsCount,lockVersion,priority`; aliases: `title=subject`, `url=href`.
 
 Search work packages:
 
@@ -98,6 +98,15 @@ opctl wp search --subject "pump" --fields id,subject,status --json
 ```
 
 If `--project` is omitted, `opctl wp search` uses `OPENPROJECT_DEFAULT_PROJECT` when set. Without either, it searches the instance-wide work package endpoint.
+
+Lookup work package types, statuses, and priorities:
+
+```sh
+opctl types --project my-project
+opctl types --json
+opctl statuses
+opctl priorities
+```
 
 List work packages assigned to the authenticated user:
 
@@ -122,14 +131,25 @@ opctl spec pull --output openapi/my-spec.json
 opctl spec pull --url https://openproject.example.com
 ```
 
-Write-capable command:
+Write-capable commands:
 
 ```sh
+# Comment on a work package
 OPENPROJECT_ALLOW_WRITE=1 opctl wp comment 123 --dry-run "Investigating"
 OPENPROJECT_ALLOW_WRITE=1 opctl wp comment 123 "Investigating"
+
+# Create a work package (dry-run validates through /api/v3/work_packages/form)
+OPENPROJECT_ALLOW_WRITE=1 opctl wp create --project alspc --type Feature --subject "Improve Ask NAVLIN Explore messaging experience" --description-file ticket.md --dry-run
+OPENPROJECT_ALLOW_WRITE=1 opctl wp create --project alspc --type Feature --subject "S" --json < ticket.md
+
+# Use a user-story template
+opctl wp create --template user-story > ticket.md
+OPENPROJECT_ALLOW_WRITE=1 opctl wp create --project alspc --type Feature --subject "New feature" --template user-story --dry-run
 ```
 
-`wp comment` fetches the work package first and posts only when a documented HAL comment action link is present. It fails safely instead of guessing a mutation URL.
+`wp comment` and `wp create` both require `OPENPROJECT_ALLOW_WRITE=1`. `wp create --dry-run` validates through `/api/v3/work_packages/form` before any create call. Write-capable commands support `--dry-run` and avoid mutation in dry-run mode.
+
+`wp create` resolves `--type`, `--status`, and `--priority` by name (case-insensitive exact match), numeric id, or full `/api/v3/...` href. Use `opctl types`, `opctl statuses`, or `opctl priorities` to list valid values. Description can come from `--description <text>`, `--description-file <path>` (use `-` for stdin), piped stdin, or `--template user-story`.
 
 ## OpenAPI
 
